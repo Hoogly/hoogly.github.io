@@ -1,8 +1,6 @@
 ---
 import { getCollection } from 'astro:content';
-import Header from '../components/Header.astro';
-import Footer from '../components/Footer.astro';
-import '../styles/design-system.css';
+import Layout from '../layouts/Layout.astro';
 
 // Get all blog posts and sort by publish date
 const allPosts = await getCollection('blog');
@@ -11,20 +9,11 @@ const sortedPosts = allPosts
   .sort((a, b) => new Date(b.data.publishDate).getTime() - new Date(a.data.publishDate).getTime());
 ---
 
-<html lang="en">
-<head>
-    <meta charset="utf-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width" />
-    <meta name="generator" content={Astro.generator} />
-    
-    <title>Blog - Hoogly</title>
-    <meta name="description" content="Read our latest blog posts and insights." />
-</head>
-<body>
-    <Header />
-
-    <main>
+<Layout 
+    title="Blog - Hoogly"
+    description="Read our latest blog posts and insights on employee engagement, workplace culture, and AI-powered solutions."
+    type="website"
+>
         <section class="blog-header">
             <div class="container">
                 <h1 class="blog-title">Blog</h1>
@@ -71,8 +60,4 @@ const sortedPosts = allPosts
                 </div>
             </div>
         </section>
-    </main>
-
-    <Footer />
-</body>
-</html> 
+</Layout> 

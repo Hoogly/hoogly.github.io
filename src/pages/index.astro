@@ -1,285 +1,292 @@
 ---
-import Header from '../components/Header.astro';
-import Footer from '../components/Footer.astro';
-import '../styles/design-system.css';
+import Layout from '../layouts/Layout.astro';
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-
-		<title>Hoogly | Reinventing Employee Engagement</title>
-	</head>
-	<body>
-		<Header />
-
-		<!-- Hero Section -->
-		<section class="hero">
-			<div class="container">
-				<div class="hero-content">
-					<!-- Floating Profile Images -->
-					<div class="floating-profiles">
-						<div class="profile-img profile-1">👨‍💼</div>
-						<div class="profile-img profile-2">👩‍💼</div>
-						<div class="profile-img profile-3">👩‍🔬</div>
-						<div class="profile-img profile-4">👨‍💻</div>
-						<div class="profile-img profile-5">🤖</div>
-					</div>
-
-					<div class="hero-text">
-						<h1 class="hero-title">
-							What <span class="text-accent">Employee</span><br>
-							<span class="text-purple">Engagement</span> should be.
-						</h1>
-						<p class="hero-subtitle">AI-powered | 10X better than surveys</p>
-						
-						<div class="cta-form">
-							<div class="email-input-group">
-								<input type="email" placeholder="Enter email" class="email-input">
-								<button class="btn btn-primary cta-button">Try It Now</button>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</section>
-
-		<!-- Problem Statement Section -->
-		<section class="problem-section">
-			<div class="container">
-				<h2 class="problem-title">
-					When 77% of employees are<br>
-					not engaged, the process is<br>
-					clearly broken
-				</h2>
-			</div>
-		</section>
-
-		<!-- Features Section -->
-		<section class="features-section">
-			<div class="container">
-				<div class="features-grid">
-					<div class="feature-card">
-						<div class="feature-icon feature-icon-purple">
-							📊
-						</div>
-						<h3 class="feature-title">Employees unheard</h3>
-						<p class="feature-description">
-							Employees are tired of giving feedback that leads nowhere.
-						</p>
-					</div>
+<Layout 
+	title="Hoogly | Reinventing Employee Engagement"
+	description="AI-powered employee engagement platform that's 10X better than surveys. Transform your workplace culture with Venn AI."
+	type="website"
+>
+	<!-- Hero Section -->
+	<section class="hero">
+		<div class="container">
+			<div class="hero-content">
+				<!-- Left side - Text content -->
+				<div class="hero-text">
+					<h1 class="hero-title">What Employee Engagement should be.</h1>
+					<p class="hero-subtitle">AI-powered | 10X better than surveys</p>
 					
-					<div class="feature-card">
-						<div class="feature-icon feature-icon-yellow">
-							💡
+					<div class="cta-form">
+						<div class="email-input-group">
+							<input type="email" placeholder="Enter email" class="email-input">
+							<button class="btn-demo">Try it now</button>
 						</div>
-						<h3 class="feature-title">Leaders left hanging</h3>
-						<p class="feature-description">
-							Drowning in half-baked insights, with no clear path to action.
-						</p>
 					</div>
-					
-					<div class="feature-card">
-						<div class="feature-icon feature-icon-green">
-							📈
+				</div>
+
+				<!-- Right side - Hero Image -->
+				<div class="hero-image">
+					<div class="hero-image-placeholder">
+						<div class="floating-profiles">
+							<div class="profile-img profile-1">👨‍💼</div>
+							<div class="profile-img profile-2">👩‍💼</div>
+							<div class="profile-img profile-3">👩‍🔬</div>
+							<div class="profile-img profile-4">👨‍💻</div>
+							<div class="profile-img profile-5">🤖</div>
 						</div>
-						<h3 class="feature-title">HR gets the blame</h3>
-						<p class="feature-description">
-							Held accountable for culture issues, stuck firefighting instead of driving change.
-						</p>
 					</div>
 				</div>
 			</div>
-		</section>
+		</div>
+	</section>
 
-		<!-- Meet Venn Section -->
-		<section class="meet-venn-section">
-			<div class="container">
-				<div class="meet-venn-content">
-					<div class="meet-venn-text">
-						<h2 class="meet-venn-title">
-							Meet Venn,<br>
-							your AI-powered<br>
-							culture partner.
-						</h2>
-						<p class="meet-venn-description">
-							Venn doesn't just gather feedback - it's actively participating in conversations with your team, understanding context, and providing real-time insights that drive meaningful change.
-						</p>
+	<!-- Problem Statement Section -->
+	<section class="problem-section">
+		<div class="container">
+			<h2 class="problem-title">
+				When 77% of employees are<br>
+				not engaged, the process is<br>
+				clearly broken
+			</h2>
+		</div>
+	</section>
+
+	<!-- Features Section -->
+	<section class="features-section">
+		<div class="container">
+			<div class="features-grid">
+				<div class="feature-card">
+					<div class="feature-icon feature-icon-purple">
+						<img src="/images/employees-unheard.png" alt="Employees unheard" style="width: 64px; height: 64px; object-fit: contain;" />
 					</div>
-					<div class="meet-venn-illustration">
-						<div class="venn-character">🐻</div>
-						<div class="campfire">🔥</div>
-					</div>
+					<h3 class="feature-title">Employees unheard</h3>
+					<p class="feature-description">
+						Employees are tired of giving feedback that leads nowhere.
+					</p>
 				</div>
-			</div>
-		</section>
-
-		<!-- How Venn Transforms Section -->
-		<section class="transforms-section">
-			<div class="container">
-				<h2 class="transforms-title">How Venn AI <span class="text-purple">transforms</span> your workplace</h2>
 				
-				<div class="transforms-grid">
-					<div class="transform-card">
-						<div class="transform-mockup">
-							<div class="mockup-header">💬</div>
-							<div class="mockup-content">
-								<div class="chat-bubble">Hi! How are things going?</div>
-								<div class="chat-bubble user">Pretty good, but...</div>
-							</div>
-						</div>
-						<h3 class="transform-title">Empathetic Listening</h3>
-						<p class="transform-description">
-							Venn builds relationships with employees through natural conversations, creating psychological safety.
-						</p>
+				<div class="feature-card">
+					<div class="feature-icon feature-icon-yellow">
+						<img src="/images/leader-left-hanging.png" alt="Leaders left hanging" style="width: 64px; height: 64px; object-fit: contain;" />
 					</div>
-
-					<div class="transform-card">
-						<div class="transform-mockup insights-mockup">
-							<div class="mockup-header">📊</div>
-							<div class="insight-grid">
-								<div class="insight-item red"></div>
-								<div class="insight-item yellow"></div>
-								<div class="insight-item green"></div>
-								<div class="insight-item blue"></div>
-								<div class="insight-item purple"></div>
-								<div class="insight-item orange"></div>
-							</div>
-						</div>
-						<h3 class="transform-title">Insightful Analytics</h3>
-						<p class="transform-description">
-							Turn conversations into actionable insights with AI-powered analysis and trend identification.
-						</p>
-					</div>
-
-					<div class="transform-card">
-						<div class="transform-mockup">
-							<div class="mockup-header">🎯</div>
-							<div class="mockup-content">
-								<div class="action-item">Improve team communication</div>
-								<div class="action-item">Schedule 1:1 meetings</div>
-								<div class="action-item">Review workload distribution</div>
-							</div>
-						</div>
-						<h3 class="transform-title">Actionable Coaching</h3>
-						<p class="transform-description">
-							Get specific, contextual recommendations that help managers become better leaders.
-						</p>
-					</div>
+					<h3 class="feature-title">Leaders left hanging</h3>
+					<p class="feature-description">
+						Drowning in half-baked insights, with no clear path to action.
+					</p>
 				</div>
-			</div>
-		</section>
-
-		<!-- Insights Hub Section -->
-		<section class="insights-hub-section">
-			<div class="container">
-				<h2 class="hub-title">Elevate Your Culture with the <span class="text-purple">Insights Hub</span></h2>
 				
-				<div class="hub-dashboard">
-					<div class="dashboard-mockup">
-						<div class="dashboard-header">
-							<div class="dashboard-tabs">
-								<span class="tab active">Overview</span>
-								<span class="tab">Teams</span>
-								<span class="tab">Insights</span>
-							</div>
-						</div>
-						<div class="dashboard-content">
-							<div class="dashboard-metrics">
-								<div class="metric-card">
-									<span class="metric-value">87%</span>
-									<span class="metric-label">Engagement</span>
-								</div>
-								<div class="metric-card">
-									<span class="metric-value">23</span>
-									<span class="metric-label">Action Items</span>
-								</div>
-								<div class="metric-card">
-									<span class="metric-value">94%</span>
-									<span class="metric-label">Participation</span>
-								</div>
-							</div>
-							<div class="dashboard-chart">
-								<div class="chart-placeholder">📈</div>
-							</div>
-						</div>
+				<div class="feature-card">
+					<div class="feature-icon feature-icon-green">
+						<img src="/images/hr-gets-the-blame.png" alt="HR gets the blame" style="width: 64px; height: 64px; object-fit: contain;" />
 					</div>
+					<h3 class="feature-title">HR gets the blame</h3>
+					<p class="feature-description">
+						Held accountable for culture issues, stuck firefighting instead of driving change.
+					</p>
 				</div>
 			</div>
-		</section>
+		</div>
+	</section>
 
-		<!-- Integrations Section -->
-		<section class="integrations-section">
-			<div class="container">
-				<div class="integration-logos">
-					<div class="integration-logo">Slack</div>
-					<div class="integration-logo">Microsoft Teams</div>
-					<div class="integration-logo">HRIS</div>
-					<div class="integration-logo">Workday</div>
-					<div class="integration-logo">BambooHR</div>
-				</div>
-			</div>
-		</section>
-
-		<!-- Ditch Surveys Section -->
-		<section class="ditch-surveys-section">
-			<div class="container">
-				<div class="ditch-surveys-content">
-					<h2 class="ditch-surveys-title">Ditch Surveys, Spark <span class="text-accent">Real Change</span></h2>
-					<div class="survey-comparison">
-						<div class="old-way">
-							<span class="comparison-label">The old way</span>
-						</div>
-						<div class="new-way">
-							<button class="btn btn-primary">Join The Waitlist</button>
-						</div>
-					</div>
-				</div>
-			</div>
-		</section>
-
-		<!-- Partners Section -->
-		<section class="partners-section">
-			<div class="container">
-				<div class="partner-content">
-					<div class="partner-logos-left">
-						<div class="partner-logo">📊</div>
-						<div class="partner-logo">📋</div>
-					</div>
-					<div class="partner-text">
-						<p class="partner-description">
-							Hoogly works with <span class="text-accent">Slack</span>,<br>
-							<span class="text-purple">Teams</span> and <span class="text-accent">HRIS</span> to meet<br>
-							your people where they're at
-						</p>
-					</div>
-					<div class="partner-logos-right">
-						<div class="partner-logo">🔷</div>
-						<div class="partner-logo">⭕</div>
-						<div class="partner-logo">🟢</div>
-						<div class="partner-logo">➕</div>
-						<div class="partner-logo">💼</div>
-					</div>
-				</div>
-			</div>
-		</section>
-
-		<!-- Final CTA Section -->
-		<section class="final-cta-section">
-			<div class="container">
-				<div class="final-cta-content">
-					<h2 class="final-cta-title">
-						Build <span class="text-purple">Culture</span>,<br>
-						don't just measure it.
+	<!-- Meet Venn Section -->
+	<section class="meet-venn-section">
+		<div class="container">
+			<div class="meet-venn-content">
+				<div class="meet-venn-text">
+					<h2 class="meet-venn-title">
+						Meet Venn,<br>
+						your AI-powered<br>
+						culture partner.
 					</h2>
-					<button class="btn btn-primary btn-large">Get Started Today</button>
+					<p class="meet-venn-description">
+						Venn doesn't just gather feedback - it's actively participating in conversations with your team, understanding context, and providing real-time insights that drive meaningful change.
+					</p>
+				</div>
+				<div class="meet-venn-illustration">
+					<img src="/images/venn.png" alt="Venn AI Illustration" style="max-width: 100%; height: auto; display: block; margin: 0 auto;" />
 				</div>
 			</div>
-		</section>
+		</div>
+	</section>
 
-		<Footer />
-	</body>
-</html>
+	<!-- How Venn Transforms Section -->
+	<section class="transforms-section">
+		<div class="container">
+			<h2 class="transforms-title">How Venn AI <span class="text-purple">transforms</span> your workplace</h2>
+			
+			<div class="transforms-grid">
+				<div class="transform-card">
+					<div class="transform-mockup">
+						<div class="mockup-header">💬</div>
+						<div class="mockup-content">
+							<div class="chat-bubble">Hi! How are things going?</div>
+							<div class="chat-bubble user">Pretty good, but...</div>
+						</div>
+					</div>
+					<h3 class="transform-title">Empathetic Listening</h3>
+					<p class="transform-description">
+						Venn builds relationships with employees through natural conversations, creating psychological safety.
+					</p>
+				</div>
+
+				<div class="transform-card">
+					<div class="transform-mockup insights-mockup">
+						<div class="mockup-header">📊</div>
+						<div class="insight-grid">
+							<div class="insight-item red"></div>
+							<div class="insight-item yellow"></div>
+							<div class="insight-item green"></div>
+							<div class="insight-item blue"></div>
+							<div class="insight-item purple"></div>
+							<div class="insight-item orange"></div>
+						</div>
+					</div>
+					<h3 class="transform-title">Insightful Analytics</h3>
+					<p class="transform-description">
+						Turn conversations into actionable insights with AI-powered analysis and trend identification.
+					</p>
+				</div>
+
+				<div class="transform-card">
+					<div class="transform-mockup">
+						<div class="mockup-header">🎯</div>
+						<div class="mockup-content">
+							<div class="action-item">Improve team communication</div>
+							<div class="action-item">Schedule 1:1 meetings</div>
+							<div class="action-item">Review workload distribution</div>
+						</div>
+					</div>
+					<h3 class="transform-title">Actionable Coaching</h3>
+					<p class="transform-description">
+						Get specific, contextual recommendations that help managers become better leaders.
+					</p>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Insights Hub Section -->
+	<section class="insights-hub-section">
+		<div class="container">
+			<h2 class="hub-title">Elevate Your Culture with the <span class="text-purple">Insights Hub</span></h2>
+			
+			<div class="hub-dashboard">
+				<div class="dashboard-mockup">
+					<div class="dashboard-header">
+						<div class="dashboard-tabs">
+							<span class="tab active">Overview</span>
+							<span class="tab">Teams</span>
+							<span class="tab">Insights</span>
+						</div>
+					</div>
+					<div class="dashboard-content">
+						<div class="dashboard-metrics">
+							<div class="metric-card">
+								<span class="metric-value">87%</span>
+								<span class="metric-label">Engagement</span>
+							</div>
+							<div class="metric-card">
+								<span class="metric-value">23</span>
+								<span class="metric-label">Action Items</span>
+							</div>
+							<div class="metric-card">
+								<span class="metric-value">94%</span>
+								<span class="metric-label">Participation</span>
+							</div>
+						</div>
+						<div class="dashboard-chart">
+							<div class="chart-placeholder">📈</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Product Screenshots Section -->
+	<section class="product-screenshots-section">
+		<div class="container">
+			<div class="screenshots-grid">
+				<div class="screenshot-card">
+					<div class="screenshot-placeholder">
+						<span class="screenshot-text">Product Screenshot 1</span>
+					</div>
+				</div>
+				<div class="screenshot-card">
+					<div class="screenshot-placeholder">
+						<span class="screenshot-text">Product Screenshot 2</span>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Integrations Section -->
+	<section class="integrations-section">
+		<div class="container">
+			<div class="integration-logos">
+				<div class="integration-logo">Slack</div>
+				<div class="integration-logo">Microsoft Teams</div>
+				<div class="integration-logo">HRIS</div>
+				<div class="integration-logo">Workday</div>
+				<div class="integration-logo">BambooHR</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Ditch Surveys Section -->
+	<section class="ditch-surveys-section">
+		<div class="container">
+			<div class="ditch-surveys-content">
+				<h2 class="ditch-surveys-title">Ditch Surveys, Spark <span class="text-accent">Real Change</span></h2>
+				<div class="survey-comparison">
+					<div class="old-way">
+						<span class="comparison-label">The old way</span>
+					</div>
+					<div class="new-way">
+						<button class="btn btn-primary">Join The Waitlist</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Partners Section -->
+	<section class="partners-section">
+		<div class="container">
+			<div class="partner-content">
+				<div class="partner-logos-left">
+					<div class="partner-logo">📊</div>
+					<div class="partner-logo">📋</div>
+				</div>
+				<div class="partner-text">
+					<p class="partner-description">
+						Hoogly works with <span class="text-accent">Slack</span>,<br>
+						<span class="text-purple">Teams</span> and <span class="text-accent">HRIS</span> to meet<br>
+						your people where they're at
+					</p>
+				</div>
+				<div class="partner-logos-right">
+					<div class="partner-logo">🔷</div>
+					<div class="partner-logo">⭕</div>
+					<div class="partner-logo">🟢</div>
+					<div class="partner-logo">➕</div>
+					<div class="partner-logo">💼</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Final CTA Section -->
+	<section class="final-cta-section">
+		<div class="container">
+			<div class="final-cta-content">
+				<h2 class="final-cta-title">
+					Build <span class="text-purple">Culture</span>,<br>
+					don't just measure it.
+				</h2>
+				<button class="btn btn-primary btn-large">Get Started Today</button>
+			</div>
+		</div>
+	</section>
+</Layout>
