@@ -343,7 +343,9 @@ p {
    ============================================================================= */
 
 .navbar {
-  background-color: var(--color-neutral-50);
+  background-color: #f8f5f1;
+  color: #000;
+  font-family: 'Source Sans 3', sans-serif;
   border-bottom: 1px solid var(--color-neutral-200);
   padding: var(--space-4) 0;
   position: sticky;
@@ -402,12 +404,17 @@ p {
   background-color: rgb(37 99 235 / 0.1);
 }
 
+.navbar .nav-link, .navbar .logo, .navbar .logo-link {
+  color: #000;
+  font-family: 'Source Sans 3', sans-serif;
+}
+
 /* =============================================================================
    HERO SECTION
    ============================================================================= */
 
 .hero {
-  background: var(--color-white);
+  background: #f8f5f1;
   padding: var(--space-32) 0;
   position: relative;
   overflow: hidden;
@@ -511,10 +518,11 @@ p {
 }
 
 .hero-title {
+  font-family: 'Grenette Pro', serif;
+  color: #000;
   font-size: var(--font-size-6xl);
   font-weight: var(--font-weight-extrabold);
   line-height: var(--line-height-tight);
-  color: var(--color-neutral-900);
   margin-bottom: var(--space-6);
 }
 
@@ -539,7 +547,7 @@ p {
 
 .email-input-group {
   display: flex;
-  gap: var(--space-3);
+  gap: 0;
   max-width: 400px;
   margin: 0;
   align-items: center;
@@ -547,11 +555,13 @@ p {
 
 .email-input {
   flex: 1;
-  padding: var(--space-3) var(--space-4);
+  padding: 1rem 1.25rem;
   border: 2px solid var(--color-neutral-300);
-  border-radius: var(--radius-md);
+  border-right: none;
+  border-radius: 999px 0 0 999px;
   font-size: var(--font-size-base);
   background-color: var(--color-white);
+  height: 56px;
   transition: border-color var(--transition-base);
 }
 
@@ -561,10 +571,14 @@ p {
   box-shadow: 0 0 0 3px rgb(37 99 235 / 0.1);
 }
 
-.cta-button {
-  white-space: nowrap;
-  padding: var(--space-3) var(--space-6);
-  font-weight: var(--font-weight-semibold);
+.btn-demo {
+  height: 56px;
+  border-radius: 0 999px 999px 0;
+  margin-left: 0;
+  padding: 0 2.5rem;
+  display: flex;
+  align-items: center;
+  border-left: none;
 }
 
 /* =============================================================================
@@ -1652,4 +1666,43 @@ p {
     flex-direction: column;
     gap: var(--space-2);
   }
+}
+
+/* Grenette Pro font-face placeholder: You must self-host or license this font. */
+@font-face {
+  font-family: 'Grenette Pro';
+  src: url('/font/Grenette Regular Font.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Grenette Pro';
+  src: url('/font/Grenette Semibold Font.woff2') format('woff2');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Grenette Pro';
+  src: url('/font/Grenette Bold Font.woff2') format('woff2');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+.btn-demo {
+  background: #ff7d61;
+  color: #fff;
+  font-weight: bold;
+  border-radius: 999px;
+  padding: 1rem 2.5rem;
+  font-size: 1.125rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  border: none;
+  transition: background 0.2s;
+}
+
+.btn-demo:hover {
+  background: #ff6b3d;
 } 
