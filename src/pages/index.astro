@@ -1,22 +1,13 @@
 ---
-import Header from '../components/Header.astro';
-import Footer from '../components/Footer.astro';
-import '../styles/design-system.css';
+import Layout from '../layouts/Layout.astro';
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-
-		<title>Hoogly | Reinventing Employee Engagement</title>
-	</head>
-	<body>
-		<Header />
-
-		<!-- Hero Section -->
+<Layout 
+	title="Hoogly | Reinventing Employee Engagement"
+	description="AI-powered employee engagement platform that's 10X better than surveys. Transform your workplace culture with Venn AI."
+	type="website"
+>
+	<!-- Hero Section -->
 		<section class="hero">
 			<div class="container">
 				<div class="hero-content">
@@ -267,19 +258,16 @@ import '../styles/design-system.css';
 			</div>
 		</section>
 
-		<!-- Final CTA Section -->
-		<section class="final-cta-section">
-			<div class="container">
-				<div class="final-cta-content">
-					<h2 class="final-cta-title">
-						Build <span class="text-purple">Culture</span>,<br>
-						don't just measure it.
-					</h2>
-					<button class="btn btn-primary btn-large">Get Started Today</button>
-				</div>
+	<!-- Final CTA Section -->
+	<section class="final-cta-section">
+		<div class="container">
+			<div class="final-cta-content">
+				<h2 class="final-cta-title">
+					Build <span class="text-purple">Culture</span>,<br>
+					don't just measure it.
+				</h2>
+				<button class="btn btn-primary btn-large">Get Started Today</button>
 			</div>
-		</section>
-
-		<Footer />
-	</body>
-</html>
+		</div>
+	</section>
+</Layout>
