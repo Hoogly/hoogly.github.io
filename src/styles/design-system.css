@@ -4,10 +4,10 @@
 
 /* CSS Custom Properties (Variables) */
 :root {
-  /* Colors */
-  --color-primary: #2563eb;
-  --color-primary-light: #3b82f6;
-  --color-primary-dark: #1d4ed8;
+  /* Colors - Updated to match design */
+  --color-primary: #6366f1;
+  --color-primary-light: #818cf8;
+  --color-primary-dark: #4f46e5;
   
   --color-secondary: #64748b;
   --color-secondary-light: #94a3b8;
@@ -20,6 +20,10 @@
   --color-purple: #8b5cf6;
   --color-purple-light: #a78bfa;
   --color-purple-dark: #7c3aed;
+  
+  --color-orange: #f97316;
+  --color-orange-light: #fb923c;
+  --color-orange-dark: #ea580c;
   
   --color-neutral-50: #f8fafc;
   --color-neutral-100: #f1f5f9;
@@ -35,8 +39,13 @@
   --color-white: #ffffff;
   --color-black: #000000;
   
+  /* Background colors */
+  --bg-gradient-purple: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  --bg-gradient-orange: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+  --bg-gradient-light: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+  
   /* Typography Scale */
-  --font-family-primary: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  --font-family-primary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
   --font-family-heading: var(--font-family-primary);
   --font-family-mono: 'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', Consolas, 'Courier New', monospace;
   
@@ -398,18 +407,39 @@ p {
    ============================================================================= */
 
 .hero {
-  background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
-  padding: var(--space-20) 0;
+  background: var(--color-white);
+  padding: var(--space-32) 0;
   position: relative;
   overflow: hidden;
-  min-height: 80vh;
-  display: flex;
-  align-items: center;
 }
 
 .hero-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-16);
+  align-items: center;
   position: relative;
   z-index: 10;
+}
+
+.hero-image {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hero-image-placeholder {
+  width: 500px;
+  height: 400px;
+  background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+  border-radius: var(--radius-2xl);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  box-shadow: var(--shadow-xl);
+  border: 1px solid var(--color-neutral-200);
 }
 
 .floating-profiles {
@@ -475,9 +505,9 @@ p {
 }
 
 .hero-text {
-  text-align: center;
-  max-width: 800px;
-  margin: 0 auto;
+  text-align: left;
+  max-width: none;
+  padding-right: var(--space-8);
 }
 
 .hero-title {
@@ -489,7 +519,7 @@ p {
 }
 
 .text-accent {
-  color: #ef4444;
+  color: #ff6b6b;
 }
 
 .text-purple {
@@ -511,7 +541,7 @@ p {
   display: flex;
   gap: var(--space-3);
   max-width: 400px;
-  margin: 0 auto;
+  margin: 0;
   align-items: center;
 }
 
@@ -897,6 +927,66 @@ p {
 .chart-placeholder {
   font-size: var(--font-size-6xl);
   opacity: 0.5;
+}
+
+/* =============================================================================
+   PRODUCT SCREENSHOTS SECTION
+   ============================================================================= */
+
+.product-screenshots-section {
+  padding: var(--space-20) 0;
+  background-color: var(--color-white);
+}
+
+.screenshots-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: var(--space-8);
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.screenshot-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--radius-2xl);
+  box-shadow: var(--shadow-lg);
+  transition: transform var(--transition-base), box-shadow var(--transition-base);
+}
+
+.screenshot-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-xl);
+}
+
+.screenshot-placeholder {
+  width: 100%;
+  height: 300px;
+  background: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 100%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid var(--color-neutral-200);
+  border-radius: var(--radius-2xl);
+}
+
+.screenshot-text {
+  color: var(--color-neutral-500);
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-medium);
+}
+
+.venn-image-placeholder {
+  width: 400px;
+  height: 300px;
+  background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+  border-radius: var(--radius-2xl);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  box-shadow: var(--shadow-lg);
+  border: 1px solid var(--color-neutral-200);
 }
 
 /* =============================================================================
@@ -1374,7 +1464,31 @@ p {
   
   .hero {
     padding: var(--space-16) 0;
-    min-height: 70vh;
+  }
+
+  .hero-content {
+    grid-template-columns: 1fr;
+    gap: var(--space-8);
+    text-align: center;
+  }
+
+  .hero-text {
+    text-align: center;
+    padding-right: 0;
+  }
+
+  .hero-image-placeholder {
+    width: 100%;
+    max-width: 400px;
+    height: 280px;
+  }
+
+  .screenshots-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .screenshot-placeholder {
+    height: 250px;
   }
   
   .problem-title {
@@ -1481,6 +1595,16 @@ p {
   
   .email-input {
     width: 100%;
+  }
+
+  .hero-image-placeholder {
+    width: 100%;
+    max-width: 300px;
+    height: 220px;
+  }
+
+  .screenshot-placeholder {
+    height: 200px;
   }
   
   .problem-title {
