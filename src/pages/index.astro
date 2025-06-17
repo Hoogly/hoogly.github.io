@@ -11,31 +11,48 @@ import Layout from '../layouts/Layout.astro';
 	<section class="hero">
 		<div class="container">
 			<div class="hero-content">
-				<!-- Left side - Text content -->
+				<!-- Centered text content -->
 				<div class="hero-text">
-					<h1 class="hero-title">What Employee Engagement should be.</h1>
-					<p class="hero-subtitle">AI-powered | 10X better than surveys</p>
-					
-					<div class="cta-form">
-						<div class="email-input-group">
-							<input type="email" placeholder="Enter email" class="email-input">
-							<button class="btn-demo">Try it now</button>
-						</div>
-					</div>
-				</div>
+					<h1 class="hero-title">Tired of 'meh' survey results?<br>So are your employees</h1>
+					<p class="hero-subtitle">Our AI coach chats anonymously with each employee<br>to uncover honest, actionable insights.</p>
 
-				<!-- Right side - Hero Image -->
-				<div class="hero-image">
-					<div class="hero-image-placeholder">
-						<div class="floating-profiles">
-							<div class="profile-img profile-1">👨‍💼</div>
-							<div class="profile-img profile-2">👩‍💼</div>
-							<div class="profile-img profile-3">👩‍🔬</div>
-							<div class="profile-img profile-4">👨‍💻</div>
-							<div class="profile-img profile-5">🤖</div>
+					<img src="/images/prompt.png" alt="Prompt" class="hero-prompt-image" />
+
+					<div class="hero-wide-input">
+						<input type="text" class="wide-text-input" placeholder="My team is misaligned..." />
+						<div class="wide-input-left">
+							<span class="lock-icon">🔒</span>
+							<span class="private-label">Private</span>
 						</div>
+						<button class="wide-send-btn" aria-label="Send"><span class="send-arrow">↑</span></button>
 					</div>
 				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Anonymous 1:1 Conversations Section -->
+	<section class="anonymous-ai-section">
+		<div class="container">
+			<div class="anonymous-ai-content">
+				<img src="/images/empathetic-listening.png" alt="Empathetic Listening" class="anonymous-ai-image" />
+				<div class="anonymous-ai-text">
+					<h2 class="anonymous-ai-headline"><span class="anonymous-gradient">Anonymous</span> AI conversations at scale</h2>
+					<p class="anonymous-ai-subheadline">Anonymous conversations reveal what your people really feel. You get clarity.</p>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Spot the Risks Section -->
+	<section class="anonymous-ai-section anonymous-ai-section-tight">
+		<div class="container">
+			<div class="anonymous-ai-content">
+				<div class="anonymous-ai-text">
+					<h2 class="anonymous-ai-headline">Spot the risks surveys miss</h2>
+					<p class="anonymous-ai-subheadline">We turn rich anonymous conversations into clear priorities.</p>
+				</div>
+				<img src="/images/dashboard-risks.png" alt="Dashboard Risks" class="anonymous-ai-image" />
 			</div>
 		</div>
 	</section>
@@ -56,8 +73,8 @@ import Layout from '../layouts/Layout.astro';
 		<div class="container">
 			<div class="features-grid">
 				<div class="feature-card">
-					<div class="feature-icon feature-icon-purple">
-						<img src="/images/employees-unheard.png" alt="Employees unheard" style="width: 64px; height: 64px; object-fit: contain;" />
+					<div>
+						<img src="/images/employees-unheard.png" alt="Employees unheard" style="width: 80px; height: 80px; object-fit: contain;" />
 					</div>
 					<h3 class="feature-title">Employees unheard</h3>
 					<p class="feature-description">
@@ -66,8 +83,8 @@ import Layout from '../layouts/Layout.astro';
 				</div>
 				
 				<div class="feature-card">
-					<div class="feature-icon feature-icon-yellow">
-						<img src="/images/leader-left-hanging.png" alt="Leaders left hanging" style="width: 64px; height: 64px; object-fit: contain;" />
+					<div>
+						<img src="/images/leader-left-hanging.png" alt="Leaders left hanging" style="width: 80px; height: 80px; object-fit: contain;" />
 					</div>
 					<h3 class="feature-title">Leaders left hanging</h3>
 					<p class="feature-description">
@@ -76,8 +93,8 @@ import Layout from '../layouts/Layout.astro';
 				</div>
 				
 				<div class="feature-card">
-					<div class="feature-icon feature-icon-green">
-						<img src="/images/hr-gets-the-blame.png" alt="HR gets the blame" style="width: 64px; height: 64px; object-fit: contain;" />
+					<div>
+						<img src="/images/hr-gets-the-blame.png" alt="HR gets the blame" style="width: 80px; height: 80px; object-fit: contain;" />
 					</div>
 					<h3 class="feature-title">HR gets the blame</h3>
 					<p class="feature-description">
@@ -91,20 +108,14 @@ import Layout from '../layouts/Layout.astro';
 	<!-- Meet Venn Section -->
 	<section class="meet-venn-section">
 		<div class="container">
-			<div class="meet-venn-content">
+			<div class="meet-venn-content" style="text-align: center;">
 				<div class="meet-venn-text">
-					<h2 class="meet-venn-title">
-						Meet Venn,<br>
-						your AI-powered<br>
-						culture partner.
-					</h2>
-					<p class="meet-venn-description">
-						Venn doesn't just gather feedback - it's actively participating in conversations with your team, understanding context, and providing real-time insights that drive meaningful change.
-					</p>
+					<h2 class="meet-venn-title">Meet Venn,<br>your AI-powered<br>culture partner.</h2>
+					<p class="meet-venn-description">Venn doesn't just gather feedback - it's actively participating in conversations with your team, understanding context, and providing real-time insights that drive meaningful change.</p>
 				</div>
-				<div class="meet-venn-illustration">
-					<img src="/images/venn.png" alt="Venn AI Illustration" style="max-width: 100%; height: auto; display: block; margin: 0 auto;" />
-				</div>
+			</div>
+			<div class="meet-venn-illustration" style="margin-top: 81.5px; margin-bottom: -6rem;">
+				<img src="/images/venn.png" alt="Venn AI Illustration" style="width: 532px; max-width: 70vw; height: auto; display: block; margin: 0 auto;" />
 			</div>
 		</div>
 	</section>
@@ -117,11 +128,7 @@ import Layout from '../layouts/Layout.astro';
 			<div class="transforms-grid">
 				<div class="transform-card">
 					<div class="transform-mockup">
-						<div class="mockup-header">💬</div>
-						<div class="mockup-content">
-							<div class="chat-bubble">Hi! How are things going?</div>
-							<div class="chat-bubble user">Pretty good, but...</div>
-						</div>
+						<img src="/images/empathetic-listening.png" alt="Empathetic Listening" style="width:100%;height:auto;object-fit:contain;" />
 					</div>
 					<h3 class="transform-title">Empathetic Listening</h3>
 					<p class="transform-description">
@@ -131,15 +138,7 @@ import Layout from '../layouts/Layout.astro';
 
 				<div class="transform-card">
 					<div class="transform-mockup insights-mockup">
-						<div class="mockup-header">📊</div>
-						<div class="insight-grid">
-							<div class="insight-item red"></div>
-							<div class="insight-item yellow"></div>
-							<div class="insight-item green"></div>
-							<div class="insight-item blue"></div>
-							<div class="insight-item purple"></div>
-							<div class="insight-item orange"></div>
-						</div>
+						<img src="/images/insightful-analytics.png" alt="Insightful Analytics" style="width:100%;height:auto;object-fit:contain;" />
 					</div>
 					<h3 class="transform-title">Insightful Analytics</h3>
 					<p class="transform-description">
@@ -149,12 +148,7 @@ import Layout from '../layouts/Layout.astro';
 
 				<div class="transform-card">
 					<div class="transform-mockup">
-						<div class="mockup-header">🎯</div>
-						<div class="mockup-content">
-							<div class="action-item">Improve team communication</div>
-							<div class="action-item">Schedule 1:1 meetings</div>
-							<div class="action-item">Review workload distribution</div>
-						</div>
+						<img src="/images/actionable-coaching.png" alt="Actionable Coaching" style="width:100%;height:auto;object-fit:contain;" />
 					</div>
 					<h3 class="transform-title">Actionable Coaching</h3>
 					<p class="transform-description">
@@ -168,38 +162,7 @@ import Layout from '../layouts/Layout.astro';
 	<!-- Insights Hub Section -->
 	<section class="insights-hub-section">
 		<div class="container">
-			<h2 class="hub-title">Elevate Your Culture with the <span class="text-purple">Insights Hub</span></h2>
-			
-			<div class="hub-dashboard">
-				<div class="dashboard-mockup">
-					<div class="dashboard-header">
-						<div class="dashboard-tabs">
-							<span class="tab active">Overview</span>
-							<span class="tab">Teams</span>
-							<span class="tab">Insights</span>
-						</div>
-					</div>
-					<div class="dashboard-content">
-						<div class="dashboard-metrics">
-							<div class="metric-card">
-								<span class="metric-value">87%</span>
-								<span class="metric-label">Engagement</span>
-							</div>
-							<div class="metric-card">
-								<span class="metric-value">23</span>
-								<span class="metric-label">Action Items</span>
-							</div>
-							<div class="metric-card">
-								<span class="metric-value">94%</span>
-								<span class="metric-label">Participation</span>
-							</div>
-						</div>
-						<div class="dashboard-chart">
-							<div class="chart-placeholder">📈</div>
-						</div>
-					</div>
-				</div>
-			</div>
+			<h2 class="hub-title" style="color: #000;">Elevate Your Culture with the Insights Hub</h2>
 		</div>
 	</section>
 
@@ -208,14 +171,7 @@ import Layout from '../layouts/Layout.astro';
 		<div class="container">
 			<div class="screenshots-grid">
 				<div class="screenshot-card">
-					<div class="screenshot-placeholder">
-						<span class="screenshot-text">Product Screenshot 1</span>
-					</div>
-				</div>
-				<div class="screenshot-card">
-					<div class="screenshot-placeholder">
-						<span class="screenshot-text">Product Screenshot 2</span>
-					</div>
+					<img src="/images/dashboard1.png" alt="Product Dashboard Screenshot 1" style="width:100%;height:auto;object-fit:contain;" />
 				</div>
 			</div>
 		</div>
@@ -224,12 +180,14 @@ import Layout from '../layouts/Layout.astro';
 	<!-- Integrations Section -->
 	<section class="integrations-section">
 		<div class="container">
+			<h3 class="integrates-heading" style="text-align:center;margin-bottom:2rem;">Integrates with</h3>
 			<div class="integration-logos">
-				<div class="integration-logo">Slack</div>
-				<div class="integration-logo">Microsoft Teams</div>
-				<div class="integration-logo">HRIS</div>
-				<div class="integration-logo">Workday</div>
-				<div class="integration-logo">BambooHR</div>
+				<img src="/images/slack-logo.png" alt="Slack" style="height:40px;width:auto;filter:brightness(0) saturate(100%) invert(20%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(0.7) contrast(1.2);opacity:0.85;" />
+				<img src="/images/teams-logo.png" alt="Microsoft Teams" style="height:40px;width:auto;filter:brightness(0) saturate(100%) invert(20%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(0.7) contrast(1.2);opacity:0.85;" />
+				<img src="/images/hibob-logo.png" alt="HiBob" style="height:40px;width:auto;filter:brightness(0) saturate(100%) invert(20%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(0.7) contrast(1.2);opacity:0.85;" />
+				<img src="/images/workday-logo.png" alt="Workday" style="height:40px;width:auto;filter:brightness(0) saturate(100%) invert(20%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(0.7) contrast(1.2);opacity:0.85;" />
+				<img src="/images/bamboohr-logo.png" alt="BambooHR" style="height:40px;width:auto;filter:brightness(0) saturate(100%) invert(20%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(0.7) contrast(1.2);opacity:0.85;" />
+				<img src="/images/oracle-logo.png" alt="Oracle" style="height:40px;width:auto;filter:brightness(0) saturate(100%) invert(20%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(0.7) contrast(1.2);opacity:0.85;" />
 			</div>
 		</div>
 	</section>
