@@ -341,7 +341,7 @@ p {
    ============================================================================= */
 
 .navbar {
-  background-color: #f8f5f1;
+  background-color: #ffffff;
   color: #000;
   font-family: 'Source Sans 3', sans-serif;
   border-bottom: 1px solid #e5e2dd;
@@ -412,7 +412,7 @@ p {
    ============================================================================= */
 
 .hero {
-  background: #F5E9FA;
+  background: linear-gradient(135deg, #F6F4FE 0%, #F5E9FA 100%);
   padding: var(--space-32) 0;
   position: relative;
   overflow: hidden;
@@ -420,10 +420,42 @@ p {
 
 .hero-content {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
+  gap: var(--space-8);
   position: relative;
   z-index: 10;
+}
+
+.hero-text {
+  text-align: center;
+  max-width: none;
+}
+
+.hero-visual-row {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-4);
+  width: 100%;
+  justify-content: center;
+}
+
+.hero-left {
+  flex-shrink: 0;
+}
+
+.hero-venn-image {
+  max-width: 500px;
+  height: auto;
+  object-fit: contain;
+}
+
+.hero-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  flex-grow: 1;
+  min-width: 300px;
 }
 
 .hero-image {
@@ -506,12 +538,6 @@ p {
   50% {
     transform: translateY(-20px);
   }
-}
-
-.hero-text {
-  text-align: center;
-  max-width: none;
-  padding-right: 0;
 }
 
 .hero-title {
@@ -1531,18 +1557,25 @@ p {
     gap: var(--space-4);
   }
   
-  .hero-title {
-    font-size: var(--font-size-4xl);
-  }
-  
   .hero {
     padding: var(--space-16) 0;
   }
 
   .hero-content {
-    grid-template-columns: 1fr;
-    gap: var(--space-8);
-    text-align: center;
+    gap: var(--space-4);
+  }
+
+  .hero-visual-row {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .hero-left {
+    order: 2;
+  }
+
+  .hero-right {
+    order: 1;
   }
 
   .hero-text {
@@ -1782,7 +1815,7 @@ p {
   box-shadow: 0 2px 12px 0 rgba(139, 92, 246, 0.06);
   padding: 0.5rem 1.5rem;
   margin: calc(2.5rem + 10px) auto 0 0;
-  max-width: 730px;
+  width: 70%;
   min-height: 148px;
   position: relative;
   margin-top: -20px;
