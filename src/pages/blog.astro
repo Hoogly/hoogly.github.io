@@ -13,51 +13,52 @@ const sortedPosts = allPosts
     title="Blog - Hoogly"
     description="Read our latest blog posts and insights on employee engagement, workplace culture, and AI-powered solutions."
     type="website"
+    bodyClass="blog"
 >
-        <section class="blog-header">
-            <div class="container">
-                <h1 class="blog-title">Blog</h1>
-                <p class="blog-subtitle">Latest posts and insights</p>
-            </div>
-        </section>
+    <section class="blog-header" style="background: linear-gradient(135deg, #F6F4FE 0%, #F5E9FA 100%);">
+        <div class="container">
+            <h1 class="blog-title"><span class="anonymous-gradient">Blog</span></h1>
+            <p class="blog-subtitle">Latest posts and insights</p>
+        </div>
+    </section>
 
-        <section class="blog-posts">
-            <div class="container">
-                <div class="posts-grid">
-                    {sortedPosts.map((post) => (
-                        <article class="blog-post-card">
-                            <header class="post-card-header">
-                                <h2 class="post-card-title">
-                                    <a href={`/blog/${post.slug}`}>{post.data.title}</a>
-                                </h2>
-                                <div class="post-meta">
-                                    <time datetime={post.data.publishDate.toISOString()}>
-                                        {post.data.publishDate.toLocaleDateString('en-US', {
-                                            year: 'numeric',
-                                            month: 'long',
-                                            day: 'numeric'
-                                        })}
-                                    </time>
-                                    {post.data.author && (
-                                        <span class="author">by {post.data.author}</span>
-                                    )}
-                                </div>
-                            </header>
-                            
-                            <p class="post-description">{post.data.description}</p>
-                            
-                            {post.data.tags && post.data.tags.length > 0 && (
-                                <div class="post-tags">
-                                    {post.data.tags.map((tag) => (
-                                        <span class="post-tag">{tag}</span>
-                                    ))}
-                                </div>
-                            )}
-                            
-                            <a href={`/blog/${post.slug}`} class="read-more">Read more →</a>
-                        </article>
-                    ))}
-                </div>
+    <section class="blog-posts">
+        <div class="container">
+            <div class="posts-grid">
+                {sortedPosts.map((post) => (
+                    <article class="blog-post-card">
+                        <header class="post-card-header">
+                            <h2 class="post-card-title">
+                                <a href={`/blog/${post.slug}`}>{post.data.title}</a>
+                            </h2>
+                            <div class="post-meta">
+                                <time datetime={post.data.publishDate.toISOString()}>
+                                    {post.data.publishDate.toLocaleDateString('en-US', {
+                                        year: 'numeric',
+                                        month: 'long',
+                                        day: 'numeric'
+                                    })}
+                                </time>
+                                {post.data.author && (
+                                    <span class="author">by {post.data.author}</span>
+                                )}
+                            </div>
+                        </header>
+                        
+                        <p class="post-description">{post.data.description}</p>
+                        
+                        {post.data.tags && post.data.tags.length > 0 && (
+                            <div class="post-tags">
+                                {post.data.tags.map((tag) => (
+                                    <span class="post-tag">{tag}</span>
+                                ))}
+                            </div>
+                        )}
+                        
+                        <a href={`/blog/${post.slug}`} class="read-more">Read more →</a>
+                    </article>
+                ))}
             </div>
-        </section>
+        </div>
+    </section>
 </Layout> 

@@ -150,6 +150,14 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+body.blog {
+  background: linear-gradient(135deg, #F6F4FE 0%, #F5E9FA 100%);
+}
+
+body.post-page {
+  background: linear-gradient(135deg, #F6F4FE 0%, #F5E9FA 100%);
+}
+
 /* =============================================================================
    TYPOGRAPHY
    ============================================================================= */
@@ -161,7 +169,7 @@ body {
 .h1, h1 {
   font-family: var(--font-family-heading);
   font-size: var(--font-size-4xl);
-  font-weight: var(--font-weight-bold);
+  font-weight: var(--font-weight-medium);
   line-height: var(--line-height-tight);
   color: var(--color-neutral-900);
 }
@@ -169,7 +177,7 @@ body {
 .h2, h2 {
   font-size: 2.75rem;
   font-family: var(--font-family-heading);
-  font-weight: var(--font-weight-semibold);
+  font-weight: var(--font-weight-medium);
   line-height: 3rem;
   color: var(--color-neutral-900);
 }
@@ -177,7 +185,7 @@ body {
 .h3, h3 {
   font-family: var(--font-family-heading);
   font-size: 2.75rem;
-  font-weight: var(--font-weight-semibold);
+  font-weight: var(--font-weight-medium);
   line-height: 3rem;
   color: var(--color-neutral-900);
 }
@@ -1427,7 +1435,7 @@ p {
 
 .post-title {
   font-size: var(--font-size-4xl);
-  font-weight: var(--font-weight-bold);
+  font-weight: var(--font-weight-semibold);
   color: var(--color-neutral-900);
   margin-bottom: var(--space-6);
   line-height: var(--line-height-tight);
