@@ -13,18 +13,28 @@ import Layout from '../layouts/Layout.astro';
 			<div class="hero-content">
 				<!-- Centered text content -->
 				<div class="hero-text">
-					<h1 class="hero-title">Tired of 'meh' survey results?<br>So are your employees</h1>
+					<h1 class="hero-title">What your surveys miss, <span class="anonymous-gradient">our AI finds</span></h1>
 					<p class="hero-subtitle">Our AI coach chats anonymously with each employee<br>to uncover honest, actionable insights.</p>
+				</div>
 
-					<img src="/images/prompt.png" alt="Prompt" class="hero-prompt-image" />
+				<div class="hero-visual-row">
+					<!-- Left side: Venn talking image -->
+					<div class="hero-left">
+						<img src="/images/venn-talking.png" alt="Venn AI Talking" class="hero-venn-image" />
+					</div>
+					
+					<!-- Right side: Text content -->
+					<div class="hero-right">
+						<img src="/images/prompt.png" alt="Prompt" class="hero-prompt-image" />
 
-					<div class="hero-wide-input">
-						<input type="text" class="wide-text-input" placeholder="My team is misaligned..." />
-						<div class="wide-input-left">
-							<span class="lock-icon">🔒</span>
-							<span class="private-label">Private</span>
+						<div class="hero-wide-input">
+							<input type="text" class="wide-text-input" placeholder="My team is misaligned..." />
+							<div class="wide-input-left">
+								<span class="lock-icon">🔒</span>
+								<span class="private-label">Private</span>
+							</div>
+							<button class="wide-send-btn" aria-label="Send"><span class="send-arrow">↑</span></button>
 						</div>
-						<button class="wide-send-btn" aria-label="Send"><span class="send-arrow">↑</span></button>
 					</div>
 				</div>
 			</div>
@@ -38,7 +48,9 @@ import Layout from '../layouts/Layout.astro';
 				<img src="/images/empathetic-listening.png" alt="Empathetic Listening" class="anonymous-ai-image" />
 				<div class="anonymous-ai-text">
 					<h2 class="anonymous-ai-headline"><span class="anonymous-gradient">Anonymous</span> AI conversations at scale</h2>
-					<p class="anonymous-ai-subheadline">Anonymous conversations reveal what your people really feel. You get clarity.</p>
+					<p class="anonymous-ai-subheadline">Traditional surveys get half-truths.</p>
+					<p class="anonymous-ai-subheadline" style="margin-top: 1rem;">Our <strong>AI chats privately with each employee</strong> to surface what your people really feel.</p>
+					<p class="anonymous-ai-subheadline" style="margin-top: 1rem;">You get the clarity and confidence to act.</p>
 				</div>
 			</div>
 		</div>
@@ -49,11 +61,50 @@ import Layout from '../layouts/Layout.astro';
 		<div class="container">
 			<div class="anonymous-ai-content">
 				<div class="anonymous-ai-text">
-					<h2 class="anonymous-ai-headline">Spot the risks surveys miss</h2>
-					<p class="anonymous-ai-subheadline">We turn rich anonymous conversations into clear priorities.</p>
+					<h2 class="anonymous-ai-headline">From <span class="anonymous-gradient">deep conversations</span> to clear, actionable insights</h2>
+					<p class="anonymous-ai-subheadline">We turn rich, anonymous 1:1 conversations into visual, easy-to-digest insights.</p>
+					<p class="anonymous-ai-subheadline" style="margin-top: 1rem;">See what's going on. Spot the issues surveys miss. Take action with confidence.</p>
 				</div>
 				<img src="/images/dashboard-risks.png" alt="Dashboard Risks" class="anonymous-ai-image" />
 			</div>
+		</div>
+	</section>
+
+	<!-- Spot the Risks Section -->
+	<section class="anonymous-ai-section anonymous-ai-section-tight">
+		<div class="container">
+			<div class="anonymous-ai-content">
+				<img src="/images/venn-talking.png" alt="Venn talking" class="anonymous-ai-image" style="width: 350px;" />
+				<div class="anonymous-ai-text">
+					<h2 class="anonymous-ai-headline"><span class="anonymous-gradient">Meet Venn</span>, your always-on performance coach</h2>
+					<p class="anonymous-ai-subheadline">Venn is your private AI coach who supports every employee, manager, and HR leader.</p>
+					<p class="anonymous-ai-subheadline" style="margin-top: 1rem;">He offers private coaching, surfaces insights, and prompts action.</p>
+					<p class="anonymous-ai-subheadline" style="margin-top: 1rem;"><strong>Culture isn't just HR's job anymore.</strong> With Venn, everyone plays a part.</p>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Spot the Risks Section -->
+	<section class="anonymous-ai-section anonymous-ai-section-tight">
+		<div class="container">
+			<div class="anonymous-ai-content">
+				<div class="anonymous-ai-text">
+					<h2 class="anonymous-ai-headline"><span class="anonymous-gradient">A team of AI Agents</span> to help you turn insight into Culture</h2>
+					<p class="anonymous-ai-subheadline">Once you uncover what's really going on, our AI agents help you act on it.</p>
+					<p class="anonymous-ai-subheadline" style="margin-top: 1rem;">From deepening team connection to celebrating milestones, each agent is designed to support a specific aspect of culture.</p>
+					<p class="anonymous-ai-subheadline" style="margin-top: 1rem;">You're never building Culture alone.</p>
+				</div>
+				<img src="/images/dashboard-risks.png" alt="Dashboard Risks" class="anonymous-ai-image" />
+			</div>
+		</div>
+	</section>
+
+	<!-- Final CTA Section -->
+	<section class="final-cta-section" style="background: linear-gradient(135deg, #F6F4FE 0%, #F5E9FA 100%); text-align: center; padding: var(--space-20) 0;">
+		<div class="container">
+			<h2 class="final-cta-title" style="font-size: var(--font-size-4xl); margin-bottom: var(--space-8);">When People Speak Freely, <span class="anonymous-gradient">Culture</span> Starts to Shift</h2>
+			<a href="#" class="btn btn-primary">Get started now</a>
 		</div>
 	</section>
 
@@ -231,19 +282,6 @@ import Layout from '../layouts/Layout.astro';
 					<div class="partner-logo">➕</div>
 					<div class="partner-logo">💼</div>
 				</div>
-			</div>
-		</div>
-	</section>
-
-	<!-- Final CTA Section -->
-	<section class="final-cta-section">
-		<div class="container">
-			<div class="final-cta-content">
-				<h2 class="final-cta-title">
-					Build <span class="text-purple">Culture</span>,<br>
-					don't just measure it.
-				</h2>
-				<button class="btn btn-primary btn-large">Get Started Today</button>
 			</div>
 		</div>
 	</section>
