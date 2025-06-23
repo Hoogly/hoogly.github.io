@@ -2,6 +2,8 @@
    HOOGLY DESIGN SYSTEM
    ============================================================================= */
 
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&display=swap');
+
 /* CSS Custom Properties (Variables) */
 :root {
   /* Colors - Updated to match design */
@@ -46,7 +48,7 @@
   
   /* Typography Scale */
   --font-family-primary: 'Source Sans 3', sans-serif;
-  --font-family-heading: 'Vollkorn', serif;
+  --font-family-heading: 'Outfit', sans-serif;
   --font-family-mono: 'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', Consolas, 'Courier New', monospace;
   
   --font-size-xs: 0.75rem;    /* 12px */
@@ -165,18 +167,18 @@ body {
 }
 
 .h2, h2 {
-  font-size: 2rem;
+  font-size: 2.75rem;
   font-family: var(--font-family-heading);
   font-weight: var(--font-weight-semibold);
-  line-height: var(--line-height-tight);
+  line-height: 3rem;
   color: var(--color-neutral-900);
 }
 
 .h3, h3 {
   font-family: var(--font-family-heading);
-  font-size: var(--font-size-2xl);
+  font-size: 2.75rem;
   font-weight: var(--font-weight-semibold);
-  line-height: var(--line-height-snug);
+  line-height: 3rem;
   color: var(--color-neutral-900);
 }
 
@@ -336,6 +338,15 @@ p {
   background-color: var(--color-neutral-300);
 }
 
+.btn-accent {
+  background-color: #ff7d61;
+  color: var(--color-white);
+}
+
+.btn-accent:hover {
+  background-color: #ff6b3d;
+}
+
 /* =============================================================================
    NAVIGATION
    ============================================================================= */
@@ -455,6 +466,7 @@ p {
   flex-direction: column;
   align-items: flex-start;
   flex-grow: 1;
+  max-width: 730px;
   min-width: 300px;
 }
 
@@ -1671,6 +1683,29 @@ p {
   .post-title {
     font-size: var(--font-size-3xl);
   }
+
+  .anonymous-ai-content {
+    flex-direction: column;
+    gap: var(--space-8);
+    text-align: center;
+  }
+
+  .anonymous-ai-content .anonymous-ai-image {
+    order: 1;
+    width: 100% !important; /* Overrides any inline styles */
+    max-width: 350px;
+    margin: 0 auto;
+  }
+
+  .anonymous-ai-content .anonymous-ai-text {
+    order: 2;
+  }
+
+  .hero-image-placeholder {
+    width: 100%;
+    max-width: 400px;
+    height: 280px;
+  }
 }
 
 @media (max-width: 480px) {
@@ -1803,7 +1838,6 @@ p {
   display: block;
   width: auto;
   max-width: none;
-  margin-left: -10px;
   margin-bottom: 20px;
 }
 
@@ -1814,37 +1848,37 @@ p {
   border-radius: 12px;
   box-shadow: 0 2px 12px 0 rgba(139, 92, 246, 0.06);
   padding: 0.5rem 1.5rem;
-  margin: calc(2.5rem + 10px) auto 0 0;
-  width: 70%;
+  margin-top: -20px;
+  width: 100%;
   min-height: 148px;
   position: relative;
-  margin-top: -20px;
 }
 
 .wide-input-left {
   display: flex;
   align-items: center;
-  background: #f8f5f1;
+  gap: 0.4rem;
+  background: var(--color-white);
+  border: 1px solid var(--color-neutral-200);
   border-radius: 999px;
-  padding: 0.5rem 1.25rem 0.5rem 0.75rem;
-  margin-right: 1.25rem;
-  font-size: 1.1rem;
-  font-weight: 500;
-  color: #222;
+  padding: 0.4rem 0.9rem;
   position: absolute;
   left: 18px;
   bottom: 18px;
   margin-top: 0;
 }
 
-.lock-icon {
-  font-size: 1.1rem;
-  margin-right: 0.5rem;
+.lock-icon-svg {
+  width: 1.1em;
+  height: 1.1em;
+  stroke-width: 2;
+  color: var(--color-neutral-800);
 }
 
 .private-label {
-  font-size: 1.05rem;
+  font-size: 0.95rem;
   font-weight: 500;
+  color: var(--color-neutral-800);
 }
 
 .wide-text-input {
