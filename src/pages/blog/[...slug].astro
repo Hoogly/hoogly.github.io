@@ -22,42 +22,42 @@ const { Content } = await post.render();
     type="article"
     bodyClass="post-page"
 >
-        <article class="blog-post">
-            <header class="post-header">
-                <div class="container">
-                    <h1 class="post-title">{post.data.title}</h1>
-                    
-                    <div class="post-meta-large">
-                        <time datetime={post.data.publishDate.toISOString()}>
-                            {post.data.publishDate.toLocaleDateString('en-US', {
-                                year: 'numeric',
-                                month: 'long',
-                                day: 'numeric'
-                            })}
-                        </time>
-                        {post.data.author && (
-                            <span class="author">by {post.data.author}</span>
-                        )}
-                    </div>
-
-                    <p class="post-description-large">{post.data.description}</p>
-                    
-                    {post.data.tags && post.data.tags.length > 0 && (
-                        <div class="post-tags-large">
-                            {post.data.tags.map((tag: string) => (
-                                <span class="post-tag">{tag}</span>
-                            ))}
-                        </div>
+    <article class="blog-post">
+        <header class="post-header" style="margin-top:0;margin-bottom:0;">
+            <div class="container">
+                <h1 class="post-title">{post.data.title}</h1>
+                
+                <div class="post-meta-large">
+                    <time datetime={post.data.publishDate.toISOString()}>
+                        {post.data.publishDate.toLocaleDateString('en-US', {
+                            year: 'numeric',
+                            month: 'long',
+                            day: 'numeric'
+                        })}
+                    </time>
+                    {post.data.author && (
+                        <span class="author">by {post.data.author}</span>
                     )}
                 </div>
-            </header>
 
-            <div class="post-content">
-                <div class="container">
-                    <Content />
-                </div>
+                <p class="post-description-large">{post.data.description}</p>
+                
+                {post.data.tags && post.data.tags.length > 0 && (
+                    <div class="post-tags-large">
+                        {post.data.tags.map((tag: string) => (
+                            <span class="post-tag">{tag}</span>
+                        ))}
+                    </div>
+                )}
             </div>
-        </article>
+        </header>
+
+        <div class="post-content">
+            <div class="container">
+                <Content />
+            </div>
+        </div>
+    </article>
 
     <nav class="post-nav">
         <div class="container">
