@@ -561,7 +561,7 @@ p {
 }
 
 .hero-title {
-  color: #000;
+  color: #fff;
   font-size: var(--font-size-5xl);
   font-weight: var(--font-weight-extrabold);
   line-height: 1.1;
