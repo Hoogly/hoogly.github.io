@@ -1272,7 +1272,7 @@ p {
 
 .site-footer {
   background-color: var(--color-neutral-900);
-  color: var(--color-neutral-100);
+  color: #fff;
   padding: var(--space-16) 0 var(--space-8);
 }
 
@@ -1289,7 +1289,7 @@ p {
 }
 
 .footer-tagline {
-  color: var(--color-neutral-400);
+  color: #fff;
   font-size: var(--font-size-lg);
   margin: 0;
 }
@@ -1318,23 +1318,23 @@ p {
 }
 
 .footer-link {
-  color: var(--color-neutral-400);
+  color: #fff;
   text-decoration: none;
   transition: color var(--transition-base);
 }
 
 .footer-link:hover {
-  color: var(--color-white);
+  color: #fff;
 }
 
 .footer-bottom {
-  border-top: 1px solid var(--color-neutral-700);
+  border-top: 1px solid rgba(255,255,255,0.6);
   padding-top: var(--space-8);
   text-align: center;
 }
 
 .footer-copyright {
-  color: var(--color-neutral-500);
+  color: #fff;
   font-size: var(--font-size-sm);
   margin: 0;
 }
