@@ -11,18 +11,18 @@ import Layout from '../layouts/Layout.astro';
 	<section class="hero hero-fullscreen">
 		<div class="container">
 			<div class="hero-content">
-				<div class="hero-logo" id="hero-logo" style="display: flex; justify-content: center; margin-bottom: 2rem;">
-					<img src="/hoogly-logo.png" alt="Hoogly Logo" style="width: 185.37px; height: 44.49px; padding: 0.7px; object-fit: contain;" />
-				</div>
 				<div class="hero-text">
-					<div class="hero-title" style="width: 1162.33px; height: 197.08px; font-size: 83.45px; font-weight: 400; color: #23221F; line-height: 1.13; text-align: center; margin-bottom: 0.2em; font-family: 'Outfit', sans-serif;">
-						Tired of <span class="anonymous-gradient" style="font-weight: 400;">'meh' survey results</span>?
+					<div class="hero-title" style="text-align: center; margin-bottom: 0.2em; font-family: 'Outfit', sans-serif;">
+						<div style="font-size: 83.45px; font-weight: 400; color: #23221F; line-height: 1.13; margin-bottom: 0.1em;">
+							Tired of <span class="anonymous-gradient" style="font-weight: 400;">'meh' survey results</span>?
+						</div>
+						<div style="font-size: 68.43px; font-weight: 400; color: #23221F; line-height: 1.13;">
+							So are your employees.
+						</div>
 					</div>
-					<div class="hero-title" style="width: 953px; height: 110px; font-size: 68.43px; font-weight: 400; color: #23221F; line-height: 1.13; text-align: center; margin-bottom: 0.2em; font-family: 'Outfit', sans-serif; display: flex; justify-content: center; align-items: center;">
-						So are your employees.
-					</div>
-					<div class="hero-subtitle" style="font-size: 1.18rem; color: #23221F; font-weight: 400; text-align: center; margin-bottom: 2.5em;">
-						Our AI Culture coach chats anonymously with each employee to uncover <b>honest, actionable insights that are 10x better.</b>
+					<div class="hero-subtitle" style="font-size: 1.18rem; color: #23221F; font-weight: 400; text-align: center; margin-bottom: 2.5em; padding-top: 1rem;">
+						Our AI Culture coach chats anonymously with each employee to<br>
+						uncover <b>honest, actionable insights that are 10x better.</b>
 					</div>
 					<div style="display: flex; justify-content: center;">
 						<a
@@ -59,18 +59,6 @@ import Layout from '../layouts/Layout.astro';
 			</div>
 		</div>
 	</section>
-
-	<script is:inline>
-		// Hide hero logo when scrolling
-		window.addEventListener('scroll', function() {
-			const heroLogo = document.getElementById('hero-logo');
-			if (window.scrollY > 50) {
-				heroLogo.style.display = 'none';
-			} else {
-				heroLogo.style.display = 'flex';
-			}
-		});
-	</script>
 
 	<!-- Anonymous 1:1 Conversations Section -->
 	<section class="anonymous-ai-section section-gradient">
