@@ -1,17 +1,33 @@
-<nav class="navbar">
-	<div class="container">
-		<div class="nav-content">
-			<div class="logo">
-				<a href="/" class="logo-link">
-					<img src="/hoogly-logo.png" alt="Hoogly Logo" class="logo-img" style="height: 40px; width: auto;" />
-				</a>
+<header class="header navbar-transparent" id="navbar">
+	<nav class="navbar">
+		<div class="container">
+			<div class="nav-content">
+				<div class="logo">
+					<a href="/" class="logo-link">
+						<img src="/hoogly-logo.png" alt="Hoogly Logo" class="logo-img" style="height: 40px; width: auto;" />
+					</a>
+				</div>
+				<ul class="nav-links">
+					<li><a href="/blog" class="nav-link">Blog</a></li>
+					<li><a href="/pricing" class="nav-link">Pricing</a></li>
+					<li><a href="/about" class="nav-link">About Us</a></li>
+					<li><a href="https://calendly.com/hoogly/30min" target="_blank" rel="noopener noreferrer" class="btn btn-accent" style="padding: 0.5rem 1rem;">Get started for free</a></li>
+				</ul>
 			</div>
-			<ul class="nav-links">
-				<li><a href="/blog" class="nav-link">Blog</a></li>
-				<li><a href="/pricing" class="nav-link">Pricing</a></li>
-				<li><a href="/about" class="nav-link">About Us</a></li>
-				<li><a href="https://calendly.com/hoogly/30min" target="_blank" rel="noopener noreferrer" class="btn btn-accent" style="padding: 0.5rem 1rem;">Get started for free</a></li>
-			</ul>
 		</div>
-	</div>
-</nav> 
+	</nav>
+</header>
+
+<script is:inline>
+	// Transparent to solid navbar on scroll
+	window.addEventListener('scroll', function() {
+		const navbar = document.getElementById('navbar');
+		if (window.scrollY > 50) {
+			navbar.classList.remove('navbar-transparent');
+			navbar.classList.add('navbar-solid');
+		} else {
+			navbar.classList.remove('navbar-solid');
+			navbar.classList.add('navbar-transparent');
+		}
+	});
+</script> 

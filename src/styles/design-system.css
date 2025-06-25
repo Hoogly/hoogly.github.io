@@ -140,12 +140,12 @@ html {
 }
 
 body {
+  background: linear-gradient(120deg, #D0CCFF 0%, #FFF2EF 100%);
   font-family: var(--font-family-primary);
   font-size: var(--font-size-base);
   font-weight: var(--font-weight-normal);
   line-height: var(--line-height-normal);
   color: var(--color-neutral-900);
-  background-color: var(--color-white);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -319,40 +319,45 @@ p {
   justify-content: center;
   padding: var(--space-3) var(--space-6);
   font-size: var(--font-size-base);
-  font-weight: var(--font-weight-medium);
+  font-weight: 400;
   line-height: 1;
-  border: none;
-  border-radius: var(--radius-md);
+  border: 2px solid #23221F;
+  border-radius: var(--radius-full);
   cursor: pointer;
   transition: all var(--transition-base);
   text-decoration: none;
+  color: #23221F;
 }
 
 .btn-primary {
   background-color: var(--color-primary);
-  color: var(--color-white);
+  color: #23221F;
 }
 
 .btn-primary:hover {
-  background-color: var(--color-primary-dark);
+  background-color: #ffffff;
+  color: #23221F;
 }
 
 .btn-secondary {
   background-color: var(--color-neutral-200);
-  color: var(--color-neutral-900);
+  color: #23221F;
 }
 
 .btn-secondary:hover {
-  background-color: var(--color-neutral-300);
+  background-color: #ffffff;
+  color: #23221F;
 }
 
 .btn-accent {
   background-color: #ff7d61;
-  color: var(--color-white);
+  color: #23221F;
+  border-radius: var(--radius-full);
 }
 
 .btn-accent:hover {
-  background-color: #ff6b3d;
+  background-color: #ffffff;
+  color: #23221F;
 }
 
 /* =============================================================================
@@ -360,10 +365,8 @@ p {
    ============================================================================= */
 
 .navbar {
-  background-color: #ffffff;
   color: #000;
   font-family: 'Source Sans 3', sans-serif;
-  border-bottom: 1px solid #e5e2dd;
   padding: var(--space-4) 0;
   position: sticky;
   top: 0;
@@ -658,7 +661,8 @@ p {
 }
 
 .btn-demo:hover {
-  background: #ff6b3d;
+  background: #ffffff;
+  color: #23221F;
 }
 
 /* =============================================================================
@@ -1849,7 +1853,8 @@ p {
 }
 
 .btn-demo:hover {
-  background: #ff6b3d;
+  background: #ffffff;
+  color: #23221F;
 }
 
 .hero-prompt-image {
@@ -1939,7 +1944,8 @@ p {
 }
 
 .wide-send-btn:hover {
-  background: #ff6b3d;
+  background: #ffffff;
+  color: #23221F;
 }
 
 .send-arrow {
@@ -1949,9 +1955,10 @@ p {
 }
 
 .anonymous-ai-section {
-  background: #fff;
   padding: var(--space-20) 0;
+  background: linear-gradient(120deg, #8b5cf6 0%, #a78bfa 40%, #f6f4fe 80%, #f5e9fa 100%) !important;
 }
+
 .anonymous-ai-content {
   display: flex;
   align-items: center;
@@ -1959,14 +1966,17 @@ p {
   max-width: 900px;
   margin: 0 auto;
 }
+
 .anonymous-ai-image {
   width: 336px;
   height: auto;
   flex-shrink: 0;
 }
+
 .anonymous-ai-text {
   flex: 1;
 }
+
 .anonymous-ai-headline {
   font-size: var(--font-size-4xl);
   font-family: var(--font-family-heading);
@@ -1974,11 +1984,13 @@ p {
   color: var(--color-neutral-900);
   margin-bottom: var(--space-4);
 }
+
 .anonymous-ai-subheadline {
   font-size: var(--font-size-xl);
   color: var(--color-neutral-700);
   margin: 0;
 }
+
 .anonymous-gradient {
   background: linear-gradient(90deg, #d16ba5 0%, #86a8e7 100%);
   -webkit-background-clip: text;
@@ -2011,4 +2023,53 @@ p {
   padding: 3rem 2rem;
   max-width: 800px;
   margin: 0 auto 2rem auto;
+}
+
+.header-purple-bg {
+  background: linear-gradient(135deg, #f6f4fe 0%, #f5e9fa 60%, #ede9fe 85%, #8b5cf6 100%);
+  /* Luma-style soft pastel gradient with Hoogly purple */
+}
+
+b, strong, .font-bold {
+  font-weight: var(--font-weight-light) !important;
+}
+
+.hero-fullscreen {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+}
+
+.section-gradient {
+  background: linear-gradient(135deg, #ede9fe 0%, #f5e9fa 100%);
+}
+
+.navbar-transparent {
+  background: transparent;
+  box-shadow: none;
+  transition: background 0.3s, box-shadow 0.3s;
+}
+
+.navbar-solid {
+  background: rgba(255,255,255,0.95);
+  box-shadow: 0 2px 16px 0 rgba(0,0,0,0.04);
+  transition: background 0.3s, box-shadow 0.3s;
+}
+
+.hero-fullscreen,
+.anonymous-ai-section {
+  background: transparent !important;
+  border: none;
+  margin: 0;
+}
+
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  width: 100%;
+  padding: 1rem 0;
+  transition: all 0.6s ease;
 } 
