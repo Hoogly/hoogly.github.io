@@ -11,21 +11,66 @@ import Layout from '../layouts/Layout.astro';
 	<section class="hero hero-fullscreen">
 		<div class="container">
 			<div class="hero-content">
-				<!-- Centered text content -->
-				<div class="hero-text">
-					<h1 class="hero-title" style="color: #000; font-weight: 400;">Tired of <span class="anonymous-gradient">'meh' survey results?</span><br>So are your employees.</h1>
-					<p class="hero-subtitle">Our AI Culture coach chats anonymously with each employee to uncover honest, actionable insights that are 10x better.</p>
+				<div class="hero-logo" id="hero-logo" style="display: flex; justify-content: center; margin-bottom: 2rem;">
+					<img src="/hoogly-logo.png" alt="Hoogly Logo" style="width: 185.37px; height: 44.49px; padding: 0.7px; object-fit: contain;" />
 				</div>
-
-				<div class="hero-visual-row">
-					<!-- Right side: Text content -->
-					<div class="hero-right" style="display: flex; flex-direction: column; align-items: center; width: 100%; margin-top: 0.5rem;">
-						<a href="https://calendly.com/hoogly/30min" target="_blank" rel="noopener noreferrer" class="btn btn-accent" style="font-size: 1.13rem; padding: 1em 2.2em; margin-top: 0.4rem;">Get started for free</a>
+				<div class="hero-text">
+					<div class="hero-title" style="width: 1162.33px; height: 197.08px; font-size: 83.45px; font-weight: 400; color: #23221F; line-height: 1.13; text-align: center; margin-bottom: 0.2em; font-family: 'Outfit', sans-serif;">
+						Tired of <span class="anonymous-gradient" style="font-weight: 400;">'meh' survey results</span>?
+					</div>
+					<div class="hero-title" style="width: 953px; height: 110px; font-size: 68.43px; font-weight: 400; color: #23221F; line-height: 1.13; text-align: center; margin-bottom: 0.2em; font-family: 'Outfit', sans-serif; display: flex; justify-content: center; align-items: center;">
+						So are your employees.
+					</div>
+					<div class="hero-subtitle" style="font-size: 1.18rem; color: #23221F; font-weight: 400; text-align: center; margin-bottom: 2.5em;">
+						Our AI Culture coach chats anonymously with each employee to uncover <b>honest, actionable insights that are 10x better.</b>
+					</div>
+					<div style="display: flex; justify-content: center;">
+						<a
+							href="https://calendly.com/hoogly/30min"
+							target="_blank"
+							rel="noopener noreferrer"
+							class="btn btn-accent"
+							style="
+								display: flex;
+								align-items: center;
+								justify-content: center;
+								width: 322.45px;
+								height: 79px;
+								background: #FF7D61;
+								color: #23221F;
+								font-family: 'Outfit', sans-serif;
+								font-size: 25px;
+								font-weight: 500;
+								line-height: 1.33;
+								border: 1.6px solid #23221F;
+								border-radius: 71px;
+								padding-left: 40px;
+								padding-right: 40px;
+								text-align: center;
+								box-sizing: border-box;
+								text-decoration: none;
+								transition: background 0.2s, color 0.2s;
+							"
+						>
+							Start for Free
+						</a>
 					</div>
 				</div>
 			</div>
 		</div>
 	</section>
+
+	<script is:inline>
+		// Hide hero logo when scrolling
+		window.addEventListener('scroll', function() {
+			const heroLogo = document.getElementById('hero-logo');
+			if (window.scrollY > 50) {
+				heroLogo.style.display = 'none';
+			} else {
+				heroLogo.style.display = 'flex';
+			}
+		});
+	</script>
 
 	<!-- Anonymous 1:1 Conversations Section -->
 	<section class="anonymous-ai-section section-gradient">

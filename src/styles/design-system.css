@@ -451,7 +451,7 @@ p {
 
 .hero {
   background: linear-gradient(135deg, #F6F4FE 0%, #F5E9FA 100%);
-  padding: var(--space-32) 0;
+  padding: 0 0 var(--space-32) 0;
   position: relative;
   overflow: hidden;
 }
@@ -463,11 +463,12 @@ p {
   gap: var(--space-8);
   position: relative;
   z-index: 10;
+  margin-top: 16.66vh;
 }
 
 .hero-text {
-  text-align: center;
-  max-width: none;
+  margin-top: 0;
+  margin-bottom: 0;
 }
 
 .hero-visual-row {
@@ -580,10 +581,12 @@ p {
 }
 
 .hero-title {
-  color: #fff;
-  font-size: var(--font-size-5xl);
-  font-weight: var(--font-weight-extrabold);
-  line-height: 1.1;
+  color: #23221F;
+  font-size: 4.5rem;
+  font-weight: 400;
+  line-height: 1.13;
+  text-align: center;
+  margin-bottom: 0.2em;
 }
 
 .text-accent {
@@ -595,10 +598,11 @@ p {
 }
 
 .hero-subtitle {
-  font-size: var(--font-size-2xl);
-  color: var(--color-neutral-600);
-  margin-bottom: var(--space-8);
-  font-weight: var(--font-weight-medium);
+  font-size: 1.18rem;
+  color: #23221F;
+  font-weight: 400;
+  text-align: center;
+  margin-bottom: 2.5em;
 }
 
 .cta-form {
@@ -1992,7 +1996,7 @@ p {
 }
 
 .anonymous-gradient {
-  background: linear-gradient(90deg, #d16ba5 0%, #86a8e7 100%);
+  background: linear-gradient(90deg, #FF9482 0%, #7D77FF 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -2037,9 +2041,12 @@ b, strong, .font-bold {
 .hero-fullscreen {
   min-height: 100vh;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
-  padding: 0;
+  padding-top: 2.5rem;
+  padding-bottom: 0;
+  padding-left: 0;
+  padding-right: 0;
 }
 
 .section-gradient {
@@ -2053,9 +2060,11 @@ b, strong, .font-bold {
 }
 
 .navbar-solid {
-  background: rgba(255,255,255,0.95);
+  background: rgba(255,255,255,0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
   box-shadow: 0 2px 16px 0 rgba(0,0,0,0.04);
-  transition: background 0.3s, box-shadow 0.3s;
+  transition: background 0.3s, box-shadow 0.3s, backdrop-filter 0.3s;
 }
 
 .hero-fullscreen,
