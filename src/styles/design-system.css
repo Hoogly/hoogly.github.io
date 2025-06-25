@@ -467,7 +467,7 @@ p {
   gap: var(--space-8);
   position: relative;
   z-index: 10;
-  margin-top: 16.66vh;
+  margin-top: 8vh;
 }
 
 .hero-text {
@@ -2170,4 +2170,26 @@ b, strong, .font-bold {
   color: inherit;
   line-height: inherit;
   font-family: inherit;
+}
+
+.hero-flip-image {
+  perspective: 1200px;
+  transition: transform 1.5s cubic-bezier(0.77,0,0.175,1);
+}
+.hero-flip-image img {
+  display: block;
+  backface-visibility: hidden;
+}
+.hero-flip-image.flipped img {
+  transform: rotateX(90deg) scale(0.95);
+}
+
+/* Optional: fade in the next section after the hero */
+.hero-flip-image.flipped ~ section {
+  animation: fadeInNextSection 0.8s 0.2s forwards;
+  opacity: 1;
+}
+@keyframes fadeInNextSection {
+  from { opacity: 0; }
+  to { opacity: 1; }
 } 

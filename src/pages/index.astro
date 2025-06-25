@@ -58,6 +58,9 @@ import Layout from '../layouts/Layout.astro';
 					</div>
 				</div>
 			</div>
+			<div class="hero-flip-image" style="display: flex; justify-content: center; align-items: flex-end; margin-top: 4.5rem;">
+				<img id="heroFlipImage" src="/images/new%20dash.png" alt="Dashboard Hero" style="max-width: 100%; height: auto; width: 1162.33px; min-width: 0; border-radius: 18px; box-shadow: 0 8px 32px rgba(44, 41, 80, 0.12);" />
+			</div>
 		</div>
 	</section>
 
@@ -138,10 +141,35 @@ import Layout from '../layouts/Layout.astro';
 </Layout>
 
 <script>
-  window.addEventListener('DOMContentLoaded', function() {
-    const highlight = document.querySelector('.hero-highlight');
-    if (highlight) {
-      setTimeout(() => highlight.classList.add('animated'), 200);
+window.addEventListener('DOMContentLoaded', function() {
+  const highlight = document.querySelector('.hero-highlight');
+  if (highlight) {
+    setTimeout(() => highlight.classList.add('animated'), 200);
+  }
+
+  // Scroll-synced flip and fade animation with early start
+  const heroFlipImage = document.getElementById('heroFlipImage');
+  const offset = 100; // px before top of viewport
+  function handleFlipScroll() {
+    if (!heroFlipImage) return;
+    const rect = heroFlipImage.getBoundingClientRect();
+    const imageHeight = heroFlipImage.offsetHeight;
+    if (rect.top >= offset) {
+      heroFlipImage.style.transform = 'rotateX(0deg) scale(0.95)';
+      heroFlipImage.style.opacity = '1';
+    } else if (rect.top <= offset - imageHeight) {
+      heroFlipImage.style.transform = 'rotateX(90deg) scale(0.95)';
+      heroFlipImage.style.opacity = '0';
+    } else {
+      // Interpolate angle and opacity from 0deg/1 to 90deg/0 as the image scrolls out
+      const ratio = Math.min(1, Math.max(0, (offset - rect.top) / imageHeight));
+      const angle = ratio * 90;
+      const opacity = 1 - ratio;
+      heroFlipImage.style.transform = `rotateX(${angle}deg) scale(0.95)`;
+      heroFlipImage.style.opacity = opacity.toString();
     }
-  });
+  }
+  window.addEventListener('scroll', handleFlipScroll);
+  handleFlipScroll(); // Run once on load
+});
 </script>
