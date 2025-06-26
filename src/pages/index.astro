@@ -13,9 +13,8 @@ import Layout from '../layouts/Layout.astro';
 			<div class="hero-content">
 				<div class="hero-text">
 					<div class="hero-title" style="text-align: center; margin-bottom: 0.2em; font-family: 'Outfit', sans-serif;">
-						<div class="hero-title-align">
-							<span class="hero-title-text">Tired of</span>
-							<span class="hero-highlight"><span class="hero-highlight-text">‘meh’ survey results?</span></span>
+						<div class="hero-title-align" style="white-space: nowrap; display: block;">
+							<span class="hero-title-text">Tired of </span><span class="hero-highlight"><span class="hero-highlight-text">‘meh’ survey results?</span></span>
 						</div>
 						<div style="font-size: 68.43px; font-weight: 400; color: #23221F; line-height: 1.13;">
 							So are your employees.
@@ -35,18 +34,15 @@ import Layout from '../layouts/Layout.astro';
 								display: flex;
 								align-items: center;
 								justify-content: center;
-								width: 322.45px;
-								height: 79px;
 								background: #FF7D61;
 								color: #23221F;
 								font-family: 'Outfit', sans-serif;
-								font-size: 25px;
+								font-size: 1.5rem;
 								font-weight: 500;
 								line-height: 1.33;
 								border: 1.6px solid #23221F;
 								border-radius: 71px;
-								padding-left: 40px;
-								padding-right: 40px;
+								padding: 1rem 2.5rem;
 								text-align: center;
 								box-sizing: border-box;
 								text-decoration: none;
@@ -68,7 +64,7 @@ import Layout from '../layouts/Layout.astro';
 	<section class="anonymous-ai-section section-gradient">
 		<div class="container">
 			<div class="anonymous-ai-content">
-				<img src="/images/incognito-venn.png" alt="Incognito Venn" class="anonymous-ai-image" />
+				<img src="/images/incognito-venn.png" alt="Incognito Venn" class="anonymous-ai-image animate-in" />
 				<div class="anonymous-ai-text">
 					<h2 class="anonymous-ai-headline" style="font-family: 'Outfit', sans-serif; font-weight: 400;"><span class="hero-highlight"><span class="hero-highlight-text">Anonymous</span></span><span> 1:1 conversations at scale with Venn</span></h2>
 					<p class="anonymous-ai-subheadline" style="font-family: 'Outfit', sans-serif; font-weight: 400;">
@@ -87,7 +83,7 @@ import Layout from '../layouts/Layout.astro';
 					<h2 class="anonymous-ai-headline" style="font-family: 'Outfit', sans-serif; font-weight: 400;">From <span class="hero-highlight"><span class="hero-highlight-text">raw conversations</span></span> to clear, meaningful insights</h2>
 					<p class="anonymous-ai-subheadline" style="font-family: 'Outfit', sans-serif; font-weight: 400;">We go beyond listening. Our proprietary AI coach reads emotional tone, patterns, and themes and turns them into structured insights. So you can move forward with clarity and confidence.</p>
 				</div>
-				<img src="/images/dashboard-risks.png" alt="Dashboard Risks" class="anonymous-ai-image" />
+				<img src="/images/dashboard-risks.png" alt="Dashboard Risks" class="anonymous-ai-image animate-in" />
 			</div>
 		</div>
 	</section>
@@ -96,10 +92,10 @@ import Layout from '../layouts/Layout.astro';
 	<section class="anonymous-ai-section anonymous-ai-section-tight section-gradient">
 		<div class="container">
 			<div class="anonymous-ai-content">
-				<img src="/images/venn-talking.png" alt="Venn talking" class="anonymous-ai-image" style="width: 350px;" />
+				<img src="/images/venn-talking.png" alt="Venn talking" class="anonymous-ai-image animate-in" style="width: 350px;" />
 				<div class="anonymous-ai-text">
-					<h2 class="meet-venn-title" style="font-family: 'Outfit', sans-serif; font-weight: 400;">Turning employee feedback into <span class="hero-highlight"><span class="hero-highlight-text">an action plan</span></span></h2>
-					<p class="meet-venn-description" style="font-family: 'Outfit', sans-serif; font-weight: 400;">Venn supports every employee, manager, and HR leader to turn meaningful insights into a tangible action plan.<br>He partners with you, helps you understand the underlying issues and recommends solutions to help you build a bespoke action plan.</p>
+					<h2 class="anonymous-ai-headline" style="font-family: 'Outfit', sans-serif; font-weight: 400;">Turning employee feedback into <span class="hero-highlight"><span class="hero-highlight-text">an action plan</span></span></h2>
+					<p class="anonymous-ai-subheadline" style="font-family: 'Outfit', sans-serif; font-weight: 400;">Venn supports every employee, manager, and HR leader to turn meaningful insights into a tangible action plan.<br>He partners with you, helps you understand the underlying issues and recommends solutions to help you build a bespoke action plan.</p>
 				</div>
 			</div>
 		</div>
@@ -113,11 +109,11 @@ import Layout from '../layouts/Layout.astro';
 					<h2 class="anonymous-ai-headline" style="font-family: 'Outfit', sans-serif; font-weight: 400;"><span class="hero-highlight"><span class="hero-highlight-text">AI agents</span></span> to help you execute on your action plan.</h2>
 					<p class="anonymous-ai-subheadline" style="font-family: 'Outfit', sans-serif; font-weight: 400;">Our specialised AI agents are designed to help you bring your plan to life in order to move the needle on your Culture KPI. From deepening team connection to celebrating milestones, you're never building Culture alone.</p>
 				</div>
-				<img src="/images/dashboard-risks.png" alt="Dashboard Risks" class="anonymous-ai-image" />
+				<img src="/images/dashboard-risks.png" alt="Dashboard Risks" class="anonymous-ai-image animate-in" />
 			</div>
 			<div class="integrations-subsection" style="margin-top: 4rem;">
-				<h3 style="text-align: center; margin-bottom: 2.5rem; color: #2d2a58; font-weight: 400; font-family: 'Outfit', sans-serif; font-size: var(--font-size-lg);">Integrates with:</h3>
-				<div class="integration-logos" style="display: flex; justify-content: center; align-items: center; gap: 4rem; flex-wrap: wrap;">
+				<h3 class="integrations-title animate-in" style="text-align: center; margin-bottom: 2.5rem; color: #2d2a58; font-weight: 400; font-family: 'Outfit', sans-serif; font-size: var(--font-size-lg);">Integrates with:</h3>
+				<div class="integration-logos animate-in" style="display: flex; justify-content: center; align-items: center; gap: 4rem; flex-wrap: wrap;">
 					<img src="/images/slack-logo.png" alt="Slack" style="height: 35px; filter: grayscale(1) opacity(0.7);" />
 					<img src="/images/teams-logo.png" alt="Microsoft Teams" style="height: 35px; filter: grayscale(1) opacity(0.7);" />
 					<img src="/images/hibob-logo.png" alt="HiBob" style="height: 35px; filter: grayscale(1) opacity(0.7);" />
@@ -136,10 +132,22 @@ import Layout from '../layouts/Layout.astro';
 				Run an AI experiment. Try Hoogly alongside your next survey.<br>
 				Once you experience this new way of listening, the old way won't cut it anymore.
 			</p>
-			<a href="https://calendly.com/hoogly/30min" target="_blank" rel="noopener noreferrer" class="btn btn-accent" style="font-size: 1.5rem; padding: 1rem 2.5rem; border-radius: 71px;">Start for Free</a>
+			<a href="https://calendly.com/hoogly/30min" target="_blank" rel="noopener noreferrer" class="btn btn-accent" style="font-size: 1.25rem; padding: 1rem 2rem; border-radius: 71px;">Start for Free</a>
 		</div>
 	</section>
 </Layout>
+
+<style>
+.animate-in {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 1.2s cubic-bezier(0.77,0,0.175,1), transform 1.2s cubic-bezier(0.77,0,0.175,1);
+}
+.animate-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+</style>
 
 <script>
 window.addEventListener('DOMContentLoaded', function() {
@@ -185,5 +193,31 @@ window.addEventListener('DOMContentLoaded', function() {
   }
   window.addEventListener('scroll', handleFlipScroll);
   handleFlipScroll(); // Run once on load
+
+  // Animate all section images in on viewport
+  document.querySelectorAll('.anonymous-ai-image.animate-in').forEach(img => {
+    const observer = new window.IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          img.classList.add('visible');
+          observer.disconnect();
+        }
+      });
+    }, { threshold: 0.3 });
+    observer.observe(img);
+  });
+
+  // Animate all section images and integrations in on viewport
+  document.querySelectorAll('.anonymous-ai-image.animate-in, .integrations-title.animate-in, .integration-logos.animate-in').forEach(el => {
+    const observer = new window.IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          el.classList.add('visible');
+          observer.disconnect();
+        }
+      });
+    }, { threshold: 0.3 });
+    observer.observe(el);
+  });
 });
 </script>

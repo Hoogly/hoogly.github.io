@@ -1659,7 +1659,12 @@ p {
   }
   
   .meet-venn-title {
-    font-size: var(--font-size-3xl);
+    font-size: var(--font-size-2xl);
+    line-height: 1.3;
+    font-weight: var(--font-weight-bold);
+    font-family: 'Outfit', sans-serif;
+    text-align: center;
+    margin-bottom: var(--space-4);
   }
   
   .transforms-title {
@@ -1736,6 +1741,133 @@ p {
     max-width: 400px;
     height: 280px;
   }
+
+  /* Enhanced mobile styles for hero section */
+  .hero-title {
+    font-size: 2.5rem;
+    line-height: 1.2;
+    margin-bottom: 0.3em;
+  }
+
+  .hero-title-align {
+    font-size: 2.5rem;
+    line-height: 1.2;
+    flex-direction: column;
+    gap: 0.1em;
+    text-align: center;
+    justify-content: center;
+  }
+
+  .hero-gradient-headline {
+    width: 100%;
+    font-size: 2.5rem;
+    line-height: 1.2;
+  }
+
+  .hero-subtitle {
+    font-size: 1rem;
+    line-height: 1.5;
+    margin-bottom: 2em;
+    padding: 0 var(--space-2);
+  }
+
+  /* Mobile button improvements */
+  .btn {
+    font-size: 1rem;
+    padding: 0.75rem 1.5rem;
+    border-radius: 50px;
+  }
+
+  .btn-accent {
+    font-size: 1rem;
+    padding: 0.75rem 1.5rem;
+    border-radius: 50px;
+  }
+
+  /* Mobile section improvements */
+  .anonymous-ai-section {
+    padding: var(--space-12) 0;
+  }
+
+  .anonymous-ai-headline {
+    font-size: var(--font-size-2xl);
+    line-height: 1.3;
+  }
+
+  .anonymous-ai-subheadline {
+    font-size: var(--font-size-lg);
+    line-height: 1.5;
+  }
+
+  .meet-venn-title {
+    font-size: var(--font-size-2xl);
+    line-height: 1.3;
+    font-weight: var(--font-weight-bold);
+    font-family: 'Outfit', sans-serif;
+    text-align: center;
+    margin-bottom: var(--space-4);
+  }
+
+  .meet-venn-description {
+    font-size: var(--font-size-lg);
+    line-height: 1.5;
+  }
+
+  .final-cta-title {
+    font-size: var(--font-size-2xl);
+    line-height: 1.3;
+  }
+
+  /* Mobile integration logos */
+  .integration-logos {
+    gap: var(--space-4);
+  }
+
+  .integration-logos img {
+    height: 20px;
+  }
+
+  /* Mobile hero flip image */
+  .hero-flip-image img {
+    max-width: 100%;
+    width: 100%;
+    height: auto;
+  }
+
+  /* Mobile navbar improvements */
+  .navbar {
+    padding: var(--space-1) 0;
+  }
+
+  .logo {
+    font-size: var(--font-size-lg);
+  }
+
+  .nav-content {
+    gap: var(--space-2);
+  }
+
+  /* Mobile hero improvements */
+  .hero {
+    padding: var(--space-6) 0 var(--space-12) 0;
+  }
+
+  .hero-content {
+    margin-top: 2vh;
+    gap: var(--space-4);
+  }
+
+  .hero-flip-image {
+    margin-top: 1.5rem;
+  }
+
+  .anonymous-ai-section {
+    padding: var(--space-6) 0;
+  }
+
+  .final-cta-section {
+    padding: var(--space-12) 0;
+  }
 }
 
 @media (max-width: 480px) {
@@ -1752,11 +1884,24 @@ p {
   }
   
   .hero-title {
-    font-size: var(--font-size-3xl);
+    font-size: 2rem;
+    line-height: 1.2;
+  }
+  
+  .hero-title-align {
+    font-size: 2rem;
+    line-height: 1.2;
+  }
+
+  .hero-gradient-headline {
+    font-size: 2rem;
+    line-height: 1.2;
   }
   
   .hero-subtitle {
-    font-size: var(--font-size-lg);
+    font-size: 0.95rem;
+    line-height: 1.5;
+    margin-bottom: 1.5em;
   }
   
   .email-input-group {
@@ -1783,7 +1928,12 @@ p {
   }
   
   .meet-venn-title {
-    font-size: var(--font-size-2xl);
+    font-size: var(--font-size-xl);
+    line-height: 1.3;
+    font-weight: var(--font-weight-bold);
+    font-family: 'Outfit', sans-serif;
+    text-align: center;
+    margin-bottom: var(--space-4);
   }
   
   .transforms-title {
@@ -1808,7 +1958,7 @@ p {
   }
   
   .final-cta-title {
-    font-size: var(--font-size-3xl);
+    font-size: var(--font-size-2xl);
   }
   
   .blog-title {
@@ -1822,6 +1972,93 @@ p {
   .post-meta-large {
     flex-direction: column;
     gap: var(--space-2);
+  }
+
+  /* Extra small mobile improvements */
+  .anonymous-ai-headline {
+    font-size: var(--font-size-xl);
+    line-height: 1.3;
+  }
+
+  .anonymous-ai-subheadline {
+    font-size: var(--font-size-base);
+    line-height: 1.5;
+  }
+
+  .meet-venn-description {
+    font-size: var(--font-size-base);
+    line-height: 1.5;
+  }
+
+  .btn {
+    font-size: 0.9rem;
+    padding: 0.6rem 1.2rem;
+  }
+
+  .btn-accent {
+    font-size: 0.9rem;
+    padding: 0.6rem 1.2rem;
+  }
+
+  .container {
+    padding: 0 var(--space-2);
+  }
+
+  .anonymous-ai-section {
+    padding: var(--space-6) 0;
+  }
+
+  .integration-logos {
+    gap: var(--space-3);
+  }
+
+  .integration-logos img {
+    height: 20px;
+  }
+}
+
+/* Additional responsive breakpoint for very small screens */
+@media (max-width: 360px) {
+  .hero-title {
+    font-size: 1.75rem;
+    line-height: 1.2;
+  }
+  
+  .hero-title-align {
+    font-size: 1.75rem;
+    line-height: 1.2;
+  }
+
+  .hero-gradient-headline {
+    font-size: 1.75rem;
+    line-height: 1.2;
+  }
+  
+  .hero-subtitle {
+    font-size: 0.9rem;
+    line-height: 1.5;
+  }
+
+  .anonymous-ai-headline {
+    font-size: var(--font-size-lg);
+  }
+
+  .meet-venn-title {
+    font-size: var(--font-size-lg);
+  }
+
+  .final-cta-title {
+    font-size: var(--font-size-lg);
+  }
+
+  .btn {
+    font-size: 0.85rem;
+    padding: 0.5rem 1rem;
+  }
+
+  .btn-accent {
+    font-size: 0.85rem;
+    padding: 0.5rem 1rem;
   }
 }
 
@@ -2111,17 +2348,18 @@ b, strong, .font-bold {
 .hero-highlight {
   position: relative;
   color: #23221F;
-  font-weight: 400;
-  padding: 5px 0.4em;
-  border-radius: 12px;
+  font-weight: 600;
+  padding: 0.08em 0.5em;
+  border-radius: 2em;
   display: inline-block;
-  overflow: hidden;
+  overflow: visible;
   background: none;
   z-index: 1;
   vertical-align: middle;
   font-size: inherit;
   line-height: inherit;
   font-family: inherit;
+  transition: color 0.2s;
 }
 
 .hero-highlight::before {
@@ -2131,8 +2369,8 @@ b, strong, .font-bold {
   top: 0;
   height: 100%;
   width: 0%;
-  background: #FF9482;
-  border-radius: 12px;
+  background: rgba(255, 125, 97, 0.5);
+  border-radius: 2em;
   z-index: 0;
   transition: width 1.2s cubic-bezier(0.77, 0, 0.175, 1);
 }
@@ -2142,8 +2380,7 @@ b, strong, .font-bold {
 }
 
 .hero-highlight.animated {
-  color: #fff;
-  transition: color 0.2s;
+  color: #23221F;
 }
 
 .hero-highlight-text {
