@@ -7,7 +7,12 @@
 						<img src="/hoogly-logo.png" alt="Hoogly Logo" class="logo-img" style="height: 40px; width: auto;" />
 					</a>
 				</div>
-				<ul class="nav-links">
+				<button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle navigation menu">
+					<span class="hamburger-line"></span>
+					<span class="hamburger-line"></span>
+					<span class="hamburger-line"></span>
+				</button>
+				<ul class="nav-links" id="navLinks">
 					<li><a href="/blog" class="nav-link">Blog</a></li>
 					<li><a href="/pricing" class="nav-link">Pricing</a></li>
 					<li><a href="/about" class="nav-link">About Us</a></li>
@@ -29,5 +34,36 @@
 			navbar.classList.remove('navbar-solid');
 			navbar.classList.add('navbar-transparent');
 		}
+	});
+
+	// Mobile menu toggle functionality
+	document.addEventListener('DOMContentLoaded', function() {
+		const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+		const navLinks = document.getElementById('navLinks');
+		const navbar = document.getElementById('navbar');
+
+		mobileMenuToggle.addEventListener('click', function() {
+			navLinks.classList.toggle('nav-links-open');
+			mobileMenuToggle.classList.toggle('mobile-menu-toggle-open');
+			navbar.classList.toggle('navbar-mobile-open');
+		});
+
+		// Close mobile menu when clicking on a link
+		navLinks.addEventListener('click', function(e) {
+			if (e.target.tagName === 'A') {
+				navLinks.classList.remove('nav-links-open');
+				mobileMenuToggle.classList.remove('mobile-menu-toggle-open');
+				navbar.classList.remove('navbar-mobile-open');
+			}
+		});
+
+		// Close mobile menu when clicking outside
+		document.addEventListener('click', function(e) {
+			if (!navbar.contains(e.target)) {
+				navLinks.classList.remove('nav-links-open');
+				mobileMenuToggle.classList.remove('mobile-menu-toggle-open');
+				navbar.classList.remove('navbar-mobile-open');
+			}
+		});
 	});
 </script> 
