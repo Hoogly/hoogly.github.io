@@ -42,8 +42,7 @@
 		const navLinks = document.getElementById('navLinks');
 		const navbar = document.getElementById('navbar');
 
-		mobileMenuToggle.addEventListener('click', function(e) {
-			e.stopPropagation(); // Prevent bubbling to document
+		mobileMenuToggle.addEventListener('click', function() {
 			navLinks.classList.toggle('nav-links-open');
 			mobileMenuToggle.classList.toggle('mobile-menu-toggle-open');
 			navbar.classList.toggle('navbar-mobile-open');
@@ -58,9 +57,9 @@
 			}
 		});
 
-		// Only close if clicking outside navLinks and navbar
+		// Close mobile menu when clicking outside
 		document.addEventListener('click', function(e) {
-			if (!navLinks.contains(e.target) && !mobileMenuToggle.contains(e.target)) {
+			if (!navbar.contains(e.target)) {
 				navLinks.classList.remove('nav-links-open');
 				mobileMenuToggle.classList.remove('mobile-menu-toggle-open');
 				navbar.classList.remove('navbar-mobile-open');

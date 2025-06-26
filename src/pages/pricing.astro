@@ -7,74 +7,101 @@ import Layout from '../layouts/Layout.astro';
 	description="Pricing plans for Hoogly's AI-powered employee engagement platform."
 	type="website"
 >
-	<section style="padding: 0;">
+	<section style="padding: 0; font-family: 'Outfit', sans-serif;">
 		<div style="text-align: center; margin-top: 2.5rem; margin-bottom: 0.5rem;">
-			<h1 style="font-size: 2.1rem; font-weight: 700; color: #222; font-family: 'Outfit', var(--font-family-heading); margin: 0 0 2.5rem 0; line-height: 1.18;">
-				<span style="background: linear-gradient(90deg, #7c6cf6 0%, #4f46e5 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; text-fill-color: transparent;">Start building culture</span>, don't just measure it.<br>
-				<span style="display: inline-block; margin-top: 0.3em; color: #222; background: none; -webkit-text-fill-color: initial; text-fill-color: initial;">Start free.</span>
+			<h1 style="font-size: 2.1rem; font-weight: 700; color: #222; font-family: 'Outfit', var(--font-family-heading); margin: 0 0 2.5rem 0; line-height: 1.5;">
+				<span style="font-family: 'Outfit', sans-serif; font-weight: 400;">Start building culture,</span><span style="font-family: 'Outfit', sans-serif; font-weight: 400;"> don't just measure it.</span><br>
+				<span class="hero-highlight"><span class="hero-highlight-text">Start free.</span></span>
 			</h1>
 		</div>
 		<div style="height: 2.5rem;"></div>
-		<div class="container" style="max-width: 1200px; margin: 0 auto; padding: 0;">
-			<div style="display: flex; flex-wrap: wrap; gap: 0; justify-content: center; align-items: stretch; margin-top: 3rem; margin-bottom: 3rem;">
+		<div class="container" style="max-width: 1200px; margin: 0 auto; padding: 0; margin-top: 4.5rem;">
+			<div class="pricing-columns" style="display: flex; gap: 1.2rem; justify-content: center; align-items: stretch; margin-top: 1.5rem; margin-bottom: 1.5rem;">
 				<!-- Free Starter Card -->
-				<div style="flex: 1 1 340px; max-width: 370px; background: #f6f5f2; border-radius: 1.5rem 0 0 1.5rem; box-shadow: none; padding: 2.5rem 2.5rem 2.5rem 2.5rem; display: flex; flex-direction: column; align-items: flex-start; min-width: 300px; border: none;">
-					<span style="background: #000; color: #fff; font-size: 0.95rem; font-weight: 600; border-radius: 999px; padding: 0.25em 1.1em; margin-bottom: 2rem; letter-spacing: 0.02em;">FREE STARTER</span>
-					<h2 style="font-family: 'Outfit', var(--font-family-heading); font-size: 2.5rem; font-weight: 700; margin-bottom: 0.5rem;">Free</h2>
-					<div style="font-size: 1.15rem; color: #444; margin-bottom: 2.5rem;">Perfect pilot for one team (≤50 people)</div>
-					<a href="#" class="btn" style="width: 100%; margin: 2rem 0 2.5rem 0; color: #222; border: 1.5px solid #e5e2dd; font-weight: 600; font-size: 1.1rem; border-radius: 2rem; display: flex; align-items: center; justify-content: center; gap: 0.5em; padding:">Get Started <span style="font-size: 1.2em;">→</span></a>
+				<div class="pricing-card pricing-card-free animate-in" style="flex: 1 1 340px; max-width: 370px; background: #f6f5f2; border-radius: 1.5rem; box-shadow: none; padding: 2.5rem; display: flex; flex-direction: column; align-items: flex-start; min-width: 300px; border: none;">
+					<span style="color: #222; font-size: 0.95rem; font-weight: 600; border-radius: 999px; padding: 0.25em 1.1em; border: 1.5px solid #222; margin-bottom: 2rem; letter-spacing: 0.02em;">FREE STARTER</span>
+					<h2 style="font-family: 'Outfit', var(--font-family-heading); font-size: 2.5rem; font-weight: 700; color: #222; margin-bottom: 0.5rem;">Free</h2>
+					<div style="font-size: 1.15rem; color: #444; margin-bottom: 2.5rem; line-height: 1.5;">Perfect pilot for one team (≤50 people)</div>
+					<a href="#" class="btn btn-accent" style="margin: 2rem 0 2.5rem 0; padding: 0.5rem 1rem;">Get Started <span style="font-size: 1.2em;">&nbsp;→</span></a>
 					<div style="width: 100%;">
-						<div style="font-weight: 600; margin-bottom: 1.5rem; font-size: 1.1rem;">Offer includes</div>
+						<div style="font-weight: 400; margin-bottom: 1.5rem; font-size: 1.1rem;">Offer includes:</div>
 						<ul style="list-style: none; padding: 0; margin: 0; color: #222; font-size: 1.08rem;">
-							<li style="display: flex; align-items: flex-start; gap: 0.7em; margin-bottom: 0.7em;"><svg width="18" height="18" fill="none" viewBox="0 0 20 20"><circle cx="10" cy="10" r="10" fill="#888"/><path d="M6 10.5l2.5 2L14 7.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>1 Pulse survey + 1 AI summary</li>
-							<li style="display: flex; align-items: flex-start; gap: 0.7em; margin-bottom: 0.7em;"><svg width="18" height="18" fill="none" viewBox="0 0 20 20"><circle cx="10" cy="10" r="10" fill="#888"/><path d="M6 10.5l2.5 2L14 7.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>1,000 AI credits for Venn AI Coach</li>
-							<li style="display: flex; align-items: flex-start; gap: 0.7em; margin-bottom: 0.7em;"><svg width="18" height="18" fill="none" viewBox="0 0 20 20"><circle cx="10" cy="10" r="10" fill="#888"/><path d="M6 10.5l2.5 2L14 7.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Slack / Teams integration & SSO</li>
+							<li style="display: flex; align-items: center; gap: 0.7em; margin-bottom: 0.7em;"><span style="display: flex; align-items: center; justify-content: center; width: 24px; height: 24px; border-radius: 50%; background: #d6d4fa;"><svg width="16" height="16" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="10" cy="10" r="10" fill="#d6d4fa"/><path d="M6 10.5L9 13.5L14 8.5" stroke="#23221F" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Company workspace</li>
+							<li style="display: flex; align-items: center; gap: 0.7em; margin-bottom: 0.7em;"><span style="display: flex; align-items: center; justify-content: center; width: 24px; height: 24px; border-radius: 50%; background: #d6d4fa;"><svg width="16" height="16" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="10" cy="10" r="10" fill="#d6d4fa"/><path d="M6 10.5L9 13.5L14 8.5" stroke="#23221F" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Team directory</li>
+							<li style="display: flex; align-items: center; gap: 0.7em; margin-bottom: 0.7em;"><span style="display: flex; align-items: center; justify-content: center; width: 24px; height: 24px; border-radius: 50%; background: #d6d4fa;"><svg width="16" height="16" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="10" cy="10" r="10" fill="#d6d4fa"/><path d="M6 10.5L9 13.5L14 8.5" stroke="#23221F" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Unlimited Checkins</li>
+							<li style="display: flex; align-items: center; gap: 0.7em; margin-bottom: 0.7em;"><span style="display: flex; align-items: center; justify-content: center; width: 24px; height: 24px; border-radius: 50%; background: #d6d4fa;"><svg width="16" height="16" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="10" cy="10" r="10" fill="#d6d4fa"/><path d="M6 10.5L9 13.5L14 8.5" stroke="#23221F" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Moments: Birthdays</li>
+							<li style="display: flex; align-items: center; gap: 0.7em; margin-bottom: 0.7em;"><span style="display: flex; align-items: center; justify-content: center; width: 24px; height: 24px; border-radius: 50%; background: #d6d4fa;"><svg width="16" height="16" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="10" cy="10" r="10" fill="#d6d4fa"/><path d="M6 10.5L9 13.5L14 8.5" stroke="#23221F" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Profiles</li>
+							<li style="display: flex; align-items: center; gap: 0.7em; margin-bottom: 0.7em;"><span style="display: flex; align-items: center; justify-content: center; width: 24px; height: 24px; border-radius: 50%; background: #d6d4fa;"><svg width="16" height="16" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="10" cy="10" r="10" fill="#d6d4fa"/><path d="M6 10.5L9 13.5L14 8.5" stroke="#23221F" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Slack integrations</li>
+							<li style="display: flex; align-items: center; gap: 0.7em; margin-bottom: 0.7em;"><span style="display: flex; align-items: center; justify-content: center; width: 24px; height: 24px; border-radius: 50%; background: #d6d4fa;"><svg width="16" height="16" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="10" cy="10" r="10" fill="#d6d4fa"/><path d="M6 10.5L9 13.5L14 8.5" stroke="#23221F" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Emergency contact</li>
+							<li style="display: flex; align-items: center; gap: 0.7em; margin-bottom: 0.7em;"><span style="display: flex; align-items: center; justify-content: center; width: 24px; height: 24px; border-radius: 50%; background: #d6d4fa;"><svg width="16" height="16" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="10" cy="10" r="10" fill="#d6d4fa"/><path d="M6 10.5L9 13.5L14 8.5" stroke="#23221F" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Knowledge Labs</li>
+							<li style="display: flex; align-items: center; gap: 0.7em; margin-bottom: 0.7em;"><span style="display: flex; align-items: center; justify-content: center; width: 24px; height: 24px; border-radius: 50%; background: #d6d4fa;"><svg width="16" height="16" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="10" cy="10" r="10" fill="#d6d4fa"/><path d="M6 10.5L9 13.5L14 8.5" stroke="#23221F" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Customer Support</li>
+							<li style="display: flex; align-items: center; gap: 0.7em; margin-bottom: 0.7em;"><span style="display: flex; align-items: center; justify-content: center; width: 24px; height: 24px; border-radius: 50%; background: #d6d4fa;"><svg width="16" height="16" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="10" cy="10" r="10" fill="#d6d4fa"/><path d="M6 10.5L9 13.5L14 8.5" stroke="#23221F" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>AI-powered wellbeing coach</li>
 						</ul>
 					</div>
 				</div>
 				<!-- Standard Card -->
-				<div style="flex: 1 1 370px; max-width: 400px; background: #e6e1fa; border-radius: 0; box-shadow: none; padding: 2.5rem 2.5rem 2.5rem 2.5rem; display: flex; flex-direction: column; align-items: flex-start; min-width: 320px; position: relative; border: none; z-index: 2;">
-					<div style="position: absolute; top: -1.1rem; left: 0; width: 100%;">
-						<div style="background: #edeafd; border-radius: 1.5rem 1.5rem 0 0; padding: 0.7rem 2rem 0.7rem 2rem; font-size: 1.05rem; font-weight: 600; color: #222; text-align: left; box-shadow: none; letter-spacing: 0.01em;">MOST POPULAR</div>
+				<div class="pricing-card pricing-card-standard animate-in" style="flex: 1 1 370px; max-width: 400px; background: #e6e1fa; border-radius: 0 0 1.5rem 1.5rem; box-shadow: none; padding: 2.5rem; display: flex; flex-direction: column; align-items: flex-start; min-width: 320px; min-height: 100%; position: relative; border: none; z-index: 2; margin-top: -2.5rem;">
+					<div style="position: absolute; top: -2.5rem; left: 0; width: 100%;">
+						<div style="background: #edeafd; border-radius: 1.5rem 1.5rem 0 0; padding: 0.7rem 2rem 0.7rem 2rem; font-size: 1.05rem; font-weight: 600; color: #222; text-align: center; box-shadow: none; letter-spacing: 0.01em; width: 100%;">MOST POPULAR</div>
 					</div>
-					<div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 2rem;">
-						<span style="color: #4f46e5; font-size: 0.95rem; font-weight: 600; border-radius: 999px; padding: 0.25em 1.1em; border: 1.5px solid #8b5cf6;">STANDARD</span>
+					<div style="display: flex; align-items: center; justify-content: space-between; width: 100%; margin-bottom: 2rem;">
+						<span style="color: #222; font-size: 0.95rem; font-weight: 600; border-radius: 999px; padding: 0.25em 1.1em; border: 1.5px solid #222; letter-spacing: 0.02em;">STANDARD</span>
+						<div id="currency-toggle" style="display: flex; align-items: center; gap: 0.4em;">
+							<div id="currency-switch" style="background: #c7c3ec; border-radius: 999px; width: 44px; height: 28px; display: flex; align-items: center; position: relative; cursor: pointer; transition: background 0.2s;">
+								<div id="currency-knob" style="width: 20px; height: 20px; background: #fff; border-radius: 50%; position: absolute; left: 4px; top: 4px; box-shadow: 0 1px 4px #bbb; transition: left 0.25s;"></div>
+							</div>
+							<div id="currency-usd" style="display: flex; align-items: center; gap: 0.4em; font-size: 1.35rem; font-weight: 400; cursor: pointer; color: #888;">
+								<span>USD</span>
+							</div>
+						</div>
 					</div>
-					<div style="display: flex; flex-direction: column; align-items: flex-start; gap: 0.2rem; margin-bottom: 2.5rem;">
-						<span style="font-family: 'Outfit', var(--font-family-heading); font-size: 2.5rem; font-weight: 700; color: #222;">A$6<span style="font-size: 1.1rem; color: #444; font-weight: 400;">/employee/month</span> <span style="font-size: 1.1rem; color: #888; font-weight: 400;">(~US$4)</span></span>
+					<h2 id="standard-price" style="font-family: 'Outfit', var(--font-family-heading); font-size: 2.5rem; font-weight: 700; color: #222; margin-bottom: 0.5rem;">
+						AUD $6<span style="font-size: 1.1rem; color: #444; font-weight: 400;">/employee</span><span style="font-size: 1.1rem; color: #444; font-weight: 400;">/month</span>
+					</h2>
+					<div style="font-size: 1.1rem; color: #444; line-height: 1.5; margin-bottom: 1.5rem;">Ideal for companies of 50–500 employees</div>
+					<div style="display: flex; flex-direction: column; align-items: flex-start; gap: 0.2rem; margin-bottom: 1rem;">
+						<a href="#" class="btn btn-accent" style="margin: 2rem 0 0.5rem 0; padding: 0.5rem 1rem;">Try for Free <span style="font-size: 1.2em;">&nbsp;→</span></a>
+						<div style="font-size: 0.95em; color: #888; margin: 0 0 2rem 0; text-align: left;">no credit card required</div>
 					</div>
-					<div style="font-size: 1.1rem; color: #444; margin-bottom: 2.5rem;">Ideal for 50–500 employees</div>
-					<a href="#" class="btn" style="width: 100%; margin: 2rem 0 2.5rem 0; color: #222; border: 1.5px solid #e5e2dd; font-weight: 600; font-size: 1.1rem; border-radius: 2rem; display: flex; align-items: center; justify-content: center; gap: 0.5em; padding:">Try for Free <span style="font-size: 0.9em; font-weight: 400; color: #fff;">no credit card required</span> <span style="font-size: 1.2em;">→</span></a>
 					<div style="width: 100%;">
-						<div style="font-weight: 600; margin-bottom: 1.5rem; font-size: 1.1rem;">Offer includes<br><span style="font-weight: 700;">Everything in FREE, plus:</span></div>
+						<div style="font-weight: 400; margin-bottom: 1.5rem; font-size: 1.1rem;">Offer includes:<br><span style="font-weight: 700;">Everything in FREE, plus:</span></div>
 						<ul style="list-style: none; padding: 0; margin: 0; color: #222; font-size: 1.08rem;">
-							<li style="display: flex; align-items: flex-start; gap: 0.7em; margin-bottom: 0.7em;"><svg width="18" height="18" fill="none" viewBox="0 0 20 20"><circle cx="10" cy="10" r="10" fill="#4f46e5"/><path d="M6 10.5l2.5 2L14 7.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Unlimited Engagement surveys with AI</li>
-							<li style="display: flex; align-items: flex-start; gap: 0.7em; margin-bottom: 0.7em;"><svg width="18" height="18" fill="none" viewBox="0 0 20 20"><circle cx="10" cy="10" r="10" fill="#4f46e5"/><path d="M6 10.5l2.5 2L14 7.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Instant AI‑powered survey summaries</li>
-							<li style="display: flex; align-items: flex-start; gap: 0.7em; margin-bottom: 0.7em;"><svg width="18" height="18" fill="none" viewBox="0 0 20 20"><circle cx="10" cy="10" r="10" fill="#4f46e5"/><path d="M6 10.5l2.5 2L14 7.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>30 AI credits per employee per year (pooled)</li>
-							<li style="display: flex; align-items: flex-start; gap: 0.7em; margin-bottom: 0.7em;"><svg width="18" height="18" fill="none" viewBox="0 0 20 20"><circle cx="10" cy="10" r="10" fill="#4f46e5"/><path d="M6 10.5l2.5 2L14 7.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Employee & manager dashboards</li>
-							<li style="display: flex; align-items: flex-start; gap: 0.7em; margin-bottom: 0.7em;"><svg width="18" height="18" fill="none" viewBox="0 0 20 20"><circle cx="10" cy="10" r="10" fill="#4f46e5"/><path d="M6 10.5l2.5 2L14 7.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Email support</li>
-							<li style="display: flex; align-items: flex-start; gap: 0.7em; margin-bottom: 0.7em;"><svg width="18" height="18" fill="none" viewBox="0 0 20 20"><circle cx="10" cy="10" r="10" fill="#4f46e5"/><path d="M6 10.5l2.5 2L14 7.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Optional: Psychosocial Hazard Report (A$500)</li>
-							<li style="display: flex; align-items: flex-start; gap: 0.7em; margin-bottom: 0.7em;"><svg width="18" height="18" fill="none" viewBox="0 0 20 20"><circle cx="10" cy="10" r="10" fill="#4f46e5"/><path d="M6 10.5l2.5 2L14 7.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>GDPR-ready data protection</li>
-							<li style="display: flex; align-items: flex-start; gap: 0.7em; margin-bottom: 0.7em;"><svg width="18" height="18" fill="none" viewBox="0 0 20 20"><circle cx="10" cy="10" r="10" fill="#4f46e5"/><path d="M6 10.5l2.5 2L14 7.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>ISO‑aligned data protection</li>
+							<li style="display: flex; align-items: center; gap: 0.7em; margin-bottom: 0.7em;"><span style="display: flex; align-items: center; justify-content: center; width: 24px; height: 24px; border-radius: 50%; background: #d6d4fa;"><svg width="16" height="16" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="10" cy="10" r="10" fill="#d6d4fa"/><path d="M6 10.5L9 13.5L14 8.5" stroke="#23221F" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Unlimited checkins</li>
+							<li style="display: flex; align-items: center; gap: 0.7em; margin-bottom: 0.7em;"><span style="display: flex; align-items: center; justify-content: center; width: 24px; height: 24px; border-radius: 50%; background: #d6d4fa;"><svg width="16" height="16" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="10" cy="10" r="10" fill="#d6d4fa"/><path d="M6 10.5L9 13.5L14 8.5" stroke="#23221F" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>DIY Huddle questions</li>
+							<li style="display: flex; align-items: center; gap: 0.7em; margin-bottom: 0.7em;"><span style="display: flex; align-items: center; justify-content: center; width: 24px; height: 24px; border-radius: 50%; background: #d6d4fa;"><svg width="16" height="16" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="10" cy="10" r="10" fill="#d6d4fa"/><path d="M6 10.5L9 13.5L14 8.5" stroke="#23221F" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Unlimited AI-powered wellbeing coach</li>
+							<li style="display: flex; align-items: center; gap: 0.7em; margin-bottom: 0.7em;"><span style="display: flex; align-items: center; justify-content: center; width: 24px; height: 24px; border-radius: 50%; background: #d6d4fa;"><svg width="16" height="16" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="10" cy="10" r="10" fill="#d6d4fa"/><path d="M6 10.5L9 13.5L14 8.5" stroke="#23221F" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Moments: Birthdays, Work Anniversaries, Onboarding</li>
+							<li style="display: flex; align-items: center; gap: 0.7em; margin-bottom: 0.7em;"><span style="display: flex; align-items: center; justify-content: center; width: 24px; height: 24px; border-radius: 50%; background: #d6d4fa;"><svg width="16" height="16" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="10" cy="10" r="10" fill="#d6d4fa"/><path d="M6 10.5L9 13.5L14 8.5" stroke="#23221F" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Advanced Profiles</li>
+							<li style="display: flex; align-items: center; gap: 0.7em; margin-bottom: 0.7em;"><span style="display: flex; align-items: center; justify-content: center; width: 24px; height: 24px; border-radius: 50%; background: #d6d4fa;"><svg width="16" height="16" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="10" cy="10" r="10" fill="#d6d4fa"/><path d="M6 10.5L9 13.5L14 8.5" stroke="#23221F" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Personalised reporting</li>
+							<li style="display: flex; align-items: center; gap: 0.7em; margin-bottom: 0.7em;"><span style="display: flex; align-items: center; justify-content: center; width: 24px; height: 24px; border-radius: 50%; background: #d6d4fa;"><svg width="16" height="16" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="10" cy="10" r="10" fill="#d6d4fa"/><path d="M6 10.5L9 13.5L14 8.5" stroke="#23221F" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Customisable Hoogly Time</li>
+							<li style="display: flex; align-items: center; gap: 0.7em; margin-bottom: 0.7em;"><span style="display: flex; align-items: center; justify-content: center; width: 24px; height: 24px; border-radius: 50%; background: #d6d4fa;"><svg width="16" height="16" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="10" cy="10" r="10" fill="#d6d4fa"/><path d="M6 10.5L9 13.5L14 8.5" stroke="#23221F" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Team wellbeing Index</li>
+							<li style="display: flex; align-items: center; gap: 0.7em; margin-bottom: 0.7em;"><span style="display: flex; align-items: center; justify-content: center; width: 24px; height: 24px; border-radius: 50%; background: #d6d4fa;"><svg width="16" height="16" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="10" cy="10" r="10" fill="#d6d4fa"/><path d="M6 10.5L9 13.5L14 8.5" stroke="#23221F" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Moderation tools / Admin controls</li>
+							<li style="display: flex; align-items: center; gap: 0.7em; margin-bottom: 0.7em;"><span style="display: flex; align-items: center; justify-content: center; width: 24px; height: 24px; border-radius: 50%; background: #d6d4fa;"><svg width="16" height="16" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="10" cy="10" r="10" fill="#d6d4fa"/><path d="M6 10.5L9 13.5L14 8.5" stroke="#23221F" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Company level insights & Usage report</li>
+							<li style="display: flex; align-items: center; gap: 0.7em; margin-bottom: 0.7em;"><span style="display: flex; align-items: center; justify-content: center; width: 24px; height: 24px; border-radius: 50%; background: #d6d4fa;"><svg width="16" height="16" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="10" cy="10" r="10" fill="#d6d4fa"/><path d="M6 10.5L9 13.5L14 8.5" stroke="#23221F" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Relational Intelligence</li>
 						</ul>
 					</div>
 				</div>
 				<!-- Advanced Card -->
-				<div style="flex: 1 1 340px; max-width: 370px; background: #f6f5f2; border-radius: 0 1.5rem 1.5rem 0; box-shadow: none; padding: 2.5rem 2.5rem 2.5rem 2.5rem; display: flex; flex-direction: column; align-items: flex-start; min-width: 300px; border: none;">
+				<div class="pricing-card pricing-card-advanced animate-in" style="flex: 1 1 340px; max-width: 370px; background: #f6f5f2; border-radius: 1.5rem; box-shadow: none; padding: 2.5rem; display: flex; flex-direction: column; align-items: flex-start; min-width: 300px; border: none;">
 					<span style="color: #222; font-size: 0.95rem; font-weight: 600; border-radius: 999px; padding: 0.25em 1.1em; border: 1.5px solid #222; margin-bottom: 2rem; letter-spacing: 0.02em;">ADVANCED</span>
-					<h2 style="font-family: 'Outfit', var(--font-family-heading); font-size: 2.5rem; font-weight: 700; margin-bottom: 0.5rem;">Advanced</h2>
-					<div style="font-size: 1.15rem; color: #444; margin-bottom: 2.5rem;">Designed for 500+ employees or complex, multi-region orgs</div>
-					<a href="#" class="btn" style="width: 100%; margin: 2rem 0 2.5rem 0; color: #222; border: 1.5px solid #e5e2dd; font-weight: 600; font-size: 1.1rem; border-radius: 2rem; display: flex; align-items: center; justify-content: center; gap: 0.5em; padding:">Contact Us <span style="font-size: 1.2em;">→</span></a>
+					<h2 style="font-family: 'Outfit', var(--font-family-heading); font-size: 2.5rem; font-weight: 700; margin-bottom: 0.5rem;">Get in Touch</h2>
+					<div style="font-size: 1.15rem; color: #444; margin-bottom: 2.5rem; line-height: 1.5;">Designed for 500+ employees or complex, multi-region orgs</div>
+					<a href="#" class="btn btn-accent" style="margin: 2rem 0 2.5rem 0; padding: 0.5rem 1rem;">Contact Us <span style="font-size: 1.2em;">&nbsp;→</span></a>
 					<div style="width: 100%;">
-						<div style="font-weight: 600; margin-bottom: 1.5rem; font-size: 1.1rem;">Offer includes<br><span style="font-weight: 700;">Everything in STANDARD, plus:</span></div>
+						<div style="font-weight: 400; margin-bottom: 1.5rem; font-size: 1.1rem;">Offer includes:<br><span style="font-weight: 700;">Everything in STANDARD, plus:</span></div>
 						<ul style="list-style: none; padding: 0; margin: 0; color: #222; font-size: 1.08rem;">
-							<li style="display: flex; align-items: flex-start; gap: 0.7em; margin-bottom: 0.7em;"><svg width="18" height="18" fill="none" viewBox="0 0 20 20"><circle cx="10" cy="10" r="10" fill="#888"/><path d="M6 10.5l2.5 2L14 7.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Custom AI credit scaling or unlimited flat fee</li>
-							<li style="display: flex; align-items: flex-start; gap: 0.7em; margin-bottom: 0.7em;"><svg width="18" height="18" fill="none" viewBox="0 0 20 20"><circle cx="10" cy="10" r="10" fill="#888"/><path d="M6 10.5l2.5 2L14 7.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Multi-language survey & UI localisation</li>
-							<li style="display: flex; align-items: flex-start; gap: 0.7em; margin-bottom: 0.7em;"><svg width="18" height="18" fill="none" viewBox="0 0 20 20"><circle cx="10" cy="10" r="10" fill="#888"/><path d="M6 10.5l2.5 2L14 7.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Custom HRIS mapping & advanced integrations</li>
-							<li style="display: flex; align-items: flex-start; gap: 0.7em; margin-bottom: 0.7em;"><svg width="18" height="18" fill="none" viewBox="0 0 20 20"><circle cx="10" cy="10" r="10" fill="#888"/><path d="M6 10.5l2.5 2L14 7.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>ISO 27001 & regional data residency options</li>
-							<li style="display: flex; align-items: flex-start; gap: 0.7em; margin-bottom: 0.7em;"><svg width="18" height="18" fill="none" viewBox="0 0 20 20"><circle cx="10" cy="10" r="10" fill="#888"/><path d="M6 10.5l2.5 2L14 7.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Psychosocial Hazard Report INCLUDED</li>
-							<li style="display: flex; align-items: flex-start; gap: 0.7em; margin-bottom: 0.7em;"><svg width="18" height="18" fill="none" viewBox="0 0 20 20"><circle cx="10" cy="10" r="10" fill="#888"/><path d="M6 10.5l2.5 2L14 7.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Dedicated Customer Success Manager</li>
-							<li style="display: flex; align-items: flex-start; gap: 0.7em; margin-bottom: 0.7em;"><svg width="18" height="18" fill="none" viewBox="0 0 20 20"><circle cx="10" cy="10" r="10" fill="#888"/><path d="M6 10.5l2.5 2L14 7.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>ROI reviews & advanced reporting</li>
+							<li style="display: flex; align-items: center; gap: 0.7em; margin-bottom: 0.7em;"><span style="display: flex; align-items: center; justify-content: center; width: 24px; height: 24px; border-radius: 50%; background: #d6d4fa;"><svg width="16" height="16" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="10" cy="10" r="10" fill="#d6d4fa"/><path d="M6 10.5L9 13.5L14 8.5" stroke="#23221F" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Employee Resource Groups</li>
+							<li style="display: flex; align-items: center; gap: 0.7em; margin-bottom: 0.7em;"><span style="display: flex; align-items: center; justify-content: center; width: 24px; height: 24px; border-radius: 50%; background: #d6d4fa;"><svg width="16" height="16" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="10" cy="10" r="10" fill="#d6d4fa"/><path d="M6 10.5L9 13.5L14 8.5" stroke="#23221F" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Moment DIY: Celebrate employees</li>
+							<li style="display: flex; align-items: center; gap: 0.7em; margin-bottom: 0.7em;"><span style="display: flex; align-items: center; justify-content: center; width: 24px; height: 24px; border-radius: 50%; background: #d6d4fa;"><svg width="16" height="16" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="10" cy="10" r="10" fill="#d6d4fa"/><path d="M6 10.5L9 13.5L14 8.5" stroke="#23221F" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Events</li>
+							<li style="display: flex; align-items: center; gap: 0.7em; margin-bottom: 0.7em;"><span style="display: flex; align-items: center; justify-content: center; width: 24px; height: 24px; border-radius: 50%; background: #d6d4fa;"><svg width="16" height="16" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="10" cy="10" r="10" fill="#d6d4fa"/><path d="M6 10.5L9 13.5L14 8.5" stroke="#23221F" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Company page</li>
+							<li style="display: flex; align-items: center; gap: 0.7em; margin-bottom: 0.7em;"><span style="display: flex; align-items: center; justify-content: center; width: 24px; height: 24px; border-radius: 50%; background: #d6d4fa;"><svg width="16" height="16" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="10" cy="10" r="10" fill="#d6d4fa"/><path d="M6 10.5L9 13.5L14 8.5" stroke="#23221F" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Company dashboard</li>
+							<li style="display: flex; align-items: center; gap: 0.7em; margin-bottom: 0.7em;"><span style="display: flex; align-items: center; justify-content: center; width: 24px; height: 24px; border-radius: 50%; background: #d6d4fa;"><svg width="16" height="16" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="10" cy="10" r="10" fill="#d6d4fa"/><path d="M6 10.5L9 13.5L14 8.5" stroke="#23221F" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Multi-tenanted sites</li>
+							<li style="display: flex; align-items: center; gap: 0.7em; margin-bottom: 0.7em;"><span style="display: flex; align-items: center; justify-content: center; width: 24px; height: 24px; border-radius: 50%; background: #d6d4fa;"><svg width="16" height="16" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="10" cy="10" r="10" fill="#d6d4fa"/><path d="M6 10.5L9 13.5L14 8.5" stroke="#23221F" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Multi-lingual experience</li>
+							<li style="display: flex; align-items: center; gap: 0.7em; margin-bottom: 0.7em;"><span style="display: flex; align-items: center; justify-content: center; width: 24px; height: 24px; border-radius: 50%; background: #d6d4fa;"><svg width="16" height="16" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="10" cy="10" r="10" fill="#d6d4fa"/><path d="M6 10.5L9 13.5L14 8.5" stroke="#23221F" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Dedicated culture coach</li>
+							<li style="display: flex; align-items: center; gap: 0.7em; margin-bottom: 0.7em;"><span style="display: flex; align-items: center; justify-content: center; width: 24px; height: 24px; border-radius: 50%; background: #d6d4fa;"><svg width="16" height="16" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="10" cy="10" r="10" fill="#d6d4fa"/><path d="M6 10.5L9 13.5L14 8.5" stroke="#23221F" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>ISO 27001</li>
+							<li style="display: flex; align-items: center; gap: 0.7em; margin-bottom: 0.7em;"><span style="display: flex; align-items: center; justify-content: center; width: 24px; height: 24px; border-radius: 50%; background: #d6d4fa;"><svg width="16" height="16" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="10" cy="10" r="10" fill="#d6d4fa"/><path d="M6 10.5L9 13.5L14 8.5" stroke="#23221F" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>SOC 2 compliance</li>
+							<li style="display: flex; align-items: center; gap: 0.7em; margin-bottom: 0.7em;"><span style="display: flex; align-items: center; justify-content: center; width: 24px; height: 24px; border-radius: 50%; background: #d6d4fa;"><svg width="16" height="16" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="10" cy="10" r="10" fill="#d6d4fa"/><path d="M6 10.5L9 13.5L14 8.5" stroke="#23221F" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Single sign on</li>
+							<li style="display: flex; align-items: center; gap: 0.7em; margin-bottom: 0.7em;"><span style="display: flex; align-items: center; justify-content: center; width: 24px; height: 24px; border-radius: 50%; background: #d6d4fa;"><svg width="16" height="16" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="10" cy="10" r="10" fill="#d6d4fa"/><path d="M6 10.5L9 13.5L14 8.5" stroke="#23221F" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>HRIS integration</li>
+							<li style="display: flex; align-items: center; gap: 0.7em; margin-bottom: 0.7em;"><span style="display: flex; align-items: center; justify-content: center; width: 24px; height: 24px; border-radius: 50%; background: #d6d4fa;"><svg width="16" height="16" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="10" cy="10" r="10" fill="#d6d4fa"/><path d="M6 10.5L9 13.5L14 8.5" stroke="#23221F" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>EAP integration</li>
 						</ul>
 					</div>
 				</div>
@@ -83,3 +110,70 @@ import Layout from '../layouts/Layout.astro';
 	</section>
 	<div style="height: 3.5rem;"></div>
 </Layout> 
+
+<style>
+.animate-in {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 1.2s cubic-bezier(0.77,0,0.175,1), transform 1.2s cubic-bezier(0.77,0,0.175,1);
+}
+.animate-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+</style>
+
+<script>
+window.addEventListener('DOMContentLoaded', function() {
+  // Animate .hero-highlight on scroll into view
+  document.querySelectorAll('.hero-highlight').forEach(highlight => {
+    const observer = new window.IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          highlight.classList.add('animated');
+          observer.disconnect();
+        }
+      });
+    }, { threshold: 0.3 });
+    observer.observe(highlight);
+  });
+
+  // Animate pricing cards in on viewport
+  document.querySelectorAll('.pricing-card.animate-in').forEach(card => {
+    const observer = new window.IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          card.classList.add('visible');
+          observer.disconnect();
+        }
+      });
+    }, { threshold: 0 });
+    observer.observe(card);
+  });
+});
+</script>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  let isAUD = true;
+  const toggle = document.getElementById('currency-switch');
+  const knob = document.getElementById('currency-knob');
+  const price = document.getElementById('standard-price');
+  const usd = document.getElementById('currency-usd');
+
+  function setCurrency(audActive) {
+    isAUD = audActive;
+    if (isAUD) {
+      price.innerHTML = `AUD $6<span style=\"font-size: 1.1rem; color: #444; font-weight: 400;\">/employee</span><span style=\"font-size: 1.1rem; color: #444; font-weight: 400;\">/month</span>`;
+      knob.style.left = '4px';
+      usd.style.color = '#888';
+    } else {
+      price.innerHTML = `USD $4<span style=\"font-size: 1.1rem; color: #444; font-weight: 400;\">/employee</span><span style=\"font-size: 1.1rem; color: #444; font-weight: 400;\">/month</span>`;
+      knob.style.left = '20px';
+      usd.style.color = '#222';
+    }
+  }
+  toggle.addEventListener('click', () => setCurrency(!isAUD));
+  usd.addEventListener('click', () => setCurrency(false));
+});
+</script> 
