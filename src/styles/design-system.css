@@ -447,9 +447,9 @@ p {
 .mobile-menu-toggle {
   display: none;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: space-between;
   width: 30px;
-  height: 30px;
+  height: 21px;
   background: transparent;
   border: none;
   cursor: pointer;
@@ -490,11 +490,11 @@ p {
     right: -100%;
     width: 280px;
     height: 100vh;
-    background: rgba(255, 255, 255, 0.95);
+    background: #fff;
     backdrop-filter: blur(10px);
     flex-direction: column;
     justify-content: flex-start;
-    align-items: flex-start;
+    align-items: center;
     padding: 80px var(--space-6) var(--space-6) var(--space-6);
     gap: var(--space-4);
     transition: right 0.3s ease;
@@ -508,15 +508,16 @@ p {
 
   .nav-links li {
     width: 100%;
+    text-align: center;
   }
 
   .nav-links .nav-link {
     display: block;
     padding: var(--space-3) 0;
     font-size: var(--font-size-lg);
-    font-weight: var(--font-weight-semibold);
-    border-bottom: 1px solid var(--color-neutral-200);
+    font-weight: var(--font-weight-normal);
     width: 100%;
+    text-align: center;
   }
 
   .nav-links .btn {
