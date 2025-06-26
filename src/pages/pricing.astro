@@ -131,6 +131,7 @@ import Layout from '../layouts/Layout.astro';
   .container {
     padding-left: 1rem !important;
     padding-right: 1rem !important;
+    margin-top: 1.5rem !important;
   }
   .pricing-card {
     max-width: 100% !important;
@@ -147,6 +148,9 @@ import Layout from '../layouts/Layout.astro';
     background: #e6e1fa !important;
     min-height: unset !important;
     overflow: visible !important;
+  }
+  .pricing-card-standard > div[style*="position: absolute"] > div {
+    border-radius: 1.5rem !important;
   }
   .pricing-card-standard > div[style*="position: absolute"] {
     position: static !important;
