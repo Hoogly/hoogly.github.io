@@ -1423,7 +1423,6 @@ p {
 }
 
 .footer-bottom {
-  border-top: 1px solid rgba(255,255,255,0.6);
   padding-top: var(--space-8);
   text-align: center;
 }
@@ -1799,6 +1798,29 @@ p {
   .footer-content {
     grid-template-columns: 1fr;
     gap: var(--space-8);
+    text-align: center;
+  }
+  
+  .footer-brand {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .footer-brand .logo {
+    display: flex;
+    justify-content: center;
+    margin-bottom: var(--space-4);
+  }
+
+  .footer-links {
+    grid-template-columns: 1fr;
+    gap: var(--space-6);
+    text-align: center;
+  }
+
+  .footer-section {
     text-align: center;
   }
   
