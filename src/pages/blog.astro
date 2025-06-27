@@ -17,48 +17,218 @@ const sortedPosts = allPosts
 >
     <section class="blog-header" style="background: linear-gradient(135deg, #F6F4FE 0%, #F5E9FA 100%);">
         <div class="container">
-            <h1 class="blog-title"><span class="anonymous-gradient">Blog</span></h1>
-            <p class="blog-subtitle">Latest posts and insights</p>
+            <h1 style="font-size: 2.1rem; font-weight: 700; color: #222; font-family: 'Outfit', sans-serif; margin: 0 0 1rem 0; line-height: 1.5; text-align: center;">
+                <span class="hero-highlight"><span class="hero-highlight-text">Blog</span></span><br>
+                <span style="font-family: 'Outfit', sans-serif; font-weight: 400;">Latest posts and insights</span>
+            </h1>
         </div>
     </section>
 
     <section class="blog-posts">
         <div class="container">
-            <div class="posts-grid">
-                {sortedPosts.map((post) => (
-                    <article class="blog-post-card">
-                        <header class="post-card-header">
-                            <h2 class="post-card-title">
-                                <a href={`/blog/${post.slug}`}>{post.data.title}</a>
-                            </h2>
-                            <div class="post-meta">
-                                <time datetime={post.data.publishDate.toISOString()}>
-                                    {post.data.publishDate.toLocaleDateString('en-US', {
-                                        year: 'numeric',
-                                        month: 'long',
-                                        day: 'numeric'
+            <div class="posts-grid" style="grid-template-columns: repeat(3, 1fr);">
+                {sortedPosts.slice(0, 6).map((post, idx) => (
+                    <a href={`/blog/${post.slug}`} style="text-decoration: none; color: inherit;" key={post.slug}>
+                        <article class="blog-post-card animate-in">
+                            <div class="blog-card-image" style={`background-image: url('${post.data.image || '/images/Blog%20Header.jpg'}')`}></div>
+                            <div class="blog-card-content">
+                                <div class="post-tags post-tags-clamp" style="min-height: 2.5em;">
+                                    {post.data.tags.slice(0, idx === 0 ? 2 : 3).map((tag) => {
+                                        let tagClass = 'post-tag';
+                                        if (tag.toLowerCase() === 'science') tagClass += ' post-tag-science';
+                                        else if (tag.toLowerCase() === 'company') tagClass += ' post-tag-company';
+                                        else if (tag.toLowerCase() === 'workplace wellbeing') tagClass += ' post-tag-wellbeing';
+                                        return <span class={tagClass}>{tag}</span>;
                                     })}
-                                </time>
-                                {post.data.author && (
-                                    <span class="author">by {post.data.author}</span>
-                                )}
+                                </div>
+                                <h2 class="post-card-title">{post.data.title}</h2>
+                                <div class="post-meta">
+                                    <span>{post.data.publishDate.toLocaleDateString('en-US', {
+                                        year: 'numeric',
+                                        month: 'short',
+                                        day: 'numeric'
+                                    })}</span>
+                                    <span style="margin: 0 0.5em;">•</span>
+                                    <span>3 min</span>
+                                </div>
                             </div>
-                        </header>
-                        
-                        <p class="post-description">{post.data.description}</p>
-                        
-                        {post.data.tags && post.data.tags.length > 0 && (
-                            <div class="post-tags">
-                                {post.data.tags.map((tag) => (
-                                    <span class="post-tag">{tag}</span>
-                                ))}
-                            </div>
-                        )}
-                        
-                        <a href={`/blog/${post.slug}`} class="read-more">Read more →</a>
-                    </article>
+                        </article>
+                    </a>
                 ))}
             </div>
         </div>
     </section>
 </Layout> 
+
+<style>
+/* Set Outfit font for all text elements on the blog page */
+.blog-header,
+.blog-posts,
+.blog-post-card,
+.post-card-title,
+.post-card-title a,
+.post-meta,
+.post-meta time,
+.post-meta .author,
+.post-description,
+.post-tags,
+.post-tag,
+.read-more {
+  font-family: 'Outfit', sans-serif !important;
+}
+
+/* Animation styles for blog post cards */
+.animate-in {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 1.2s cubic-bezier(0.77,0,0.175,1), transform 1.2s cubic-bezier(0.77,0,0.175,1);
+}
+.animate-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Blog post card background with opacity and blur */
+.blog-post-card {
+  background: #fff;
+  border-radius: 1.5rem;
+  box-shadow: 0 2px 12px 0 rgba(0,0,0,0.04);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  padding: 0;
+  transition: box-shadow 0.2s, transform 0.2s;
+  min-height: 420px;
+  height: 100%;
+}
+.blog-card-image {
+  width: 100%;
+  height: 240px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  flex-shrink: 0;
+}
+.blog-card-content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 1.5rem 1.5rem 1.2rem 1.5rem;
+  flex: 1 0 0;
+}
+.post-tags {
+  margin-bottom: 0.5rem;
+}
+.post-tag {
+  display: inline-block;
+  font-size: 1rem;
+  font-weight: 500;
+  border-radius: 999px;
+  padding: 0.2em 1em;
+  border: 1.5px solid #23221F;
+  background: #fff;
+  color: #23221F;
+  margin-bottom: 0.5em;
+  text-transform: capitalize;
+}
+.post-tag-science {
+  border-color: #3bb273;
+  background: #e6f7ee;
+  color: #217a4a;
+}
+.post-tag-company {
+  border-color: #ff7d61;
+  background: #ffe6e0;
+  color: #c23c1d;
+}
+.post-tag-wellbeing {
+  border-color: #23221F;
+  background: #fff;
+  color: #23221F;
+}
+.post-card-title {
+  font-size: 1.35rem;
+  font-weight: 600;
+  color: #23221F;
+  margin: 0 0 0.5rem 0;
+  line-height: 1.2;
+}
+.post-card-title a {
+  color: inherit;
+  text-decoration: none;
+}
+.post-meta {
+  font-size: 1rem;
+  color: #444;
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+  margin-top: 0.5rem;
+}
+@media (max-width: 600px) {
+  .blog-card-image {
+    height: 160px;
+  }
+  .blog-card-content {
+    padding: 1rem 1rem 0.8rem 1rem;
+    gap: 8px;
+  }
+  .post-card-title {
+    font-size: 1.1rem;
+  }
+}
+.post-tags-clamp {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5em;
+  overflow: visible;
+  max-height: none;
+}
+
+.posts-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-8);
+  align-items: stretch;
+}
+
+.blog-post-card.animate-in {
+  transition: opacity 1.2s cubic-bezier(0.77,0,0.175,1), transform 1.2s cubic-bezier(0.77,0,0.175,1);
+}
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  // Animate .hero-highlight on scroll into view
+  document.querySelectorAll('.hero-highlight').forEach(highlight => {
+    const observer = new window.IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          highlight.classList.add('animated');
+          observer.disconnect();
+        }
+      });
+    }, { threshold: 0.3 });
+    observer.observe(highlight);
+  });
+
+  // Animate blog post cards in on viewport, one row at a time (3 columns, 400ms row stagger)
+  const cards = document.querySelectorAll('.blog-post-card.animate-in');
+  const COLS = 3;
+  const ROW_STAGGER = 400;
+  cards.forEach((card, i) => {
+    const row = Math.floor(i / COLS);
+    const observer = new window.IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          setTimeout(() => card.classList.add('visible'), row * ROW_STAGGER);
+          observer.disconnect();
+        }
+      });
+    }, { threshold: 0 });
+    observer.observe(card);
+  });
+});
+</script> 
