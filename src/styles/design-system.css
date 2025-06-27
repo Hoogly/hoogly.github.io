@@ -486,7 +486,7 @@ p {
 /* Mobile Navigation Styles */
 @media (max-width: 768px) {
   .mobile-menu-toggle {
-    display: flex;
+    display: flex !important;
   }
 
   .nav-links {
