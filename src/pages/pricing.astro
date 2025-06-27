@@ -46,17 +46,9 @@ import Layout from '../layouts/Layout.astro';
 					</div>
 					<div style="display: flex; align-items: center; justify-content: space-between; width: 100%; margin-bottom: 2rem;">
 						<span style="color: #222; font-size: 0.95rem; font-weight: 600; border-radius: 999px; padding: 0.25em 1.1em; border: 1.5px solid #222; letter-spacing: 0.02em;">STANDARD</span>
-						<div id="currency-toggle" style="display: flex; align-items: center; gap: 0.4em;">
-							<div id="currency-switch" style="background: #c7c3ec; border-radius: 999px; width: 44px; height: 28px; display: flex; align-items: center; position: relative; cursor: pointer; transition: background 0.2s;">
-								<div id="currency-knob" style="width: 20px; height: 20px; background: #fff; border-radius: 50%; position: absolute; left: 4px; top: 4px; box-shadow: 0 1px 4px #bbb; transition: left 0.25s;"></div>
-							</div>
-							<div id="currency-usd" style="display: flex; align-items: center; gap: 0.4em; font-size: 1.35rem; font-weight: 400; cursor: pointer; color: #888;">
-								<span>USD</span>
-							</div>
-						</div>
 					</div>
 					<h2 id="standard-price" style="font-family: 'Outfit', var(--font-family-heading); font-size: 2.5rem; font-weight: 700; color: #222; margin-bottom: 0.5rem;">
-						AUD $6<span style="font-size: 1.1rem; color: #444; font-weight: 400;">/employee</span><span style="font-size: 1.1rem; color: #444; font-weight: 400;">/month</span>
+						AUD $8<span style="font-size: 1.1rem; color: #444; font-weight: 400;">/employee</span><span style="font-size: 1.1rem; color: #444; font-weight: 400;">/month</span>
 					</h2>
 					<div style="font-size: 1.1rem; color: #444; line-height: 1.5; margin-bottom: 1.5rem;">Ideal for companies of 50–500 employees</div>
 					<div style="display: flex; flex-direction: column; align-items: flex-start; gap: 0.2rem; margin-bottom: 1rem;">
@@ -190,30 +182,5 @@ window.addEventListener('DOMContentLoaded', function() {
     }, { threshold: 0 });
     observer.observe(card);
   });
-});
-</script>
-
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-  let isAUD = true;
-  const toggle = document.getElementById('currency-switch');
-  const knob = document.getElementById('currency-knob');
-  const price = document.getElementById('standard-price');
-  const usd = document.getElementById('currency-usd');
-
-  function setCurrency(audActive) {
-    isAUD = audActive;
-    if (isAUD) {
-      price.innerHTML = `AUD $6<span style=\"font-size: 1.1rem; color: #444; font-weight: 400;\">/employee</span><span style=\"font-size: 1.1rem; color: #444; font-weight: 400;\">/month</span>`;
-      knob.style.left = '4px';
-      usd.style.color = '#888';
-    } else {
-      price.innerHTML = `USD $4<span style=\"font-size: 1.1rem; color: #444; font-weight: 400;\">/employee</span><span style=\"font-size: 1.1rem; color: #444; font-weight: 400;\">/month</span>`;
-      knob.style.left = '20px';
-      usd.style.color = '#222';
-    }
-  }
-  toggle.addEventListener('click', () => setCurrency(!isAUD));
-  usd.addEventListener('click', () => setCurrency(false));
 });
 </script> 

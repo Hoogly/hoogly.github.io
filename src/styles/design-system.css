@@ -435,7 +435,7 @@ p {
   color: #23221F;
   text-decoration: none;
   font-weight: var(--font-weight-medium);
-  transition: color var(--transition-base);
+  transition: color var(--transition-base), background-color var(--transition-base);
   font-size: var(--font-size-base);
   position: relative;
   padding: 0.5em 1em;
@@ -443,25 +443,9 @@ p {
   overflow: visible;
 }
 
-.nav-link::before {
-  content: '';
-  position: absolute;
-  left: 0;
-  top: 0;
-  height: 100%;
-  width: 0%;
-  background: rgba(255, 255, 255, 0.4);
-  border-radius: 2em;
-  z-index: -1;
-  transition: width 0.3s ease;
-}
-
-.nav-link:hover::before {
-  width: 100%;
-}
-
 .nav-link:hover {
   color: #23221F;
+  background-color: rgba(255, 255, 255, 0.5);
 }
 
 /* Mobile Menu Toggle Button */
