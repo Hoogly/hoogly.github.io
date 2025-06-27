@@ -1866,7 +1866,8 @@ p {
   }
   
   .posts-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr !important;
+    gap: var(--space-6) !important;
   }
   
   .post-title {
