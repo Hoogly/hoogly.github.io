@@ -63,7 +63,9 @@ const socialImage = image ? new URL(image, Astro.url).href : null;
     <Header />
     
     <main>
-      <slot />
+      <div class="container">
+        <slot />
+      </div>
     </main>
     
     <Footer />
