@@ -32,22 +32,26 @@ const sortedPosts = allPosts
                         <article class="blog-post-card animate-in">
                             <div class="blog-card-image" style={`background-image: url('${post.data.image || '/images/Blog%20Header.jpg'}')`}></div>
                             <div class="blog-card-content">
-                                <div class="post-tags post-tags-clamp" style="min-height: 2.5em;">
-                                    {post.data.tags.slice(0, idx === 0 ? 2 : 3).map((tag) => {
-                                        let tagClass = 'post-tag';
-                                        if (tag.toLowerCase() === 'science') tagClass += ' post-tag-science';
-                                        else if (tag.toLowerCase() === 'company') tagClass += ' post-tag-company';
-                                        else if (tag.toLowerCase() === 'workplace wellbeing') tagClass += ' post-tag-wellbeing';
-                                        return <span class={tagClass}>{tag}</span>;
-                                    })}
+                                <div class="blog-card-top">
+                                    <div class="post-tags post-tags-clamp" style="min-height: 2.5em;">
+                                        {post.data.tags.slice(0, idx === 0 ? 2 : 3).map((tag) => {
+                                            let tagClass = 'post-tag';
+                                            if (tag.toLowerCase() === 'science') tagClass += ' post-tag-science';
+                                            else if (tag.toLowerCase() === 'company') tagClass += ' post-tag-company';
+                                            else if (tag.toLowerCase() === 'workplace wellbeing') tagClass += ' post-tag-wellbeing';
+                                            return <span class={tagClass}>{tag}</span>;
+                                        })}
+                                    </div>
+                                    <h2 class="post-card-title">{post.data.title}</h2>
                                 </div>
-                                <h2 class="post-card-title">{post.data.title}</h2>
                                 <div class="post-meta">
                                     <span>{post.data.publishDate.toLocaleDateString('en-US', {
                                         year: 'numeric',
                                         month: 'short',
                                         day: 'numeric'
                                     })}</span>
+                                    <span style="margin: 0 0.5em;">•</span>
+                                    <span>{post.data.author}</span>
                                     <span style="margin: 0 0.5em;">•</span>
                                     <span>3 min</span>
                                 </div>
@@ -117,6 +121,13 @@ const sortedPosts = allPosts
   gap: 12px;
   padding: 1.5rem 1.5rem 1.2rem 1.5rem;
   flex: 1 0 0;
+  justify-content: space-between;
+}
+.blog-card-top {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
 }
 .post-tags {
   margin-bottom: 0.5rem;
@@ -154,6 +165,12 @@ const sortedPosts = allPosts
   color: #23221F;
   margin: 0 0 0.5rem 0;
   line-height: 1.2;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  min-height: 4.8rem;
 }
 .post-card-title a {
   color: inherit;
@@ -177,6 +194,7 @@ const sortedPosts = allPosts
   }
   .post-card-title {
     font-size: 1.1rem;
+    min-height: 3.9rem;
   }
 }
 .post-tags-clamp {

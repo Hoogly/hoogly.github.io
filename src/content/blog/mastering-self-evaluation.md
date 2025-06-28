@@ -3,7 +3,7 @@ title: "Mastering Your Self-Evaluation: A Guide with Examples"
 description: "Learn how to write a powerful self-evaluation for your next performance review. This guide provides tips, phrases, and self-evaluation examples to help you shine."
 publishDate: "2024-07-26"
 author: "Hoogly Team"
-tags: ["self-evaluation", "performance review", "self-assessment", "career growth", "self-appraisal"]
+tags: ["self-evaluation", "growth", "performance review"]
 draft: false
 ---
 
