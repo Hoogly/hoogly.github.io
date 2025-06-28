@@ -552,14 +552,203 @@ p {
 }
 
 @media (max-width: 480px) {
-  .nav-links {
-    width: 100%;
-    left: 0;
+  .site-title {
+    font-size: var(--font-size-3xl);
   }
+  
+  .h1, h1 {
+    font-size: var(--font-size-2xl);
+  }
+  
+  .nav-links {
+    padding: var(--space-4);
+  }
+  
   .nav-links.nav-links-open {
-    opacity: 1;
-    pointer-events: auto;
-    transform: translateY(0);
+    padding: var(--space-4);
+  }
+  
+  .hero-title {
+    font-size: 2rem;
+    line-height: 1.2;
+    margin-bottom: 0.5rem;
+  }
+  
+  .hero-title-second-line {
+    font-size: 2rem;
+    line-height: 1.2;
+  }
+  
+  .hero-subtitle {
+    font-size: 1rem;
+    line-height: 1.4;
+    padding: 0 0.5rem;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    min-height: 4.2rem;
+  }
+  
+  .email-input-group {
+    flex-direction: column;
+  }
+  
+  .email-input {
+    width: 100%;
+  }
+  
+  .hero-image-placeholder {
+    height: 200px;
+  }
+  
+  .screenshot-placeholder {
+    height: 150px;
+  }
+  
+  .problem-title {
+    font-size: var(--font-size-2xl);
+  }
+  
+  .meet-venn-title {
+    font-size: var(--font-size-xl);
+    line-height: 1.3;
+  }
+  
+  .transforms-title {
+    font-size: var(--font-size-2xl);
+  }
+  
+  .hub-title {
+    font-size: var(--font-size-2xl);
+  }
+  
+  .transforms-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .survey-comparison {
+    flex-direction: column;
+  }
+  
+  .ditch-surveys-title {
+    font-size: var(--font-size-2xl);
+  }
+  
+  .final-cta-title {
+    font-size: var(--font-size-2xl);
+  }
+  
+  .blog-title {
+    font-size: var(--font-size-2xl);
+  }
+  
+  .post-title {
+    font-size: var(--font-size-xl);
+  }
+  
+  .post-meta-large {
+    flex-direction: column;
+    gap: var(--space-2);
+  }
+  
+  .anonymous-ai-headline {
+    font-size: var(--font-size-xl);
+    line-height: 1.3;
+  }
+  
+  .anonymous-ai-subheadline {
+    font-size: var(--font-size-sm);
+    line-height: 1.6;
+  }
+  
+  .meet-venn-description {
+    font-size: var(--font-size-sm);
+    line-height: 1.6;
+  }
+  
+  .btn {
+    font-size: 0.9rem;
+    padding: 0.6rem 1.2rem;
+  }
+  
+  .btn-accent {
+    font-size: 0.9rem;
+    padding: 0.6rem 1.2rem;
+  }
+  
+  .container {
+    padding: 0 var(--space-4);
+  }
+  
+  .anonymous-ai-section {
+    padding: var(--space-6) 0;
+  }
+  
+  .integration-logos {
+    gap: 1.5rem;
+  }
+  
+  .integration-logos img {
+    height: 20px;
+  }
+}
+
+@media (max-width: 360px) {
+  .hero-title {
+    font-size: 1.75rem;
+    line-height: 1.2;
+    margin-bottom: 0.5rem;
+  }
+  
+  .hero-title-align {
+    flex-direction: column;
+    gap: 0.1em;
+    text-align: center;
+    justify-content: center;
+  }
+  
+  .hero-title-second-line {
+    font-size: 1.75rem;
+    line-height: 1.2;
+  }
+  
+  .hero-subtitle {
+    font-size: 0.9rem;
+    line-height: 1.4;
+    padding: 0 0.25rem;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    min-height: 3.8rem;
+  }
+  
+  .anonymous-ai-headline {
+    font-size: var(--font-size-lg);
+    line-height: 1.3;
+  }
+  
+  .meet-venn-title {
+    font-size: var(--font-size-lg);
+    line-height: 1.3;
+  }
+  
+  .final-cta-title {
+    font-size: var(--font-size-xl);
+    line-height: 1.3;
+  }
+  
+  .btn {
+    font-size: 0.85rem;
+    padding: 0.5rem 1rem;
+  }
+  
+  .btn-accent {
+    font-size: 0.85rem;
+    padding: 0.5rem 1rem;
   }
 }
 
@@ -1721,51 +1910,48 @@ p {
   }
   
   .container {
-    padding: 0 var(--space-3);
+    padding: 0 var(--space-6);
   }
   
   .nav-links {
-    gap: var(--space-4);
+    display: none;
   }
   
   .hero {
-    padding: var(--space-16) 0;
+    padding: var(--space-8) 0;
   }
-
+  
   .hero-content {
-    gap: var(--space-4);
+    text-align: center;
   }
-
+  
   .hero-visual-row {
     flex-direction: column;
-    align-items: center;
+    gap: var(--space-8);
   }
-
+  
   .hero-left {
     order: 2;
   }
-
+  
   .hero-right {
     order: 1;
   }
-
+  
   .hero-text {
-    text-align: center;
-    padding-right: 0;
+    max-width: 100%;
   }
-
+  
   .hero-image-placeholder {
-    width: 100%;
-    max-width: 400px;
-    height: 280px;
+    height: 300px;
   }
-
+  
   .screenshots-grid {
     grid-template-columns: 1fr;
   }
-
+  
   .screenshot-placeholder {
-    height: 250px;
+    height: 200px;
   }
   
   .problem-title {
@@ -1782,18 +1968,14 @@ p {
   }
   
   .meet-venn-content {
-    grid-template-columns: 1fr;
+    flex-direction: column;
     gap: var(--space-8);
     text-align: center;
   }
   
   .meet-venn-title {
-    font-size: var(--font-size-2xl);
-    line-height: 1.3;
-    font-weight: var(--font-weight-bold);
-    font-family: 'Outfit', sans-serif;
-    text-align: center;
-    margin-bottom: var(--space-4);
+    font-size: var(--font-size-3xl);
+    line-height: 1.2;
   }
   
   .transforms-title {
@@ -1806,20 +1988,18 @@ p {
   
   .dashboard-metrics {
     grid-template-columns: 1fr;
-    gap: var(--space-4);
   }
   
   .partner-content {
-    grid-template-columns: 1fr;
-    gap: var(--space-6);
+    flex-direction: column;
+    gap: var(--space-8);
     text-align: center;
   }
   
   .partner-logos-left,
   .partner-logos-right {
-    flex-direction: row;
     justify-content: center;
-    flex-wrap: wrap;
+    gap: var(--space-4);
   }
   
   .ditch-surveys-title {
@@ -1827,203 +2007,181 @@ p {
   }
   
   .final-cta-title {
-    font-size: var(--font-size-4xl);
+    font-size: var(--font-size-3xl);
   }
   
   .footer-content {
-    grid-template-columns: 1fr;
+    flex-direction: column;
     gap: var(--space-8);
     text-align: center;
   }
   
   .footer-brand {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
+    justify-content: center;
   }
-
+  
   .footer-brand .logo {
-    display: flex;
     justify-content: center;
-    margin-bottom: var(--space-4);
   }
-
+  
   .footer-links {
-    grid-template-columns: 1fr;
+    flex-direction: column;
     gap: var(--space-8);
-    text-align: center;
-    justify-content: center;
-    align-items: center;
   }
-
+  
   .footer-section {
     text-align: center;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
   }
   
   .blog-title {
-    font-size: var(--font-size-4xl);
+    font-size: var(--font-size-3xl);
   }
   
   .posts-grid {
-    grid-template-columns: 1fr !important;
-    gap: var(--space-6) !important;
+    grid-template-columns: 1fr;
   }
   
   .post-title {
-    font-size: var(--font-size-3xl);
+    font-size: var(--font-size-2xl);
   }
-
+  
   .anonymous-ai-content {
     flex-direction: column;
     gap: var(--space-8);
     text-align: center;
   }
-
+  
   .anonymous-ai-content .anonymous-ai-image {
-    order: 1;
-    width: 100% !important; /* Overrides any inline styles */
-    max-width: 350px;
-    margin: 0 auto;
-  }
-
-  .anonymous-ai-content .anonymous-ai-text {
     order: 2;
-  }
-
-  .hero-image-placeholder {
     width: 100%;
-    max-width: 400px;
-    height: 280px;
+    max-width: 350px;
   }
-
-  /* Enhanced mobile styles for hero section */
+  
+  .anonymous-ai-content .anonymous-ai-text {
+    order: 1;
+  }
+  
+  .hero-image-placeholder {
+    height: 250px;
+  }
+  
   .hero-title {
-    font-size: 3rem;
+    font-size: 2.5rem;
     line-height: 1.2;
+    margin-bottom: 1rem;
   }
-
+  
   .hero-title-second-line {
-    font-size: 3rem;
+    font-size: 2.5rem;
     line-height: 1.2;
   }
-
+  
   .hero-subtitle {
-    font-size: 1.25rem;
-    line-height: 1.5;
+    font-size: 1.1rem;
+    line-height: 1.4;
+    padding: 0 1rem;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    min-height: 4.6rem;
   }
-
-  /* Mobile button improvements */
+  
   .btn {
     font-size: 1rem;
     padding: 0.75rem 1.5rem;
-    border-radius: 50px;
   }
-
+  
   .btn-accent {
     font-size: 1rem;
     padding: 0.75rem 1.5rem;
-    border-radius: 50px;
   }
-
-  /* Mobile section improvements */
+  
   .anonymous-ai-section {
     padding: var(--space-12) 0;
   }
-
+  
   .anonymous-ai-headline {
     font-size: var(--font-size-2xl);
     line-height: 1.3;
   }
-
+  
   .anonymous-ai-subheadline {
-    font-size: var(--font-size-lg);
-    line-height: 1.5;
+    font-size: var(--font-size-base);
+    line-height: 1.6;
   }
-
+  
   .meet-venn-title {
     font-size: var(--font-size-2xl);
     line-height: 1.3;
-    font-weight: var(--font-weight-bold);
-    font-family: 'Outfit', sans-serif;
-    text-align: center;
-    margin-bottom: var(--space-4);
   }
-
+  
   .meet-venn-description {
-    font-size: var(--font-size-lg);
-    line-height: 1.5;
+    font-size: var(--font-size-base);
+    line-height: 1.6;
   }
-
+  
   .final-cta-title {
     font-size: var(--font-size-2xl);
     line-height: 1.3;
   }
-
-  /* Mobile integration logos */
+  
   .integration-logos {
-    gap: var(--space-4);
+    gap: 2rem;
   }
-
+  
   .integration-logos img {
-    height: 20px;
+    height: 25px;
   }
-
-  /* Mobile hero flip image */
+  
   .hero-flip-image img {
     max-width: 100%;
-    width: 100%;
     height: auto;
   }
-
-  /* Mobile navbar improvements */
+  
   .navbar {
-    padding: var(--space-1) 0;
+    padding: var(--space-3) 0;
   }
-
+  
   .logo {
     font-size: var(--font-size-lg);
   }
-
+  
   .nav-content {
-    gap: var(--space-2);
-  }
-
-  /* Mobile hero improvements */
-  .hero {
-    padding: var(--space-6) 0 var(--space-12) 0;
-  }
-
-  .hero-content {
-    margin-top: 2vh;
     gap: var(--space-4);
   }
-
-  .hero-flip-image {
-    margin-top: 1.5rem;
-  }
-
-  .anonymous-ai-section {
+  
+  .hero {
     padding: var(--space-6) 0;
   }
-
+  
+  .hero-content {
+    gap: var(--space-6);
+  }
+  
+  .hero-flip-image {
+    margin-top: 3rem;
+  }
+  
+  .anonymous-ai-section {
+    padding: var(--space-8) 0;
+  }
+  
   .final-cta-section {
     padding: var(--space-12) 0;
   }
-
+  
   .hero-title-align {
     flex-direction: column;
     gap: 0.1em;
     text-align: center;
     justify-content: center;
   }
-
+  
   .hero-highlight-text {
-    white-space: nowrap;
+    word-break: keep-all;
+    overflow-wrap: normal;
   }
 }
 
@@ -2037,41 +2195,50 @@ p {
   }
   
   .nav-links {
-    display: flex !important;
+    padding: var(--space-4);
+  }
+  
+  .nav-links.nav-links-open {
+    padding: var(--space-4);
   }
   
   .hero-title {
-    font-size: 2.5rem;
+    font-size: 2rem;
     line-height: 1.2;
+    margin-bottom: 0.5rem;
   }
   
   .hero-title-second-line {
-    font-size: 2.5rem;
+    font-size: 2rem;
     line-height: 1.2;
   }
-
+  
   .hero-subtitle {
-    font-size: 1.1rem;
-    line-height: 1.5;
+    font-size: 1rem;
+    line-height: 1.4;
+    padding: 0 0.5rem;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    min-height: 4.2rem;
   }
   
   .email-input-group {
     flex-direction: column;
-    width: 100%;
   }
   
   .email-input {
     width: 100%;
   }
-
+  
   .hero-image-placeholder {
-    width: 100%;
-    max-width: 300px;
-    height: 220px;
-  }
-
-  .screenshot-placeholder {
     height: 200px;
+  }
+  
+  .screenshot-placeholder {
+    height: 150px;
   }
   
   .problem-title {
@@ -2081,10 +2248,6 @@ p {
   .meet-venn-title {
     font-size: var(--font-size-xl);
     line-height: 1.3;
-    font-weight: var(--font-weight-bold);
-    font-family: 'Outfit', sans-serif;
-    text-align: center;
-    margin-bottom: var(--space-4);
   }
   
   .transforms-title {
@@ -2101,7 +2264,6 @@ p {
   
   .survey-comparison {
     flex-direction: column;
-    gap: var(--space-4);
   }
   
   .ditch-surveys-title {
@@ -2113,95 +2275,111 @@ p {
   }
   
   .blog-title {
-    font-size: var(--font-size-3xl);
+    font-size: var(--font-size-2xl);
   }
   
   .post-title {
-    font-size: var(--font-size-2xl);
+    font-size: var(--font-size-xl);
   }
   
   .post-meta-large {
     flex-direction: column;
     gap: var(--space-2);
   }
-
-  /* Extra small mobile improvements */
+  
   .anonymous-ai-headline {
     font-size: var(--font-size-xl);
     line-height: 1.3;
   }
-
+  
   .anonymous-ai-subheadline {
-    font-size: var(--font-size-base);
-    line-height: 1.5;
+    font-size: var(--font-size-sm);
+    line-height: 1.6;
   }
-
+  
   .meet-venn-description {
-    font-size: var(--font-size-base);
-    line-height: 1.5;
+    font-size: var(--font-size-sm);
+    line-height: 1.6;
   }
-
+  
   .btn {
     font-size: 0.9rem;
     padding: 0.6rem 1.2rem;
   }
-
+  
   .btn-accent {
     font-size: 0.9rem;
     padding: 0.6rem 1.2rem;
   }
-
+  
   .container {
-    padding: 0 var(--space-2);
+    padding: 0 var(--space-4);
   }
-
+  
   .anonymous-ai-section {
     padding: var(--space-6) 0;
   }
-
+  
   .integration-logos {
-    gap: var(--space-3);
+    gap: 1.5rem;
   }
-
+  
   .integration-logos img {
     height: 20px;
   }
 }
 
-/* Additional responsive breakpoint for very small screens */
 @media (max-width: 360px) {
   .hero-title {
-    font-size: 2rem;
+    font-size: 1.75rem;
     line-height: 1.2;
+    margin-bottom: 0.5rem;
+  }
+  
+  .hero-title-align {
+    flex-direction: column;
+    gap: 0.1em;
+    text-align: center;
+    justify-content: center;
   }
   
   .hero-title-second-line {
-    font-size: 2rem;
+    font-size: 1.75rem;
     line-height: 1.2;
   }
-
+  
   .hero-subtitle {
-    font-size: 1rem;
-    line-height: 1.5;
+    font-size: 0.9rem;
+    line-height: 1.4;
+    padding: 0 0.25rem;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    min-height: 3.8rem;
   }
-
+  
   .anonymous-ai-headline {
     font-size: var(--font-size-lg);
+    line-height: 1.3;
   }
-
+  
   .meet-venn-title {
     font-size: var(--font-size-lg);
+    line-height: 1.3;
   }
-
+  
   .final-cta-title {
-    font-size: var(--font-size-lg);
+    font-size: var(--font-size-xl);
+    line-height: 1.3;
   }
-
+  
   .btn {
     font-size: 0.85rem;
     padding: 0.5rem 1rem;
   }
-
+  
   .btn-accent {
     font-size: 0.85rem;
     padding: 0.5rem 1rem;
@@ -2506,6 +2684,8 @@ b, strong, .font-bold {
   line-height: inherit;
   font-family: inherit;
   transition: color 0.2s;
+  word-wrap: break-word;
+  hyphens: auto;
 }
 
 .hero-highlight::before {
@@ -2645,3 +2825,21 @@ b, strong, .font-bold {
     line-height: 1.5;
   }
 } 
+
+/* =============================================================================
+   RESPONSIVE UTILITIES
+   ============================================================================= */
+
+.desktop-only {
+  display: inline;
+}
+
+@media (max-width: 768px) {
+  .desktop-only {
+    display: none;
+  }
+}
+
+/* =============================================================================
+   NAVIGATION
+   ============================================================================= */
