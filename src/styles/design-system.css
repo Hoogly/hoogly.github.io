@@ -381,6 +381,10 @@ p {
    NAVIGATION
    ============================================================================= */
 
+.nav-hidden {
+  display: none !important;
+}
+
 .navbar {
   color: #000;
   font-family: 'Source Sans 3', sans-serif;
