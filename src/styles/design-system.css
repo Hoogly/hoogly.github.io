@@ -225,7 +225,7 @@ p {
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 var(--space-4);
+  padding: 0 var(--space-6);
 }
 
 .text-center {
@@ -758,7 +758,7 @@ p {
 
 .hero {
   background: linear-gradient(135deg, #F6F4FE 0%, #F5E9FA 100%);
-  padding: 0 0 var(--space-32) 0;
+  padding: var(--space-8) 0;
   position: relative;
   overflow: hidden;
 }
@@ -1913,9 +1913,7 @@ p {
     padding: 0 var(--space-6);
   }
   
-  .nav-links {
-    display: none;
-  }
+  /* .nav-links { display: none; } -- removed to fix mobile hamburger menu */
   
   .hero {
     padding: var(--space-8) 0;
