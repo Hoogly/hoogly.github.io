@@ -32,7 +32,7 @@ const sortedPosts = allPosts
                 {sortedPosts.slice(0, 6).map((post, idx) => (
                     <a href={`/blog/${post.slug}`} style="text-decoration: none; color: inherit;">
                         <article class="blog-post-card animate-in">
-                            <div class="blog-card-image" style={`background-image: url('${post.data.image ? post.data.image : '/images/Blog%20Header.jpg'}')`}></div>
+                            <img src={post.data.image ? post.data.image : '/images/Blog%20Header.jpg'} alt={post.data.title} class="blog-card-image" />
                             <div class="blog-card-content">
                                 <div class="blog-card-top">
                                     <h2 class="post-card-title">{post.data.title}</h2>
@@ -106,10 +106,9 @@ const sortedPosts = allPosts
 }
 .blog-card-image {
   width: 100%;
-  height: 240px;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+  height: auto;
+  object-fit: cover;
+  border-radius: 1.5rem 1.5rem 0 0;
   flex-shrink: 0;
 }
 .blog-card-content {
@@ -191,7 +190,7 @@ const sortedPosts = allPosts
   }
   
   .blog-card-image {
-    height: 160px;
+    height: auto;
   }
   .blog-card-content {
     padding: 1rem 1rem 0.8rem 1rem;

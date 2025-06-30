@@ -5,6 +5,7 @@ publishDate: "2025-01-17"
 author: "Mohit Midha"
 tags: ["pulse surveys", "employee engagement", "culture", "AI", "retention", "leadership", "workplace wellbeing"]
 draft: false
+image: "/images/blog/article-images/pulse-vs-annual-survey.png"
 ---
 
 If culture can pivot in the time it takes to finish a project sprint, then waiting a full year to ask how people feel is like doing a wellness check by postcard.

@@ -5,6 +5,7 @@ publishDate: "2025-01-16"
 author: "Mohit Midha"
 tags: ["employee engagement", "leadership", "culture", "AI", "retention", "management", "workplace wellbeing"]
 draft: false
+image: "/images/blog/article-images/drowning-in-data.png"
 ---
 
 # Drowning in Data, Starving for Dialogue: Why Your Engagement Dashboard Is Missing the Most Important Story
