@@ -7,10 +7,6 @@ tags: ["pulse surveys", "employee engagement", "culture", "AI", "retention", "le
 draft: false
 ---
 
-# Pulse Checks vs Annual Surveys: Which One Protects Culture in 2025?
-
-**By Mohit Midha | CEO & Founder at Hoogly AI**
-
 If culture can pivot in the time it takes to finish a project sprint, then waiting a full year to ask how people feel is like doing a wellness check by postcard.
 
 That delay doesn't just make for awkward all‑hands; it invites quiet quitters, surprise resignations, and the slow leak of momentum no budget line item ever captures. In 2025, leaders need to hear the heartbeat of the organisation while it's still beating—not after the autopsy.
@@ -21,11 +17,11 @@ Below you'll find the why, the wins, and the warm‑hearted how‑to for shiftin
 
 ## What You Win with Conversational Pulses
 
-| **Win** | **Why it matters** |
-|---------|-------------------|
-| **Honest participation** | A five‑minute chat feels human, lifting response to 80–90% versus the 30–40% haunting annual surveys. |
-| **Living early‑warning radar** | AI spots spikes in words like burnout or uncertainty within weeks, not quarters, so you can step in before Glassdoor does. |
-| **Actionable context** | Follow‑up probes dig into the why, clustering themes and urgency so leaders know exactly which lever to pull next. |
+| Win | Why it matters |
+|------------------------|-------------------------------------------------------------------------------------------------|
+| Honest participation   | A five‑minute chat feels human, lifting response to 80–90% versus the 30–40% haunting annual surveys. |
+| Living early‑warning radar | AI spots spikes in words like burnout or uncertainty within weeks, not quarters, so you can step in before Glassdoor does. |
+| Actionable context     | Follow‑up probes dig into the why, clustering themes and urgency so leaders know exactly which lever to pull next. |
 
 ## What You Risk with Annual‑Only Surveys
 

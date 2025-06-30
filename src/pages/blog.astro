@@ -15,26 +15,28 @@ const sortedPosts = allPosts
     type="website"
     bodyClass="blog"
 >
-    <section class="blog-header" style="background: linear-gradient(135deg, #F6F4FE 0%, #F5E9FA 100%);">
+    <section class="blog-header" style="background: linear-gradient(135deg, #F6F4FE 0%, #F5E9FA 100%); padding: var(--space-20) 0;">
         <div class="container">
-            <h1 style="font-size: 2.1rem; font-weight: 700; color: #222; font-family: 'Outfit', sans-serif; margin: 0 0 1rem 0; line-height: 1.5; text-align: center;">
-                <span class="hero-highlight"><span class="hero-highlight-text">Blog</span></span><br>
-                <span style="font-family: 'Outfit', sans-serif; font-weight: 400;">Latest posts and insights</span>
+            <h1 style="font-size: 3.5rem; font-weight: 500; color: #23221F; font-family: 'Outfit', sans-serif; margin: 0 0 1rem 0; line-height: 1.2; text-align: center;">
+                <span class="hero-highlight"><span class="hero-highlight-text">Blog</span></span>
             </h1>
+            <p style="font-size: var(--font-size-xl); color: var(--color-neutral-600); max-width: 600px; margin: 0 auto; font-family: 'Outfit', sans-serif; font-weight: 400; text-align: center; line-height: 1.6;">
+                Latest posts and insights on employee engagement, workplace culture, and AI-powered solutions
+            </p>
         </div>
     </section>
 
-    <section class="blog-posts">
+    <section class="blog-posts" style="padding: var(--space-16) 0;">
         <div class="container">
-            <div class="posts-grid" style="grid-template-columns: repeat(3, 1fr);">
+            <div class="posts-grid" style="grid-template-columns: repeat(3, 1fr); gap: 2rem;">
                 {sortedPosts.slice(0, 6).map((post, idx) => (
-                    <a href={`/blog/${post.slug}`} style="text-decoration: none; color: inherit;" key={post.slug}>
+                    <a href={`/blog/${post.slug}`} style="text-decoration: none; color: inherit;">
                         <article class="blog-post-card animate-in">
-                            <div class="blog-card-image" style={`background-image: url('${post.data.image || '/images/Blog%20Header.jpg'}')`}></div>
+                            <div class="blog-card-image" style={`background-image: url('${post.data.image ? post.data.image : '/images/Blog%20Header.jpg'}')`}></div>
                             <div class="blog-card-content">
                                 <div class="blog-card-top">
                                     <div class="post-tags post-tags-clamp" style="min-height: 2.5em;">
-                                        {post.data.tags.slice(0, idx === 0 ? 2 : 3).map((tag) => {
+                                        {post.data.tags?.slice(0, idx === 0 ? 2 : 3).map((tag) => {
                                             let tagClass = 'post-tag';
                                             if (tag.toLowerCase() === 'science') tagClass += ' post-tag-science';
                                             else if (tag.toLowerCase() === 'company') tagClass += ' post-tag-company';
@@ -184,7 +186,29 @@ const sortedPosts = allPosts
   gap: 0.5em;
   margin-top: 0.5rem;
 }
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .posts-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 1.5rem !important;
+  }
+  
+  .blog-header h1 {
+    font-size: 2.5rem !important;
+  }
+  
+  .blog-header p {
+    font-size: var(--font-size-lg) !important;
+  }
+}
+
 @media (max-width: 600px) {
+  .posts-grid {
+    grid-template-columns: 1fr !important;
+    gap: 1rem !important;
+  }
+  
   .blog-card-image {
     height: 160px;
   }
@@ -196,56 +220,42 @@ const sortedPosts = allPosts
     font-size: 1.1rem;
     min-height: 3.9rem;
   }
+  
+  .blog-header h1 {
+    font-size: 2rem !important;
+  }
+  
+  .blog-header p {
+    font-size: var(--font-size-base) !important;
+  }
 }
+
 .post-tags-clamp {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5em;
-  overflow: visible;
-  max-height: none;
-}
-
-.posts-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: var(--space-8);
-  align-items: stretch;
-}
-
-.blog-post-card.animate-in {
-  transition: opacity 1.2s cubic-bezier(0.77,0,0.175,1), transform 1.2s cubic-bezier(0.77,0,0.175,1);
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 </style>
 
 <script>
-document.addEventListener('DOMContentLoaded', function() {
-  // Animate .hero-highlight on scroll into view
-  document.querySelectorAll('.hero-highlight').forEach(highlight => {
+window.addEventListener('DOMContentLoaded', function() {
+  // Animate hero highlight
+  const highlight = document.querySelector('.hero-highlight');
+  if (highlight) {
+    setTimeout(() => highlight.classList.add('animated'), 200);
+  }
+
+  // Animate blog post cards on scroll
+  document.querySelectorAll('.blog-post-card.animate-in').forEach(card => {
     const observer = new window.IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
-          highlight.classList.add('animated');
+          card.classList.add('visible');
           observer.disconnect();
         }
       });
     }, { threshold: 0.3 });
-    observer.observe(highlight);
-  });
-
-  // Animate blog post cards in on viewport, one row at a time (3 columns, 400ms row stagger)
-  const cards = document.querySelectorAll('.blog-post-card.animate-in');
-  const COLS = 3;
-  const ROW_STAGGER = 400;
-  cards.forEach((card, i) => {
-    const row = Math.floor(i / COLS);
-    const observer = new window.IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          setTimeout(() => card.classList.add('visible'), row * ROW_STAGGER);
-          observer.disconnect();
-        }
-      });
-    }, { threshold: 0 });
     observer.observe(card);
   });
 });

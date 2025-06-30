@@ -5,11 +5,8 @@ publishDate: "2025-01-18"
 author: "Anitta Krishan"
 tags: ["employee retention", "engagement", "culture", "leadership", "burnout", "workplace wellbeing", "talent management"]
 draft: false
+image: "/images/blog/article-images/AI Future 1 (1).jpeg"
 ---
-
-# Why Your Best People Are Leaving: The Employee Retention Crisis Leaders Can No Longer Ignore
-
-**By Anitta Krishan | Work futurist, former CPO, and Chief Culture Officer at Hoogly AI**
 
 We're facing a quiet crisis at work. Not just in how people engage—but in whether they're willing to stay at all.
 

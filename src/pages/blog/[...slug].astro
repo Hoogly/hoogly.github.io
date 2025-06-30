@@ -22,38 +22,81 @@ const { Content } = await post.render();
     type="article"
     bodyClass="post-page"
 >
-    <article class="blog-post">
-        <header class="post-header" style="margin-top:0;margin-bottom:0;">
-            <div class="container">
-                <h1 class="post-title">{post.data.title}</h1>
-                
-                <div class="post-meta-large">
-                    <time datetime={post.data.publishDate.toISOString()}>
-                        {post.data.publishDate.toLocaleDateString('en-US', {
-                            year: 'numeric',
-                            month: 'long',
-                            day: 'numeric'
-                        })}
-                    </time>
-                    {post.data.author && (
-                        <span class="author">by {post.data.author}</span>
-                    )}
-                </div>
+    <style>
+        /* Blog article table styling */
+        .post-content table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            margin: 2rem 0;
+            background: #fff;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(44,41,80,0.04);
+        }
+        .post-content th, .post-content td {
+            padding: 0.85em 1.2em;
+            text-align: left;
+            border-bottom: 1px solid #eee;
+            font-family: 'Outfit', sans-serif;
+            font-size: 1rem;
+        }
+        .post-content th {
+            background: #f6f4fe;
+            font-weight: 600;
+            color: #23221F;
+            border-bottom: 2px solid #e5e1fa;
+        }
+        .post-content tr:last-child td {
+            border-bottom: none;
+        }
+    </style>
 
-                <p class="post-description-large">{post.data.description}</p>
-                
+    <article class="blog-post">
+        <div class="container" style="max-width: 760px; margin: 0 auto; font-family: 'Outfit', sans-serif;">
+            <header class="post-header" style="margin-top:0;margin-bottom:0; padding-top: 2.8rem;">
+                <h1 class="post-title anonymous-ai-headline" style="margin-bottom: 1.2rem;">{post.data.title}</h1>
+                <p class="post-description-large anonymous-ai-subheadline" style="margin-bottom: 1.7rem; margin-top: 0; font-style: normal;">{post.data.description}</p>
+                <div style="display: flex; flex-direction: column; align-items: flex-start; gap: 0.2rem; margin-bottom: 0.7rem;">
+                    <div style="display: flex; align-items: center; gap: 1.1rem;">
+                        {post.slug === 'pulse-checks-vs-annual-surveys-2025' ? (
+                            <>
+                                <img src="/images/about-us/mohit.avif" alt="Mohit Midha" style="width: 44px; height: 44px; border-radius: 50%; object-fit: cover;" />
+                                <span style="font-weight: 500; color: #23221F; font-family: 'Outfit', sans-serif;">
+                                    By Mohit Midha | CEO & Founder at Hoogly AI
+                                </span>
+                            </>
+                        ) : (
+                            <>
+                                <img src="/images/about-us/anitta.jpeg" alt="Anitta Krishan" style="width: 44px; height: 44px; border-radius: 50%; object-fit: cover;" />
+                                <span style="font-weight: 500; color: #23221F; font-family: 'Outfit', sans-serif;">
+                                    By Anitta Krishan | Work futurist, former CPO, and Chief Culture Officer at Hoogly AI
+                                </span>
+                            </>
+                        )}
+                    </div>
+                    <div style="color: #757575; font-size: 1rem; font-family: 'Outfit', sans-serif; margin-left: 56px;">
+                        3 min read <span style="margin: 0 0.5em;">·</span> {post.data.publishDate.toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' })}
+                    </div>
+                </div>
                 {post.data.tags && post.data.tags.length > 0 && (
-                    <div class="post-tags-large">
-                        {post.data.tags.map((tag: string) => (
+                    <div class="post-tags-large" style="margin-bottom: 1.2rem;">
+                        {post.data.tags.filter((tag: string) => tag.toLowerCase() !== 'talent management').map((tag: string) => (
                             <span class="post-tag">{tag}</span>
                         ))}
                     </div>
                 )}
-            </div>
-        </header>
+                <hr style="border: none; border-top: 1px solid #eee; margin: 2rem 0 1.7rem 0;" />
+                {post.data.image && (
+                    <img src={post.data.image} alt="Article Hero" style="width: 100%; border-radius: 1.2rem; margin-bottom: 2.2rem; object-fit: cover; max-height: 380px;" />
+                )}
+                {/*
+                  If you still see a duplicate headline or author line below this horizontal line,
+                  please remove it from the markdown file itself. The template does not render it.
+                */}
+            </header>
 
-        <div class="post-content">
-            <div class="container">
+            <div class="post-content anonymous-ai-subheadline" style="padding-bottom: 2.5rem;">
                 <Content />
             </div>
         </div>
