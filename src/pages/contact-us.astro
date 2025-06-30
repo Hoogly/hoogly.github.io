@@ -10,13 +10,13 @@ import Layout from '../layouts/Layout.astro';
 	<div class="container" style="max-width: 1200px; margin: 0 auto; padding: 2rem 0 3.5rem 0; font-family: 'Outfit', sans-serif;">
 		<section class="hero hero-fullscreen" style="background: linear-gradient(135deg, #F6F4FE 0%, #F5E9FA 100%); padding: 0; margin-bottom: 3.5rem; border-radius: 2rem; box-shadow: none; display: flex; align-items: center; justify-content: center; min-height: 320px;">
 			<div class="hero-content" style="width: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center;">
-				<div class="hero-text" style="margin: 0 auto; max-width: 1200px; width: 100%;">
-					<div class="hero-title" style="text-align: center; margin-bottom: 2.5rem; font-family: 'Outfit', sans-serif; font-size: 4.5rem; font-weight: 400; line-height: 1.13;">
+				<div class="hero-text" style="margin: 0 auto; max-width: 900px; width: 100%; display: flex; flex-direction: column; align-items: center; text-align: center;">
+					<div class="hero-title" style="text-align: center; margin: 2.5rem 0 2.5rem 0; font-family: 'Outfit', sans-serif; font-size: 4.5rem; font-weight: 400; line-height: 1.13;">
 						<div class="hero-title-align" style="display: flex; align-items: center; justify-content: center; gap: 0.1em; text-align: center; flex-wrap: wrap; flex-direction: column;">
 							<span class="hero-title-text">Contact Us</span>
 						</div>
 					</div>
-					<div class="hero-subtitle" style="font-family: 'Outfit', sans-serif; font-weight: 400; text-align: center; margin-bottom: 2.5em; padding-top: 1rem; line-height: 30px; font-size: 1.5rem;">
+					<div class="hero-subtitle" style="font-family: 'Outfit', sans-serif; font-weight: 400; text-align: center; margin: 2.5rem 0 2.5rem 0; line-height: 30px; font-size: 1.5rem;">
 						<p>If you need help using Hoogly, have a question about your account, or just want to share feedback, we're all ears. Whether it's a technical issue or something you're feeling stuck on, our team (and Venn AI) are here to help you find clarity.</p>
 						<p>Send us an email at: <a href="mailto:support@hoogly.com" style="color: #6c63ff; text-decoration: underline;">support@hoogly.com</a></p>
 						<p>Together, let's build a workplace where people feel connected, supported, and seen.</p>
@@ -24,7 +24,7 @@ import Layout from '../layouts/Layout.astro';
 				</div>
 			</div>
 		</section>
-		<div class="faq-section">
+		<div class="faq-section" style="display: flex; flex-direction: column; align-items: center; width: 100%;">
 			<h2 style="font-size: 2rem; font-weight: 600; color: #23221F; margin-bottom: 0.5rem;">Frequently Asked Questions</h2>
 			<style>
 				.faq-section {
@@ -91,6 +91,18 @@ import Layout from '../layouts/Layout.astro';
 					padding-top: 0;
 					text-align: left;
 					line-height: 1.7;
+				}
+				@media (max-width: 600px) {
+					.hero-subtitle {
+						display: block !important;
+						-webkit-line-clamp: unset !important;
+						-webkit-box-orient: unset !important;
+						overflow: visible !important;
+						text-overflow: unset !important;
+						min-height: unset !important;
+						padding: 0 1rem !important;
+						font-size: 1.1rem !important;
+					}
 				}
 			</style>
 			<details class="faq-item">
