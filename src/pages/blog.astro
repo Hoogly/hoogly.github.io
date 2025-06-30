@@ -35,15 +35,6 @@ const sortedPosts = allPosts
                             <div class="blog-card-image" style={`background-image: url('${post.data.image ? post.data.image : '/images/Blog%20Header.jpg'}')`}></div>
                             <div class="blog-card-content">
                                 <div class="blog-card-top">
-                                    <div class="post-tags post-tags-clamp" style="min-height: 2.5em;">
-                                        {post.data.tags?.slice(0, idx === 0 ? 2 : 3).map((tag) => {
-                                            let tagClass = 'post-tag';
-                                            if (tag.toLowerCase() === 'science') tagClass += ' post-tag-science';
-                                            else if (tag.toLowerCase() === 'company') tagClass += ' post-tag-company';
-                                            else if (tag.toLowerCase() === 'workplace wellbeing') tagClass += ' post-tag-wellbeing';
-                                            return <span class={tagClass}>{tag}</span>;
-                                        })}
-                                    </div>
                                     <h2 class="post-card-title">{post.data.title}</h2>
                                 </div>
                                 <div class="post-meta">
@@ -53,9 +44,14 @@ const sortedPosts = allPosts
                                         day: 'numeric'
                                     })}</span>
                                     <span style="margin: 0 0.5em;">•</span>
-                                    <span>{post.data.author}</span>
+                                    <span>{post.data.author ? `${post.data.author.split(' ')[0]} ${post.data.author.split(' ')[1]?.charAt(0) ? post.data.author.split(' ')[1].charAt(0) + '.' : ''}` : ''}</span>
                                     <span style="margin: 0 0.5em;">•</span>
                                     <span>3 min</span>
+                                </div>
+                                <div class="post-tags post-tags-clamp" style="min-height: 2.5em; margin-top: 0.5rem;">
+                                    {post.data.tags?.slice(0, idx === 0 ? 2 : 3).map((tag) => (
+                                        <span class="post-tag">{tag}</span>
+                                    ))}
                                 </div>
                             </div>
                         </article>
@@ -140,26 +136,11 @@ const sortedPosts = allPosts
   font-weight: 500;
   border-radius: 999px;
   padding: 0.2em 1em;
-  border: 1.5px solid #23221F;
-  background: #fff;
-  color: #23221F;
-  margin-bottom: 0.5em;
-  text-transform: capitalize;
-}
-.post-tag-science {
-  border-color: #3bb273;
+  border: 1.5px solid #3bb273;
   background: #e6f7ee;
   color: #217a4a;
-}
-.post-tag-company {
-  border-color: #ff7d61;
-  background: #ffe6e0;
-  color: #c23c1d;
-}
-.post-tag-wellbeing {
-  border-color: #23221F;
-  background: #fff;
-  color: #23221F;
+  margin-bottom: 0.5em;
+  text-transform: capitalize;
 }
 .post-card-title {
   font-size: 1.35rem;
