@@ -90,7 +90,7 @@ If you're wondering where to start, ask yourself:
 
 **Are we truly listening—or are we just surveying?**
 
-If you're building a people-first culture and want support turning engagement into retention, let's talk. Our calendar is open: [https://calendly.com/hoogly/mohit-midha](https://calendly.com/hoogly/mohit-midha)
+If you're building a people-first culture and want support turning engagement into retention, let's talk. [Our calendar is always open](https://calendly.com/hoogly/30min).
 
 💛  
 *Anitta* 

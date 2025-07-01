@@ -18,19 +18,53 @@ Below you'll find the why, the wins, and the warm‑hearted how‑to for shiftin
 
 ## What You Win with Conversational Pulses
 
-| Win | Why it matters |
-|------------------------|-------------------------------------------------------------------------------------------------|
-| Honest participation   | A five‑minute chat feels human, lifting response to 80–90% versus the 30–40% haunting annual surveys. |
-| Living early‑warning radar | AI spots spikes in words like burnout or uncertainty within weeks, not quarters, so you can step in before Glassdoor does. |
-| Actionable context     | Follow‑up probes dig into the why, clustering themes and urgency so leaders know exactly which lever to pull next. |
+<table style="width:100%; border-collapse:collapse; font-family:'Outfit',sans-serif; font-size:1.05rem; margin-bottom:2rem; background:white;">
+  <thead>
+    <tr style="background:#f7f7f7;">
+      <th style="text-align:left; font-weight:600; padding:0.7em 0.8em;">Win</th>
+      <th style="text-align:left; font-weight:600; padding:0.7em 0.8em;">Why it matters</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr style="border-bottom:1px solid #F5EDFB; background:white;">
+      <td style="padding:0.7em 0.8em;">Honest participation</td>
+      <td style="padding:0.7em 0.8em;">A five‑minute chat feels human, lifting response to 80–90% versus the 30–40% haunting annual surveys.</td>
+    </tr>
+    <tr style="border-bottom:1px solid #F5EDFB; background:white;">
+      <td style="padding:0.7em 0.8em;">Living early‑warning radar</td>
+      <td style="padding:0.7em 0.8em;">AI spots spikes in words like burnout or uncertainty within weeks, not quarters, so you can step in before Glassdoor does.</td>
+    </tr>
+    <tr style="border-bottom:1px solid #F5EDFB; background:white;">
+      <td style="padding:0.7em 0.8em;">Actionable context</td>
+      <td style="padding:0.7em 0.8em;">Follow‑up probes dig into the why, clustering themes and urgency so leaders know exactly which lever to pull next.</td>
+    </tr>
+  </tbody>
+</table>
 
 ## What You Risk with Annual‑Only Surveys
 
-| **Loss** | **Why it hurts** |
-|----------|------------------|
-| **Data gaps** | Low response leaves blind spots big enough for a 15% turnover spike to sneak through. |
-| **Lag time** | By the time results land, half the org chart and all the sentiment has changed. |
-| **Credibility drain** | Long questionnaires with no visible follow‑through breed cynicism, halving next year's participation. |
+<table style="width:100%; border-collapse:collapse; font-family:'Outfit',sans-serif; font-size:1.05rem; margin-bottom:2rem; background:white;">
+  <thead>
+    <tr style="background:#f7f7f7;">
+      <th style="text-align:left; font-weight:600; padding:0.7em 0.8em;">Loss</th>
+      <th style="text-align:left; font-weight:600; padding:0.7em 0.8em;">Why it hurts</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr style="border-bottom:1px solid #F5EDFB; background:white;">
+      <td style="padding:0.7em 0.8em;"><b>Data gaps</b></td>
+      <td style="padding:0.7em 0.8em;">Low response leaves blind spots big enough for a 15% turnover spike to sneak through.</td>
+    </tr>
+    <tr style="border-bottom:1px solid #F5EDFB; background:white;">
+      <td style="padding:0.7em 0.8em;"><b>Lag time</b></td>
+      <td style="padding:0.7em 0.8em;">By the time results land, half the org chart and all the sentiment has changed.</td>
+    </tr>
+    <tr style="border-bottom:1px solid #F5EDFB; background:white;">
+      <td style="padding:0.7em 0.8em;"><b>Credibility drain</b></td>
+      <td style="padding:0.7em 0.8em;">Long questionnaires with no visible follow‑through breed cynicism, halving next year's participation.</td>
+    </tr>
+  </tbody>
+</table>
 
 ## A Quick Case in Point
 
@@ -61,6 +95,6 @@ Grab a cuppa, skim a sample Hoogly pulse dashboard, and imagine these insights d
 
 Download the data sheet or book a friendly 30‑minute demo—we'll show you how conversational pulses work and, if you like, fire off a pilot survey to your team.
 
-Could you suggest a morning in the next week or so when you might be available? Or, if it's easier, feel free to lock in a time via my calendar: [https://calendly.com/hoogly/mohit-midha](https://calendly.com/hoogly/mohit-midha)
+Could you suggest a morning in the next week or so when you might be available? Or, if it's easier, feel free to [lock in a time via my calendar](https://calendly.com/hoogly/mohit-midha).
 
 **Let's turn listening into action together.** 

@@ -8,10 +8,6 @@ draft: false
 image: "/images/blog/article-images/drowning-in-data.png"
 ---
 
-# Drowning in Data, Starving for Dialogue: Why Your Engagement Dashboard Is Missing the Most Important Story
-
-**By Mohit Midha | CEO & Founder at Hoogly AI**
-
 The resignation letter was drafted and ready to send. It was the culmination of weeks of quiet frustration, a growing sense of being undervalued, and the slow, painful fading of a creative spark.
 
 But it was never sent.
