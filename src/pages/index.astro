@@ -133,7 +133,7 @@ import Layout from '../layouts/Layout.astro';
 	<section class="faq-section" style="background: white; padding: var(--space-20) 0; width: 100vw; margin-left: calc(-50vw + 50%);">
 		<div class="container" style="max-width: 800px; margin: 0 auto;">
 			<div class="faq-section" style="display: flex; flex-direction: column; align-items: center; width: 100%;">
-				<h2 style="font-size: 2rem; font-weight: 600; color: #23221F; margin-bottom: 0.5rem;">Frequently Asked Questions</h2>
+				<h2 style="font-size: 2rem; font-weight: 600; color: #23221F; margin-bottom: 2rem; margin-top: 0;">Frequently Asked Questions</h2>
 				<style>
 					.faq-section {
 						width: 100%;
@@ -150,6 +150,10 @@ import Layout from '../layouts/Layout.astro';
 						border-bottom: 1px solid #e2e8f0;
 						padding: 0;
 						margin-top: 0;
+						margin-bottom: 1rem;
+					}
+					.faq-item:last-child {
+						margin-bottom: 0;
 					}
 					.faq-summary {
 						font-size: 1.35rem;
@@ -161,9 +165,16 @@ import Layout from '../layouts/Layout.astro';
 						display: flex;
 						align-items: center;
 						justify-content: space-between;
-						padding: 1.2rem 0;
+						padding: 1.2rem 0 0.4rem 0;
 						margin-top: 0;
 						transition: background 0.2s;
+						line-height: 1.2;
+						min-height: 3rem;
+					}
+					.faq-summary span:first-child {
+						display: flex;
+						align-items: center;
+						line-height: 1.4;
 					}
 					.faq-arrow {
 						display: flex;
@@ -182,10 +193,10 @@ import Layout from '../layouts/Layout.astro';
 					.faq-arrow svg {
 						width: 26px;
 						height: 26px;
-						transition: transform 0.2s;
+						transition: transform 0.3s ease;
 						display: block;
 					}
-					details[open] .faq-arrow svg {
+					.faq-item.open .faq-arrow svg {
 						transform: rotate(180deg);
 					}
 					.faq-answer {
@@ -199,6 +210,14 @@ import Layout from '../layouts/Layout.astro';
 						padding-top: 0;
 						text-align: left;
 						line-height: 1.7;
+						max-height: 0;
+						opacity: 0;
+						overflow: hidden;
+						transition: max-height 0.4s ease, opacity 0.4s ease;
+					}
+					.faq-item.open .faq-answer {
+						opacity: 1;
+						max-height: 500px;
 					}
 					@media (max-width: 600px) {
 						.hero-subtitle {
@@ -213,98 +232,98 @@ import Layout from '../layouts/Layout.astro';
 						}
 					}
 				</style>
-				<details class="faq-item">
-					<summary class="faq-summary">
+				<div class="faq-item">
+					<div class="faq-summary">
 						<span>How do I get support from Hoogly?</span>
 						<span class="faq-arrow">
 							<svg width="26" height="26" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" style="display: block; margin: auto;">
 								<path d="M7 8l3 3 3-3" stroke="#23221F" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
 							</svg>
 						</span>
-					</summary>
+					</div>
 					<div class="faq-answer">You can email us at <a href='mailto:support@hoogly.com' style='color: #6c63ff; text-decoration: underline;'>support@hoogly.com</a> and our team will get back to you as soon as possible.</div>
-				</details>
-				<details class="faq-item">
-					<summary class="faq-summary">
+				</div>
+				<div class="faq-item">
+					<div class="faq-summary">
 						<span>What service does Hoogly provide?</span>
 						<span class="faq-arrow">
 							<svg width="26" height="26" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" style="display: block; margin: auto;"><path d="M7 8l3 3 3-3" stroke="#23221F" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
 						</span>
-					</summary>
+					</div>
 					<div class="faq-answer">Hoogly replaces clunky, one-off surveys with friendly AI conversations. By gathering insight continuously, our platform turns employee voices into clear, actionable guidance and then coaches leaders to translate that guidance into meaningful change—so engagement rises and everyone feels they belong.</div>
-				</details>
-				<details class="faq-item">
-					<summary class="faq-summary">
+				</div>
+				<div class="faq-item">
+					<div class="faq-summary">
 						<span>How do colleagues access Hoogly?</span>
 						<span class="faq-arrow">
 							<svg width="26" height="26" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" style="display: block; margin: auto;"><path d="M7 8l3 3 3-3" stroke="#23221F" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
 						</span>
-					</summary>
+					</div>
 					<div class="faq-answer">Employees simply sign in with Google or Microsoft SSO and start using our stand-alone app (iOS, Android, or any browser). Smart nudges appear in Slack or Microsoft Teams, reminding them whenever a new survey is due. Because it's easy to set up, most organisations are live—first pulse and all—within about 30 minutes.</div>
-				</details>
-				<details class="faq-item">
-					<summary class="faq-summary">
+				</div>
+				<div class="faq-item">
+					<div class="faq-summary">
 						<span>How is Hoogly different from other employee-engagement tools?</span>
 						<span class="faq-arrow">
 							<svg width="26" height="26" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" style="display: block; margin: auto;"><path d="M7 8l3 3 3-3" stroke="#23221F" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
 						</span>
-					</summary>
+					</div>
 					<div class="faq-answer">We don't just measure culture—we help build it. Listening is our super-power: AI-powered conversations surface insights up to 10 × richer than old-school surveys. Those insights become personalised performance coaching for every employee, leader, and HR partner, while our Relational Intelligence engine suggests ways colleagues can collaborate even better. All of this happens under strict privacy safeguards, so feedback stays confidential and only the right people see the right data.</div>
-				</details>
-				<details class="faq-item">
-					<summary class="faq-summary">
+				</div>
+				<div class="faq-item">
+					<div class="faq-summary">
 						<span>What's your pricing model—any setup fees or contract requirements?</span>
 						<span class="faq-arrow">
 							<svg width="26" height="26" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" style="display: block; margin: auto;"><path d="M7 8l3 3 3-3" stroke="#23221F" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
 						</span>
-					</summary>
+					</div>
 					<div class="faq-answer">Your first survey is completely free, so you can experience Hoogly's impact with zero risk. After that, you pay a simple, size-based platform fee that comes bundled with plenty of AI usage credits. Most customers choose our annual plan for the best value, but you can also go month-to-month for a small premium. Need more credits? Top up any time—no hidden costs and absolutely no setup fees.</div>
-				</details>
-				<details class="faq-item">
-					<summary class="faq-summary">
+				</div>
+				<div class="faq-item">
+					<div class="faq-summary">
 						<span>What support do you provide during onboarding and beyond?</span>
 						<span class="faq-arrow">
 							<svg width="26" height="26" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" style="display: block; margin: auto;"><path d="M7 8l3 3 3-3" stroke="#23221F" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
 						</span>
-					</summary>
+					</div>
 					<div class="faq-answer">Every customer is paired with a dedicated Customer Success Manager who handles the technical setup, launches your first pulse, and stays laser-focused on your success. Need a quick answer? Our live-chat team and searchable knowledge base are on call, backed by email support with rapid SLAs and optional quarterly success workshops. For senior HR leaders, our Chief Culture Officer offers one-to-one coaching on turning Hoogly insights into strategy—so you're never left guessing what to do next.</div>
-				</details>
-				<details class="faq-item">
-					<summary class="faq-summary">
+				</div>
+				<div class="faq-item">
+					<div class="faq-summary">
 						<span>Can Hoogly integrate with Workday, Microsoft 365, or other tools we already use?</span>
 						<span class="faq-arrow">
 							<svg width="26" height="26" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" style="display: block; margin: auto;"><path d="M7 8l3 3 3-3" stroke="#23221F" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
 						</span>
-					</summary>
+					</div>
 					<div class="faq-answer">Absolutely. Hoogly plugs straight into Slack and Microsoft Teams for notifications and quick actions, and we offer secure integrations with leading HRIS platforms so your people data stays in sync—no manual uploads required.</div>
-				</details>
-				<details class="faq-item">
-					<summary class="faq-summary">
+				</div>
+				<div class="faq-item">
+					<div class="faq-summary">
 						<span>Can I customise the surveys to align with my organisation's needs?</span>
 						<span class="faq-arrow">
 							<svg width="26" height="26" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" style="display: block; margin: auto;"><path d="M7 8l3 3 3-3" stroke="#23221F" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
 						</span>
-					</summary>
+					</div>
 					<div class="faq-answer">Definitely. You set the focus areas and the check-in cadence, and our self-learning AI takes it from there—crafting fresh, personalised questions for every employee. No two people see the exact same prompts, because nothing is pre-loaded or one-size-fits-all; each pulse is tuned to their role, past feedback, and what you're trying to achieve right now.</div>
-				</details>
-				<details class="faq-item">
-					<summary class="faq-summary">
+				</div>
+				<div class="faq-item">
+					<div class="faq-summary">
 						<span>How does Hoogly ensure anonymity and trust in feedback?</span>
 						<span class="faq-arrow">
 							<svg width="26" height="26" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" style="display: block; margin: auto;"><path d="M7 8l3 3 3-3" stroke="#23221F" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
 						</span>
-					</summary>
+					</div>
 					<div class="faq-answer">Hoogly is built on privacy-first principles. Every pulse runs in Incognito Mode—much like a private browser window—so we never store personally identifiable information alongside responses. Data are encrypted in transit and at rest, and we're actively working toward full ISO 27001 certification. Results appear only when at least five responses are aggregated, and access is restricted to authorised managers or admins. Our AI also redacts sensitive words and replaces real names with pseudonyms, so individual voices stay protected while the organisation still receives clear, actionable insight.</div>
-				</details>
-				<details class="faq-item">
-					<summary class="faq-summary">
+				</div>
+				<div class="faq-item">
+					<div class="faq-summary">
 						<span>Who can access reporting and insights inside Hoogly?</span>
 						<span class="faq-arrow">
 							<svg width="26" height="26" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" style="display: block; margin: auto;"><path d="M7 8l3 3 3-3" stroke="#23221F" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
 						</span>
-					</summary>
+					</div>
 					<div class="faq-answer">Employees enjoy a private dashboard with their own trends plus anonymised team averages. People managers see aggregated results for their team once the five-response threshold is met, helping them spot hotspots without exposing individuals. HR and executives have an organisation-wide view, with drill-downs by team, function, or geography—again, only in anonymised form. All access is controlled via SSO and strict role-based permissions.</div>
-				</details>
+				</div>
 			</div>
 		</div>
 	</section>
@@ -391,6 +410,29 @@ window.addEventListener('DOMContentLoaded', function() {
       });
     }, { threshold: 0.3 });
     observer.observe(el);
+  });
+
+  document.querySelectorAll('.faq-item').forEach(item => {
+    const summary = item.querySelector('.faq-summary');
+    const answer = item.querySelector('.faq-answer');
+    
+    summary.addEventListener('click', function() {
+      const isOpen = item.classList.contains('open');
+      
+      // Close all other FAQ items
+      document.querySelectorAll('.faq-item').forEach(otherItem => {
+        if (otherItem !== item) {
+          otherItem.classList.remove('open');
+        }
+      });
+      
+      // Toggle current item
+      if (isOpen) {
+        item.classList.remove('open');
+      } else {
+        item.classList.add('open');
+      }
+    });
   });
 });
 </script>
