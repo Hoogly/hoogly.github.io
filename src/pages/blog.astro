@@ -3,10 +3,19 @@ import { getCollection } from 'astro:content';
 import Layout from '../layouts/Layout.astro';
 
 // Get all blog posts and sort by publish date
+type Post = Awaited<ReturnType<typeof getCollection>>[number];
 const allPosts = await getCollection('blog');
 const sortedPosts = allPosts
   .filter(post => !post.data.draft)
   .sort((a, b) => new Date(b.data.publishDate).getTime() - new Date(a.data.publishDate).getTime());
+
+// Capitalize tags for filter dropdown
+function capitalize(str) {
+  return str.charAt(0).toUpperCase() + str.slice(1);
+}
+
+// Get all unique tags for filter dropdown
+const allTags = Array.from(new Set(sortedPosts.flatMap(post => post.data.tags || [])));
 ---
 
 <Layout 
@@ -26,10 +35,36 @@ const sortedPosts = allPosts
         </div>
     </section>
 
+    <section class="blog-featured-section" style="max-width: 1100px; margin: 0 auto 1.5rem auto;">
+        <div style="display: flex; flex-wrap: wrap; background: #fff; border-radius: 24px; overflow: hidden; box-shadow: 0 2px 12px 0 rgba(0,0,0,0.04); min-height: 340px; height: 100%; align-items: stretch;">
+            <a href={`/blog/${sortedPosts[0].slug}`} style="flex: 1 1 380px; min-width: 320px; max-width: 50%; display: flex; height: auto; align-items: stretch;">
+                <img src={sortedPosts[0].data.image ? sortedPosts[0].data.image : '/images/Blog%20Header.jpg'} alt={sortedPosts[0].data.title} style="width: 100%; height: 100%; object-fit: cover; display: block; min-height: 340px;" />
+            </a>
+            <div style="flex: 1 1 420px; min-width: 320px; padding: 2.5rem 2.5rem 2rem 2.5rem; display: flex; flex-direction: column; justify-content: center; height: auto;">
+                <div style="margin-bottom: 1.2rem;">
+                    {sortedPosts[0].data.tags && sortedPosts[0].data.tags.length > 0 && (
+                        <span class="post-tag" style="font-size: 1rem; font-weight: 500; padding: 4px 16px; border-radius: 20px; margin-bottom: 0;">{capitalize(sortedPosts[0].data.tags[0])}</span>
+                    )}
+                </div>
+                <a href={`/blog/${sortedPosts[0].slug}`} style="text-decoration: none; color: inherit;">
+                    <h2 style="font-size: 2.3rem; font-weight: 600; color: #23221F; margin: 0 0 1.2rem 0; line-height: 1.15; max-width: 95%;">{sortedPosts[0].data.title}</h2>
+                </a>
+                <div style="font-size: 1.1rem; color: #23221F; opacity: 0.8; margin-bottom: 2.2rem; max-width: 95%; line-height: 1.5; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; text-overflow: ellipsis;">
+                    {sortedPosts[0].data.description}
+                </div>
+                <div style="font-size: 1rem; color: #23221F; opacity: 0.7; display: flex; align-items: center; gap: 1.2em;">
+                    <span>{sortedPosts[0].data.publishDate.toLocaleDateString('en-US', { month: 'short', day: 'numeric' })}</span>
+                    <span style="font-size: 1.2em;">·</span>
+                    <span>3 min</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <section class="blog-posts" style="padding: var(--space-16) 0;">
         <div class="container">
-            <div class="posts-grid" style="grid-template-columns: repeat(3, 1fr); gap: 2rem;">
-                {sortedPosts.slice(0, 6).map((post, idx) => (
+            <div id="posts-grid" class="posts-grid" style="grid-template-columns: repeat(3, 1fr); gap: 2rem;">
+                {sortedPosts.slice(1, 7).map((post, idx) => (
                     <a href={`/blog/${post.slug}`} style="text-decoration: none; color: inherit;">
                         <article class="blog-post-card animate-in">
                             <img src={post.data.image ? post.data.image : '/images/Blog%20Header.jpg'} alt={post.data.title} class="blog-card-image" />
@@ -37,8 +72,8 @@ const sortedPosts = allPosts
                                 <div class="blog-card-top">
                                     <h2 class="post-card-title">{post.data.title}</h2>
                                     <div class="post-tags" style="min-height: 2.5em; margin-top: 0.5rem;">
-                                        {post.data.tags?.slice(0, idx === 0 ? 2 : 3).map((tag) => (
-                                            <span class="post-tag">{tag}</span>
+                                        {post.data.tags?.slice(0, 3).map((tag) => (
+                                            <span class="post-tag">{capitalize(tag)}</span>
                                         ))}
                                     </div>
                                 </div>
@@ -60,7 +95,23 @@ const sortedPosts = allPosts
             </div>
         </div>
     </section>
-</Layout> 
+
+    <script type="module">
+    // Simple client-side filter for demonstration (Astro doesn't support reactivity out of the box)
+    window.filterPosts = function(event) {
+        const value = event.target.value;
+        const allCards = document.querySelectorAll('.posts-grid > a');
+        allCards.forEach(card => {
+            const tags = Array.from(card.querySelectorAll('.post-tag')).map(el => el.textContent);
+            if (!value || tags.includes(value)) {
+                card.style.display = '';
+            } else {
+                card.style.display = 'none';
+            }
+        });
+    }
+    </script>
+</Layout>
 
 <style>
 body.blog {
@@ -196,6 +247,34 @@ body.blog {
   .blog-header p {
     font-size: var(--font-size-lg) !important;
   }
+
+  .blog-featured-section > div {
+    flex-direction: column !important;
+    align-items: stretch !important;
+    min-height: unset !important;
+    height: auto !important;
+  }
+  .blog-featured-section a {
+    max-width: 100% !important;
+    min-width: 0 !important;
+    flex: none !important;
+    display: block !important;
+    height: auto !important;
+  }
+  .blog-featured-section img {
+    width: 100% !important;
+    height: auto !important;
+    border-radius: 24px 24px 0 0 !important;
+    min-height: unset !important;
+    max-height: 320px;
+    object-fit: cover;
+    display: block;
+  }
+  .blog-featured-section > div > div {
+    padding: 2rem 1.2rem 1.5rem 1.2rem !important;
+    min-width: 0 !important;
+    height: auto !important;
+  }
 }
 
 @media (max-width: 600px) {
@@ -234,6 +313,14 @@ body.blog {
 
 body.blog, .blog-header, .blog-header *, .blog-posts, .blog-posts *, .blog-post-card, .blog-post-card *, .post-card-title, .post-card-title a, .post-meta, .post-meta time, .post-meta .author, .post-description, .post-tags, .post-tag, .read-more {
   color: #23221F !important;
+}
+
+.blog-category-select option:checked, .blog-category-select option[selected] {
+  background: #23221F !important;
+  color: #fff !important;
+}
+.blog-category-select:focus {
+  outline: none;
 }
 </style>
 
