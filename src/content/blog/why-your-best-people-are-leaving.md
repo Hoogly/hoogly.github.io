@@ -5,7 +5,7 @@ publishDate: "2025-01-18"
 author: "Anitta Krishan"
 tags: ["employee retention", "engagement", "culture", "leadership", "burnout", "workplace wellbeing", "talent management"]
 draft: false
-image: "/images/blog/article-images/why-best-people-leaving.png"
+image: "/images/blog/article-images/why-best-people-leaving (1).png"
 ---
 
 We're facing a quiet crisis at work. Not just in how people engage—but in whether they're willing to stay at all.

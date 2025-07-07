@@ -5,7 +5,7 @@ publishDate: "2025-01-15"
 author: "Anitta Krishan"
 tags: ["AI", "culture", "employee experience", "leadership", "HR", "workplace wellbeing"]
 draft: false
-image: "/images/blog/article-images/redefining-culture.png"
+image: "/images/blog/article-images/redefining-culture (1).png"
 ---
 
 The future of work isn't just arriving. It's already here and it's asking leaders to evolve from the inside out.

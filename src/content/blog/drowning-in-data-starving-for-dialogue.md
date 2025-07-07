@@ -5,7 +5,7 @@ publishDate: "2025-01-16"
 author: "Mohit Midha"
 tags: ["employee engagement", "leadership", "culture", "AI", "retention", "management", "workplace wellbeing"]
 draft: false
-image: "/images/blog/article-images/drowning-in-data.png"
+image: "/images/blog/article-images/drowning-in-data (1).png"
 ---
 
 The resignation letter was drafted and ready to send. It was the culmination of weeks of quiet frustration, a growing sense of being undervalued, and the slow, painful fading of a creative spark.
