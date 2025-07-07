@@ -23,12 +23,6 @@ const sortedPosts = allPosts
 const currentIndex = sortedPosts.findIndex(p => p.slug === post.slug);
 const prevPost = currentIndex < sortedPosts.length - 1 ? sortedPosts[currentIndex + 1] : null;
 const nextPost = currentIndex > 0 ? sortedPosts[currentIndex - 1] : null;
-
-// Get Anitta's posts for similar articles section
-const anittaPosts = allPosts
-  .filter(p => !p.data.draft && p.data.author === 'Anitta Krishan' && p.slug !== post.slug)
-  .sort(() => Math.random() - 0.5) // Shuffle the array
-  .slice(0, 3); // Take first 3
 ---
 
 <Layout 
@@ -143,20 +137,19 @@ const anittaPosts = allPosts
         .share-article-section-modern {
             background: #D0CCFF !important;
             border-radius: 16px;
-            padding: 1.5rem 2rem;
-            margin: 1.5rem 0 0 0;
+            padding: 3rem 2rem 2.5rem 2rem;
+            margin: 2.5rem 0 0 0;
             display: flex;
-            flex-direction: row;
+            flex-direction: column;
             align-items: center;
             justify-content: center;
-            gap: 1.5rem;
         }
         .share-modern-title {
-            font-size: 1.4rem;
+            font-size: 1.8rem;
             font-weight: 500;
             color: #23221F;
             text-align: center;
-            margin: 0;
+            margin-bottom: 2.2rem;
             font-family: 'Outfit', sans-serif;
         }
         .share-modern-icons {
@@ -224,76 +217,6 @@ const anittaPosts = allPosts
                 transform: translateY(0);
             }
         }
-        
-        /* Similar articles section styling */
-        .similar-articles-section {
-            background: #F7F3F0;
-            padding: 3rem 2rem;
-            margin: 0;
-            border-radius: 0;
-            width: 100vw;
-            margin-left: calc(-50vw + 50%);
-        }
-        .similar-articles-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            font-family: 'Outfit', sans-serif;
-        }
-        .similar-articles-title {
-            font-size: 2.5rem;
-            font-weight: 600;
-            color: #23221F;
-            text-align: center;
-            margin-bottom: 2.5rem;
-            font-family: 'Outfit', sans-serif;
-        }
-        .similar-articles-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-        .similar-article-card {
-            background: white;
-            border-radius: 1.2rem;
-            overflow: hidden;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
-            text-decoration: none;
-            color: inherit;
-        }
-        .similar-article-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
-        }
-        .similar-article-image {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-        }
-        .similar-article-content {
-            padding: 1.5rem;
-        }
-        .similar-article-title {
-            font-size: 1.3rem;
-            font-weight: 600;
-            color: #23221F;
-            margin-bottom: 0.8rem;
-            line-height: 1.4;
-            font-family: 'Outfit', sans-serif;
-        }
-        .similar-article-description {
-            font-size: 1rem;
-            color: #666;
-            line-height: 1.5;
-            margin-bottom: 1rem;
-            font-family: 'Outfit', sans-serif;
-        }
-        .similar-article-meta {
-            font-size: 0.9rem;
-            color: #888;
-            font-family: 'Outfit', sans-serif;
-        }
     </style>
 
     <article class="blog-post">
@@ -345,44 +268,37 @@ const anittaPosts = allPosts
         </div>
     </article>
 
-
+    <nav class="post-nav">
+        <div class="container" style="display: flex; justify-content: center; align-items: center; gap: 2.5rem; margin: 1.5rem 0;">
+            {prevPost && (
+                <a href={`/blog/${prevPost.slug}`} class="arrow-nav-btn" aria-label="Previous article">
+                    <svg class="arrow-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M15 18L9 12L15 6" stroke="#23221F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </a>
+            )}
+            {nextPost && (
+                <a href={`/blog/${nextPost.slug}`} class="arrow-nav-btn" aria-label="Next article">
+                    <svg class="arrow-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M9 6L15 12L9 18" stroke="#23221F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </a>
+            )}
+        </div>
+    </nav>
 
     <div class="share-article-section-modern" style="width: 100vw; margin-left: calc(-50vw + 50%); border-radius: 0;">
       <div class="share-modern-title">Share this article on:</div>
       <div class="share-modern-icons">
         <a href={`https://www.linkedin.com/shareArticle?mini=true&url=${encodeURIComponent(Astro.url)}`} target="_blank" rel="noopener noreferrer" aria-label="Share on LinkedIn" class="share-modern-icon">
-          <img src="/images/blog/LI.png" alt="LinkedIn" width="28" height="28" />
+          <img src="/images/blog/LI.png" alt="LinkedIn" width="36" height="36" />
         </a>
         <a href={`https://x.com/intent/tweet?url=${encodeURIComponent(Astro.url)}&text=${encodeURIComponent(post.data.title)}`} target="_blank" rel="noopener noreferrer" aria-label="Share on X" class="share-modern-icon">
-          <img src="/images/blog/X.png" alt="X (Twitter)" width="28" height="28" />
+          <img src="/images/blog/X.png" alt="X (Twitter)" width="36" height="36" />
         </a>
         <a href={`https://medium.com/new-story?source=---post_share---&url=${encodeURIComponent(Astro.url)}`} target="_blank" rel="noopener noreferrer" aria-label="Share on Medium" class="share-modern-icon">
-          <img src="/images/blog/Medium.png" alt="Medium" width="28" height="28" />
+          <img src="/images/blog/Medium.png" alt="Medium" width="36" height="36" />
         </a>
       </div>
     </div>
-
-    {anittaPosts.length > 0 && (
-      <div class="similar-articles-section">
-        <div class="similar-articles-container">
-          <h2 class="similar-articles-title">Some similar articles</h2>
-          <div class="similar-articles-grid">
-            {anittaPosts.map((similarPost) => (
-              <a href={`/blog/${similarPost.slug}`} class="similar-article-card">
-                {similarPost.data.image && (
-                  <img src={similarPost.data.image} alt={similarPost.data.title} class="similar-article-image" />
-                )}
-                <div class="similar-article-content">
-                  <h3 class="similar-article-title">{similarPost.data.title}</h3>
-                  <p class="similar-article-description">{similarPost.data.description}</p>
-                  <div class="similar-article-meta">
-                    {similarPost.data.publishDate.toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' })}
-                  </div>
-                </div>
-              </a>
-            ))}
-          </div>
-        </div>
-      </div>
-    )}
 </Layout> 
