@@ -16,6 +16,9 @@ const { title, description, image, type = 'website', bodyClass = '' } = Astro.pr
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 const socialImage = image ? new URL(image, Astro.url).href : null;
+
+// Check if we're on the get-started page to conditionally hide the header
+const isGetStartedPage = Astro.url.pathname === '/get-started';
 ---
 
 <!DOCTYPE html>
@@ -74,7 +77,7 @@ const socialImage = image ? new URL(image, Astro.url).href : null;
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TXHXQ8NW"
     height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
-    <Header />
+    {!isGetStartedPage && <Header />}
     
     <main>
       <div class="container">
