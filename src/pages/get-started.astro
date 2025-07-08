@@ -5,7 +5,12 @@ import Layout from '../layouts/Layout.astro';
 <Layout title="Get Started | Hoogly" description="Sign up to get started with Hoogly." type="website">
   <style>
     body, html {
-      background: #faf6f4;
+      background: #faf6f4 !important;
+    }
+    
+    /* Override the global body gradient for this page */
+    body {
+      background: #faf6f4 !important;
     }
     
     /* Fallback to hide header on get-started page in case conditional rendering fails */
@@ -19,6 +24,16 @@ import Layout from '../layouts/Layout.astro';
       display: flex;
       align-items: flex-start;
       justify-content: center;
+    }
+    
+    /* Override any container styling that might add purple background */
+    .container {
+      background: transparent !important;
+    }
+    
+    /* Override main element styling */
+    main {
+      background: transparent !important;
     }
     .get-started-form-container {
       background: #fff;
