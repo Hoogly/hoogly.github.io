@@ -7,6 +7,11 @@ import Layout from '../layouts/Layout.astro';
     body, html {
       background: #faf6f4;
     }
+    
+    /* Fallback to hide header on get-started page in case conditional rendering fails */
+    header, .header, #navbar {
+      display: none !important;
+    }
 
     .get-started-bg {
       min-height: 100vh;
