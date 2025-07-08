@@ -23,6 +23,24 @@ const sortedPosts = allPosts
 const currentIndex = sortedPosts.findIndex(p => p.slug === post.slug);
 const prevPost = currentIndex < sortedPosts.length - 1 ? sortedPosts[currentIndex + 1] : null;
 const nextPost = currentIndex > 0 ? sortedPosts[currentIndex - 1] : null;
+
+// Find related articles based on tags
+const relatedPosts = allPosts
+  .filter(p => !p.data.draft && p.slug !== post.slug)
+  .filter(p => {
+    if (!post.data.tags || !p.data.tags) return false;
+    return post.data.tags.some(tag => p.data.tags.includes(tag));
+  })
+  .sort((a, b) => new Date(b.data.publishDate).getTime() - new Date(a.data.publishDate).getTime())
+  .slice(0, 3);
+
+// If no related posts by tags, get the most recent posts
+const fallbackPosts = allPosts
+  .filter(p => !p.data.draft && p.slug !== post.slug)
+  .sort((a, b) => new Date(b.data.publishDate).getTime() - new Date(a.data.publishDate).getTime())
+  .slice(0, 3);
+
+const finalRelatedPosts = relatedPosts.length > 0 ? relatedPosts : fallbackPosts;
 ---
 
 <Layout 
@@ -137,24 +155,25 @@ const nextPost = currentIndex > 0 ? sortedPosts[currentIndex - 1] : null;
         .share-article-section-modern {
             background: #D0CCFF !important;
             border-radius: 16px;
-            padding: 3rem 2rem 2.5rem 2rem;
+            padding: 1rem 2rem;
             margin: 2.5rem 0 0 0;
             display: flex;
-            flex-direction: column;
+            flex-direction: row;
             align-items: center;
             justify-content: center;
+            gap: 1rem;
         }
         .share-modern-title {
-            font-size: 1.8rem;
+            font-size: 1.2rem;
             font-weight: 500;
             color: #23221F;
             text-align: center;
-            margin-bottom: 2.2rem;
+            margin: 0;
             font-family: 'Outfit', sans-serif;
         }
         .share-modern-icons {
             display: flex;
-            gap: 2.5rem;
+            gap: 1.5rem;
             justify-content: center;
             align-items: center;
         }
@@ -217,6 +236,73 @@ const nextPost = currentIndex > 0 ? sortedPosts[currentIndex - 1] : null;
                 transform: translateY(0);
             }
         }
+        
+        /* Related articles styling */
+        .related-articles-section {
+            background: transparent;
+            padding: 3rem 0;
+            margin-top: 2rem;
+        }
+        .related-articles-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        .related-articles-title {
+            font-size: 2rem;
+            font-weight: 600;
+            color: #23221F;
+            text-align: center;
+            margin-bottom: 2.5rem;
+            font-family: 'Outfit', sans-serif;
+        }
+        .related-articles-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        .related-article-card {
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+            transition: transform 0.2s, box-shadow 0.2s;
+            text-decoration: none;
+            color: inherit;
+        }
+        .related-article-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+        }
+        .related-article-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        .related-article-content {
+            padding: 1.5rem;
+        }
+        .related-article-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: #23221F;
+            margin-bottom: 0.75rem;
+            font-family: 'Outfit', sans-serif;
+            line-height: 1.4;
+        }
+        .related-article-description {
+            font-size: 1rem;
+            color: #666;
+            line-height: 1.5;
+            margin-bottom: 1rem;
+            font-family: 'Outfit', sans-serif;
+        }
+        .related-article-meta {
+            font-size: 0.9rem;
+            color: #888;
+            font-family: 'Outfit', sans-serif;
+        }
     </style>
 
     <article class="blog-post">
@@ -267,38 +353,42 @@ const nextPost = currentIndex > 0 ? sortedPosts[currentIndex - 1] : null;
             </div>
         </div>
     </article>
-
-    <nav class="post-nav">
-        <div class="container" style="display: flex; justify-content: center; align-items: center; gap: 2.5rem; margin: 1.5rem 0;">
-            {prevPost && (
-                <a href={`/blog/${prevPost.slug}`} class="arrow-nav-btn" aria-label="Previous article">
-                    <svg class="arrow-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M15 18L9 12L15 6" stroke="#23221F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                </a>
-            )}
-            {nextPost && (
-                <a href={`/blog/${nextPost.slug}`} class="arrow-nav-btn" aria-label="Next article">
-                    <svg class="arrow-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M9 6L15 12L9 18" stroke="#23221F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                </a>
-            )}
-        </div>
-    </nav>
-
     <div class="share-article-section-modern" style="width: 100vw; margin-left: calc(-50vw + 50%); border-radius: 0;">
       <div class="share-modern-title">Share this article on:</div>
       <div class="share-modern-icons">
         <a href={`https://www.linkedin.com/shareArticle?mini=true&url=${encodeURIComponent(Astro.url)}`} target="_blank" rel="noopener noreferrer" aria-label="Share on LinkedIn" class="share-modern-icon">
-          <img src="/images/blog/LI.png" alt="LinkedIn" width="36" height="36" />
+          <img src="/images/blog/LI.png" alt="LinkedIn" width="24" height="24" />
         </a>
         <a href={`https://x.com/intent/tweet?url=${encodeURIComponent(Astro.url)}&text=${encodeURIComponent(post.data.title)}`} target="_blank" rel="noopener noreferrer" aria-label="Share on X" class="share-modern-icon">
-          <img src="/images/blog/X.png" alt="X (Twitter)" width="36" height="36" />
+          <img src="/images/blog/X.png" alt="X (Twitter)" width="24" height="24" />
         </a>
         <a href={`https://medium.com/new-story?source=---post_share---&url=${encodeURIComponent(Astro.url)}`} target="_blank" rel="noopener noreferrer" aria-label="Share on Medium" class="share-modern-icon">
-          <img src="/images/blog/Medium.png" alt="Medium" width="36" height="36" />
+          <img src="/images/blog/Medium.png" alt="Medium" width="24" height="24" />
         </a>
       </div>
     </div>
+
+    {finalRelatedPosts.length > 0 && (
+        <section class="related-articles-section">
+            <div class="related-articles-container">
+                <h2 class="related-articles-title">Related articles</h2>
+                <div class="related-articles-grid">
+                    {finalRelatedPosts.map((relatedPost) => (
+                        <a href={`/blog/${relatedPost.slug}`} class="related-article-card">
+                            {relatedPost.data.image && (
+                                <img src={relatedPost.data.image} alt={relatedPost.data.title} class="related-article-image" />
+                            )}
+                            <div class="related-article-content">
+                                <h3 class="related-article-title">{relatedPost.data.title}</h3>
+                                <p class="related-article-description">{relatedPost.data.description}</p>
+                                <div class="related-article-meta">
+                                    {relatedPost.data.publishDate.toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' })}
+                                </div>
+                            </div>
+                        </a>
+                    ))}
+                </div>
+            </div>
+        </section>
+    )}
 </Layout> 
