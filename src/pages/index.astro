@@ -40,7 +40,7 @@ import Layout from '../layouts/Layout.astro';
 						>
 							Start Free
 						</a>
-					</div>
+				</div>
 					<div class="hero-section-awards" style="display: flex; justify-content: center; gap: 2rem; margin: 4rem 0 0 0; align-items: center;">
 						<img src="/images/Home/Award 1.png" alt="Award 1" style="height: 120px; width: auto;" />
 						<img src="/images/Home/Award 2.png" alt="Award 2" style="height: 120px; width: auto;" />
@@ -114,23 +114,32 @@ import Layout from '../layouts/Layout.astro';
 			</div>
 			<div class="integrations-subsection" style="margin-top: 4rem;">
 				<h3 class="integrations-title animate-in" style="text-align: center; margin-bottom: 2.5rem; color: #2d2a58; font-weight: 400; font-family: 'Outfit', sans-serif; font-size: var(--font-size-lg);">Integrates with:</h3>
-				<div class="integration-logos animate-in" style="display: flex; justify-content: center; align-items: center; gap: 4rem; flex-wrap: wrap;">
-					<img src="/images/slack-logo.png" alt="Slack" style="height: 35px; filter: grayscale(1) opacity(0.7);" />
-					<img src="/images/teams-logo.png" alt="Microsoft Teams" style="height: 35px; filter: grayscale(1) opacity(0.7);" />
-					<img src="/images/employment-hero.png" alt="Employment Hero" style="max-width: 110px; max-height: 24px; height: auto; filter: grayscale(1) opacity(0.7);" />
-					<img src="/images/bamboohr-logo.png" alt="BambooHR" style="height: 35px; filter: grayscale(1) opacity(0.7);" />
-					<img src="/images/workday-logo.png" alt="Workday" style="height: 35px; filter: grayscale(1) opacity(0.7);" />
+				<div class="integration-logos animate-in" id="integratesWithCarousel" style="display: flex; justify-content: center; align-items: center; gap: 4rem; flex-wrap: wrap;">
+					<div class="logos-track" style="display: flex; gap: 4rem;">
+						<img src="/images/slack-logo.png" alt="Slack" style="height: 35px; filter: grayscale(1) opacity(0.7);" />
+						<img src="/images/teams-logo.png" alt="Microsoft Teams" style="height: 44px; width: auto; filter: grayscale(1) opacity(0.7);" />
+						<img src="/images/employment-hero.png" alt="Employment Hero" style="height: 24px; width: auto; margin-top: 6px; filter: grayscale(1) opacity(0.7);" />
+						<img src="/images/bamboohr-logo.png" alt="BambooHR" style="height: 35px; filter: grayscale(1) opacity(0.7);" />
+						<img src="/images/workday-logo.png" alt="Workday" style="height: 35px; filter: grayscale(1) opacity(0.7);" />
+					</div>
+					<div class="logos-track" style="display: flex; gap: 4rem;">
+						<img src="/images/slack-logo.png" alt="Slack" style="height: 35px; filter: grayscale(1) opacity(0.7);" />
+						<img src="/images/teams-logo.png" alt="Microsoft Teams" style="height: 44px; width: auto; filter: grayscale(1) opacity(0.7);" />
+						<img src="/images/employment-hero.png" alt="Employment Hero" style="height: 24px; width: auto; margin-top: 6px; filter: grayscale(1) opacity(0.7);" />
+						<img src="/images/bamboohr-logo.png" alt="BambooHR" style="height: 35px; filter: grayscale(1) opacity(0.7);" />
+						<img src="/images/workday-logo.png" alt="Workday" style="height: 35px; filter: grayscale(1) opacity(0.7);" />
+					</div>
 				</div>
 			</div>
 		</div>
 	</section>
 
 	<!-- Built by the People Behind the People Section -->
-	<section class="built-by-section" style="background: linear-gradient(180deg, #f6f4fe 0%, #f5e9fa 25%, #ede9fe 50%, #8b5cf6 100%); padding: var(--space-20) 0; width: 100vw; margin-left: calc(-50vw + 50%);">
+	<section class="built-by-section" style="background: #E8E6FF; padding: var(--space-20) 0; width: 100vw; margin-left: calc(-50vw + 50%);">
 		<div class="container">
 			<div style="text-align: center; max-width: 800px; margin: 0 auto;">
-				<h2 style="font-family: 'Outfit', sans-serif; font-weight: 400; font-size: var(--font-size-4xl); margin-bottom: 3rem; color: #23221F;">
-					Built by the People <span class="hero-highlight"><span class="hero-highlight-text">Behind the People</span></span>
+				<h2 style="font-family: 'Outfit', sans-serif; font-weight: 600; font-size: var(--font-size-4xl); margin-bottom: 3rem; color: #23221F; text-align: center;">
+					Built by people from some of the most iconic workplaces
 				</h2>
 				<div style="display: flex; justify-content: center; align-items: center; gap: 1rem; margin-bottom: 3rem; flex-wrap: wrap;">
 					<img src="/images/about-us/mohit.avif" alt="Mohit Midha" style="width: 50px; height: 50px; border-radius: 50%; object-fit: cover; border: 2px solid #fff; box-shadow: 0 2px 8px rgba(0,0,0,0.1);" />
@@ -149,12 +158,21 @@ import Layout from '../layouts/Layout.astro';
 					We're ex-TikTok, Airbnb, Meta, Mangahigh, hipages, and we've seen what makes culture click (and what breaks it).
 				</p>
 				<a href="/about" class="btn btn-accent" style="font-size: 1.1rem; padding: 0.75rem 1.5rem; border-radius: 71px; margin-bottom: 2rem; display: inline-block;">Meet the team</a>
-				<div class="integration-logos animate-in" style="display: flex; justify-content: center; align-items: center; gap: 2rem; flex-wrap: nowrap;">
-					<img src="/images/Home/tiktok_PNG22.png" alt="TikTok" style="height: 160px; filter: brightness(0) invert(1) opacity(0.9);" />
-					<img src="/images/Home/airbnb-logo.png" alt="Airbnb" style="height: 35px; filter: brightness(0) invert(1) opacity(0.9);" />
-					<img src="/images/Home/Meta-Logo.png" alt="Meta" style="height: 35px; filter: brightness(0) invert(1) opacity(0.9);" />
-					<img src="/images/Home/mangahighlogo.png" alt="Mangahigh" style="height: 160px; filter: brightness(0) invert(1) opacity(0.9);" />
-					<img src="/images/Home/Hipages_logo.png" alt="hipages" style="height: 70px; filter: brightness(0) invert(1) opacity(0.9);" />
+				<div class="integration-logos animate-in" id="builtByPeopleCarousel" style="display: flex; justify-content: center; align-items: center; gap: 2rem; flex-wrap: nowrap;">
+					<div class="logos-track" style="display: flex; gap: 2rem;">
+						<img src="/images/Home/tiktok_PNG22.png" alt="TikTok" style="height: 72px; width: auto; vertical-align: middle; filter: brightness(0) saturate(100%) invert(10%) sepia(7%) saturate(7500%) hue-rotate(205deg) brightness(90%) contrast(110%);" />
+						<img src="/images/Home/airbnb-logo.png" alt="Airbnb" style="height: 72px; width: auto; vertical-align: middle; filter: brightness(0) saturate(100%) invert(10%) sepia(7%) saturate(7500%) hue-rotate(205deg) brightness(90%) contrast(110%);" />
+						<img src="/images/Home/Meta-Logo.png" alt="Meta" style="height: 72px; width: auto; vertical-align: middle; filter: brightness(0) saturate(100%) invert(10%) sepia(7%) saturate(7500%) hue-rotate(205deg) brightness(90%) contrast(110%);" />
+						<img src="/images/Home/mangahighlogo.png" alt="Mangahigh" style="height: 120px; width: auto; vertical-align: middle; margin-top: -24px; filter: brightness(0) saturate(100%) invert(10%) sepia(7%) saturate(7500%) hue-rotate(205deg) brightness(90%) contrast(110%);" />
+						<img src="/images/Home/Hipages_logo.png" alt="hipages" style="height: 72px; width: auto; vertical-align: middle; filter: brightness(0) saturate(100%) invert(10%) sepia(7%) saturate(7500%) hue-rotate(205deg) brightness(90%) contrast(110%);" />
+					</div>
+					<div class="logos-track" style="display: flex; gap: 2rem;">
+						<img src="/images/Home/tiktok_PNG22.png" alt="TikTok" style="height: 72px; width: auto; vertical-align: middle; filter: brightness(0) saturate(100%) invert(10%) sepia(7%) saturate(7500%) hue-rotate(205deg) brightness(90%) contrast(110%);" />
+						<img src="/images/Home/airbnb-logo.png" alt="Airbnb" style="height: 72px; width: auto; vertical-align: middle; filter: brightness(0) saturate(100%) invert(10%) sepia(7%) saturate(7500%) hue-rotate(205deg) brightness(90%) contrast(110%);" />
+						<img src="/images/Home/Meta-Logo.png" alt="Meta" style="height: 72px; width: auto; vertical-align: middle; filter: brightness(0) saturate(100%) invert(10%) sepia(7%) saturate(7500%) hue-rotate(205deg) brightness(90%) contrast(110%);" />
+						<img src="/images/Home/mangahighlogo.png" alt="Mangahigh" style="height: 120px; width: auto; vertical-align: middle; margin-top: -24px; filter: brightness(0) saturate(100%) invert(10%) sepia(7%) saturate(7500%) hue-rotate(205deg) brightness(90%) contrast(110%);" />
+						<img src="/images/Home/Hipages_logo.png" alt="hipages" style="height: 72px; width: auto; vertical-align: middle; filter: brightness(0) saturate(100%) invert(10%) sepia(7%) saturate(7500%) hue-rotate(205deg) brightness(90%) contrast(110%);" />
+					</div>
 				</div>
 			</div>
 		</div>
@@ -399,6 +417,91 @@ import Layout from '../layouts/Layout.astro';
   background: white !important;
   color: #23221F !important;
 }
+  @media (max-width: 768px) {
+    .integration-logos {
+      overflow-x: auto !important;
+      flex-wrap: nowrap !important;
+      gap: 1.5rem !important;
+      -webkit-overflow-scrolling: touch;
+      scroll-behavior: smooth;
+      padding-bottom: 0.5rem;
+      position: relative;
+      margin-left: -1.25rem;
+      margin-right: -1.25rem;
+    }
+    .integration-logos::-webkit-scrollbar {
+      display: none;
+    }
+    .integration-logos img {
+      flex: 0 0 auto;
+      max-width: none;
+    }
+    .integration-logos::after {
+      content: none;
+    }
+  }
+  @media (max-width: 768px) {
+    #integratesWithCarousel {
+      overflow-x: auto !important;
+      flex-wrap: nowrap !important;
+      gap: 1.5rem !important;
+      -webkit-overflow-scrolling: touch;
+      scroll-behavior: smooth;
+      padding-bottom: 0.5rem;
+      position: relative;
+      margin-left: -1.25rem;
+      margin-right: -1.25rem;
+    }
+    #integratesWithCarousel::-webkit-scrollbar {
+      display: none;
+    }
+    #integratesWithCarousel img {
+      flex: 0 0 auto;
+      max-width: none;
+    }
+    #integratesWithCarousel .logos-track {
+      display: flex !important;
+    }
+  }
+  @media (min-width: 769px) {
+    #integratesWithCarousel {
+      flex-wrap: wrap !important;
+    }
+    #integratesWithCarousel .logos-track:last-child {
+      display: none !important;
+    }
+  }
+  @media (max-width: 768px) {
+    #builtByPeopleCarousel {
+      overflow-x: auto !important;
+      flex-wrap: nowrap !important;
+      gap: 1.5rem !important;
+      -webkit-overflow-scrolling: touch;
+      scroll-behavior: smooth;
+      padding-bottom: 0.5rem;
+      position: relative;
+      margin-left: -1.25rem;
+      margin-right: -1.25rem;
+    }
+    #builtByPeopleCarousel::-webkit-scrollbar {
+      display: none;
+    }
+    #builtByPeopleCarousel img {
+      flex: 0 0 auto;
+      max-width: none;
+    }
+    #builtByPeopleCarousel .logos-track {
+      display: flex !important;
+    }
+  }
+  @media (min-width: 769px) {
+    #builtByPeopleCarousel {
+      flex-wrap: wrap !important;
+    }
+    #builtByPeopleCarousel .logos-track:last-child {
+      display: none !important;
+    }
+  }
 </style>
 
 <script>
@@ -494,5 +597,39 @@ window.addEventListener('DOMContentLoaded', function() {
       }
     });
   });
+
+  // Infinite auto-scroll for integrates-with carousel on mobile
+  function infiniteAutoScrollIntegratesWith() {
+    const carousel = document.getElementById('integratesWithCarousel');
+    if (!carousel || window.innerWidth > 768) return;
+    let speed = 1.2;
+    function step() {
+      if (carousel.scrollLeft >= carousel.scrollWidth / 2) {
+        carousel.scrollLeft = 0;
+      }
+      carousel.scrollLeft += speed;
+      requestAnimationFrame(step);
+    }
+    step();
+  }
+
+  // Infinite auto-scroll for built-by-people carousel on mobile
+  function infiniteAutoScrollBuiltByPeople() {
+    const carousel = document.getElementById('builtByPeopleCarousel');
+    if (!carousel || window.innerWidth > 768) return;
+    let speed = 1.2;
+    function step() {
+      if (carousel.scrollLeft >= carousel.scrollWidth / 2) {
+        carousel.scrollLeft = 0;
+      }
+      carousel.scrollLeft += speed;
+      requestAnimationFrame(step);
+    }
+    step();
+  }
+
+  // Call both after both are defined
+  infiniteAutoScrollIntegratesWith();
+  infiniteAutoScrollBuiltByPeople();
 });
 </script>
