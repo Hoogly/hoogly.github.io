@@ -25,22 +25,20 @@ import Layout from '../layouts/Layout.astro';
 					</div>
 					<div style="display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap;">
 						<a
-							href="/get-started?button-label=Try Free&page-source=homepage"
-							class="btn btn-accent"
-							style="font-size: 1.5rem; padding: 1rem 2.5rem; border-radius: 71px;"
-						>
-							Try Free
-						</a>
-						<a
 							href="https://calendly.com/hoogly/30min"
 							target="_blank"
 							rel="noopener noreferrer"
-							class="btn"
-							style="font-size: 1.5rem; padding: 1rem 2.5rem; border-radius: 71px; background: white; color: #23221F; border: 1px solid #e0e0e0; transition: all 0.2s ease;"
-							onmouseover="this.style.background='#fff5f4'; this.style.borderColor='rgba(255, 125, 97, 0.3)'; this.style.color='#ff7d61';"
-							onmouseout="this.style.background='white'; this.style.borderColor='#e0e0e0'; this.style.color='#23221F';"
+							class="btn book-demo-btn"
+							style="font-size: 1.5rem; padding: 1rem 2.5rem; border-radius: 71px; background: white; color: #23221F; border: 1.5px solid #e0e0e0; transition: border-color 0.2s, color 0.2s, background 0.2s;"
 						>
 							Book a Demo
+						</a>
+						<a
+							href="/get-started?button-label=Start Free&page-source=homepage"
+							class="btn btn-accent"
+							style="font-size: 1.5rem; padding: 1rem 2.5rem; border-radius: 71px;"
+						>
+							Start Free
 						</a>
 					</div>
 					<div class="hero-section-awards" style="display: flex; justify-content: center; gap: 2rem; margin: 4rem 0 0 0; align-items: center;">
@@ -148,14 +146,14 @@ import Layout from '../layouts/Layout.astro';
 					<img src="/images/about-us/nikhil.jpeg" alt="Nikhil Singh" style="width: 50px; height: 50px; border-radius: 50%; object-fit: cover; border: 2px solid #fff; box-shadow: 0 2px 8px rgba(0,0,0,0.1);" />
 				</div>
 				<p style="font-size: var(--font-size-xl); color: var(--color-neutral-600); margin-bottom: 3rem; font-family: 'Outfit', sans-serif; font-weight: 400; line-height: 1.6;">
-					We're ex-TikTok, Airbnb, Meta, MangaHigh, hipages, and we've seen what makes culture click (and what breaks it).
+					We're ex-TikTok, Airbnb, Meta, Mangahigh, hipages, and we've seen what makes culture click (and what breaks it).
 				</p>
 				<a href="/about" class="btn btn-accent" style="font-size: 1.1rem; padding: 0.75rem 1.5rem; border-radius: 71px; margin-bottom: 2rem; display: inline-block;">Meet the team</a>
 				<div class="integration-logos animate-in" style="display: flex; justify-content: center; align-items: center; gap: 2rem; flex-wrap: nowrap;">
 					<img src="/images/Home/tiktok_PNG22.png" alt="TikTok" style="height: 160px; filter: brightness(0) invert(1) opacity(0.9);" />
 					<img src="/images/Home/airbnb-logo.png" alt="Airbnb" style="height: 35px; filter: brightness(0) invert(1) opacity(0.9);" />
 					<img src="/images/Home/Meta-Logo.png" alt="Meta" style="height: 35px; filter: brightness(0) invert(1) opacity(0.9);" />
-					<img src="/images/Home/mangahighlogo.png" alt="MangaHigh" style="height: 160px; filter: brightness(0) invert(1) opacity(0.9);" />
+					<img src="/images/Home/mangahighlogo.png" alt="Mangahigh" style="height: 160px; filter: brightness(0) invert(1) opacity(0.9);" />
 					<img src="/images/Home/Hipages_logo.png" alt="hipages" style="height: 70px; filter: brightness(0) invert(1) opacity(0.9);" />
 				</div>
 			</div>
@@ -267,6 +265,13 @@ import Layout from '../layouts/Layout.astro';
 							height: 80px !important;
 						}
 					}
+					.book-demo-btn:hover, .book-demo-btn:focus {
+						outline: none;
+						border-width: 1.5px;
+						border-color: #23221F !important;
+						background: white !important;
+						color: #23221F !important;
+					}
 				</style>
 				<div class="faq-item">
 					<div class="faq-summary">
@@ -372,7 +377,7 @@ import Layout from '../layouts/Layout.astro';
 				Run an AI experiment. Try Hoogly alongside your next survey.<br>
 				Once you experience this new way of listening, the old way won't cut it anymore.
 			</p>
-			<a href="/get-started?button-label=Try Free&page-source=final-cta" class="btn btn-accent" style="font-size: 1.25rem; padding: 1rem 2rem; border-radius: 71px;">Try Free</a>
+			<a href="/get-started?button-label=Start Free&page-source=final-cta" class="btn btn-accent" style="font-size: 1.25rem; padding: 1rem 2rem; border-radius: 71px;">Start Free</a>
 		</div>
 	</section>
 </Layout>
@@ -386,6 +391,13 @@ import Layout from '../layouts/Layout.astro';
 .animate-in.visible {
   opacity: 1;
   transform: translateY(0);
+}
+.book-demo-btn:hover, .book-demo-btn:focus {
+  outline: none;
+  border-width: 1.5px;
+  border-color: #23221F !important;
+  background: white !important;
+  color: #23221F !important;
 }
 </style>
 
