@@ -303,6 +303,42 @@ const finalRelatedPosts = relatedPosts.length > 0 ? relatedPosts : fallbackPosts
             color: #888;
             font-family: 'Outfit', sans-serif;
         }
+        .related-article-meta-mobile {
+            display: none;
+        }
+        @media (max-width: 768px) {
+          .related-articles-grid {
+            display: flex !important;
+            flex-direction: column !important;
+            gap: 1.5rem !important;
+          }
+          .related-article-card {
+            display: flex !important;
+            flex-direction: column !important;
+            align-items: center !important;
+            text-align: center !important;
+            min-width: 0 !important;
+          }
+          .related-article-content {
+            padding: 1rem 0.5rem 1.5rem 0.5rem !important;
+          }
+          .related-article-description,
+          .related-article-meta {
+            display: none !important;
+          }
+          .related-article-meta-mobile {
+            display: block !important;
+            font-size: 1rem;
+            color: #888;
+            margin-bottom: 0.5rem;
+            font-family: 'Outfit', sans-serif;
+          }
+          .related-article-image {
+            height: 160px !important;
+            max-width: 100% !important;
+            object-fit: cover !important;
+          }
+        }
     </style>
 
     <article class="blog-post">
@@ -380,6 +416,9 @@ const finalRelatedPosts = relatedPosts.length > 0 ? relatedPosts : fallbackPosts
                             )}
                             <div class="related-article-content">
                                 <h3 class="related-article-title">{relatedPost.data.title}</h3>
+                                <div class="related-article-meta-mobile">
+                                    {relatedPost.data.author || 'Hoogly Team'} · {relatedPost.data.timeToRead || '3 min read'}
+                                </div>
                                 <p class="related-article-description">{relatedPost.data.description}</p>
                                 <div class="related-article-meta">
                                     {relatedPost.data.publishDate.toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' })}
