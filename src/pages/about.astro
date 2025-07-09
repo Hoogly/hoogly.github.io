@@ -212,6 +212,44 @@ import Layout from '../layouts/Layout.astro';
   .anonymous-ai-headline {
     font-weight: 600;
   }
+  .flip-container {
+    perspective: 800px;
+    width: 180px;
+    height: 180px;
+  }
+  .flipper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.6s cubic-bezier(0.77,0,0.175,1);
+    transform-style: preserve-3d;
+  }
+  .flip-container:hover .flipper, .flip-container:focus-within .flipper {
+    transform: rotateY(180deg);
+  }
+  .leader-img.front {
+    backface-visibility: hidden;
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #fff;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    z-index: 2;
+  }
+  .leader-img.back {
+    backface-visibility: hidden;
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #fff;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    transform: rotateY(180deg);
+    z-index: 1;
+  }
 </style>
 
 <Layout title="About Us - Hoogly" description="Learn about Hoogly's mission, values, and leadership team." type="website">
@@ -240,8 +278,11 @@ That spirit is at the heart of everything we do. Because even in a changing worl
       <div class="leadership-grid">
         <!-- Mohit Midha - CEO -->
         <div class="leader-card">
-          <div class="leader-img-wrapper">
-            <img src="/images/about-us/mohit.avif" alt="Mohit Midha" class="leader-img" />
+          <div class="leader-img-wrapper flip-container">
+            <div class="flipper">
+              <img src="/images/about-us/mohit.avif" alt="Mohit Midha" class="leader-img front" />
+              <img src="/images/about-us/mohit.avif" alt="Mohit Midha" class="leader-img back" />
+            </div>
             <div class="role-badge">CEO</div>
           </div>
           <div class="leader-name">
@@ -255,8 +296,11 @@ That spirit is at the heart of everything we do. Because even in a changing worl
         </div>
         <!-- Anitta Krishan - CCO -->
         <div class="leader-card">
-          <div class="leader-img-wrapper">
-            <img src="/images/about-us/anitta.jpeg" alt="Anitta Krishan" class="leader-img" />
+          <div class="leader-img-wrapper flip-container">
+            <div class="flipper">
+              <img src="/images/about-us/anitta.jpeg" alt="Anitta Krishan" class="leader-img front" />
+              <img src="/images/about-us/anitta.jpeg" alt="Anitta Krishan" class="leader-img back" />
+            </div>
             <div class="role-badge">CCO</div>
           </div>
           <div class="leader-name">
@@ -270,8 +314,11 @@ That spirit is at the heart of everything we do. Because even in a changing worl
         </div>
         <!-- Mark Gil Libres - CTO -->
         <div class="leader-card">
-          <div class="leader-img-wrapper">
-            <img src="/images/about-us/mark.avif" alt="Mark Gil Libres" class="leader-img" />
+          <div class="leader-img-wrapper flip-container">
+            <div class="flipper">
+              <img src="/images/about-us/mark.avif" alt="Mark Gil Libres" class="leader-img front" />
+              <img src="/images/about-us/mark.avif" alt="Mark Gil Libres" class="leader-img back" />
+            </div>
             <div class="role-badge">CTO</div>
           </div>
           <div class="leader-name">
@@ -285,8 +332,11 @@ That spirit is at the heart of everything we do. Because even in a changing worl
         </div>
         <!-- Natalie Lui - VP of Product -->
         <div class="leader-card">
-          <div class="leader-img-wrapper">
-            <img src="/images/about-us/natalie.avif" alt="Natalie Lui" class="leader-img" />
+          <div class="leader-img-wrapper flip-container">
+            <div class="flipper">
+              <img src="/images/about-us/natalie.avif" alt="Natalie Lui" class="leader-img front" />
+              <img src="/images/about-us/Natalie 2.png" alt="Natalie Lui 2" class="leader-img back" />
+            </div>
             <div class="role-badge">VP of Product</div>
           </div>
           <div class="leader-name">
@@ -300,8 +350,11 @@ That spirit is at the heart of everything we do. Because even in a changing worl
         </div>
         <!-- Dr. Jodi Richardson - Scientific Advisory Panel -->
         <div class="leader-card">
-          <div class="leader-img-wrapper">
-            <img src="/images/about-us/jodi.png" alt="Dr. Jodi Richardson" class="leader-img" />
+          <div class="leader-img-wrapper flip-container">
+            <div class="flipper">
+              <img src="/images/about-us/jodi.png" alt="Dr. Jodi Richardson" class="leader-img front" />
+              <img src="/images/about-us/jodi.png" alt="Dr. Jodi Richardson" class="leader-img back" />
+            </div>
             <div class="role-badge">Scientific Advisory Panel</div>
           </div>
           <div class="leader-name">
@@ -315,8 +368,11 @@ That spirit is at the heart of everything we do. Because even in a changing worl
         </div>
         <!-- Dr. Kristy Goodwin - Scientific Advisory Panel -->
         <div class="leader-card">
-          <div class="leader-img-wrapper">
-            <img src="/images/about-us/kristy.png" alt="Dr. Kristy Goodwin" class="leader-img" />
+          <div class="leader-img-wrapper flip-container">
+            <div class="flipper">
+              <img src="/images/about-us/kristy.png" alt="Dr. Kristy Goodwin" class="leader-img front" />
+              <img src="/images/about-us/kristy.png" alt="Dr. Kristy Goodwin" class="leader-img back" />
+            </div>
             <div class="role-badge">Scientific Advisory Panel</div>
           </div>
           <div class="leader-name">
@@ -330,8 +386,11 @@ That spirit is at the heart of everything we do. Because even in a changing worl
         </div>
         <!-- Teresa Lilly - People Advisor -->
         <div class="leader-card">
-          <div class="leader-img-wrapper">
-            <img src="/images/about-us/teresa.jpeg" alt="Teresa Lilly" class="leader-img" />
+          <div class="leader-img-wrapper flip-container">
+            <div class="flipper">
+              <img src="/images/about-us/teresa.jpeg" alt="Teresa Lilly" class="leader-img front" />
+              <img src="/images/about-us/teresa.jpeg" alt="Teresa Lilly" class="leader-img back" />
+            </div>
             <div class="role-badge">People Advisor</div>
           </div>
           <div class="leader-name">
@@ -345,8 +404,11 @@ That spirit is at the heart of everything we do. Because even in a changing worl
         </div>
         <!-- Manish Gajria - Product Advisor -->
         <div class="leader-card">
-          <div class="leader-img-wrapper">
-            <img src="/images/about-us/manish.png" alt="Manish Gajria" class="leader-img" />
+          <div class="leader-img-wrapper flip-container">
+            <div class="flipper">
+              <img src="/images/about-us/manish.png" alt="Manish Gajria" class="leader-img front" />
+              <img src="/images/about-us/manish.png" alt="Manish Gajria" class="leader-img back" />
+            </div>
             <div class="role-badge">Product Advisor</div>
           </div>
           <div class="leader-name">
@@ -360,8 +422,11 @@ That spirit is at the heart of everything we do. Because even in a changing worl
         </div>
         <!-- Anna Maratos - Scientific Advisory Panel -->
         <div class="leader-card">
-          <div class="leader-img-wrapper">
-            <img src="/images/about-us/anna.png" alt="Anna Maratos" class="leader-img" />
+          <div class="leader-img-wrapper flip-container">
+            <div class="flipper">
+              <img src="/images/about-us/anna.png" alt="Anna Maratos" class="leader-img front" />
+              <img src="/images/about-us/anna.png" alt="Anna Maratos" class="leader-img back" />
+            </div>
             <div class="role-badge">Scientific Advisory Panel</div>
           </div>
           <div class="leader-name">
@@ -375,8 +440,11 @@ That spirit is at the heart of everything we do. Because even in a changing worl
         </div>
         <!-- Q Hamirani - People Advisor -->
         <div class="leader-card">
-          <div class="leader-img-wrapper">
-            <img src="/images/about-us/q.jpeg" alt="Q Hamirani" class="leader-img" />
+          <div class="leader-img-wrapper flip-container">
+            <div class="flipper">
+              <img src="/images/about-us/q.jpeg" alt="Q Hamirani" class="leader-img front" />
+              <img src="/images/about-us/q.jpeg" alt="Q Hamirani" class="leader-img back" />
+            </div>
             <div class="role-badge">People Advisor</div>
           </div>
           <div class="leader-name">
@@ -390,8 +458,11 @@ That spirit is at the heart of everything we do. Because even in a changing worl
         </div>
         <!-- Nikhil Singh - AI Advisor -->
         <div class="leader-card">
-          <div class="leader-img-wrapper">
-            <img src="/images/about-us/nikhil.jpeg" alt="Nikhil Singh" class="leader-img" />
+          <div class="leader-img-wrapper flip-container">
+            <div class="flipper">
+              <img src="/images/about-us/nikhil.jpeg" alt="Nikhil Singh" class="leader-img front" />
+              <img src="/images/about-us/nikhil.jpeg" alt="Nikhil Singh" class="leader-img back" />
+            </div>
             <div class="role-badge">AI Advisor</div>
           </div>
           <div class="leader-name">
@@ -405,8 +476,11 @@ That spirit is at the heart of everything we do. Because even in a changing worl
         </div>
         <!-- Sharath C George - VP of Marketing -->
         <div class="leader-card">
-          <div class="leader-img-wrapper">
-            <img src="/images/about-us/sharath.jpeg" alt="Sharath C George" class="leader-img" />
+          <div class="leader-img-wrapper flip-container">
+            <div class="flipper">
+              <img src="/images/about-us/sharath.jpeg" alt="Sharath C George" class="leader-img front" />
+              <img src="/images/about-us/sharath.jpeg" alt="Sharath C George" class="leader-img back" />
+            </div>
             <div class="role-badge">VP of Marketing</div>
           </div>
           <div class="leader-name">
