@@ -34,6 +34,12 @@ import Layout from '../layouts/Layout.astro';
     gap: 2.5rem;
     margin-top: 2.5rem;
   }
+  @media (max-width: 768px) {
+    .leadership-grid {
+      grid-template-columns: 1fr;
+      gap: 1.25rem;
+    }
+  }
   .leader-card {
     text-align: center;
     padding: 0;
@@ -115,7 +121,7 @@ import Layout from '../layouts/Layout.astro';
     background: none;
     border: none;
     color: #f97316;
-    font-weight: 600;
+    font-weight: 400;
     cursor: pointer;
     margin-top: 0.5rem;
     font-size: 1rem;
@@ -125,31 +131,81 @@ import Layout from '../layouts/Layout.astro';
   .see-more-btn:hover {
     color: #ea580c;
   }
+  .animate-in {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 1.2s cubic-bezier(0.77,0,0.175,1), transform 1.2s cubic-bezier(0.77,0,0.175,1);
+  }
+  .animate-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  .about-hero-modern-inner {
+    display: flex;
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+    min-height: 480px;
+  }
+  @media (max-width: 768px) {
+    .about-hero-modern-inner {
+      flex-direction: column;
+      min-height: unset;
+      gap: 2.5rem;
+    }
+    .about-hero-modern-inner > div {
+      width: 100% !important;
+      max-width: 100% !important;
+      padding-left: 0 !important;
+      padding-right: 0 !important;
+    }
+    .about-hero-modern-inner > div:first-child {
+      padding-top: 2.5rem !important;
+      padding-bottom: 0 !important;
+    }
+    .about-hero-modern-inner > div:last-child {
+      justify-content: center !important;
+      align-items: center !important;
+      padding-bottom: 2.5rem !important;
+      padding-top: 0 !important;
+    }
+  }
+  @media (max-width: 768px) {
+    .about-hero-modern {
+      padding: 2rem 1.25rem 2rem 1.25rem !important;
+    }
+    .leadership-grid {
+      grid-template-columns: 1fr;
+      gap: 1.25rem;
+    }
+    .leader-card {
+      margin-bottom: 2rem;
+    }
+    .leader-card:last-child {
+      margin-bottom: 0;
+    }
+  }
 </style>
 
 <Layout title="About Us - Hoogly" description="Learn about Hoogly's mission, values, and leadership team." type="website">
   <div style="background: linear-gradient(to bottom, #F7F3F0 0%, #fff 100%); min-height: 100vh; width: 100vw; margin-left: calc(-50vw + 50%);">
-    <section class="about-hero" style="background: transparent; padding: 5rem 0 4rem 0; text-align: center; width: 100vw; margin-left: calc(-50vw + 50%); position: relative;">
-      <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-image: url('/images/about-us/our-mission.png'); background-size: cover; background-position: center; background-repeat: no-repeat; opacity: 0.1; z-index: 0;"></div>
-      <div class="container" style="max-width: 700px; margin: 0 auto; position: relative; z-index: 1;">
-        <div style="display: flex; flex-direction: column; align-items: center; gap: 1.5rem;">
-          <span style="display: flex; padding: 2px 12px; justify-content: center; align-items: center; gap: 10px; border-radius: 1000px; border: 1px solid rgba(0,0,0,0.08); font-size: 1rem; font-weight: 500; margin-bottom: 0.5rem; letter-spacing: 0.02em;">About us</span>
-          <h1 style="font-family: 'Outfit', sans-serif; font-size: 2.7rem; font-weight: 700; margin: 0 0 1.2rem 0; color: #23221F;">We're not here to run surveys. We're here to rebuild trust.</h1>
-          <p style="font-family: 'Outfit', sans-serif; font-size: 1.18rem; color: #444; margin-bottom: 0; line-height: 1.7; font-weight: 400; white-space: pre-line;">
-Engagement is not a task list. It's a conversation.
-Data without action is just expensive wallpaper.
-Trust is not a by-product. It's the point.
-The future belongs to leaders who are brave enough to listen—and human enough to act.
-Hoogly is here to help them do both.
+    <section class="about-hero-modern" style="position: relative; width: 100vw; margin-left: calc(-50vw + 50%); background: linear-gradient(90deg, #f7f3f0 60%, #f7f3f0 100%); min-height: 480px; display: flex; align-items: stretch;">
+      <div class="about-hero-modern-inner" style="display: flex; width: 100%; max-width: 1400px; margin: 0 auto; min-height: 480px;">
+        <div style="flex: 1 1 0; display: flex; flex-direction: column; justify-content: center; padding: 5rem 2.5rem 4rem 5vw; max-width: 650px; min-width: 0;">
+          <h1 style="font-family: 'Outfit', sans-serif; font-size: 2.8rem; font-weight: 600; color: #23221F; margin-bottom: 2.2rem; line-height: 1.08; text-align: left;">The Origins of Hoogly</h1>
+          <p style="font-family: 'Outfit', sans-serif; font-size: 1.18rem; color: #444; margin-bottom: 0; line-height: 1.7; font-weight: 400; max-width: none; width: 100%; text-align: left; white-space: pre-line;">
+Hoogly comes from the Danish word Hygge (pronounced hyoo-guh) — a feeling of cosy contentment, warmth, and ease.
 
-Let's fix what's broken—together.
+It’s about the simple, human moments that help us feel safe, connected, and at home with ourselves and with each other.
+
+That spirit is at the heart of everything we do. Because even in a changing world, we believe the most meaningful workplaces are built on trust, belonging, and the freedom to be yourself.
 </p>
-<a href="https://calendly.com/hoogly/30min" target="_blank" rel="noopener noreferrer" class="btn btn-accent" style="padding: 1rem 2.5rem; font-size: 1.25rem; border-radius: 71px; margin: 1.5rem 0 0 0; display: inline-block;">Book a demo</a>
         </div>
-    </div>
-  </section>
-
-    </div>
+        <div style="flex: 1 1 0; display: flex; align-items: center; justify-content: flex-end; min-width: 0; position: relative;">
+          <img id="aboutHeroImage" class="animate-in" src="/images/about-us/Mission Header.jpg" alt="Hoogly Mission Header" style="max-width: 700px; min-width: 320px; width: 100%; height: auto; border-radius: 48px; box-shadow: 0 4px 32px 0 rgba(0,0,0,0.06); object-fit: cover; background: #f7f3f0;" loading="lazy" />
+        </div>
+      </div>
+    </section>
 
   <section class="about-leadership" style="padding: 3rem 0; background: transparent; width: 100vw; margin-left: calc(-50vw + 50%);">
     <div class="container">
@@ -399,4 +455,26 @@ Let's fix what's broken—together.
   setupSeeMore('teresa-bio', 'teresa-see-more');
   setupSeeMore('nikhil-bio', 'nikhil-see-more');
   setupSeeMore('natalie-bio', 'natalie-see-more');
+</script>
+<script is:inline>
+window.addEventListener('DOMContentLoaded', function() {
+  const aboutHeroImage = document.getElementById('aboutHeroImage');
+  if (aboutHeroImage) {
+    const observer = new window.IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          aboutHeroImage.classList.add('visible');
+          observer.disconnect();
+        }
+      });
+    }, { threshold: 0.3 });
+    observer.observe(aboutHeroImage);
+    // Immediately add .visible if already in viewport
+    const rect = aboutHeroImage.getBoundingClientRect();
+    if (rect.top < window.innerHeight && rect.bottom > 0) {
+      aboutHeroImage.classList.add('visible');
+      observer.disconnect();
+    }
+  }
+});
 </script> 
