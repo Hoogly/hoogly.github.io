@@ -603,14 +603,22 @@ window.addEventListener('DOMContentLoaded', function() {
     const carousel = document.getElementById('integratesWithCarousel');
     if (!carousel || window.innerWidth > 768) return;
     let speed = 1.2;
-    function step() {
+    let interval = setInterval(() => {
       if (carousel.scrollLeft >= carousel.scrollWidth / 2) {
         carousel.scrollLeft = 0;
       }
       carousel.scrollLeft += speed;
-      requestAnimationFrame(step);
-    }
-    step();
+    }, 16); // ~60fps
+    // Optional: Pause on touch
+    carousel.addEventListener('touchstart', () => clearInterval(interval), { passive: true });
+    carousel.addEventListener('touchend', () => {
+      interval = setInterval(() => {
+        if (carousel.scrollLeft >= carousel.scrollWidth / 2) {
+          carousel.scrollLeft = 0;
+        }
+        carousel.scrollLeft += speed;
+      }, 16);
+    }, { passive: true });
   }
 
   // Infinite auto-scroll for built-by-people carousel on mobile
@@ -618,14 +626,22 @@ window.addEventListener('DOMContentLoaded', function() {
     const carousel = document.getElementById('builtByPeopleCarousel');
     if (!carousel || window.innerWidth > 768) return;
     let speed = 1.2;
-    function step() {
+    let interval = setInterval(() => {
       if (carousel.scrollLeft >= carousel.scrollWidth / 2) {
         carousel.scrollLeft = 0;
       }
       carousel.scrollLeft += speed;
-      requestAnimationFrame(step);
-    }
-    step();
+    }, 16);
+    // Optional: Pause on touch
+    carousel.addEventListener('touchstart', () => clearInterval(interval), { passive: true });
+    carousel.addEventListener('touchend', () => {
+      interval = setInterval(() => {
+        if (carousel.scrollLeft >= carousel.scrollWidth / 2) {
+          carousel.scrollLeft = 0;
+        }
+        carousel.scrollLeft += speed;
+      }, 16);
+    }, { passive: true });
   }
 
   // Call both after both are defined
