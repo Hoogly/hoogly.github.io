@@ -51,6 +51,7 @@ import Layout from '../layouts/Layout.astro';
     align-items: center;
     font-family: 'Outfit', sans-serif;
     position: relative;
+    margin-bottom: 3rem;
   }
   .leader-img-wrapper {
     position: relative;
@@ -120,8 +121,8 @@ import Layout from '../layouts/Layout.astro';
   .see-more-btn {
     background: none;
     border: none;
-    color: #f97316;
-    font-weight: 400;
+    color: #23221F;
+    font-weight: 600;
     cursor: pointer;
     margin-top: 0.5rem;
     font-size: 1rem;
@@ -151,7 +152,7 @@ import Layout from '../layouts/Layout.astro';
     .about-hero-modern-inner {
       flex-direction: column;
       min-height: unset;
-      gap: 2.5rem;
+      gap: 3.5rem;
     }
     .about-hero-modern-inner > div {
       width: 100% !important;
@@ -160,30 +161,52 @@ import Layout from '../layouts/Layout.astro';
       padding-right: 0 !important;
     }
     .about-hero-modern-inner > div:first-child {
-      padding-top: 2.5rem !important;
+      padding-top: 3rem !important;
       padding-bottom: 0 !important;
     }
     .about-hero-modern-inner > div:last-child {
       justify-content: center !important;
       align-items: center !important;
-      padding-bottom: 2.5rem !important;
+      padding-bottom: 3rem !important;
       padding-top: 0 !important;
     }
   }
   @media (max-width: 768px) {
     .about-hero-modern {
-      padding: 2rem 1.25rem 2rem 1.25rem !important;
+      padding: 3rem 1.25rem 3rem 1.25rem !important;
     }
-    .leadership-grid {
-      grid-template-columns: 1fr;
-      gap: 1.25rem;
+    .about-hero-modern-inner {
+      flex-direction: column;
+      min-height: unset;
+      gap: 3.5rem;
+      align-items: center;
     }
-    .leader-card {
-      margin-bottom: 2rem;
+    .about-hero-modern-inner > div {
+      width: 100% !important;
+      max-width: 100% !important;
+      padding-left: 0 !important;
+      padding-right: 0 !important;
+      text-align: center !important;
+      align-items: center !important;
+      justify-content: center !important;
     }
-    .leader-card:last-child {
-      margin-bottom: 0;
+    .about-hero-modern-inner > div:first-child {
+      padding-top: 3rem !important;
+      padding-bottom: 0 !important;
     }
+    .about-hero-modern-inner > div:last-child {
+      justify-content: center !important;
+      align-items: center !important;
+      padding-bottom: 3rem !important;
+      padding-top: 0 !important;
+    }
+    .about-hero-modern-inner h1,
+    .about-hero-modern-inner p {
+      text-align: center !important;
+    }
+  }
+  .anonymous-ai-headline {
+    font-weight: 600;
   }
 </style>
 
