@@ -436,6 +436,11 @@ import Layout from '../layouts/Layout.astro';
       flex: 0 0 auto;
       max-width: none;
     }
+    .integration-logos .logos-track {
+      display: flex !important;
+      flex-wrap: nowrap !important;
+      min-width: 200vw;
+    }
     .integration-logos::after {
       content: none;
     }
@@ -461,6 +466,8 @@ import Layout from '../layouts/Layout.astro';
     }
     #integratesWithCarousel .logos-track {
       display: flex !important;
+      flex-wrap: nowrap !important;
+      min-width: 200vw;
     }
   }
   @media (min-width: 769px) {
@@ -492,6 +499,8 @@ import Layout from '../layouts/Layout.astro';
     }
     #builtByPeopleCarousel .logos-track {
       display: flex !important;
+      flex-wrap: nowrap !important;
+      min-width: 200vw;
     }
   }
   @media (min-width: 769px) {
