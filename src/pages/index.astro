@@ -122,13 +122,6 @@ import Layout from '../layouts/Layout.astro';
 						<img src="/images/bamboohr-logo.png" alt="BambooHR" style="height: 35px; filter: grayscale(1) opacity(0.7);" />
 						<img src="/images/workday-logo.png" alt="Workday" style="height: 35px; filter: grayscale(1) opacity(0.7);" />
 					</div>
-					<div class="logos-track" style="display: flex; gap: 4rem;">
-						<img src="/images/slack-logo.png" alt="Slack" style="height: 35px; filter: grayscale(1) opacity(0.7);" />
-						<img src="/images/teams-logo.png" alt="Microsoft Teams" style="height: 44px; width: auto; filter: grayscale(1) opacity(0.7);" />
-						<img src="/images/employment-hero.png" alt="Employment Hero" style="height: 24px; width: auto; margin-top: 6px; filter: grayscale(1) opacity(0.7);" />
-						<img src="/images/bamboohr-logo.png" alt="BambooHR" style="height: 35px; filter: grayscale(1) opacity(0.7);" />
-						<img src="/images/workday-logo.png" alt="Workday" style="height: 35px; filter: grayscale(1) opacity(0.7);" />
-					</div>
 				</div>
 			</div>
 		</div>
@@ -676,14 +669,12 @@ window.addEventListener('DOMContentLoaded', function() {
   function duplicateLogosForMobile(carouselId) {
     const carousel = document.getElementById(carouselId);
     if (!carousel || window.innerWidth > 768) return;
-    const tracks = carousel.querySelectorAll('.logos-track');
-    tracks.forEach(track => {
-      if (!track.classList.contains('duplicated')) {
-        const clone = track.cloneNode(true);
-        clone.classList.add('duplicated');
-        track.parentNode.appendChild(clone);
-      }
-    });
+    const track = carousel.querySelector('.logos-track');
+    if (track && !carousel.querySelector('.logos-track.duplicated')) {
+      const clone = track.cloneNode(true);
+      clone.classList.add('duplicated');
+      track.parentNode.appendChild(clone);
+    }
   }
   duplicateLogosForMobile('integratesWithCarousel');
   duplicateLogosForMobile('builtByPeopleCarousel');
