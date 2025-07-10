@@ -271,6 +271,46 @@ import Layout from '../layouts/Layout.astro';
       height: auto !important;
     }
   }
+  @media (max-width: 900px) {
+    .hoogly-mission-row,
+    .hoogly-origins-row {
+      grid-template-columns: 1fr !important;
+      gap: 1.2rem !important;
+      max-width: 98vw !important;
+      margin-left: 0 !important;
+      margin-right: 0 !important;
+    }
+    .mission-text-box,
+    .mission-image-box,
+    .origins-text-box,
+    .origins-image-box {
+      border-radius: 1.1rem !important;
+      padding: 1.3rem 1rem 1.1rem 1rem !important;
+      min-height: unset !important;
+      box-shadow: 0 2px 12px rgba(44,41,80,0.04) !important;
+      width: 100% !important;
+      max-width: 100% !important;
+    }
+    .mission-image-box img,
+    .origins-image-box img {
+      border-radius: 1.1rem !important;
+      min-height: 180px !important;
+      max-height: 260px !important;
+      object-fit: cover;
+      width: 100% !important;
+      height: auto !important;
+    }
+    .mission-text-box h2,
+    .origins-text-box h2 {
+      font-size: 1.35rem !important;
+      margin-bottom: 1rem !important;
+    }
+    .mission-text-box div,
+    .origins-text-box div {
+      font-size: 1rem !important;
+      line-height: 1.5 !important;
+    }
+  }
 </style>
 
 <Layout title="About Us - Hoogly" description="Learn about Hoogly's mission, values, and leadership team." type="website">
