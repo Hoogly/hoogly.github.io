@@ -4,7 +4,7 @@ import Layout from '../layouts/Layout.astro';
 
 <style>
   body {
-    background: linear-gradient(to bottom, #F7F3F0 0%, #fff 100%) !important;
+    background: linear-gradient(to bottom, #fff 0%, #F7F3F0 100%) !important;
   }
   .container {
     background: transparent !important;
@@ -139,7 +139,7 @@ import Layout from '../layouts/Layout.astro';
   .animate-in {
     opacity: 0;
     transform: translateY(40px);
-    transition: opacity 1.2s cubic-bezier(0.77,0,0.175,1), transform 1.2s cubic-bezier(0.77,0,0.175,1);
+    transition: opacity 2s cubic-bezier(0.77,0,0.175,1), transform 2s cubic-bezier(0.77,0,0.175,1);
   }
   .animate-in.visible {
     opacity: 1;
@@ -250,29 +250,79 @@ import Layout from '../layouts/Layout.astro';
     transform: rotateY(180deg);
     z-index: 1;
   }
+  @media (max-width: 900px) {
+    .hoogly-mission-row {
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+  }
+  @media (max-width: 900px) {
+    .mission-text-box, .mission-image-box {
+      height: auto !important;
+    }
+  }
+
+  @media (max-width: 900px) {
+    .hoogly-origins-row {
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+    .origins-text-box, .origins-image-box {
+      height: auto !important;
+    }
+  }
 </style>
 
 <Layout title="About Us - Hoogly" description="Learn about Hoogly's mission, values, and leadership team." type="website">
-  <div style="background: linear-gradient(to bottom, #F7F3F0 0%, #fff 100%); min-height: 100vh; width: 100vw; margin-left: calc(-50vw + 50%);">
-    <section class="about-hero-modern" style="position: relative; width: 100vw; margin-left: calc(-50vw + 50%); background: linear-gradient(90deg, #f7f3f0 60%, #f7f3f0 100%); min-height: 480px; display: flex; align-items: stretch;">
-      <div class="about-hero-modern-inner" style="display: flex; width: 100%; max-width: 1400px; margin: 0 auto; min-height: 480px;">
-        <div style="flex: 1 1 0; display: flex; flex-direction: column; justify-content: center; padding: 5rem 2.5rem 4rem 5vw; max-width: 650px; min-width: 0;">
-          <h1 style="font-family: 'Outfit', sans-serif; font-size: 2.8rem; font-weight: 600; color: #23221F; margin-bottom: 2.2rem; line-height: 1.08; text-align: left;">The Origins of Hoogly</h1>
-          <p style="font-family: 'Outfit', sans-serif; font-size: 1.18rem; color: #444; margin-bottom: 0; line-height: 1.7; font-weight: 400; max-width: none; width: 100%; text-align: left; white-space: pre-line;">
-Hoogly comes from the Danish word Hygge (pronounced hyoo-guh) — a feeling of cosy contentment, warmth, and ease.
-
-It’s about the simple, human moments that help us feel safe, connected, and at home with ourselves and with each other.
-
-That spirit is at the heart of everything we do. Because even in a changing world, we believe the most meaningful workplaces are built on trust, belonging, and the freedom to be yourself.
-</p>
-        </div>
-        <div style="flex: 1 1 0; display: flex; align-items: center; justify-content: flex-end; min-width: 0; position: relative;">
-          <img id="aboutHeroImage" class="animate-in" src="/images/about-us/Mission Header.jpg" alt="Hoogly Mission Header" style="max-width: 700px; min-width: 320px; width: 100%; height: auto; border-radius: 48px; box-shadow: 0 4px 32px 0 rgba(0,0,0,0.06); object-fit: cover; background: #f7f3f0;" loading="lazy" />
+  <div style="background: linear-gradient(to bottom, #fff 0%, #F7F3F0 100%); min-height: 100vh; width: 100vw; margin-left: calc(-50vw + 50%);">
+    <!-- New Mission Section (centered icon + statement) -->
+    <section style="padding: 2.5rem 0 1.5rem 0; width: 100vw; margin-left: calc(-50vw + 50%); background: none;">
+      <div style="max-width: 900px; margin: 0 auto; text-align: center;">
+        <img src="/images/about-us/Flame.png" alt="Hoogly flame logo" style="height: 44px; width: auto; margin-bottom: 1.1rem;" />
+        <div style="font-family: 'Outfit', sans-serif; font-size: 1.55rem; color: #23221F; font-weight: 500; max-width: 1875px; margin: 0 auto; line-height: 1.32;">
+          At Hoogly, we’re on a mission to make work more human by helping people feel <b>seen, heard, and supported</b> to do their best work.
         </div>
       </div>
     </section>
+    <!-- Mission Section: Two-Column Layout -->
+    <section class="hoogly-mission-row" style="display: grid; grid-template-columns: 2fr 1fr; gap: 2.5rem; max-width: 1400px; margin: 2.5rem auto 0 auto; align-items: stretch;">
+      <!-- Left: Mission Text Box -->
+      <div class="mission-text-box animate-in" style="background: #F7F3F0; border-radius: 2rem; padding: 2.7rem 2.5rem 2.3rem 2.5rem; display: flex; flex-direction: column; justify-content: center; height: 100%; box-shadow: 0 2px 16px rgba(44,41,80,0.04);">
+        <h2 style="font-family: 'Outfit', sans-serif; font-size: 2.3rem; font-weight: 600; margin-bottom: 1.5rem; color: #23221F;">Our Mission</h2>
+        <div style="font-size: 1.18rem; color: #23221F; font-family: 'Outfit', sans-serif; font-weight: 400; line-height: 1.6;">
+          We believe that when people feel a genuine sense of belonging to their team, their purpose, and themselves, they thrive. That’s why we partner with People Leaders to build cultures rooted in connection, trust, and care.<br><br>
+          Instead of one-size-fits-all surveys, Hoogly uses anonymous, conversational AI to create a safe space for every employee to express how they’re really feeling without fear, filters, or judgement.<br><br>
+          And because change doesn’t happen with data alone, we guide both employees and leaders with thoughtful coaching and shared action plans turning insight into action, and culture into a lived experience.<br><br>
+          In a world shaped by AI, we’re here to amplify what makes us human.
+        </div>
+      </div>
+      <!-- Right: Campfire Image -->
+      <div class="mission-image-box animate-in" style="display: flex; align-items: center; justify-content: center; height: 100%; box-shadow: 0 2px 16px rgba(44,41,80,0.04);">
+        <img src="/images/about-us/Mission Header.jpg" alt="People around a campfire" style="width: 100%; height: 100%; border-radius: 2rem; object-fit: cover; object-position: 60% center; min-height: 320px;" />
+      </div>
+    </section>
+    <!-- End Mission Section -->
 
-  <section class="about-leadership" style="padding: 3rem 0; background: transparent; width: 100vw; margin-left: calc(-50vw + 50%);">
+    <!-- Origins Section: Two-Column Layout -->
+    <section class="hoogly-origins-row" style="display: grid; grid-template-columns: 1fr 2fr; gap: 2.5rem; max-width: 1400px; margin: 2.5rem auto 0 auto; align-items: stretch;">
+      <!-- Left: Campfire Image -->
+      <div class="origins-image-box animate-in" style="display: flex; align-items: center; justify-content: center; height: 100%; box-shadow: 0 2px 16px rgba(44,41,80,0.04);">
+        <img src="/images/about-us/Mission Header 2.jpg" alt="Campfire group" style="width: 100%; height: 100%; border-radius: 2rem; object-fit: cover; min-height: 320px;" />
+      </div>
+      <!-- Right: Origins Text Box -->
+      <div class="origins-text-box animate-in" style="background: #D6D2FF; border-radius: 2rem; padding: 2.7rem 2.5rem 2.3rem 2.5rem; display: flex; flex-direction: column; justify-content: center; height: 100%; box-shadow: 0 2px 16px rgba(44,41,80,0.04);">
+        <h2 style="font-family: 'Outfit', sans-serif; font-size: 2.3rem; font-weight: 600; margin-bottom: 1.5rem; color: #23221F;">The Origins of ‘Hoogly’</h2>
+        <div style="font-size: 1.18rem; color: #23221F; font-family: 'Outfit', sans-serif; font-weight: 400; line-height: 1.6;">
+          Hoogly comes from the Danish word Hygge (pronounced hyoo-guh) — a feeling of cosy contentment, warmth, and ease.<br><br>
+          It’s about the simple, human moments that help us feel safe, connected, and at home with ourselves and with each other.<br><br>
+          That spirit is at the heart of everything we do.<br><br>
+          Because even in a changing world, we believe the most meaningful workplaces are built on trust, belonging, and the freedom to be yourself.
+        </div>
+      </div>
+    </section>
+    <!-- End Origins Section -->
+
+  <section class="about-leadership" style="padding: 4.5rem 0 3rem 0; background: transparent; width: 100vw; margin-left: calc(-50vw + 50%);">
     <div class="container">
       <h2 class="anonymous-ai-headline text-center">Humans of Hoogly</h2>
       <div class="leadership-grid">
@@ -576,6 +626,35 @@ window.addEventListener('DOMContentLoaded', function() {
       aboutHeroImage.classList.add('visible');
       observer.disconnect();
     }
+  }
+});
+</script>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const boxes = [
+    document.querySelector('.mission-text-box.animate-in'),
+    document.querySelector('.mission-image-box.animate-in'),
+    document.querySelector('.origins-image-box.animate-in'),
+    document.querySelector('.origins-text-box.animate-in')
+  ];
+  if (boxes.every(Boolean)) {
+    const observer = new window.IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          let i = 0;
+          function animateNextBox() {
+            if (i < boxes.length) {
+              boxes[i].classList.add('visible');
+              i++;
+              setTimeout(animateNextBox, 80); // Start next box 80ms after previous starts
+            }
+          }
+          animateNextBox();
+          observer.disconnect();
+        }
+      });
+    }, { threshold: 0.2 });
+    observer.observe(boxes[0]);
   }
 });
 </script> 
