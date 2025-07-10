@@ -61,32 +61,44 @@ When it’s missing, performance suffers long before anyone admits it out loud.
 
 ## The three layers of trust
 
-Over time, I’ve come to think of trust in three dimensions:
+Over time, I've come to think of trust in three dimensions:
 
-1. **Trust in managers:** “Am I safe to be honest with you?”
-   - This is where it starts.
-   - If someone can’t tell their manager the truth — that they’re stuck, burned out, confused — the whole system suffers.
-   - You don’t need to be perfect as a manager.
-   - You just need to be present.
-   - To listen. To follow through. To admit when you don’t have the answer.
-   - The more consistently someone sees that, the more trust they’ll give you.
+1. **Trust in managers: “Am I safe to be honest with you?”**
 
-2. **Trust in teams:** “Will you catch me if I fall?”
-   - I’ve worked with brilliant teams that couldn’t innovate, simply because no one felt safe being wrong.
-   - On the best teams, people take risks.
-   - They ask “dumb” questions. They disagree respectfully.
-   - They don’t have to perform, they just get to be.
-   - That kind of culture isn’t built in a single offsite.
-   - It’s built in the daily rhythms of working together, showing up, and looking out for each other.
+This is where it starts.
+If someone can’t tell their manager the truth — that they’re stuck, burned out, confused — the whole system suffers.
 
-3. **Trust in the company:** “Do we walk the talk?”
-   - This one’s the hardest to rebuild once it’s lost.
-   - A friend of mine was recently laid off by email. No conversation. Just a link to FAQs and a locked-out Slack account.
-   - Of course layoffs happen. But how they happen says everything.
-   - If we say we care about people, and then act like they’re expendable, people remember.
-   - If we talk about wellbeing, but punish people for taking leave, the culture notices.
-   - Employees aren’t just watching what we say.
-   - They’re watching who we are, especially when it’s hard.
+You don’t need to be perfect as a manager.
+You just need to be present.
+To listen. To follow through. To admit when you don’t have the answer.
+
+The more consistently someone sees that, the more trust they’ll give you.
+
+2. **Trust in teams: “Will you catch me if I fall?”**
+
+I’ve worked with brilliant teams that couldn’t innovate, simply because no one felt safe being wrong.
+
+On the best teams, people take risks.
+They ask “dumb” questions. They disagree respectfully.
+They don’t have to perform, they just get to be.
+
+That kind of culture isn’t built in a single offsite.
+It’s built in the daily rhythms of working together, showing up, and looking out for each other.
+
+3. **Trust in the company: “Do we walk the talk?”**
+
+This one’s the hardest to rebuild once it’s lost.
+
+A friend of mine was recently laid off by email. No conversation. Just a link to FAQs and a locked-out Slack account.
+
+Of course layoffs happen. But how they happen says everything.
+
+If we say we care about people, and then act like they’re expendable, people remember.
+
+If we talk about wellbeing, but punish people for taking leave, the culture notices.
+
+Employees aren’t just watching what we say.
+They’re watching who we are, especially when it’s hard.
 
 ## Why we built Hoogly as a trusted space
 
