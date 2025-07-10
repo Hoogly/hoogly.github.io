@@ -401,90 +401,36 @@ import Layout from '../layouts/Layout.astro';
   background: white !important;
   color: #23221F !important;
 }
-  @media (max-width: 768px) {
-    .integration-logos {
-      overflow-x: auto !important;
-      flex-wrap: nowrap !important;
-      gap: 1.5rem !important;
-      -webkit-overflow-scrolling: touch;
-      scroll-behavior: smooth;
-      padding-bottom: 0.5rem;
-      position: relative;
-      margin-left: -1.25rem;
-      margin-right: -1.25rem;
-    }
-    .integration-logos::-webkit-scrollbar {
-      display: none;
-    }
-    .integration-logos img {
-      flex: 0 0 auto;
-      max-width: none;
-    }
-    .integration-logos .logos-track {
-      display: flex !important;
-      flex-wrap: nowrap !important;
-      min-width: 200vw;
-    }
-    .integration-logos::after {
-      content: none;
-    }
-  }
-  @media (max-width: 768px) {
-    #integratesWithCarousel {
-      overflow-x: auto !important;
-      flex-wrap: nowrap !important;
-      gap: 1.5rem !important;
-      -webkit-overflow-scrolling: touch;
-      scroll-behavior: smooth;
-      padding-bottom: 0.5rem;
-      position: relative;
-      margin-left: -1.25rem;
-      margin-right: -1.25rem;
-    }
-    #integratesWithCarousel::-webkit-scrollbar {
-      display: none;
-    }
-    #integratesWithCarousel img {
-      flex: 0 0 auto;
-      max-width: none;
-    }
-    #integratesWithCarousel .logos-track {
-      display: flex !important;
-      flex-wrap: nowrap !important;
-      min-width: 200vw;
-    }
-  }
-  @media (min-width: 769px) {
-    #integratesWithCarousel {
-      flex-wrap: wrap !important;
-    }
-    #integratesWithCarousel .logos-track:last-child {
-      display: none !important;
-    }
-  }
-  @media (max-width: 768px) {
-    #builtByPeopleCarousel {
-      overflow-x: auto !important;
-      flex-wrap: nowrap !important;
-      gap: 1.5rem !important;
-      -webkit-overflow-scrolling: touch;
-      scroll-behavior: smooth;
-      padding-bottom: 0.5rem;
-      position: relative;
-      margin-left: -1.25rem;
-      margin-right: -1.25rem;
-    }
-    #builtByPeopleCarousel::-webkit-scrollbar {
-      display: none;
-    }
-    #builtByPeopleCarousel img {
-      flex: 0 0 auto;
-      max-width: none;
-    }
-    .logos-track:not(:first-child) {
-      display: none !important;
-    }
-  }
+/* --- CLEANUP: Remove carousel/mobile-specific logo styles --- */
+.integration-logos,
+#integratesWithCarousel,
+#builtByPeopleCarousel {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+  overflow: visible;
+  margin: 0;
+  padding: 0;
+}
+.logos-track {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+  min-width: 0;
+}
+.integration-logos img,
+#integratesWithCarousel img,
+#builtByPeopleCarousel img {
+  display: inline-block;
+  height: auto;
+  max-height: 120px;
+  width: auto;
+  opacity: 1;
+  visibility: visible;
+}
+/* Remove all min-width, overflow-x, flex-wrap: nowrap, and duplicate hiding rules for logo carousels */
 @media (max-width: 900px) {
   .testimonial-section {
     flex-direction: column !important;
@@ -502,6 +448,18 @@ import Layout from '../layouts/Layout.astro';
     width: 260px !important;
     height: 260px !important;
     margin: 0 !important;
+  }
+}
+@media (max-width: 768px) {
+  .logos-track:only-child,
+  .logos-track {
+    justify-content: center;
+    width: 100%;
+  }
+  .logos-track img:only-child {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
   }
 }
 </style>
@@ -599,84 +557,5 @@ window.addEventListener('DOMContentLoaded', function() {
       }
     });
   });
-
-  // Helper to reset and auto-scroll when carousel enters viewport
-  function setupAutoScrollOnView(carouselId, autoScrollFn) {
-    const carousel = document.getElementById(carouselId);
-    if (!carousel || window.innerWidth > 768) return;
-    let observer = new window.IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          carousel.scrollLeft = 0;
-          autoScrollFn();
-        }
-      });
-    }, { threshold: 0.3 });
-    observer.observe(carousel);
-  }
-
-  // Infinite auto-scroll for integrates-with carousel on mobile
-  function infiniteAutoScrollIntegratesWith() {
-    const carousel = document.getElementById('integratesWithCarousel');
-    if (!carousel || window.innerWidth > 768) return;
-    let speed = 1.2;
-    let interval = setInterval(() => {
-      if (carousel.scrollLeft >= carousel.scrollWidth / 2) {
-        carousel.scrollLeft = 0;
-      }
-      carousel.scrollLeft += speed;
-    }, 16); // ~60fps
-    // Optional: Pause on touch
-    carousel.addEventListener('touchstart', () => clearInterval(interval), { passive: true });
-    carousel.addEventListener('touchend', () => {
-      interval = setInterval(() => {
-        if (carousel.scrollLeft >= carousel.scrollWidth / 2) {
-          carousel.scrollLeft = 0;
-        }
-        carousel.scrollLeft += speed;
-      }, 16);
-    }, { passive: true });
-  }
-
-  // Infinite auto-scroll for built-by-people carousel on mobile
-  function infiniteAutoScrollBuiltByPeople() {
-    const carousel = document.getElementById('builtByPeopleCarousel');
-    if (!carousel || window.innerWidth > 768) return;
-    let speed = 1.2;
-    let interval = setInterval(() => {
-      if (carousel.scrollLeft >= carousel.scrollWidth / 2) {
-        carousel.scrollLeft = 0;
-      }
-      carousel.scrollLeft += speed;
-    }, 16);
-    // Optional: Pause on touch
-    carousel.addEventListener('touchstart', () => clearInterval(interval), { passive: true });
-    carousel.addEventListener('touchend', () => {
-      interval = setInterval(() => {
-        if (carousel.scrollLeft >= carousel.scrollWidth / 2) {
-          carousel.scrollLeft = 0;
-        }
-        carousel.scrollLeft += speed;
-      }, 16);
-    }, { passive: true });
-  }
-
-  // Call both after both are defined
-  setupAutoScrollOnView('integratesWithCarousel', infiniteAutoScrollIntegratesWith);
-  setupAutoScrollOnView('builtByPeopleCarousel', infiniteAutoScrollBuiltByPeople);
-
-  // Duplicate logos for infinite scroll only on mobile
-  function duplicateLogosForMobile(carouselId) {
-    const carousel = document.getElementById(carouselId);
-    if (!carousel || window.innerWidth > 768) return;
-    const track = carousel.querySelector('.logos-track');
-    if (track && !carousel.querySelector('.logos-track.duplicated')) {
-      const clone = track.cloneNode(true);
-      clone.classList.add('duplicated');
-      track.parentNode.appendChild(clone);
-    }
-  }
-  duplicateLogosForMobile('integratesWithCarousel');
-  duplicateLogosForMobile('builtByPeopleCarousel');
 });
 </script>
