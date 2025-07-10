@@ -1,11 +1,10 @@
 ---
-title: "Drowning in Data, Starving for Dialogue: Why Your Engagement Dashboard Is Missing the Most Important Story"
-description: "Discover why traditional engagement metrics often miss the human signals that matter most. Learn how genuine conversations can prevent talent loss and build stronger workplace culture."
-publishDate: "2025-01-16"
-author: "Mohit Midha"
-tags: ["employee engagement", "leadership", "culture", "AI", "retention", "management", "workplace wellbeing"]
-draft: false
-image: "/images/blog/article-images/drowning-in-data (1).png"
+title: "Drowning in data, starving for dialogue"
+description: "We're collecting more employee feedback than ever, but meaningful conversations are disappearing. Here's how to turn data into dialogue that drives real change."
+publishDate: 2025-07-01
+author: "Anitta Krishan, Work futurist, former CPO, and Chief Culture Officer at Hoogly AI"
+image: /images/blog/article-images/drowning-in-data (1).png
+tags: [Employee Feedback, Data, Dialogue, Culture Change]
 ---
 
 The resignation letter was drafted and ready to send. It was the culmination of weeks of quiet frustration, a growing sense of being undervalued, and the slow, painful fading of a creative spark.

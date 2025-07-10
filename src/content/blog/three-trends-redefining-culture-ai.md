@@ -1,11 +1,11 @@
 ---
-title: "Three Trends Redefining Culture in the Age of AI"
-description: "Discover how AI is reshaping employee experience, organizational intelligence, and culture design. Learn actionable insights for HR leaders from Anitta Krishan, Chief Culture Officer at Hoogly AI."
-publishDate: "2025-01-15"
-author: "Anitta Krishan"
-tags: ["AI", "culture", "employee experience", "leadership", "HR", "workplace wellbeing"]
+title: "Three trends redefining culture in the AI era"
+description: "As AI reshapes how we work, three fundamental shifts are redefining what great workplace culture looks like. From the rise of psychological safety to the importance of human connection, here's what leaders need to know."
+publishDate: 2025-06-28
+author: "Anitta Krishan, Work futurist, former CPO, and Chief Culture Officer at Hoogly AI"
+image: /images/blog/article-images/redefining-culture (1).png
+tags: [AI, Culture, Future of Work, Leadership]
 draft: false
-image: "/images/blog/article-images/redefining-culture (1).png"
 ---
 
 The future of work isn't just arriving. It's already here and it's asking leaders to evolve from the inside out.

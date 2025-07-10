@@ -1,11 +1,10 @@
 ---
-title: "Pulse Checks vs Annual Surveys: Which One Protects Culture in 2025?"
-description: "Discover why monthly conversational pulses are replacing annual surveys as the gold standard for culture protection. Learn how AI-powered dialogue prevents quiet quitting and builds stronger teams."
-publishDate: "2025-01-17"
-author: "Mohit Midha"
-tags: ["pulse surveys", "employee engagement", "culture", "AI", "retention", "leadership", "workplace wellbeing"]
-draft: false
-image: "/images/blog/article-images/pulse-vs-annual-survey (1).png"
+title: "Pulse checks vs annual surveys: why the difference matters in 2025"
+description: "Annual surveys are like taking a photo once a year and expecting to understand a movie. Here's why continuous pulse checks are the future of employee feedback."
+publishDate: 2025-07-03
+author: "Anitta Krishan, Work futurist, former CPO, and Chief Culture Officer at Hoogly AI"
+image: /images/blog/article-images/pulse-vs-annual-survey (1).png
+tags: [Employee Surveys, Pulse Checks, Feedback, Culture]
 ---
 
 If culture can pivot in the time it takes to finish a project sprint, then waiting a full year to ask how people feel is like doing a wellness check by postcard.

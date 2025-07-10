@@ -351,7 +351,7 @@ const finalRelatedPosts = relatedPosts.length > 0 ? relatedPosts : fallbackPosts
                 <p class="post-description-large anonymous-ai-subheadline fade-in-up" style="margin-bottom: 1.7rem; margin-top: 0; font-style: normal;">{post.data.description}</p>
                 <div class="fade-in-up" style="display: flex; flex-direction: column; align-items: flex-start; gap: 0.2rem; margin-bottom: 0.7rem;">
                     <div style="display: flex; align-items: center; gap: 1.1rem;">
-                        {post.data.author === 'Mohit Midha' ? (
+                        {post.data.author.includes('Mohit Midha') ? (
                             <>
                                 <img src="/images/about-us/mohit.avif" alt="Mohit Midha" style="width: 44px; height: 44px; border-radius: 50%; object-fit: cover;" />
                                 <span style="font-weight: 500; color: #23221F; font-family: 'Outfit', sans-serif;">
