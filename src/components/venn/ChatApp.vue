@@ -132,11 +132,7 @@ const handleOnMessageSubmit = async (message: string) => {
 onMounted(() => {
 
   // fresh id on every load
-  // const userId = 'f8d4fe6c-b143-4b25-8121-53472a7ea255' // crypto.randomUUID()
-
-  // store.setUserId('00e94307-53ff-48bf-a81e-cbfd7e0631ca')
-
-  updateUserId('f8d4fe6c-b143-4b25-8121-53472a7ea255')
+  updateUserId(crypto.randomUUID())
   const pseudonyms = useCollection(pseudonymsRef)
 
   // Wait for pseudonyms to load, then randomly select one
@@ -165,7 +161,8 @@ onMounted(() => {
 </script>
 
 <template>
-  <div class="p-3 flex flex-col mx-auto max-w-5xl bg-white/40 rounded-2xl" :class="{ 'h-screen': variant === 'full' }">
+  <div class="p-3 flex flex-col mx-auto max-w-5xl min-w-3xs sm:min-w-2xl bg-white/40 rounded-2xl"
+    :class="{ 'h-screen': variant === 'full' }">
     <div class="flex flex-col overflow-hidden h-full w-full">
       <div id="insights-container" v-if="variant === 'full'"
         class="py-2 flex flex-row justify-between gap-4 opacity-20 opacity-40 opacity-60 opacity-80 opacity-100">
