@@ -1,0 +1,20 @@
+<script setup lang="ts">
+interface Props {
+  color?: string
+}
+
+withDefaults(defineProps<Props>(), {
+  color: 'black'
+})
+</script>
+
+<template>
+  <svg width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path
+      d="M12.8186 11.37C12.7186 11.36 12.5986 11.36 12.4886 11.37C10.1086 11.29 8.21863 9.34 8.21863 6.94C8.21863 4.49 10.1986 2.5 12.6586 2.5C15.1086 2.5 17.0986 4.49 17.0986 6.94C17.0886 9.34 15.1986 11.29 12.8186 11.37Z"
+      :stroke="color" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+    <path
+      d="M7.81854 15.06C5.39854 16.68 5.39854 19.32 7.81854 20.93C10.5685 22.77 15.0785 22.77 17.8285 20.93C20.2485 19.31 20.2485 16.67 17.8285 15.06C15.0885 13.23 10.5785 13.23 7.81854 15.06Z"
+      :stroke="color" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+  </svg>
+</template>

@@ -1,0 +1,53 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..700&display=swap');
+@layer theme, base, components, utilities;
+@import 'tailwindcss/theme.css' layer(theme);
+@import 'tailwindcss/preflight.css' layer(base);
+@import 'tailwindcss/utilities.css';
+
+@layer base {
+  html {
+    @apply text-dark bg-creme font-outfit;
+  }
+}
+
+@utility scrollbar-hidden {
+  @apply [scrollbar-width:none] [&::-webkit-scrollbar]:hidden;
+}
+
+@theme {
+  --color-creme: #f7f3f0;
+  --color-dark: #23221f;
+  --color-body-light-2: #f5f4f4;
+  --color-body-dark-1: #706f6d;
+  --color-orange: #ff7d61;
+  --color-purple: #d0ccff;
+  --color-blue: #cae6ff;
+  --color-yellow: #feeec5;
+  --color-green: #3d8a58;
+  --color-amber: #FFD659;
+  --color-amber-2: #EE9016;
+  --color-red: #E92F24;
+
+  --font-outfit: 'Outfit', sans-serif;
+}
+
+@source inline("bg-creme");
+@source inline("bg-dark");
+@source inline("bg-body-light-2");
+@source inline("bg-body-dark-1");
+@source inline("bg-orange");
+@source inline("bg-purple");
+@source inline("bg-blue");
+@source inline("bg-yellow");
+@source inline("bg-green");
+@source inline("bg-amber");
+@source inline("bg-amber-2");
+@source inline("bg-red");
+
+.gradient-text {
+  background: linear-gradient(90deg, #ca6e7f 0%, #ae6790 35%, #4a54eb 70%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
