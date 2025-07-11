@@ -1,8 +1,10 @@
 ---
-import Header from '../components/Header.astro';
-import Footer from '../components/Footer.astro';
-import Posthog from '../components/posthog.astro';
-import '../styles/design-system.css';
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import Posthog from "../components/posthog.astro";
+import "../styles/design-system.css";
+
+import { ClientRouter } from "astro:transitions";
 
 export interface Props {
   title: string;
@@ -70,6 +72,7 @@ const isGetStartedPage = Astro.url.pathname === '/get-started' || Astro.url.path
     'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
     })(window,document,'script','dataLayer','GTM-TXHXQ8NW');</script>
     <!-- End Google Tag Manager -->
+    <ClientRouter />
   </head>
   <body class={bodyClass}>
     <Posthog />

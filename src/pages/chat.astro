@@ -1,10 +1,16 @@
 ---
 import ViewManager from "@venn/ViewManager.vue";
+import BlankLayout from "../layouts/BlankLayout.astro";
 ---
 
-<div class="chat-container">
-    <ViewManager client:only="vue" />
-</div>
+<BlankLayout
+    title="Hoogly | Reinventing Employee Engagement"
+    description="AI-powered employee engagement platform that's 10X better than surveys. Transform your workplace culture with Venn AI."
+>
+    <div class="chat-container">
+        <ViewManager client:only="vue" />
+    </div>
+</BlankLayout>
 
 <style>
     .chat-container {

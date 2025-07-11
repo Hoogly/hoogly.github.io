@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import './assets/main.css'
+import { navigate } from "astro:transitions/client"
 import { pseudonym, updateCurrentView, updatePseudonym, updateUserId, userId } from '@venn/store'
 import { computed, ref, nextTick, watch, onMounted } from 'vue'
 import { useCollection, useDocument } from 'vuefire'
@@ -24,7 +25,7 @@ const props = withDefaults(defineProps<{
 })
 
 const $userId = useStore(userId)
-const inputDisabled = ref(false)
+const inputDisabled = ref(true)
 const $pseudonym = useStore(pseudonym)
 
 // Ref for the scroll container
@@ -76,8 +77,9 @@ const scrollToBottom = () => {
 }
 
 // Watch for changes in messages and scroll to bottom
-watch(messages, () => {
+watch(() => messages.value.length, (value) => {
   nextTick(() => {
+    inputDisabled.value = value === 0
     scrollToBottom()
   })
 })
@@ -125,14 +127,16 @@ const handleOnMessageSubmit = async (message: string) => {
     inputDisabled.value = false
   }
   if (props.variant === 'mini') {
-    window.location.href = '/chat'
+    navigate('/chat')
   }
 }
 
 onMounted(() => {
-
   // fresh id on every load
-  updateUserId(crypto.randomUUID())
+  console.log('mounted:$userId', $userId.value)
+  if ($userId.value.length === 0) {
+    updateUserId(crypto.randomUUID())
+  }
   const pseudonyms = useCollection(pseudonymsRef)
 
   // Wait for pseudonyms to load, then randomly select one
