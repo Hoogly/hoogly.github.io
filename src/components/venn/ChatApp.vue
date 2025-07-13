@@ -165,7 +165,8 @@ onMounted(() => {
 </script>
 
 <template>
-  <div class="p-3 flex flex-col mx-auto max-w-5xl min-w-3xs sm:min-w-2xl bg-white/40 rounded-2xl"
+  <div v-show="messages.length > 0"
+    class="p-3 flex flex-col mx-auto max-w-5xl min-w-3xs sm:min-w-2xl bg-white/40 rounded-2xl"
     :class="{ 'h-screen': variant === 'full' }">
     <div class="flex flex-col overflow-hidden h-full w-full">
       <div id="insights-container" v-if="variant === 'full'"
