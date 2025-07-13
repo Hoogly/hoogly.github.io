@@ -202,16 +202,17 @@ onMounted(() => {
           </div>
         </div>
       </div>
-      <div v-if="variant === 'full'" class="flex flex-row items-center justify-center gap-2 my-5 px-12">
-        <IconBase width="34" height="34">
-          <IconLock />
-        </IconBase>
-        <div class="text-dark text-sm">You are answering as <span class="font-semibold">{{ $pseudonym }}</span>.
-          No information can be traced back
-          to your identity.</div>
-      </div>
+
 
       <div ref="scrollContainer" class="flex-1 overflow-y-auto min-h-0 pb-14">
+        <div v-if="variant === 'full'" class="flex flex-row items-center justify-center gap-2 my-5 px-4">
+          <IconBase width="34" height="34">
+            <IconLock />
+          </IconBase>
+          <div class="text-dark text-sm">You are answering as <span class="font-semibold">{{ $pseudonym }}</span>.
+            No information can be traced back
+            to your identity.</div>
+        </div>
         <div v-for="message in messages" :key="message.messageId" class="flex mb-4"
           :class="{ 'justify-end': message.authorId === $userId, 'justify-start': message.authorId !== $userId }">
           <YourMessage v-if="message.authorId === $userId" :message="message" />
