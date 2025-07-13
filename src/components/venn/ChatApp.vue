@@ -204,7 +204,7 @@ onMounted(() => {
       </div>
 
 
-      <div ref="scrollContainer" class="flex-1 overflow-y-auto min-h-0 pb-14">
+      <div ref="scrollContainer" class="flex-1 overflow-y-auto min-h-0 pb-8">
         <div v-if="variant === 'full'" class="flex flex-row items-center justify-center gap-2 my-5 px-4">
           <IconBase width="34" height="34">
             <IconLock />
