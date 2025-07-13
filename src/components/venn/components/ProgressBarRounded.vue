@@ -38,7 +38,7 @@ onMounted(() => {
         class="flex items-center justify-end text-white text-xs font-normal px-2" :style="{
           height: height
         }">
-        {{ progress }}%
+        {{ progress.toFixed(0) }}%
       </div>
     </div>
   </div>
