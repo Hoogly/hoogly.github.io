@@ -204,7 +204,7 @@ onMounted(() => {
       </div>
 
 
-      <div ref="scrollContainer" class="flex-1 overflow-y-auto min-h-0 pb-8">
+      <div ref="scrollContainer" class="flex-1 overflow-y-auto min-h-0 pb-4">
         <div v-if="variant === 'full'" class="flex flex-row items-center justify-center gap-2 my-5 px-4">
           <IconBase width="34" height="34">
             <IconLock />
@@ -218,8 +218,7 @@ onMounted(() => {
           <YourMessage v-if="message.authorId === $userId" :message="message" />
           <TheirMessage v-else :message="message" />
         </div>
-        <div class="flex flex-row items-center gap-2 mb-4">
-          <div class="dummy-spacer"></div>
+        <div class="flex flex-row items-center justify-center mb-4">
           <AnimatedDots v-if="isTyping" />
         </div>
       </div>
