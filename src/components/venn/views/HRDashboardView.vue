@@ -51,14 +51,14 @@ onUnmounted(() => {
     <template #header-actions>
       <button class="rounded-full bg-orange px-4 outline py-1">Start for Free</button>
     </template>
-    <div class="justify-center text-dark text-base font-normal leading-tight">
+    <div class="justify-center text-dark text-lg font-normal leading-tight">
       <span>Hey </span><span class="gradient-text">{{ $pseudonym }}</span><span>, here are your </span><span
         class="font-semibold">simulated team</span><span> results:</span>
     </div>
-    <div class="text-dark text-xs opacity-70">
+    <div class="text-dark text-sm opacity-70">
       This is a simulated view based on your chat and demo data. Real insights come from your full team's contributions.
     </div>
-    <div class="flex flex-col gap-3">
+    <div class="flex flex-col gap-3 mt-4 pb-5">
       <EmployeeEngagement v-if="employeeEngagement" :engagement="employeeEngagement" />
       <TopIssues v-if="employeeConcerns" :concerns="employeeConcerns.concerns" />
     </div>

@@ -60,11 +60,11 @@ onUnmounted(() => {
     <template #header-actions>
       <button class="rounded-full bg-orange px-4 outline py-1" @click="handleOnSeeHRViewClick">See HR view</button>
     </template>
-    <div class="self-stretch justify-center text-dark text-base font-normal leading-tight">
+    <div class="self-stretch justify-center text-dark text-lg font-normal leading-tight">
       <span>Hey </span><span class="gradient-text">{{ $pseudonym }}</span><span>, here are your </span><span
         class="font-semibold">simulated individual</span><span> results:</span>
     </div>
-    <div class="text-dark text-xs opacity-70">
+    <div class="text-dark text-sm opacity-70">
       This is a simulated view based on your chat and demo data. Real insights come from your full team's contributions.
     </div>
     <div class="flex flex-col sm:flex-row gap-3 mt-4 pb-5">
