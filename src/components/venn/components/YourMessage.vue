@@ -12,7 +12,7 @@ defineProps<Props>()
 <template>
   <div class="flex flex-row items-center gap-2">
     <div class="bg-purple rounded-tl-2xl rounded-bl-2xl rounded-br-2xl p-4 max-w-3xs">
-      <div class="message-content">{{ message.text }}</div>
+      <div class="text-right">{{ message.text }}</div>
     </div>
     <IncognitoAvatar />
   </div>
