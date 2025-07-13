@@ -137,18 +137,20 @@ onMounted(() => {
   if ($userId.value.length === 0) {
     updateUserId(crypto.randomUUID())
   }
-  const pseudonyms = useCollection(pseudonymsRef)
+  if ($pseudonym.value.length === 0) {
+    const pseudonyms = useCollection(pseudonymsRef)
 
-  // Wait for pseudonyms to load, then randomly select one
-  const unwatchPseudonyms = watch(pseudonyms, (pseudonymsList) => {
-    if (pseudonymsList && pseudonymsList.length > 0) {
-      const randomIndex = Math.floor(Math.random() * pseudonymsList.length)
-      const selectedPseudonym = pseudonymsList[randomIndex]
-      updatePseudonym(selectedPseudonym.pseudonym)
-      console.log('Assigned pseudonym:', selectedPseudonym.pseudonym)
-    }
-    unwatchPseudonyms() // Stop watching once we've assigned a pseudonym
-  })
+    // Wait for pseudonyms to load, then randomly select one
+    const unwatchPseudonyms = watch(pseudonyms, (pseudonymsList) => {
+      if (pseudonymsList && pseudonymsList.length > 0) {
+        const randomIndex = Math.floor(Math.random() * pseudonymsList.length)
+        const selectedPseudonym = pseudonymsList[randomIndex]
+        updatePseudonym(selectedPseudonym.pseudonym)
+        console.log('Assigned pseudonym:', selectedPseudonym.pseudonym)
+      }
+      unwatchPseudonyms() // Stop watching once we've assigned a pseudonym
+    })
+  }
 
   // Watch for when data is loaded
   const unwatchMessages = watch(isMessagesLoading, (loading) => {
