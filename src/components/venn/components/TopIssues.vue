@@ -53,7 +53,7 @@ const getMacroDomainColor = (macroDomain: string): string => {
           Peer</div>
       </div>
       <div class="flex flex-row items-center gap-1">
-        <div class="dots bg-purple" />
+        <div class="dots bg-venn-purple" />
         <div class="text-center justify-center text-dark/50 text-xs">
           Self</div>
       </div>

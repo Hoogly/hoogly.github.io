@@ -197,7 +197,7 @@ onMounted(() => {
         <div class="rounded-full sm:bg-white p-2 flex flex-col sm:flex-row-reverse items-center gap-2"
           :class="`opacity-${normalizeClarityToProgress(companyClarity)}`">
           <span class="font-normal text-base text-black pr-2">Company</span>
-          <div class="domain-icons outline bg-purple rounded-full flex items-center justify-center">
+          <div class="domain-icons outline bg-venn-purple rounded-full flex items-center justify-center">
             <IconBuilding color="var(--color-dark)" />
           </div>
         </div>

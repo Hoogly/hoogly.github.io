@@ -20,7 +20,7 @@
   --color-body-light-2: #f5f4f4;
   --color-body-dark-1: #706f6d;
   --color-orange: #ff7d61;
-  --color-purple: #d0ccff;
+  --color-venn-purple: #d0ccff;
   --color-blue: #cae6ff;
   --color-yellow: #feeec5;
   --color-green: #3d8a58;
@@ -36,7 +36,7 @@
 @source inline("bg-body-light-2");
 @source inline("bg-body-dark-1");
 @source inline("bg-orange");
-@source inline("bg-purple");
+@source inline("bg-venn-purple");
 @source inline("bg-blue");
 @source inline("bg-yellow");
 @source inline("bg-green");
