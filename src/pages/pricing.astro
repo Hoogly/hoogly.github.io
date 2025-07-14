@@ -28,7 +28,7 @@ import Layout from '../layouts/Layout.astro';
 					<h2 style="font-family: 'Outfit', var(--font-family-heading); font-size: 2.5rem; font-weight: 700; color: #222; margin-bottom: 0.5rem;">Free</h2>
 					<div style="font-size: 1.15rem; color: #444; margin-bottom: 2.5rem; line-height: 1.5;">Try it with a couple of teams, one region or one department</div>
 					<div style="display: flex; flex-direction: column; align-items: flex-start; gap: 0.2rem; margin-bottom: 1rem;">
-						<a href="/get-started?button-label=Run your first FREE survey&page-source=pricing" class="btn btn-accent" style="margin: 2rem 0 0.5rem 0; padding: 0.5rem 1rem;">Run your first FREE survey <span style="font-size: 1.2em;">&nbsp;→</span></a>
+						<a href="/get-started?button-label=Run your first FREE survey&page-source=pricing" class="btn btn-accent pricing-btn" data-plan="free" style="margin: 2rem 0 0.5rem 0; padding: 0.5rem 1rem;">Run your first FREE survey <span style="font-size: 1.2em;">&nbsp;→</span></a>
 						<div style="font-size: 0.95em; color: #888; margin: 0 0 1rem 0; text-align: center; width: 100%;">no credit card required</div>
 					</div>
 					<div style="width: 100%;">
@@ -53,7 +53,7 @@ import Layout from '../layouts/Layout.astro';
 					<div id="standard-subtext" style="font-size: 1.1rem; color: #888; line-height: 1.5; margin-bottom: 1.5rem;">per user, per month</div>
 					<div style="font-size: 1.1rem; color: #444; line-height: 1.5; margin-bottom: 1.5rem;">Great for medium-sized orgs, departments and scaling teams</div>
 					<div style="display: flex; flex-direction: column; align-items: flex-start; gap: 0.2rem; margin-bottom: 1rem;">
-						<a href="/get-started?button-label=Contact Us&page-source=pricing-standard" class="btn btn-accent" style="margin: 3rem 0 0.5rem 0; padding: 0.5rem 1rem;">Contact Us <span style="font-size: 1.2em;">&nbsp;→</span></a>
+						<a href="/get-started?button-label=Contact Us&page-source=pricing-standard" class="btn btn-accent pricing-btn" data-plan="standard" style="margin: 3rem 0 0.5rem 0; padding: 0.5rem 1rem;">Contact Us <span style="font-size: 1.2em;">&nbsp;→</span></a>
 					</div>
 					<div style="width: 100%;">
 						<div style="font-weight: 400; margin-bottom: 1.5rem; font-size: 1.1rem;">Offer includes:<br><span style="font-weight: 700;">Everything in FREE, plus:</span></div>
@@ -73,7 +73,7 @@ import Layout from '../layouts/Layout.astro';
 					<span style="color: #222; font-size: 0.95rem; font-weight: 600; border-radius: 999px; padding: 0.25em 1.1em; border: 1.5px solid #222; margin-bottom: 2rem; letter-spacing: 0.02em;">ADVANCED</span>
 					<h2 style="font-family: 'Outfit', var(--font-family-heading); font-size: 2.5rem; font-weight: 700; margin-bottom: 0.5rem;">Get in Touch</h2>
 					<div style="font-size: 1.15rem; color: #444; margin-bottom: 2.5rem; line-height: 1.5;">Designed for scale-ups and more complex or multi-region orgs</div>
-					<a href="/get-started?button-label=Contact Us&page-source=pricing-advanced" class="btn btn-accent" style="margin: 2rem 0 2.5rem 0; padding: 0.5rem 1rem;">Contact Us <span style="font-size: 1.2em;">&nbsp;→</span></a>
+					<a href="/get-started?button-label=Contact Us&page-source=pricing-advanced" class="btn btn-accent pricing-btn" data-plan="advanced" style="margin: 2rem 0 2.5rem 0; padding: 0.5rem 1rem;">Contact Us <span style="font-size: 1.2em;">&nbsp;→</span></a>
 					<div style="width: 100%;">
 						<div style="font-weight: 400; margin-bottom: 1.5rem; font-size: 1.1rem;">Offer includes:<br><span style="font-weight: 700;">Everything in STANDARD, plus:</span></div>
 						<ul style="list-style: none; padding: 0; margin: 0; color: #222; font-size: 0.95rem;">
@@ -275,13 +275,32 @@ import Layout from '../layouts/Layout.astro';
       monthlyBtn.classList.remove('active');
     }
   }
+  // Add currency parameter to pricing buttons
+  function updatePricingButtonUrls() {
+    const currentPeriod = yearlyBtn?.classList.contains('active') ? 'yearly' : 'monthly';
+    const currentPrice = PRICING[region][currentPeriod];
+    
+    document.querySelectorAll('.pricing-btn').forEach(btn => {
+      const currentUrl = new URL(btn.href);
+      currentUrl.searchParams.set('currency', region);
+      currentUrl.searchParams.set('price', currentPrice);
+      currentUrl.searchParams.set('period', currentPeriod);
+      btn.href = currentUrl.toString();
+    });
+  }
+
   if (monthlyBtn && yearlyBtn && standardPrice && standardSubtext) {
     monthlyBtn.addEventListener('click', function() {
       setPricing(region, 'monthly');
+      updatePricingButtonUrls();
     });
     yearlyBtn.addEventListener('click', function() {
       setPricing(region, 'yearly');
+      updatePricingButtonUrls();
     });
   }
+
+  // Update URLs initially
+  updatePricingButtonUrls();
 });
 </script> 
