@@ -10,7 +10,6 @@ import { IconLock, IconBase, IconStar, IconPeople, IconPerson, IconBuilding } fr
 import YourMessage from '@venn/components/YourMessage.vue'
 import TheirMessage from '@venn/components/TheirMessage.vue'
 import AnimatedDots from '@venn/components/AnimatedDots.vue'
-import { callStartSurveyCommand } from '@venn/service'
 import Button from '@venn/components/atoms/Button.vue'
 import type { Message } from './types'
 import { addDoc } from 'firebase/firestore'
@@ -25,7 +24,7 @@ const props = withDefaults(defineProps<{
 })
 
 const $userId = useStore(userId)
-const inputDisabled = ref(true)
+const inputDisabled = ref(false)
 const $pseudonym = useStore(pseudonym)
 
 // Ref for the scroll container
@@ -62,6 +61,14 @@ const companyClarity = computed(() => aiUnderstanding.value?.understandingStatus
 
 const isMessagesLoading = computed(() => messages.pending.value)
 
+const greetingMessage = computed(() => ({
+  messageId: crypto.randomUUID(),
+  authorId: 'i_am_venn',
+  text: `Hey ${$pseudonym.value}, how are you doing today?`,
+  type: 'system' as const,
+  createdAt: Timestamp.now()
+}))
+
 const isTyping = computed(() => {
   return typingUsers.value?.some(user => user.userId !== $userId.value && user.isTyping)
 })
@@ -81,9 +88,8 @@ const scrollToBottom = () => {
 }
 
 // Watch for changes in messages and scroll to bottom
-watch(() => messages.value.length, (value) => {
+watch(() => messages.value.length, (_) => {
   nextTick(() => {
-    inputDisabled.value = value === 0
     scrollToBottom()
   })
 })
@@ -156,14 +162,6 @@ onMounted(() => {
     })
   }
 
-  // Watch for when data is loaded
-  const unwatchMessages = watch(isMessagesLoading, (loading) => {
-    if (!loading && messages.value?.length === 0 && $userId.value && $pseudonym.value) {
-      callStartSurveyCommand($userId.value, $pseudonym.value)
-      unwatchMessages() // Stop watching once we've called the command
-    }
-  })
-
   nextTick(() => {
     scrollToBottom()
   })
@@ -171,8 +169,7 @@ onMounted(() => {
 </script>
 
 <template>
-  <div v-show="messages.length > 0"
-    class="p-3 flex flex-col bg-white/40 rounded-2xl md:min-w-2xl lg:min-w-4xl"
+  <div class="p-3 flex flex-col bg-white/40 rounded-2xl md:min-w-2xl lg:min-w-4xl"
     :class="{ 'h-screen': variant === 'full' }">
     <div class="flex flex-col overflow-hidden h-full w-full">
       <div id="insights-container" v-if="variant === 'full'"
@@ -216,6 +213,9 @@ onMounted(() => {
           <div class="text-dark text-sm">You are answering as <span class="font-semibold">{{ $pseudonym }}</span>.
             No information can be traced back
             to your identity.</div>
+        </div>
+        <div class="flex mb-4">
+          <TheirMessage :message="greetingMessage" />
         </div>
         <div v-for="message in messages" :key="message.messageId" class="flex mb-4"
           :class="{ 'justify-end': message.authorId === $userId, 'justify-start': message.authorId !== $userId }">
