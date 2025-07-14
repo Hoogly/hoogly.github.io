@@ -75,4 +75,6 @@ We're building AI that helps leaders notice the silences. It's designed to gentl
 
 Ultimately, leadership isn't about interpreting data; it's about connecting with people. Our dashboards can tell us what has happened, but only our humanity can change what happens next.
 
-I'd love to hear your thoughts. What are the "off-dashboard" signals you've learned to watch for? How have you brought someone back from the brink of disengagement? 
+I'd love to hear your thoughts. What are the "off-dashboard" signals you've learned to watch for? How have you brought someone back from the brink of disengagement?
+
+If you’d like to discuss this further, feel free to lock in a time via [Mohit’s calendar.](https://calendly.com/hoogly/mohit-midha) 

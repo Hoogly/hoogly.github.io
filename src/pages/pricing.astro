@@ -13,6 +13,11 @@ import Layout from '../layouts/Layout.astro';
 				<span style="font-family: 'Outfit', sans-serif; font-weight: 400;">Let your employees feel truly heard.</span><br>
 				<span style="font-family: 'Outfit', sans-serif; font-weight: 400;">When they feel seen, supported, and connected—<span class="desktop-break"><br></span>they don't just stay, they</span> <span class="hero-highlight"><span class="hero-highlight-text">thrive.</span></span>
 			</h1>
+			<!-- Pricing Toggle -->
+			<div class="pricing-toggle" id="pricingToggle" style="display: inline-flex; background: #f5f6fa; border-radius: 999px; padding: 4px; margin: 0 auto 1.2rem auto; box-shadow: 0 1px 4px rgba(24,144,255,0.04);">
+				<button class="toggle-option" id="monthlyBtn" type="button" style="font-size: 1.1rem; font-weight: 600; font-family: 'Outfit', sans-serif; padding: 0.5em 1.5em; border-radius: 999px; cursor: pointer; transition: background 0.2s, color 0.2s;">Monthly</button>
+				<button class="toggle-option active" id="yearlyBtn" type="button" style="font-size: 1.1rem; font-weight: 600; font-family: 'Outfit', sans-serif; padding: 0.5em 1.5em; border-radius: 999px; cursor: pointer; transition: background 0.2s, color 0.2s;">Yearly</button>
+			</div>
 		</div>
 		<div style="height: 2.5rem;"></div>
 		<div class="container" style="max-width: 1200px; margin: 0 auto; padding: 0; margin-top: 4.5rem;">
@@ -44,9 +49,8 @@ import Layout from '../layouts/Layout.astro';
 					<div style="display: flex; align-items: center; justify-content: space-between; width: 100%; margin-bottom: 2rem;">
 						<span style="color: #222; font-size: 0.95rem; font-weight: 600; border-radius: 999px; padding: 0.25em 1.1em; border: 1.5px solid #222; letter-spacing: 0.02em;">STANDARD</span>
 					</div>
-					<h2 id="standard-price" style="font-family: 'Outfit', var(--font-family-heading); font-size: 2.5rem; font-weight: 700; color: #222; margin-bottom: 0;">
-						Get in Touch
-					</h2>
+					<h2 id="standard-price" style="font-family: 'Outfit', var(--font-family-heading); font-size: 2.5rem; font-weight: 700; color: #222; margin-bottom: 0;">US$6</h2>
+					<div id="standard-subtext" style="font-size: 1.1rem; color: #888; line-height: 1.5; margin-bottom: 1.5rem;">per user, per month</div>
 					<div style="font-size: 1.1rem; color: #444; line-height: 1.5; margin-bottom: 1.5rem;">Great for medium-sized orgs, departments and scaling teams</div>
 					<div style="display: flex; flex-direction: column; align-items: flex-start; gap: 0.2rem; margin-bottom: 1rem;">
 						<a href="/get-started?button-label=Contact Us&page-source=pricing-standard" class="btn btn-accent" style="margin: 3rem 0 0.5rem 0; padding: 0.5rem 1rem;">Contact Us <span style="font-size: 1.2em;">&nbsp;→</span></a>
@@ -131,6 +135,32 @@ import Layout from '../layouts/Layout.astro';
   transform: translateY(0);
 }
 
+.pricing-toggle {
+  display: inline-flex;
+  background: #f5f6fa;
+  border-radius: 999px;
+  padding: 4px;
+  margin: 0 auto 1.2rem auto;
+  box-shadow: 0 1px 4px rgba(24,144,255,0.04);
+}
+.toggle-option {
+  border: none;
+  background: transparent;
+  color: #23221F;
+  font-size: 1.1rem;
+  font-family: 'Outfit', sans-serif;
+  font-weight: 400 !important;
+  padding: 0.5em 1.5em;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+.toggle-option.active {
+  background: #EEE0FA;
+  color: #23221F;
+  box-shadow: 0 2px 8px rgba(238, 224, 250, 0.12);
+}
+
 @media (max-width: 768px) {
   .pricing-columns {
     flex-direction: column !important;
@@ -202,5 +232,56 @@ import Layout from '../layouts/Layout.astro';
     }, { threshold: 0 });
     observer.observe(card);
   });
+
+  // Pricing region mapping
+  const PRICING = {
+    AUD: { monthly: 'A$12', yearly: 'A$8' },
+    GBP: { monthly: '£6', yearly: '£4' },
+    USD: { monthly: 'US$9', yearly: 'US$6' }
+  };
+  function getRegion(country) {
+    if (country === 'AU' || country === 'NZ') return 'AUD';
+    if (country === 'GB') return 'GBP';
+    return 'USD';
+  }
+  // Default to USD
+  let region = 'USD';
+  // Try to detect region
+  fetch('https://ipapi.co/json/')
+    .then(res => res.json())
+    .then(data => {
+      region = getRegion(data.country_code);
+      setPricing(region, 'yearly');
+    })
+    .catch(() => {
+      setPricing(region, 'yearly');
+    });
+
+  // Toggle logic
+  const monthlyBtn = document.getElementById('monthlyBtn');
+  const yearlyBtn = document.getElementById('yearlyBtn');
+  const standardPrice = document.getElementById('standard-price');
+  const standardSubtext = document.getElementById('standard-subtext');
+  function setPricing(region, period) {
+    if (standardPrice && standardSubtext) {
+      standardPrice.textContent = PRICING[region][period];
+      standardSubtext.textContent = 'per user, per month';
+    }
+    if (period === 'monthly') {
+      monthlyBtn.classList.add('active');
+      yearlyBtn.classList.remove('active');
+    } else {
+      yearlyBtn.classList.add('active');
+      monthlyBtn.classList.remove('active');
+    }
+  }
+  if (monthlyBtn && yearlyBtn && standardPrice && standardSubtext) {
+    monthlyBtn.addEventListener('click', function() {
+      setPricing(region, 'monthly');
+    });
+    yearlyBtn.addEventListener('click', function() {
+      setPricing(region, 'yearly');
+    });
+  }
 });
 </script> 

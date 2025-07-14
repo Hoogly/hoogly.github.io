@@ -94,6 +94,6 @@ Grab a cuppa, skim a sample Hoogly pulse dashboard, and imagine these insights d
 
 Download the data sheet or book a friendly 30‑minute demo—we'll show you how conversational pulses work and, if you like, fire off a pilot survey to your team.
 
-Could you suggest a morning in the next week or so when you might be available? Or, if it's easier, feel free to [lock in a time via my calendar](https://calendly.com/hoogly/mohit-midha).
+If you’d like to discuss this further, feel free to lock in a time via [Mohit's calendar.](https://calendly.com/hoogly/mohit-midha)
 
 **Let's turn listening into action together.** 

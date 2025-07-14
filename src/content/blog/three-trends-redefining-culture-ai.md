@@ -80,4 +80,6 @@ The future belongs to organisations that honour human complexity while embracing
 
 **Let's not just ride the wave.**
 
-**Let's shape it.** 
+**Let's shape it.**
+
+If you’d like to discuss this further, feel free to lock in a time via [Mohit’s calendar.](https://calendly.com/hoogly/mohit-midha) 

@@ -125,4 +125,6 @@ But it’s the thing holding everything together.
 And the leaders who invest in trust — even when it’s inconvenient — are the ones who end up with teams that stay, grow, and thrive.
 
 When someone tells you the truth, listen like it matters.
-Because it does. 
+Because it does.
+
+If you’d like to discuss this further, feel free to lock in a time via [Mohit’s calendar.](https://calendly.com/hoogly/mohit-midha) 

@@ -132,4 +132,6 @@ At Hoogly AI, we believe culture should be a living, breathing system and measur
 
 If your team is ready to reimagine culture as a performance driver, not just an HR initiative, then we're here to help.
 
-**Let's build a workplace where clarity, care, and creativity thrive.** 
+**Let's build a workplace where clarity, care, and creativity thrive.**
+
+If you’d like to discuss this further, feel free to lock in a time via [Mohit’s calendar.](https://calendly.com/hoogly/mohit-midha) 
