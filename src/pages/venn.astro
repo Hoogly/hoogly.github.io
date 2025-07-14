@@ -1001,7 +1001,7 @@ import ChatApp from "@venn/ChatApp.vue";
 </style>
 
 <script>
-	window.addEventListener("DOMContentLoaded", function () {
+	document.addEventListener("astro:page-load", function () {
 		const highlight = document.querySelector(".hero-highlight");
 		if (highlight) {
 			setTimeout(() => highlight.classList.add("animated"), 200);

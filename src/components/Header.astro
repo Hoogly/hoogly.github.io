@@ -51,7 +51,7 @@ const currentPath = new URL(url).pathname;
 	});
 
 	// Mobile menu toggle functionality
-	document.addEventListener('DOMContentLoaded', function() {
+	document.addEventListener("astro:page-load", function () {
 		const mobileMenuToggle = document.getElementById('mobileMenuToggle');
 		const navLinks = document.getElementById('navLinks');
 		const navbar = document.getElementById('navbar');

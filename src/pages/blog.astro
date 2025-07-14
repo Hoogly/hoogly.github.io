@@ -325,7 +325,7 @@ body.blog, .blog-header, .blog-header *, .blog-posts, .blog-posts *, .blog-post-
 </style>
 
 <script>
-window.addEventListener('DOMContentLoaded', function() {
+  document.addEventListener("astro:page-load", function () {
   // Animate hero highlight
   const highlight = document.querySelector('.hero-highlight');
   if (highlight) {

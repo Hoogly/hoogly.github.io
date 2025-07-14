@@ -176,7 +176,7 @@ import Layout from '../layouts/Layout.astro';
 </style>
 
 <script>
-window.addEventListener('DOMContentLoaded', function() {
+	document.addEventListener("astro:page-load", function () {
   // Animate .hero-highlight on scroll into view
   document.querySelectorAll('.hero-highlight').forEach(highlight => {
     const observer = new window.IntersectionObserver((entries) => {

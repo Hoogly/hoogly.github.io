@@ -600,7 +600,7 @@ import Layout from '../layouts/Layout.astro';
 
 <script is:inline>
   // Hero highlight animation
-  window.addEventListener('DOMContentLoaded', function() {
+    document.addEventListener("astro:page-load", function () {
     // Animate .hero-highlight on scroll into view
     document.querySelectorAll('.hero-highlight').forEach(highlight => {
       const observer = new window.IntersectionObserver((entries) => {
@@ -648,7 +648,7 @@ import Layout from '../layouts/Layout.astro';
   setupSeeMore('natalie-bio', 'natalie-see-more');
 </script>
 <script is:inline>
-window.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('astro:page-load', function() {
   const aboutHeroImage = document.getElementById('aboutHeroImage');
   if (aboutHeroImage) {
     const observer = new window.IntersectionObserver((entries) => {
@@ -670,7 +670,7 @@ window.addEventListener('DOMContentLoaded', function() {
 });
 </script>
 <script>
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('astro:page-load', function() {
   const boxes = [
     document.querySelector('.mission-text-box.animate-in'),
     document.querySelector('.mission-image-box.animate-in'),

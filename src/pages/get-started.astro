@@ -238,7 +238,7 @@ import Layout from '../layouts/Layout.astro';
     </div>
   </div>
   <script>
-    document.addEventListener('DOMContentLoaded', function() {
+    document.addEventListener("astro:page-load", function () {
       // Set up form parameters
       const referrerInput = document.getElementById('referrer') as HTMLInputElement | null;
       if (referrerInput) referrerInput.value = document.referrer;
