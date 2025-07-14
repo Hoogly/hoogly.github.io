@@ -43,6 +43,11 @@
 @source inline("bg-amber");
 @source inline("bg-amber-2");
 @source inline("bg-red");
+@source inline("opacity-20");
+@source inline("opacity-40");
+@source inline("opacity-60");
+@source inline("opacity-80");
+@source inline("opacity-100");
 
 .gradient-text {
   background: linear-gradient(90deg, #ca6e7f 0%, #ae6790 35%, #4a54eb 70%);

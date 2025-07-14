@@ -51,10 +51,14 @@ const aiUnderstanding = useDocument(
 }
 )
 
-const managerClarity = computed(() => aiUnderstanding.value?.understandingStatus.find(status => status.macroDomain.toLowerCase() === 'manager')?.clarityLevel)
-const peersClarity = computed(() => aiUnderstanding.value?.understandingStatus.find(status => status.macroDomain.toLowerCase() === 'peers')?.clarityLevel)
-const selfClarity = computed(() => aiUnderstanding.value?.understandingStatus.find(status => status.macroDomain.toLowerCase() === 'self')?.clarityLevel)
-const companyClarity = computed(() => aiUnderstanding.value?.understandingStatus.find(status => status.macroDomain.toLowerCase() === 'company')?.clarityLevel)
+const normalizeMacroDomain = (macroDomain: string) => {
+  return macroDomain.toLowerCase().replace('relationship with ', '')
+}
+
+const managerClarity = computed(() => aiUnderstanding.value?.understandingStatus.find(status => normalizeMacroDomain(status.macroDomain) === 'manager')?.clarityLevel)
+const peersClarity = computed(() => aiUnderstanding.value?.understandingStatus.find(status => normalizeMacroDomain(status.macroDomain) === 'peers')?.clarityLevel)
+const selfClarity = computed(() => aiUnderstanding.value?.understandingStatus.find(status => normalizeMacroDomain(status.macroDomain) === 'self')?.clarityLevel)
+const companyClarity = computed(() => aiUnderstanding.value?.understandingStatus.find(status => normalizeMacroDomain(status.macroDomain) === 'company')?.clarityLevel)
 
 const isMessagesLoading = computed(() => messages.pending.value)
 
@@ -168,11 +172,11 @@ onMounted(() => {
 
 <template>
   <div v-show="messages.length > 0"
-    class="p-3 flex flex-col mx-auto max-w-5xl min-w-3xs sm:min-w-2xl bg-white/40 rounded-2xl"
+    class="p-3 flex flex-col bg-white/40 rounded-2xl md:min-w-2xl lg:min-w-4xl"
     :class="{ 'h-screen': variant === 'full' }">
     <div class="flex flex-col overflow-hidden h-full w-full">
       <div id="insights-container" v-if="variant === 'full'"
-        class="py-2 flex flex-row justify-between gap-4 opacity-20 opacity-40 opacity-60 opacity-80 opacity-100">
+        class="py-2 px-1 flex flex-row justify-between gap-4">
         <div class="rounded-full sm:bg-white sm:outline p-2 flex flex-col sm:flex-row-reverse items-center gap-2"
           :class="`opacity-${normalizeClarityToProgress(managerClarity)}`">
           <span class="font-normal text-base text-black pr-2">Manager</span>
