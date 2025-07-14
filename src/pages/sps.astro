@@ -1,0 +1,187 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<style>
+  .get-started-form-container {
+    background: #fff;
+    border-radius: 1.5rem;
+    box-shadow: 0 4px 24px 0 rgba(0,0,0,0.04);
+    padding: 1.75rem 2.5rem 3.5rem 2.5rem; /* reduced top padding by 30% */
+    max-width: 500px;
+    width: 100%;
+    margin: 8rem auto 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  /* Reduce top padding of hero section just for this page */
+  .hero.hero-fullscreen {
+    padding-top: 1rem !important;
+  }
+  .get-started-form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .get-started-form label {
+    font-family: 'Outfit', sans-serif;
+    font-size: 1rem;
+    color: #23221F;
+    margin-bottom: 0.5rem;
+    display: block;
+    font-weight: 400;
+    text-align: left;
+    width: 100%;
+    max-width: 370px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .get-started-form input[type="text"],
+  .get-started-form input[type="email"] {
+    width: 100%;
+    max-width: 370px;
+    padding: 1.1rem 1.2rem;
+    border-radius: 0.7rem;
+    border: 1px solid #e0e0e0;
+    background: #fff;
+    font-size: 1.15rem;
+    margin-bottom: 0.5rem;
+    font-family: 'Outfit', sans-serif;
+    color: #23221F;
+    box-shadow: 0 2px 8px 0 rgba(0,0,0,0.04);
+    outline: none;
+    transition: box-shadow 0.2s, border 0.2s;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: left;
+  }
+  .get-started-form input[type="text"]::placeholder,
+  .get-started-form input[type="email"]::placeholder {
+    color: #c7c7c7;
+    opacity: 1;
+  }
+  .get-started-form input[type="text"]:focus,
+  .get-started-form input[type="email"]:focus {
+    box-shadow: 0 0 0 2px #b16ba6;
+    border: 1px solid #b16ba6;
+  }
+  .get-started-form button {
+    background: #ff8661;
+    color: #fff;
+    font-family: 'Outfit', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 500;
+    border: none;
+    border-radius: 2rem;
+    padding: 1.1rem 2.8rem;
+    margin-top: 0.5rem;
+    margin-bottom: 2.5rem;
+    cursor: pointer;
+    transition: background 0.2s;
+    box-shadow: 0 2px 8px 0 rgba(0,0,0,0.03);
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .get-started-form button:hover {
+    background: #ff6a3d;
+  }
+  .get-started-form .form-group {
+    width: 100%;
+    margin-bottom: 0.8rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .get-started-form .honeypot {
+    display: none;
+  }
+  .error-message {
+    color: #dc3545;
+    font-size: 0.9rem;
+    margin-top: 0.5rem;
+    font-family: 'Outfit', sans-serif;
+    text-align: left;
+    width: 100%;
+    max-width: 370px;
+    margin-left: auto;
+    margin-right: auto;
+    min-height: 1.2rem;
+  }
+  .get-started-form input.error {
+    border: 1px solid #dc3545;
+    box-shadow: 0 0 0 2px rgba(220, 53, 69, 0.2);
+  }
+  @media (max-width: 600px) {
+    .get-started-form-container {
+      padding: 1.5rem 0.5rem 2.5rem 0.5rem;
+      max-width: 98vw;
+    }
+  }
+</style>
+
+<Layout title="Claim Your 20% Startup People Summit Discount | Hoogly" description="Unlock your exclusive Startup People Summit discount and turn employee feedback into real culture change.">
+  <section class="hero hero-fullscreen">
+    <div class="container">
+      <div class="hero-content">
+        <div class="hero-text">
+          <!-- Logo section above headline -->
+          <div style="display: flex; justify-content: center; align-items: center; gap: 2rem; margin-bottom: 1.2rem; margin-top: 0.6rem;">
+            <img src="/hoogly-logo.png" alt="Hoogly Logo" style="height: 48px; width: auto; background: transparent;" />
+            <img src="/images/sps-logo.svg" alt="Startup People Summit Logo" style="height: 96px; width: auto; background: transparent;" />
+          </div>
+          
+          <div class="hero-title" style="text-align: center; margin-bottom: 1.2rem; font-family: 'Outfit', sans-serif;">
+            <div class="hero-title-align" style="display: block;">
+              Claim Your 20% <span class="hero-highlight animated"><span class="hero-highlight-text">Startup People Summit</span></span> Discount
+            </div>
+          </div>
+          <!-- Inserted get-started form below headline, now using the same structure as /get-started -->
+          <div class="get-started-form-container" style="margin-bottom: 3.5rem; margin-top: 2.5rem;">
+            <form class="get-started-form" id="getStartedForm" autocomplete="off" novalidate>
+              <div class="form-group">
+                <label for="name">Name *</label>
+                <input type="text" id="name" name="name" placeholder="Jane Doe" required />
+                <div class="error-message" id="name-error"></div>
+              </div>
+              <div class="form-group">
+                <label for="email">Company Email *</label>
+                <input type="email" id="email" name="email" placeholder="janedoe@hoogly.com" required />
+                <div class="error-message" id="email-error"></div>
+              </div>
+              <div class="form-group">
+                <label for="company">Company Name *</label>
+                <input type="text" id="company" name="company" placeholder="Hoogly" required />
+                <div class="error-message" id="company-error"></div>
+              </div>
+              <div class="honeypot">
+                <label for="website">Website</label>
+                <input type="text" id="website" name="website" tabindex="-1" autocomplete="off" />
+              </div>
+              <input type="hidden" id="referrer" name="referrer" />
+              <input type="hidden" id="buttonLabel" name="buttonLabel" />
+              <input type="hidden" id="pageSource" name="pageSource" />
+              <button type="submit">Claim my discount</button>
+            </form>
+          </div>
+          <!-- Offer details below the form, outside the white box -->
+          <div style="max-width: 500px; margin: 0 auto 0 auto;">
+            <div class="anonymous-ai-headline" style="margin-bottom: 0.5rem; font-size: 2rem;">Offer Details</div>
+            <ul class="anonymous-ai-subheadline" style="padding-left: 1.2em; margin: 0 0 0.5em 0; font-size: 1.15rem; color: #444;">
+              <li>Offer valid for Startup People Summit attendees only</li>
+              <li>Discount must be claimed by the end of August 2025.</li>
+              <li>You can activate your 20% discount anytime within the next 12 months</li>
+              <li>Discount applies to your first annual plan or first 12 months of monthly billing</li>
+              <li>One redemption per company</li>
+              <li>Not valid with any other promotions or existing contracts</li>
+            </ul>
+          </div>
+          <div style="height: 4rem;"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout> 
