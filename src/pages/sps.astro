@@ -170,7 +170,7 @@ import Layout from '../layouts/Layout.astro';
           <!-- Offer details below the form, outside the white box -->
           <div style="max-width: 500px; margin: 0 auto 0 auto;">
             <div class="anonymous-ai-headline" style="margin-bottom: 0.5rem; font-size: 2rem;">Offer Details</div>
-            <ul class="anonymous-ai-subheadline" style="padding-left: 1.2em; margin: 0 0 0.5em 0; font-size: 1.15rem; color: #444;">
+            <ul class="anonymous-ai-subheadline" style="padding-left: 1.2em; margin: 0 0 0.5em 0; font-size: 1.15rem; color: #444; text-align: left;">
               <li>Offer valid for Startup People Summit attendees only</li>
               <li>Discount must be claimed by the end of August 2025.</li>
               <li>You can activate your 20% discount anytime within the next 12 months</li>
@@ -184,4 +184,126 @@ import Layout from '../layouts/Layout.astro';
       </div>
     </div>
   </section>
+  <script>
+    document.addEventListener("astro:page-load", function () {
+      // Set up form parameters
+      const referrerInput = document.getElementById('referrer') as HTMLInputElement | null;
+      if (referrerInput) referrerInput.value = document.referrer;
+      const urlParams = new URLSearchParams(window.location.search);
+      const buttonLabel = urlParams.get('button-label') || '';
+      const buttonLabelInput = document.getElementById('buttonLabel') as HTMLInputElement | null;
+      if (buttonLabelInput) buttonLabelInput.value = buttonLabel;
+      const pageSource = urlParams.get('page-source') || '';
+      const pageSourceInput = document.getElementById('pageSource') as HTMLInputElement | null;
+      if (pageSourceInput) pageSourceInput.value = pageSource;
+
+      // Trigger highlight animation
+      const highlight = document.querySelector('.hero-highlight');
+      if (highlight) {
+        setTimeout(() => highlight.classList.add('animated'), 200);
+      }
+    });
+
+    const form = document.getElementById('getStartedForm') as HTMLFormElement | null;
+    if (form) {
+      // Clear error messages when user starts typing
+      const inputs = form.querySelectorAll('input[type="text"], input[type="email"]');
+      inputs.forEach(input => {
+        input.addEventListener('input', function(this: HTMLInputElement) {
+          const fieldName = this.name;
+          const errorElement = document.getElementById(`${fieldName}-error`);
+          if (errorElement) {
+            errorElement.textContent = '';
+          }
+          this.classList.remove('error');
+        });
+      });
+
+      form.addEventListener('submit', async function(e) {
+        e.preventDefault();
+        
+        // Clear previous errors
+        const errorElements = form.querySelectorAll('.error-message');
+        errorElements.forEach(el => (el as HTMLElement).textContent = '');
+        const inputElements = form.querySelectorAll('input');
+        inputElements.forEach(el => (el as HTMLInputElement).classList.remove('error'));
+
+        const websiteInput = document.getElementById('website') as HTMLInputElement | null;
+        if (websiteInput && websiteInput.value) return;
+
+        const nameInput = document.getElementById('name') as HTMLInputElement | null;
+        const emailInput = document.getElementById('email') as HTMLInputElement | null;
+        const companyInput = document.getElementById('company') as HTMLInputElement | null;
+        const referrerInput = document.getElementById('referrer') as HTMLInputElement | null;
+        const buttonLabelInput = document.getElementById('buttonLabel') as HTMLInputElement | null;
+        const pageSourceInput = document.getElementById('pageSource') as HTMLInputElement | null;
+
+        const name = nameInput ? nameInput.value.trim() : '';
+        const email = emailInput ? emailInput.value.trim() : '';
+        const company = companyInput ? companyInput.value.trim() : '';
+        const referrer = referrerInput ? referrerInput.value : '';
+        const buttonLabel = buttonLabelInput ? buttonLabelInput.value : '';
+        const pageSource = pageSourceInput ? pageSourceInput.value : '';
+
+        let hasErrors = false;
+
+        // Validate name
+        if (!name) {
+          const nameError = document.getElementById('name-error');
+          if (nameError) nameError.textContent = 'This field is mandatory';
+          if (nameInput) nameInput.classList.add('error');
+          hasErrors = true;
+        }
+
+        // Validate email
+        if (!email) {
+          const emailError = document.getElementById('email-error');
+          if (emailError) emailError.textContent = 'This field is mandatory';
+          if (emailInput) emailInput.classList.add('error');
+          hasErrors = true;
+        } else if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)) {
+          const emailError = document.getElementById('email-error');
+          if (emailError) emailError.textContent = 'Please enter a valid email address';
+          if (emailInput) emailInput.classList.add('error');
+          hasErrors = true;
+        }
+
+        // Validate company
+        if (!company) {
+          const companyError = document.getElementById('company-error');
+          if (companyError) companyError.textContent = 'This field is mandatory';
+          if (companyInput) companyInput.classList.add('error');
+          hasErrors = true;
+        }
+
+        if (hasErrors) return;
+
+        if (typeof window !== 'undefined' && (window as any).posthog) {
+          (window as any).posthog.capture('sps_discount_form_submitted', {
+            name,
+            email,
+            company,
+            referrer,
+            buttonLabel,
+            pageSource
+          });
+        }
+        
+        // Show thank you message
+        const formContainer = document.querySelector('.get-started-form-container');
+        if (formContainer) {
+          formContainer.innerHTML = `
+            <div style="text-align: center; padding: 2rem 0;">
+              <div class="anonymous-ai-headline" style="margin-bottom: 1rem; font-size: 2rem; font-weight: normal;">You're All Set!</div>
+              <div class="anonymous-ai-subheadline" style="font-size: 1.1rem; color: #444; line-height: 1.6; margin-bottom: 2rem;">
+                We'll be in touch soon to walk you through what Hoogly can do for your team (or <a href="https://calendly.com/hoogly/30min" target="_blank" style="color: #b16ba6; text-decoration: underline;">book a time</a> to skip the queue).<br><br>
+                If you love it (and we think you will), your 20% off will be waiting.
+              </div>
+              <img src="/images/hi-venn.png" alt="Venn Character" style="max-width: 200px; height: auto; margin: 0 auto; display: block;" />
+            </div>
+          `;
+        }
+      });
+    }
+  </script>
 </Layout> 
