@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, watch } from 'vue'
+import { ref, watch, nextTick } from 'vue'
 import { IconArrowUp, IconBase, IconLock } from './icons'
 import IncognitoAvatar from './atoms/IncognitoAvatar.vue'
 import { pseudonym } from '@venn/store'
@@ -18,7 +18,7 @@ const props = withDefaults(defineProps<{
 
 const message = ref('')
 const showSendButton = ref(false)
-const inputRef = ref<HTMLInputElement>()
+const textareaRef = ref<HTMLTextAreaElement>()
 
 const $pseudonym = useStore(pseudonym)
 
@@ -28,6 +28,13 @@ watch(message, (value) => {
   } else {
     showSendButton.value = false
   }
+  // Auto-resize textarea
+  nextTick(() => {
+    if (textareaRef.value) {
+      textareaRef.value.style.height = 'auto'
+      textareaRef.value.style.height = textareaRef.value.scrollHeight + 'px'
+    }
+  })
 })
 
 const sendMessage = () => {
@@ -36,16 +43,29 @@ const sendMessage = () => {
 
   props.submit?.(message.value.trim())
   message.value = ''
+  // Reset textarea height
+  if (textareaRef.value) {
+    textareaRef.value.style.height = 'auto'
+  }
+}
+
+const handleKeydown = (event: KeyboardEvent) => {
+  if (event.key === 'Enter' && !event.shiftKey) {
+    event.preventDefault()
+    sendMessage()
+  }
 }
 </script>
 
 <template>
-  <div class="rounded-xl bg-white outline outline-body-light-2 px-2 py-2">
-    <form @submit.prevent="sendMessage" class="flex flex-row items-center" :class="{ 'mb-4': showExtras }">
-      <input ref="inputRef" name="message" v-model="message" type="text" placeholder="Chat with Venn"
-        :disabled="disabled" autocomplete="off"
-        class="flex-1 focus:outline-none focus:ring-0 focus:border-transparent placeholder:text-dark/30" />
-      <button v-if="!showExtras" type="submit" class="ml-auto" :disabled="disabled">
+  <div class="rounded-xl bg-white outline outline-body-light-2 px-2 py-2 m-1">
+    <form @submit.prevent="sendMessage" class="flex flex-row items-start" :class="{ 'mb-4': showExtras }">
+      <textarea ref="textareaRef" name="message" v-model="message" placeholder="Chat with Venn" :disabled="disabled"
+        autocomplete="off" rows="2"
+        class="resize-none flex-1 focus:outline-none focus:ring-0 focus:border-transparent placeholder:text-dark/30 resize-none min-h-[20px] max-h-[120px] overflow-y-auto"
+        @keydown="handleKeydown"
+        />
+      <button v-if="!showExtras" type="submit" class="ml-auto mt-1" :disabled="disabled">
         <div class="rounded-full bg-orange button-container flex items-center justify-center">
           <IconBase>
             <IconArrowUp />
