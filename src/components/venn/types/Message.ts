@@ -6,4 +6,5 @@ export type Message = {
     text: string
     type: "user" | "system"
     createdAt: Timestamp
+    metadata?: Record<string, any>
 } 
