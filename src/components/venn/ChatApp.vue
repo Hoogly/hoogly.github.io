@@ -61,13 +61,27 @@ const companyClarity = computed(() => aiUnderstanding.value?.understandingStatus
 
 const isMessagesLoading = computed(() => messages.pending.value)
 
-const greetingMessage = computed(() => ({
-  messageId: crypto.randomUUID(),
-  authorId: 'i_am_venn',
-  text: `Hey ${$pseudonym.value}, how's your day so far?`,
-  type: 'system' as const,
-  createdAt: Timestamp.now()
-}))
+const greetingMessage = computed(() => {
+  const now = new Date()
+  const hour = now.getHours()
+  
+  let greetingText = ''
+  if (hour >= 0 && hour < 12) {
+    greetingText = `Hey ${$pseudonym.value}, how's your morning been so far?`
+  } else if (hour >= 12 && hour < 17) {
+    greetingText = `Hey ${$pseudonym.value}, how's your day going?`
+  } else {
+    greetingText = `Hey ${$pseudonym.value}, how's your day been?`
+  }
+  
+  return {
+    messageId: crypto.randomUUID(),
+    authorId: 'i_am_venn',
+    text: greetingText,
+    type: 'system' as const,
+    createdAt: Timestamp.now()
+  }
+})
 
 const isTyping = computed(() => {
   return typingUsers.value?.some(user => user.userId !== $userId.value && user.isTyping)
@@ -135,7 +149,7 @@ const handleOnMessageSubmit = async (message: string) => {
       metadata: {
         localtime: new Date().toLocaleString(),
         name: $pseudonym.value,
-        vennMessage: `Hey ${$pseudonym.value}, how's your day so far?`,
+        vennMessage: greetingMessage.value.text,
       }
     }
 
