@@ -270,4 +270,14 @@ onMounted(() => {
 .dummy-spacer {
   width: 38px;
 }
+
+/* Hide scrollbars while maintaining scroll functionality */
+.overflow-y-auto {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* Internet Explorer 10+ */
+}
+
+.overflow-y-auto::-webkit-scrollbar {
+  display: none; /* Safari and Chrome */
+}
 </style>
