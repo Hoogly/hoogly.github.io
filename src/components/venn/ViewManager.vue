@@ -10,12 +10,14 @@ const $currentView = useStore(currentView)
 </script>
 
 <template>
-    <div>
-        <div class="pl-8 pt-10 pb-2">
+    <div class="h-screen flex flex-col">
+        <div class="flex-shrink-0 pl-8 pt-10 pb-2">
             <IconLogo />
         </div>
-        <ChatApp v-if="$currentView === 'chat'" variant="full" />
-        <PersonalResultsView v-else-if="$currentView === 'personal-results'" />
-        <HRDashboardView v-else-if="$currentView === 'hr-dashboard'" />
+        <div class="flex-1">
+            <ChatApp v-if="$currentView === 'chat'" variant="full" />
+            <PersonalResultsView v-else-if="$currentView === 'personal-results'" />
+            <HRDashboardView v-else-if="$currentView === 'hr-dashboard'" />
+        </div>
     </div>
 </template>

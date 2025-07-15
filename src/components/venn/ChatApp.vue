@@ -193,8 +193,8 @@ onMounted(() => {
 </script>
 
 <template>
-  <div class="p-3 flex flex-col rounded-2xl max-w-2xl mx-auto"
-    :class="{ 'h-screen bg-white': variant === 'full', 'bg-white/40 md:min-w-2xl lg:min-w-4xl': variant === 'mini' }">
+  <div class="h-full p-3 flex flex-col rounded-2xl max-w-2xl mx-auto"
+    :class="{ 'bg-white': variant === 'full', 'bg-white/40 md:min-w-2xl lg:min-w-4xl': variant === 'mini' }">
     <div class="flex flex-col overflow-hidden h-full w-full">
       <div id="insights-container" v-if="variant === 'full'"
         class="py-2 px-1 flex flex-row justify-between gap-4">
