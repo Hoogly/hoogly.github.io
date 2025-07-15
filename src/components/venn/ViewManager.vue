@@ -14,7 +14,7 @@ const $currentView = useStore(currentView)
         <div class="flex-shrink-0 pl-8 pt-10 pb-2">
             <IconLogo />
         </div>
-        <div class="flex-1">
+        <div class="flex-1 overflow-y-auto">
             <ChatApp v-if="$currentView === 'chat'" variant="full" />
             <PersonalResultsView v-else-if="$currentView === 'personal-results'" />
             <HRDashboardView v-else-if="$currentView === 'hr-dashboard'" />

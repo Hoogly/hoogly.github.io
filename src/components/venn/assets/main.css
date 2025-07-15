@@ -48,6 +48,11 @@
 @source inline("opacity-60");
 @source inline("opacity-80");
 @source inline("opacity-100");
+@source inline("pt-0");
+@source inline("pt-4");
+@source inline("bg-white/40");
+@source inline("md:min-w-2xl");
+@source inline("lg:min-w-4xl");
 
 .gradient-text {
   background: linear-gradient(90deg, #ca6e7f 0%, #ae6790 35%, #4a54eb 70%);

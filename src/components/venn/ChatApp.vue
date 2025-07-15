@@ -196,8 +196,7 @@ onMounted(() => {
   <div class="h-full p-3 flex flex-col rounded-2xl max-w-2xl mx-auto"
     :class="{ 'bg-white': variant === 'full', 'bg-white/40 md:min-w-2xl lg:min-w-4xl': variant === 'mini' }">
     <div class="flex flex-col overflow-hidden h-full w-full">
-      <div id="insights-container" v-if="variant === 'full'"
-        class="py-2 px-1 flex flex-row justify-between gap-4">
+      <div id="insights-container" v-if="variant === 'full'" class="py-2 px-1 flex flex-row justify-between gap-4">
         <div class="rounded-full sm:bg-white sm:outline p-2 flex flex-col sm:flex-row-reverse items-center gap-2"
           :class="`opacity-${normalizeClarityToProgress(managerClarity)}`">
           <span class="font-normal text-base text-black pr-2">Manager</span>
@@ -246,17 +245,17 @@ onMounted(() => {
           <YourMessage v-if="message.authorId === $userId" :message="message" />
           <TheirMessage v-else :message="message" />
         </div>
-        <div class="flex flex-row items-center justify-center mb-4">
-          <AnimatedDots v-if="isTyping" />
-        </div>
       </div>
 
-      <div class="sticky bottom-0 pt-5">
-        <Button v-if="surveyUser?.status === 'completed'" label="Show results" @click="handleOnShowResultsClick" />
-        <MessageInput v-else-if="$userId" :room-id="$userId" :submit="handleOnMessageSubmit" :disabled="inputDisabled"
-          :show-extras="variant === 'mini'" />
+      <div class="sticky bottom-0" :class="[isTyping ? 'pt-0' : 'pt-4']">
+        <div v-if="isTyping" class="flex items-center justify-center py-4">
+          <AnimatedDots />
       </div>
+      <Button v-if="surveyUser?.status === 'completed'" label="Show results" @click="handleOnShowResultsClick" />
+      <MessageInput v-else-if="$userId" :room-id="$userId" :submit="handleOnMessageSubmit" :disabled="inputDisabled"
+        :show-extras="variant === 'mini'" />
     </div>
+  </div>
   </div>
 </template>
 
