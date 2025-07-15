@@ -64,7 +64,7 @@ const isMessagesLoading = computed(() => messages.pending.value)
 const greetingMessage = computed(() => ({
   messageId: crypto.randomUUID(),
   authorId: 'i_am_venn',
-  text: `Hey ${$pseudonym.value}, how are you doing today?`,
+  text: `Hey ${$pseudonym.value}, how's your day so far?`,
   type: 'system' as const,
   createdAt: Timestamp.now()
 }))
@@ -101,6 +101,10 @@ watch(isTyping, () => {
   })
 })
 
+watch($userId, () => {
+  console.log('userId changed', $userId.value)
+})
+
 const normalizeClarityToProgress = (clarity: number | undefined) => {
   if (!clarity || clarity <= 0.2) {
     return 20
@@ -127,7 +131,12 @@ const handleOnMessageSubmit = async (message: string) => {
       authorId: $userId.value!,
       text: message,
       type: 'user',
-      createdAt: Timestamp.now()
+      createdAt: Timestamp.now(),
+      metadata: {
+        localtime: new Date().toLocaleString(),
+        name: $pseudonym.value,
+        vennMessage: `Hey ${$pseudonym.value}, how's your day so far?`,
+      }
     }
 
     await addDoc(getMessagesRef($userId.value), newMessage)
