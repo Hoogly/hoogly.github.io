@@ -141,16 +141,19 @@ const handleOnMessageSubmit = async (message: string) => {
   console.log('message submitted')
   inputDisabled.value = true
   try {
+    const isFirstMessage = messages.value.length === 0
     const newMessage: Omit<Message, 'messageId'> = {
       authorId: $userId.value!,
       text: message,
       type: 'user',
       createdAt: Timestamp.now(),
-      metadata: {
-        localtime: new Date().toLocaleString(),
-        name: $pseudonym.value,
-        vennMessage: greetingMessage.value.text,
-      }
+      ...(isFirstMessage && {
+        metadata: {
+          localtime: new Date().toLocaleString(),
+          name: $pseudonym.value,
+          vennMessage: greetingMessage.value.text,
+        }
+      })
     }
 
     await addDoc(getMessagesRef($userId.value), newMessage)
