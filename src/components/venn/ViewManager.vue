@@ -4,21 +4,18 @@ import { currentView } from './store'
 import ChatApp from './ChatApp.vue'
 import PersonalResultsView from './views/PersonalResultsView.vue'
 import HRDashboardView from './views/HRDashboardView.vue'
+import IconLogo from './components/icons/IconLogo.vue'
 
 const $currentView = useStore(currentView)
 </script>
 
 <template>
-    <div class="view-manager">
+    <div>
+        <div class="pl-8 pt-10 pb-2">
+            <IconLogo />
+        </div>
         <ChatApp v-if="$currentView === 'chat'" variant="full" />
         <PersonalResultsView v-else-if="$currentView === 'personal-results'" />
         <HRDashboardView v-else-if="$currentView === 'hr-dashboard'" />
     </div>
 </template>
-
-<style scoped>
-.view-manager {
-    width: 100%;
-    height: 100%;
-}
-</style>

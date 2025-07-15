@@ -59,8 +59,6 @@ const peersClarity = computed(() => aiUnderstanding.value?.understandingStatus.f
 const selfClarity = computed(() => aiUnderstanding.value?.understandingStatus.find(status => normalizeMacroDomain(status.macroDomain) === 'self')?.clarityLevel)
 const companyClarity = computed(() => aiUnderstanding.value?.understandingStatus.find(status => normalizeMacroDomain(status.macroDomain) === 'company')?.clarityLevel)
 
-const isMessagesLoading = computed(() => messages.pending.value)
-
 const greetingMessage = computed(() => {
   const now = new Date()
   const hour = now.getHours()
@@ -195,8 +193,8 @@ onMounted(() => {
 </script>
 
 <template>
-  <div class="p-3 flex flex-col bg-white/40 rounded-2xl md:min-w-2xl lg:min-w-4xl"
-    :class="{ 'h-screen': variant === 'full' }">
+  <div class="p-3 flex flex-col rounded-2xl max-w-2xl mx-auto"
+    :class="{ 'h-screen bg-white': variant === 'full', 'bg-white/40 md:min-w-2xl lg:min-w-4xl': variant === 'mini' }">
     <div class="flex flex-col overflow-hidden h-full w-full">
       <div id="insights-container" v-if="variant === 'full'"
         class="py-2 px-1 flex flex-row justify-between gap-4">
