@@ -14,15 +14,69 @@ import Layout from '../layouts/Layout.astro';
 				<div class="hero-text">
 					<div class="hero-title" style="text-align: center; margin-bottom: 0.2em; font-family: 'Outfit', sans-serif;">
 						<div class="hero-title-align" style="display: block;">
-							<span class="hero-title-text">Tired of </span><span class="hero-highlight"><span class="hero-highlight-text">meh</span></span><span class="hero-title-text"> survey results?</span>
-						</div>
-						<div class="hero-title-second-line">
-							So are your employees.
+							<span class="hero-title-text">Build Better </span>
+							<span class="hand-underline-container">
+								<span class="hand-underline-text">Culture</span>
+								<img src="/images/Home/Underline.svg" alt="underline" class="hand-underline-img" />
+							</span>
+							<span class="hero-title-text"> with <span class="ai-dots-container" style="position: relative; display: inline-block;">AI<img src="/images/Home/Dots.svg" alt="dots" class="ai-dots-img" style="position: absolute; top: -16px; right: -24px; width: 32px; height: auto; pointer-events: none; transform: rotate(-15deg);" /></span></span>
 						</div>
 					</div>
-					<div class="hero-subtitle" style="font-family: 'Outfit', sans-serif; font-weight: 400; text-align: center; margin-bottom: 2.5em; padding-top: 1rem; line-height: 30px;">
-						Turn anonymous AI employee feedback into Culture change.
+					<div class="hero-subtitle" style="font-family: 'Outfit', sans-serif; font-weight: 400; margin-bottom: 2.5em; margin-top: 1em; padding-top: 1rem; line-height: 30px; text-align: center;">
+						Anonymous conversations | Actionable Insights | Leadership Coaching
 					</div>
+					<style>
+						.flip-text {
+							transition: transform 0.6s cubic-bezier(0.4, 0.2, 0.2, 1), opacity 0.6s cubic-bezier(0.4, 0.2, 0.2, 1);
+							transform-origin: left center;
+							will-change: transform, opacity;
+						}
+						.flip-out {
+							transform: rotateX(90deg);
+							opacity: 0;
+						}
+						.flip-in {
+							transform: rotateX(-90deg);
+							opacity: 0;
+						}
+						.flip-active {
+							transform: rotateX(0deg);
+							opacity: 1;
+						}
+						.scroll-text {
+							will-change: transform;
+							min-width: 100%;
+						}
+					</style>
+					<script>
+						const phrases = [
+							'Anonymous Conversations',
+							'Actionable Insights',
+							'Leadership Coaching'
+						];
+						const rotatingTextScroll = document.getElementById('rotating-text-scroll');
+						let phraseIndex = 0;
+
+						function scrollToNextPhrase() {
+							// Animate up
+							rotatingTextScroll.style.transform = 'translateY(-1.2em)';
+							setTimeout(() => {
+								// Instantly move down and change text
+								rotatingTextScroll.style.transition = 'none';
+								rotatingTextScroll.style.transform = 'translateY(1.2em)';
+								phraseIndex = (phraseIndex + 1) % phrases.length;
+								rotatingTextScroll.textContent = phrases[phraseIndex];
+								// Animate up to 0
+								setTimeout(() => {
+									rotatingTextScroll.style.transition = 'transform 0.6s cubic-bezier(0.4, 0.2, 0.2, 1)';
+									rotatingTextScroll.style.transform = 'translateY(0)';
+								}, 20);
+							}, 600);
+						}
+
+						// Initialize
+						setInterval(scrollToNextPhrase, 2200);
+					</script>
 					<div style="display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap;">
 						<a
 							href="https://calendly.com/hoogly/30min"

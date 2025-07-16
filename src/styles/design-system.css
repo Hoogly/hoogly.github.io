@@ -2989,3 +2989,56 @@ b, strong, .font-bold {
     padding-top: 0.5rem !important;
   }
 }
+
+.hand-underline-container {
+  display: inline-block;
+  position: relative;
+}
+.hand-underline-text {
+  position: relative;
+  z-index: 1;
+  font-weight: 600;
+}
+.hand-underline-svg {
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 100%;
+  height: 16px;
+  z-index: 0;
+  pointer-events: none;
+}
+.hand-underline-svg path {
+  stroke-dasharray: 400;
+  stroke-dashoffset: 400;
+  animation: draw-underline 1s ease forwards;
+}
+@keyframes draw-underline {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+.hand-underline-img {
+  position: absolute;
+  left: 0;
+  bottom: -32px; /* Fine-tuned position for underline */
+  width: 100% !important;
+  height: 60px !important; /* Thinner underline */
+  z-index: 0;
+  pointer-events: none;
+  opacity: 1;
+  /* Remove transform for scaleX */
+  /* Add clip-path for left-to-right reveal */
+  clip-path: inset(0 100% 0 0);
+  animation: underline-clip-draw 1s cubic-bezier(0.77, 0, 0.175, 1) forwards;
+}
+@keyframes underline-clip-draw {
+  to {
+    clip-path: inset(0 0 0 0);
+  }
+}
+
+.ai-dots-img {
+  transform: rotate(-15deg) !important;
+}
