@@ -3042,3 +3042,13 @@ b, strong, .font-bold {
 .ai-dots-img {
   transform: rotate(-15deg) !important;
 }
+
+.about-hero-img-animate {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 1.2s cubic-bezier(0.77,0,0.175,1), transform 1.2s cubic-bezier(0.77,0,0.175,1);
+}
+.about-hero-img-animate.visible {
+  opacity: 1;
+  transform: translateY(0);
+}

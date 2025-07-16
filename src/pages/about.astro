@@ -130,11 +130,14 @@ import Layout from '../layouts/Layout.astro';
     transition: color 0.2s;
   }
   .see-more-btn:hover {
-    color: #ea580c;
+    color: #23221F;
   }
   .see-more-btn:active,
   .see-more-btn:focus {
     color: #23221F !important;
+    background: none !important;
+    outline: none !important;
+    box-shadow: none !important;
   }
   .animate-in {
     opacity: 0;
@@ -227,6 +230,9 @@ import Layout from '../layouts/Layout.astro';
   .flip-container:hover .flipper, .flip-container:focus-within .flipper {
     transform: rotateY(180deg);
   }
+  .flip-container.flipped .flipper {
+    transform: rotateY(180deg);
+  }
   .leader-img.front {
     backface-visibility: hidden;
     position: absolute;
@@ -315,52 +321,39 @@ import Layout from '../layouts/Layout.astro';
 
 <Layout title="About Us - Hoogly" description="Learn about Hoogly's mission, values, and leadership team." type="website">
   <div style="background: linear-gradient(to bottom, #fff 0%, #F7F3F0 100%); min-height: 100vh; width: 100vw; margin-left: calc(-50vw + 50%);">
-    <!-- New Mission Section (centered icon + statement) -->
-    <section style="padding: 2.5rem 0 1.5rem 0; width: 100vw; margin-left: calc(-50vw + 50%); background: none;">
-      <div style="max-width: 900px; margin: 0 auto; text-align: center;">
-        <img src="/images/about-us/Flame.png" alt="Hoogly flame logo" style="height: 44px; width: auto; margin-bottom: 1.1rem;" />
-        <div style="font-family: 'Outfit', sans-serif; font-size: 1.55rem; color: #23221F; font-weight: 500; max-width: 1875px; margin: 0 auto; line-height: 1.32;">
-          At Hoogly, we’re on a mission to make work more human by helping people feel <b>seen, heard, and supported</b> to do their best work.
+    <div style="background: #F7F3F0; width: 100vw; margin-left: calc(-50vw + 50%); padding-top: 6rem; padding-bottom: 3.5rem;">
+      <!-- Mission Section: Two-Column Layout -->
+      <section class="about-hero-modern" style="background: none; padding: 0; margin-bottom: 0; position: relative; overflow: visible; border-radius: 0;">
+        <div class="about-hero-modern-inner" style="display: flex; align-items: center; justify-content: space-between; max-width: 1400px; margin: 0 auto; position: relative; min-height: 480px;">
+          <div style="flex: 1 1 0; max-width: 54%; padding: 0 2.5rem 0 3.5rem; display: flex; flex-direction: column; justify-content: center; z-index: 2; position: relative; background: none;">
+            <h1 style="font-family: 'Outfit', sans-serif; font-size: 2.8rem; font-weight: 400; color: #23221F; margin-bottom: 0; line-height: 1.13; text-align: left;">
+              At Hoogly, we’re on a mission to make work more human by helping people feel <b>seen</b>, <b>heard</b>, and <b style='font-weight:800;'>supported</b> to do their best work.
+            </h1>
+          </div>
+          <div style="flex: 1 1 0; max-width: 54%; display: flex; align-items: flex-start; justify-content: flex-end; position: relative; z-index: 3; background: none;">
+            <img id="aboutHeroImage" src="/images/about-us/About Us.jpg" alt="About Us" class="about-hero-img-animate animate-in" style="width: 100%; max-width: 800px; min-width: 420px; border-radius: 20px; object-fit: cover; object-position: center; margin: 0; box-shadow: none; position: relative; top: 0; right: 0;" />
+          </div>
         </div>
-      </div>
-    </section>
-    <!-- Mission Section: Two-Column Layout -->
-    <section class="hoogly-mission-row" style="display: grid; grid-template-columns: 2fr 1fr; gap: 2.5rem; max-width: 1400px; margin: 2.5rem auto 0 auto; align-items: stretch;">
-      <!-- Left: Mission Text Box -->
-      <div class="mission-text-box animate-in" style="background: #F7F3F0; border-radius: 2rem; padding: 2.7rem 2.5rem 2.3rem 2.5rem; display: flex; flex-direction: column; justify-content: center; height: 100%; box-shadow: 0 2px 16px rgba(44,41,80,0.04);">
-        <h2 style="font-family: 'Outfit', sans-serif; font-size: 2.3rem; font-weight: 600; margin-bottom: 1.5rem; color: #23221F;">Our Mission</h2>
-        <div style="font-size: 1.18rem; color: #23221F; font-family: 'Outfit', sans-serif; font-weight: 400; line-height: 1.6;">
-          We believe that when people feel a genuine sense of belonging to their team, their purpose, and themselves, they thrive. That’s why we partner with People Leaders to build cultures rooted in connection, trust, and care.<br><br>
-          Instead of one-size-fits-all surveys, Hoogly uses anonymous, conversational AI to create a safe space for every employee to express how they’re really feeling without fear, filters, or judgement.<br><br>
-          And because change doesn’t happen with data alone, we guide both employees and leaders with thoughtful coaching and shared action plans turning insight into action, and culture into a lived experience.<br><br>
-          In a world shaped by AI, we’re here to amplify what makes us human.
-        </div>
-      </div>
-      <!-- Right: Campfire Image -->
-      <div class="mission-image-box animate-in" style="display: flex; align-items: center; justify-content: center; height: 100%; box-shadow: 0 2px 16px rgba(44,41,80,0.04);">
-        <img src="/images/about-us/Mission Header.jpg" alt="People around a campfire" style="width: 100%; height: 100%; border-radius: 2rem; object-fit: cover; object-position: 60% center; min-height: 320px;" />
-      </div>
-    </section>
-    <!-- End Mission Section -->
+      </section>
+      <!-- End Mission Section -->
 
-    <!-- Origins Section: Two-Column Layout -->
-    <section class="hoogly-origins-row" style="display: grid; grid-template-columns: 1fr 2fr; gap: 2.5rem; max-width: 1400px; margin: 2.5rem auto 0 auto; align-items: stretch;">
-      <!-- Left: Campfire Image -->
-      <div class="origins-image-box animate-in" style="display: flex; align-items: center; justify-content: center; height: 100%; box-shadow: 0 2px 16px rgba(44,41,80,0.04);">
-        <img src="/images/about-us/Mission Header 2.jpg" alt="Campfire group" style="width: 100%; height: 100%; border-radius: 2rem; object-fit: cover; min-height: 320px;" />
-      </div>
-      <!-- Right: Origins Text Box -->
-      <div class="origins-text-box animate-in" style="background: #D6D2FF; border-radius: 2rem; padding: 2.7rem 2.5rem 2.3rem 2.5rem; display: flex; flex-direction: column; justify-content: center; height: 100%; box-shadow: 0 2px 16px rgba(44,41,80,0.04);">
-        <h2 style="font-family: 'Outfit', sans-serif; font-size: 2.3rem; font-weight: 600; margin-bottom: 1.5rem; color: #23221F;">The Origins of ‘Hoogly’</h2>
-        <div style="font-size: 1.18rem; color: #23221F; font-family: 'Outfit', sans-serif; font-weight: 400; line-height: 1.6;">
-          Hoogly comes from the Danish word Hygge (pronounced hyoo-guh) — a feeling of cosy contentment, warmth, and ease.<br><br>
-          It’s about the simple, human moments that help us feel safe, connected, and at home with ourselves and with each other.<br><br>
-          That spirit is at the heart of everything we do.<br><br>
-          Because even in a changing world, we believe the most meaningful workplaces are built on trust, belonging, and the freedom to be yourself.
+      <!-- Mission Paragraph and Origin Section -->
+      <section style="max-width: 1400px; margin: 0 auto 2.5rem auto; padding: 0 3.5rem; background: none;">
+        <div style="margin-top: 2.5rem; margin-bottom: 2.5rem;">
+          <div style="font-family: 'Outfit', sans-serif; font-size: 2rem; font-weight: 400; color: #23221F; margin-bottom: 1.2rem;">Our Mission</div>
+          <div style="font-size: 1.18rem; color: #23221F; font-family: 'Outfit', sans-serif; font-weight: 400; line-height: 1.6;">
+            We believe that when people feel a genuine sense of belonging to their team, their purpose, and themselves, they thrive. That’s why we partner with People Leaders to build cultures rooted in connection, trust, and care.<br><br>
+            Instead of one-size-fits-all surveys, Hoogly uses anonymous, conversational AI to create a safe space for every employee to express how they’re really feeling without fear, filters, or judgement.<br><br>
+            And because change doesn’t happen with data alone, we guide both employees and leaders with thoughtful coaching and shared action plans turning insight into action, and culture into a lived experience.<br><br>
+            In a world shaped by AI, we’re here to amplify what makes us human.
+          </div>
         </div>
-      </div>
-    </section>
-    <!-- End Origins Section -->
+        <div style="font-family: 'Outfit', sans-serif; font-size: 2rem; font-weight: 400; color: #23221F; margin-bottom: 1.2rem;">The Origin of Hoogly</div>
+        <div style="font-size: 1.18rem; color: #23221F; font-family: 'Outfit', sans-serif; font-weight: 400; line-height: 1.6;">
+          Hoogly comes from the Danish word Hygge (pronounced hyoo-guh) — a feeling of cosy contentment, warmth, and ease. It’s about the simple, human moments that help us feel safe, connected, and at home with ourselves and with each other. That spirit is at the heart of everything we do. Because even in a changing world, we believe the most meaningful workplaces are built on trust, belonging, and the freedom to be yourself.
+        </div>
+      </section>
+    </div>
 
   <section class="about-leadership" style="padding: 4.5rem 0 3rem 0; background: transparent; width: 100vw; margin-left: calc(-50vw + 50%);">
     <div class="container">
@@ -371,13 +364,13 @@ import Layout from '../layouts/Layout.astro';
           <div class="leader-img-wrapper flip-container">
             <div class="flipper">
               <img src="/images/about-us/mohit.avif" alt="Mohit Midha" class="leader-img front" />
-              <img src="/images/about-us/mohit.avif" alt="Mohit Midha" class="leader-img back" />
+              <img src="/images/about-us/Mohit 2.png" alt="Mohit Midha" class="leader-img back" />
             </div>
             <div class="role-badge">CEO</div>
           </div>
           <div class="leader-name">
             Mohit Midha
-            <a href="https://www.linkedin.com/in/mohitmidha/" target="_blank" rel="noopener noreferrer" class="leader-linkedin">
+            <a href="https://www.linkedin.com/in/mohitmidha/" target="_blank" rel="noopener noreferrer" class="leader-linkedin" aria-label="Mohit Midha LinkedIn">
               <svg xmlns='https://www.w3.org/2000/svg' width='18' height='18' fill='none' viewBox='0 0 24 24'><path fill='#444' d='M20.447 20.452h-3.554v-5.569c0-1.327-.025-3.037-1.849-3.037-1.851 0-2.134 1.445-2.134 2.939v5.667H9.356V9h3.414v1.561h.049c.476-.899 1.637-1.849 3.37-1.849 3.602 0 4.267 2.369 4.267 5.455v6.285zM5.337 7.433a2.062 2.062 0 1 1 0-4.124 2.062 2.062 0 0 1 0 4.124zM7.119 20.452H3.554V9h3.565v11.452zM22.225 0H1.771C.792 0 0 .771 0 1.723v20.549C0 23.229.792 24 1.771 24h20.451C23.2 24 24 23.229 24 22.271V1.723C24 .771 23.2 0 22.222 0z'/></svg>
             </a>
           </div>
@@ -389,7 +382,7 @@ import Layout from '../layouts/Layout.astro';
           <div class="leader-img-wrapper flip-container">
             <div class="flipper">
               <img src="/images/about-us/anitta.jpeg" alt="Anitta Krishan" class="leader-img front" />
-              <img src="/images/about-us/anitta.jpeg" alt="Anitta Krishan" class="leader-img back" />
+              <img src="/images/about-us/Anitta 2.jpeg" alt="Anitta Krishan" class="leader-img back" style="object-position: top;" />
             </div>
             <div class="role-badge">CCO</div>
           </div>
@@ -413,7 +406,7 @@ import Layout from '../layouts/Layout.astro';
           </div>
           <div class="leader-name">
             Mark Gil Libres
-            <a href="https://www.linkedin.com/in/markgillibres/" target="_blank" rel="noopener noreferrer" class="leader-linkedin">
+            <a href="https://www.linkedin.com/in/markglibres/" target="_blank" rel="noopener noreferrer" class="leader-linkedin" aria-label="Mark Gil Libres LinkedIn">
               <svg xmlns='https://www.w3.org/2000/svg' width='18' height='18' fill='none' viewBox='0 0 24 24'><path fill='#444' d='M20.447 20.452h-3.554v-5.569c0-1.327-.025-3.037-1.849-3.037-1.851 0-2.134 1.445-2.134 2.939v5.667H9.356V9h3.414v1.561h.049c.476-.899 1.637-1.849 3.37-1.849 3.602 0 4.267 2.369 4.267 5.455v6.285zM5.337 7.433a2.062 2.062 0 1 1 0-4.124 2.062 2.062 0 0 1 0 4.124zM7.119 20.452H3.554V9h3.565v11.452zM22.225 0H1.771C.792 0 0 .771 0 1.723v20.549C0 23.229.792 24 1.771 24h20.451C23.2 24 24 23.229 24 22.271V1.723C24 .771 23.2 0 22.222 0z'/></svg>
             </a>
           </div>
@@ -425,13 +418,13 @@ import Layout from '../layouts/Layout.astro';
           <div class="leader-img-wrapper flip-container">
             <div class="flipper">
               <img src="/images/about-us/natalie.avif" alt="Natalie Lui" class="leader-img front" />
-              <img src="/images/about-us/Natalie 2.png" alt="Natalie Lui 2" class="leader-img back" />
+              <img src="/images/about-us/Natalie 2.jpg" alt="Natalie Lui" class="leader-img back" />
             </div>
             <div class="role-badge">VP of Product</div>
           </div>
           <div class="leader-name">
             Natalie Lui
-            <a href="https://www.linkedin.com/in/natalielui/" target="_blank" rel="noopener noreferrer" class="leader-linkedin">
+            <a href="https://www.linkedin.com/in/natalieelui/" target="_blank" rel="noopener noreferrer" class="leader-linkedin" aria-label="Natalie Lui LinkedIn">
               <svg xmlns='https://www.w3.org/2000/svg' width='18' height='18' fill='none' viewBox='0 0 24 24'><path fill='#444' d='M20.447 20.452h-3.554v-5.569c0-1.327-.025-3.037-1.849-3.037-1.851 0-2.134 1.445-2.134 2.939v5.667H9.356V9h3.414v1.561h.049c.476-.899 1.637-1.849 3.37-1.849 3.602 0 4.267 2.369 4.267 5.455v6.285zM5.337 7.433a2.062 2.062 0 1 1 0-4.124 2.062 2.062 0 0 1 0 4.124zM7.119 20.452H3.554V9h3.565v11.452zM22.225 0H1.771C.792 0 0 .771 0 1.723v20.549C0 23.229.792 24 1.771 24h20.451C23.2 24 24 23.229 24 22.271V1.723C24 .771 23.2 0 22.222 0z'/></svg>
             </a>
           </div>
@@ -449,7 +442,7 @@ import Layout from '../layouts/Layout.astro';
           </div>
           <div class="leader-name">
             Dr. Jodi Richardson
-            <a href="https://www.linkedin.com/in/jodirichardson/" target="_blank" rel="noopener noreferrer" class="leader-linkedin">
+            <a href="https://www.linkedin.com/in/dr-jodi-richardson-15589240/" target="_blank" rel="noopener noreferrer" class="leader-linkedin" aria-label="Jodi Richardson LinkedIn">
               <svg xmlns='https://www.w3.org/2000/svg' width='18' height='18' fill='none' viewBox='0 0 24 24'><path fill='#444' d='M20.447 20.452h-3.554v-5.569c0-1.327-.025-3.037-1.849-3.037-1.851 0-2.134 1.445-2.134 2.939v5.667H9.356V9h3.414v1.561h.049c.476-.899 1.637-1.849 3.37-1.849 3.602 0 4.267 2.369 4.267 5.455v6.285zM5.337 7.433a2.062 2.062 0 1 1 0-4.124 2.062 2.062 0 0 1 0 4.124zM7.119 20.452H3.554V9h3.565v11.452zM22.225 0H1.771C.792 0 0 .771 0 1.723v20.549C0 23.229.792 24 1.771 24h20.451C23.2 24 24 23.229 24 22.271V1.723C24 .771 23.2 0 22.222 0z'/></svg>
             </a>
           </div>
@@ -467,7 +460,7 @@ import Layout from '../layouts/Layout.astro';
           </div>
           <div class="leader-name">
             Dr. Kristy Goodwin
-            <a href="https://www.linkedin.com/in/drkristygoodwin/" target="_blank" rel="noopener noreferrer" class="leader-linkedin">
+            <a href="https://www.linkedin.com/in/dr-kristy-goodwin/" target="_blank" rel="noopener noreferrer" class="leader-linkedin" aria-label="Kristy Goodwin LinkedIn">
               <svg xmlns='https://www.w3.org/2000/svg' width='18' height='18' fill='none' viewBox='0 0 24 24'><path fill='#444' d='M20.447 20.452h-3.554v-5.569c0-1.327-.025-3.037-1.849-3.037-1.851 0-2.134 1.445-2.134 2.939v5.667H9.356V9h3.414v1.561h.049c.476-.899 1.637-1.849 3.37-1.849 3.602 0 4.267 2.369 4.267 5.455v6.285zM5.337 7.433a2.062 2.062 0 1 1 0-4.124 2.062 2.062 0 0 1 0 4.124zM7.119 20.452H3.554V9h3.565v11.452zM22.225 0H1.771C.792 0 0 .771 0 1.723v20.549C0 23.229.792 24 1.771 24h20.451C23.2 24 24 23.229 24 22.271V1.723C24 .771 23.2 0 22.222 0z'/></svg>
             </a>
           </div>
@@ -485,7 +478,7 @@ import Layout from '../layouts/Layout.astro';
           </div>
           <div class="leader-name">
             Teresa Lilly
-            <a href="https://www.linkedin.com/in/teresalilly/" target="_blank" rel="noopener noreferrer" class="leader-linkedin">
+            <a href="https://www.linkedin.com/in/teresalilly/" target="_blank" rel="noopener noreferrer" class="leader-linkedin" aria-label="Teresa Lilly LinkedIn">
               <svg xmlns='https://www.w3.org/2000/svg' width='18' height='18' fill='none' viewBox='0 0 24 24'><path fill='#444' d='M20.447 20.452h-3.554v-5.569c0-1.327-.025-3.037-1.849-3.037-1.851 0-2.134 1.445-2.134 2.939v5.667H9.356V9h3.414v1.561h.049c.476-.899 1.637-1.849 3.37-1.849 3.602 0 4.267 2.369 4.267 5.455v6.285zM5.337 7.433a2.062 2.062 0 1 1 0-4.124 2.062 2.062 0 0 1 0 4.124zM7.119 20.452H3.554V9h3.565v11.452zM22.225 0H1.771C.792 0 0 .771 0 1.723v20.549C0 23.229.792 24 1.771 24h20.451C23.2 24 24 23.229 24 22.271V1.723C24 .771 23.2 0 22.222 0z'/></svg>
             </a>
           </div>
@@ -503,7 +496,7 @@ import Layout from '../layouts/Layout.astro';
           </div>
           <div class="leader-name">
             Manish Gajria
-            <a href="https://www.linkedin.com/in/manishgajria/" target="_blank" rel="noopener noreferrer" class="leader-linkedin">
+            <a href="https://www.linkedin.com/in/manishgajria/" target="_blank" rel="noopener noreferrer" class="leader-linkedin" aria-label="Manish Gajria LinkedIn">
               <svg xmlns='https://www.w3.org/2000/svg' width='18' height='18' fill='none' viewBox='0 0 24 24'><path fill='#444' d='M20.447 20.452h-3.554v-5.569c0-1.327-.025-3.037-1.849-3.037-1.851 0-2.134 1.445-2.134 2.939v5.667H9.356V9h3.414v1.561h.049c.476-.899 1.637-1.849 3.37-1.849 3.602 0 4.267 2.369 4.267 5.455v6.285zM5.337 7.433a2.062 2.062 0 1 1 0-4.124 2.062 2.062 0 0 1 0 4.124zM7.119 20.452H3.554V9h3.565v11.452zM22.225 0H1.771C.792 0 0 .771 0 1.723v20.549C0 23.229.792 24 1.771 24h20.451C23.2 24 24 23.229 24 22.271V1.723C24 .771 23.2 0 22.222 0z'/></svg>
             </a>
           </div>
@@ -521,7 +514,7 @@ import Layout from '../layouts/Layout.astro';
           </div>
           <div class="leader-name">
             Anna Maratos, MA (Oxon), MSc
-            <a href="https://www.linkedin.com/in/anna-maratos-2b0b1b1/" target="_blank" rel="noopener noreferrer" class="leader-linkedin">
+            <a href="https://www.linkedin.com/in/anna-maratos-b7244b59/" target="_blank" rel="noopener noreferrer" class="leader-linkedin" aria-label="Anna Maratos LinkedIn">
               <svg xmlns='https://www.w3.org/2000/svg' width='18' height='18' fill='none' viewBox='0 0 24 24'><path fill='#444' d='M20.447 20.452h-3.554v-5.569c0-1.327-.025-3.037-1.849-3.037-1.851 0-2.134 1.445-2.134 2.939v5.667H9.356V9h3.414v1.561h.049c.476-.899 1.637-1.849 3.37-1.849 3.602 0 4.267 2.369 4.267 5.455v6.285zM5.337 7.433a2.062 2.062 0 1 1 0-4.124 2.062 2.062 0 0 1 0 4.124zM7.119 20.452H3.554V9h3.565v11.452zM22.225 0H1.771C.792 0 0 .771 0 1.723v20.549C0 23.229.792 24 1.771 24h20.451C23.2 24 24 23.229 24 22.271V1.723C24 .771 23.2 0 22.222 0z'/></svg>
             </a>
           </div>
@@ -539,7 +532,7 @@ import Layout from '../layouts/Layout.astro';
           </div>
           <div class="leader-name">
             Q Hamirani
-            <a href="https://www.linkedin.com/in/qhamirani/" target="_blank" rel="noopener noreferrer" class="leader-linkedin">
+            <a href="https://www.linkedin.com/in/hamirani/" target="_blank" rel="noopener noreferrer" class="leader-linkedin" aria-label="Q Hamirani LinkedIn">
               <svg xmlns='https://www.w3.org/2000/svg' width='18' height='18' fill='none' viewBox='0 0 24 24'><path fill='#444' d='M20.447 20.452h-3.554v-5.569c0-1.327-.025-3.037-1.849-3.037-1.851 0-2.134 1.445-2.134 2.939v5.667H9.356V9h3.414v1.561h.049c.476-.899 1.637-1.849 3.37-1.849 3.602 0 4.267 2.369 4.267 5.455v6.285zM5.337 7.433a2.062 2.062 0 1 1 0-4.124 2.062 2.062 0 0 1 0 4.124zM7.119 20.452H3.554V9h3.565v11.452zM22.225 0H1.771C.792 0 0 .771 0 1.723v20.549C0 23.229.792 24 1.771 24h20.451C23.2 24 24 23.229 24 22.271V1.723C24 .771 23.2 0 22.222 0z'/></svg>
             </a>
           </div>
@@ -557,7 +550,7 @@ import Layout from '../layouts/Layout.astro';
           </div>
           <div class="leader-name">
             Nikhil Singh
-            <a href="https://www.linkedin.com/in/nikhil-singh-1b8b8b8/" target="_blank" rel="noopener noreferrer" class="leader-linkedin">
+            <a href="https://www.linkedin.com/in/nikhilsingh/" target="_blank" rel="noopener noreferrer" class="leader-linkedin" aria-label="Nikhil Singh LinkedIn">
               <svg xmlns='https://www.w3.org/2000/svg' width='18' height='18' fill='none' viewBox='0 0 24 24'><path fill='#444' d='M20.447 20.452h-3.554v-5.569c0-1.327-.025-3.037-1.849-3.037-1.851 0-2.134 1.445-2.134 2.939v5.667H9.356V9h3.414v1.561h.049c.476-.899 1.637-1.849 3.37-1.849 3.602 0 4.267 2.369 4.267 5.455v6.285zM5.337 7.433a2.062 2.062 0 1 1 0-4.124 2.062 2.062 0 0 1 0 4.124zM7.119 20.452H3.554V9h3.565v11.452zM22.225 0H1.771C.792 0 0 .771 0 1.723v20.549C0 23.229.792 24 1.771 24h20.451C23.2 24 24 23.229 24 22.271V1.723C24 .771 23.2 0 22.222 0z'/></svg>
             </a>
           </div>
@@ -618,6 +611,8 @@ import Layout from '../layouts/Layout.astro';
   function setupSeeMore(bioId, btnId) {
     const btn = document.getElementById(btnId);
     const bio = document.getElementById(bioId);
+    const card = btn.closest('.leader-card');
+    const flipContainer = card ? card.querySelector('.flip-container') : null;
     let expanded = false;
     btn.addEventListener('click', () => {
       expanded = !expanded;
@@ -626,11 +621,13 @@ import Layout from '../layouts/Layout.astro';
         bio.style.overflow = 'visible';
         bio.style.maxHeight = '100em';
         btn.textContent = 'See less';
+        if (flipContainer) flipContainer.classList.add('flipped');
       } else {
         bio.style.webkitLineClamp = '3';
         bio.style.overflow = 'hidden';
         bio.style.maxHeight = '4.5em';
         btn.textContent = 'See more';
+        if (flipContainer) flipContainer.classList.remove('flipped');
       }
     });
   }
@@ -658,7 +655,7 @@ document.addEventListener('astro:page-load', function() {
           observer.disconnect();
         }
       });
-    }, { threshold: 0.3 });
+    }, { threshold: 0.05 });
     observer.observe(aboutHeroImage);
     // Immediately add .visible if already in viewport
     const rect = aboutHeroImage.getBoundingClientRect();
