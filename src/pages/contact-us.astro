@@ -2,24 +2,31 @@
 import Layout from '../layouts/Layout.astro';
 ---
 
+<style>
+  body {
+    background: #F7F3F0 !important;
+  }
+</style>
+
 <Layout 
 	title="Contact Us | Hoogly"
 	description="Get in touch with the Hoogly team. We're here to help you with any questions or feedback."
 	type="website"
 >
-	<div class="container" style="max-width: 1200px; margin: 0 auto; padding: 2rem 0 3.5rem 0; font-family: 'Outfit', sans-serif;">
-		<section class="hero hero-fullscreen" style="background: linear-gradient(135deg, #F6F4FE 0%, #F5E9FA 100%); padding: 0; margin-bottom: 3.5rem; border-radius: 2rem; box-shadow: none; display: flex; align-items: center; justify-content: center; min-height: 320px;">
-			<div class="hero-content" style="width: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center;">
-				<div class="hero-text" style="margin: 0 auto; max-width: 900px; width: 100%; display: flex; flex-direction: column; align-items: center; text-align: center;">
-					<div class="hero-title" style="text-align: center; margin: 2.5rem 0 2.5rem 0; font-family: 'Outfit', sans-serif; font-size: 4.5rem; font-weight: 400; line-height: 1.13;">
-						<div class="hero-title-align" style="display: flex; align-items: center; justify-content: center; gap: 0.1em; text-align: center; flex-wrap: wrap; flex-direction: column;">
-							<span class="hero-title-text">Contact Us</span>
+	<div style="background: #F7F3F0; width: 100vw; margin-left: calc(-50vw + 50%); padding-top: 6rem; padding-bottom: 3.5rem;">
+		<section class="about-hero-modern" style="background: none; padding: 0; margin-bottom: 0; position: relative; overflow: visible; border-radius: 0;">
+			<div class="container" style="max-width: 1200px; margin: 0 auto; padding: 0 1.5rem;">
+				<div class="about-hero-modern-inner" style="display: flex; align-items: center; justify-content: space-between; width: 100%; margin: 0 auto; position: relative; min-height: 480px;">
+					<div style="flex: 1 1 0; max-width: 50%; padding-left: 24px !important; padding-right: 40px; display: flex; flex-direction: column; justify-content: center; z-index: 2; position: relative; background: none;">
+						<h1 style="font-family: 'Outfit', sans-serif; font-size: 2.8rem; font-weight: 400; color: #23221F; margin-bottom: 0; line-height: 1.13; text-align: left;">Contact Us</h1>
+						<div style="font-family: 'Outfit', sans-serif; font-weight: 400; margin-top: 2.5rem; font-size: 1.18rem; color: #23221F; line-height: 1.6;">
+							<p>If you need help using Hoogly, have a question about your account, or just want to share feedback, we're all ears. Whether it's a technical issue or something you're feeling stuck on, our team (and Venn AI) are here to help you find clarity.</p>
+							<p>Send us an email at: <a href="mailto:support@hoogly.com" style="color: #FF7D61; text-decoration: underline;">support@hoogly.com</a></p>
+							<p>Together, let's build a workplace where people feel connected, supported, and seen.</p>
 						</div>
 					</div>
-					<div class="hero-subtitle" style="font-family: 'Outfit', sans-serif; font-weight: 400; text-align: center; margin: 2.5rem 0 2.5rem 0; line-height: 30px; font-size: 1.5rem;">
-						<p>If you need help using Hoogly, have a question about your account, or just want to share feedback, we're all ears. Whether it's a technical issue or something you're feeling stuck on, our team (and Venn AI) are here to help you find clarity.</p>
-						<p>Send us an email at: <a href="mailto:support@hoogly.com" style="color: #6c63ff; text-decoration: underline;">support@hoogly.com</a></p>
-						<p>Together, let's build a workplace where people feel connected, supported, and seen.</p>
+					<div style="flex: 1 1 0; max-width: 50%; display: flex; align-items: flex-start; justify-content: flex-end; position: relative; z-index: 3; background: none;">
+						<img src="/images/about-us/Mission Header.jpg" alt="Contact Us" style="width: 100%; max-width: 800px; min-width: 420px; border-radius: 20px; object-fit: cover; object-position: center; margin: 0; box-shadow: none; position: relative; top: 0; right: 0;" />
 					</div>
 				</div>
 			</div>
