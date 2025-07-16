@@ -17,10 +17,10 @@ const $pseudonym = useStore(pseudonym)
           <div class="justify-start text-xs text-body-light-2 font-normal">Edited 1m ago</div>
         </div>
       </div>
-      <div class="w-full flex flex-col z-10 rounded-md shadow-sm gap-2 p-3 animate-pulse">
-        <div class="bars bg-gray-200 rounded-2xl"></div>
-        <div class="bars bg-gray-200 rounded-2xl"></div>
-        <div class="bars bg-gray-200 rounded-2xl"></div>
+      <div class="w-full flex flex-col z-10 rounded-md shadow-sm gap-2 p-3">
+        <div class="skeleton-bar skeleton-bar-1"></div>
+        <div class="skeleton-bar skeleton-bar-2"></div>
+        <div class="skeleton-bar skeleton-bar-3"></div>
       </div>
     </div>
     <div class="text-center justify-center text-dark text-lg sm:text-4xl">
@@ -38,8 +38,33 @@ const $pseudonym = useStore(pseudonym)
   height: 173px;
 }
 
-.bars {
+.skeleton-bar {
   height: 14px;
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+  border-radius: 0.5rem;
+  animation: skeleton-loading 1.5s ease-in-out infinite;
+}
+
+.skeleton-bar-1 {
+  animation-delay: 0s;
+}
+
+.skeleton-bar-2 {
+  animation-delay: 0.2s;
+}
+
+.skeleton-bar-3 {
+  animation-delay: 0.4s;
+}
+
+@keyframes skeleton-loading {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
 }
 
 .gradient-text-animated {
