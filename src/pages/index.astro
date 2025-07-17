@@ -14,16 +14,15 @@ import Layout from '../layouts/Layout.astro';
 				<div class="hero-text">
 					<div class="hero-title" style="text-align: center; margin-bottom: 0.2em; font-family: 'Outfit', sans-serif;">
 						<div class="hero-title-align" style="display: block;">
-							<span class="hero-title-text">Build Better </span>
-							<span class="hand-underline-container">
-								<span class="hand-underline-text">Culture</span>
-								<img src="/images/Home/Underline.svg" alt="underline" class="hand-underline-img" />
+							<span class="hero-title-text">Tired of </span>
+							<span class="meh-underline-container" style="display: inline-block; vertical-align: baseline;">
+								<span class="hero-highlight"><span class="hero-highlight-text meh-text">Meh</span></span>
 							</span>
-							<span class="hero-title-text"> with <span class="ai-dots-container" style="position: relative; display: inline-block;">AI<img src="/images/Home/Dots.svg" alt="dots" class="ai-dots-img" style="position: absolute; top: -16px; right: -24px; width: 32px; height: auto; pointer-events: none; transform: rotate(-15deg);" /></span></span>
+							<span class="hero-title-text"> survey results?<br>So are your employees.</span>
 						</div>
 					</div>
-					<div class="hero-subtitle" style="font-family: 'Outfit', sans-serif; font-weight: 400; margin-bottom: 2.5em; margin-top: 1em; padding-top: 1rem; line-height: 30px; text-align: center;">
-						Experience firsthand how anonymous employee feedback can reshape your culture
+					<div class="hero-subtitle" style="font-family: 'Outfit', sans-serif; font-weight: 400; font-size: 1.8rem; margin-bottom: 20.5m; margin-top: 1em; padding-top: 1em; line-height:30text-align: center;">
+						Because surveys don't spark change, conversations do.
 					</div>
 					<style>
 						.flip-text {
@@ -46,6 +45,33 @@ import Layout from '../layouts/Layout.astro';
 						.scroll-text {
 							will-change: transform;
 							min-width: 100%;
+						}
+						@keyframes underline-draw {
+							from { stroke-dasharray: 400; stroke-dashoffset: 400; opacity: 0; }
+							30% { opacity: 1; }
+							to { stroke-dasharray: 400; stroke-dashoffset: 0; opacity: 1; }
+						}
+						.hand-underline-img {
+							animation: underline-draw 1.2s cubic-bezier(0.77,0,0.18,1) forwards;
+							background: red !important;
+							border: 3px solid blue !important;
+							opacity: 1 !important;
+							visibility: visible !important;
+							display: block !important;
+							z-index:9999;
+						}
+						.hero-title {
+							font-size:60!important;
+							font-weight:400					}
+						.hero-title-text {
+							font-size:6!important;
+							font-weight: 400 !important;
+						}
+						.hand-underline-text {
+							font-weight: 600;
+						}
+						.meh-text {
+							font-weight: 600 !important;
 						}
 					</style>
 					<script>
@@ -515,6 +541,19 @@ import Layout from '../layouts/Layout.astro';
     margin-left: auto;
     margin-right: auto;
   }
+}
+@keyframes fadeSlideInUnderline {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.fade-in-underline {
+  opacity: 0;
+  animation: fadeSlideInUnderline 1s cubic-bezier(0.77,0,0.18,1) 0.2s forwards;
+}
+.debug-underline {
+  background: #ffe4e1 !important;
+  border: 2px solid red !important;
+  min-height: 24px;
 }
 </style>
 

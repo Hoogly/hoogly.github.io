@@ -37,6 +37,41 @@ const currentPath = new URL(url).pathname;
 	</nav>
 </header>
 
+<style>
+.nav-link {
+  position: relative;
+  display: inline-block;
+  transition: color 0.2s;
+  background: transparent !important;
+}
+.nav-link:hover {
+  /* No color change */
+  background: transparent !important;
+  font-weight: 600;
+}
+.nav-link::after {
+  content: '';
+  display: block;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -6px;
+  height: 18px;
+  background: url('/images/Home/Underline.svg') no-repeat center bottom/100% 100%;
+  background-color: transparent !important;
+  opacity: 1;
+  pointer-events: none;
+  mask-image: linear-gradient(90deg, #000 0 0);
+  mask-size: 0% 100%;
+  mask-repeat: no-repeat;
+  transition: mask-size 0.5s cubic-bezier(0.77,0,0.18,1);
+}
+.nav-link:hover::after {
+  mask-size: 100% 100%;
+  background-color: transparent !important;
+}
+</style>
+
 <script is:inline>
 	// Transparent to solid navbar on scroll
 	window.addEventListener('scroll', function() {
