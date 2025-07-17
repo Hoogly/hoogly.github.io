@@ -9,7 +9,7 @@ const props = defineProps({
 })
 </script>
 <template>
-  <div class="px-3 py-5 h-full flex flex-col container mx-auto max-w-5xl" :class="{ 'h-screen': stickyFooter }">
+  <div class="px-3 py-5 h-full flex flex-col container mx-auto max-w-6xl" :class="{ 'h-screen': stickyFooter }">
     <slot />
   </div>
 </template>
