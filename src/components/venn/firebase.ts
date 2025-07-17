@@ -1,7 +1,8 @@
 import { initializeApp } from 'firebase/app'
 import { connectFirestoreEmulator, collection, getFirestore, CollectionReference, query, orderBy, Query, doc, DocumentReference } from 'firebase/firestore'
-import type { AiUnderstanding, EmployeeConcerns, EmployeeEngagement, GraphScore, Message, Pseudonym, SurveyActionPlan, SurveyUser, TypingUser } from './types'
+import type { AiUnderstanding, EmployeeConcerns, EmployeeEngagement, GraphScore, Message, Pseudonym, SurveyActionPlan, SurveyUser, TypingUser, WhatsGoingWell } from './types'
 import { getFunctions, connectFunctionsEmulator } from 'firebase/functions'
+import type { ActionPlan } from './types/ActionPlan'
 
 export const firebaseApp = initializeApp({
   apiKey: "AIzaSyBZK7XVhv8FEm-kLbvqGM5ivb6k75LjTYo",
@@ -71,4 +72,12 @@ export const getEmployeeEngagementDoc = () => {
 
 export const getEmployeeConcernsDoc = () => {
   return doc(db, `/userspaces/public/survey_reports/public_survey/graphs/employee_concerns`) as DocumentReference<EmployeeConcerns>
+}
+
+export const getWhatsGoingWellDoc = () => {
+  return doc(db, `/userspaces/public/survey_reports/public_survey/text/whats_going_well`) as DocumentReference<WhatsGoingWell>
+}
+
+export const getActionPlanDoc = () => {
+  return doc(db, `/userspaces/public/survey_reports/public_survey/text/action_plan`) as DocumentReference<ActionPlan>
 }
