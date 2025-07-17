@@ -148,9 +148,9 @@ const handleKeydown = (event: KeyboardEvent) => {
 
 <template>
   <div class="rounded-xl bg-white outline outline-body-light-2 px-2 py-2 m-1">
-    <form @submit.prevent="sendMessage" class="flex flex-row items-start" :class="{ 'mb-4': showExtras }">
+    <form @submit.prevent="sendMessage" class="flex flex-row items-center" :class="{ 'mb-4': showExtras }">
       <textarea ref="textareaRef" name="message" v-model="message" :placeholder="placeholderText" :disabled="disabled"
-        autocomplete="off" rows="2" autofocus
+        autocomplete="off" rows="1" autofocus
         class="resize-none flex-1 focus:outline-none focus:ring-0 focus:border-transparent placeholder:text-dark/30 resize-none min-h-[20px] max-h-[120px] overflow-y-auto"
         @keydown="handleKeydown"
         />
