@@ -14,6 +14,7 @@ import Layout from '../layouts/Layout.astro';
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-top: 4rem;
   }
   /* Reduce top padding of hero section just for this page */
   .hero.hero-fullscreen {
@@ -133,6 +134,17 @@ import Layout from '../layouts/Layout.astro';
     border: 1px solid #dc3545;
     box-shadow: 0 0 0 2px rgba(220, 53, 69, 0.2);
   }
+  input::placeholder, textarea::placeholder {
+    font-weight: 400 !important;
+    color: #888;
+    opacity: 1;
+  }
+  .get-started-form-container button[type="submit"] {
+    margin-bottom: 0 !important;
+  }
+  .get-started-form-container form {
+    padding-top: 2rem;
+  }
   @media (max-width: 600px) {
     .get-started-form-container {
       padding: 1.5rem 0.5rem 2.5rem 0.5rem;
@@ -160,7 +172,7 @@ import Layout from '../layouts/Layout.astro';
           
           <!-- Claim by date tag -->
           <div style="text-align: center; margin-bottom: 2rem;">
-            <span style="display: inline-block; background: #ff8661; color: #fff; font-size: 0.95rem; font-weight: 600; border-radius: 999px; padding: 0.5em 1.2em; font-family: 'Outfit', sans-serif; letter-spacing: 0.02em;">Claim by 31 Aug</span>
+            <span style="display: inline-block; background: #FCF4E3; color: #23221F; font-size: 0.95rem; font-weight: 400; border-radius: 999px; padding: 0.5em 1.2em; font-family: 'Outfit', sans-serif; letter-spacing: 0.02em; border: 1.5px solid #23221F;">Offer Expires 31st Aug 2025</span>
           </div>
           
           <!-- Inserted get-started form below headline, now using the same structure as /get-started -->
