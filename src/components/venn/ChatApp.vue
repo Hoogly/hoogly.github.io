@@ -30,6 +30,22 @@ const $pseudonym = useStore(pseudonym)
 // Ref for the scroll container
 const scrollContainer = ref<HTMLElement>()
 
+// Refs to track previous clarity values for comparison
+const previousClarities = ref({
+  manager: undefined as number | undefined,
+  peers: undefined as number | undefined,
+  self: undefined as number | undefined,
+  company: undefined as number | undefined
+})
+
+// Refs to control flashing effects
+const flashingStates = ref({
+  manager: false,
+  peers: false,
+  self: false,
+  company: false
+})
+
 // Real-time listener for messages with ordering
 const messages = useCollection(
   computed(() => $userId.value ? getMessagesQuery($userId.value) : null), {
@@ -106,8 +122,7 @@ watch(() => messages.value.length, (_) => {
   })
 })
 
-// so once it appears, scroll to bottom
-watch(isTyping, () => {
+watch(typingUsers, () => {
   nextTick(() => {
     scrollToBottom()
   })
@@ -116,6 +131,51 @@ watch(isTyping, () => {
 watch($userId, () => {
   console.log('userId changed', $userId.value)
 })
+
+// Watch for clarity level changes and trigger flashing effects
+watch(aiUnderstanding, (newUnderstanding) => {
+  if (!newUnderstanding?.understandingStatus) return
+  
+  const currentClarities = {
+    manager: newUnderstanding.understandingStatus.find(
+      status => normalizeMacroDomain(status.macroDomain) === 'manager'
+    )?.clarityLevel,
+    peers: newUnderstanding.understandingStatus.find(
+      status => normalizeMacroDomain(status.macroDomain) === 'peers'
+    )?.clarityLevel,
+    self: newUnderstanding.understandingStatus.find(
+      status => normalizeMacroDomain(status.macroDomain) === 'self'
+    )?.clarityLevel,
+    company: newUnderstanding.understandingStatus.find(
+      status => normalizeMacroDomain(status.macroDomain) === 'company'
+    )?.clarityLevel
+  }
+  
+  // Check each domain for increases and trigger flashing
+  Object.entries(currentClarities).forEach(([domain, currentClarity]) => {
+    const previousClarity = previousClarities.value[domain as keyof typeof previousClarities.value]
+    
+    // Trigger flashing if:
+    // 1. Clarity increased from previous value, OR
+    // 2. This is the first time we're seeing clarity > 0 (no previous value defined)
+    if (currentClarity !== undefined && currentClarity > 0 && (
+      (previousClarity !== undefined && currentClarity > previousClarity) ||
+      (previousClarity === undefined)
+    )) {
+      
+      // Trigger flashing effect
+      flashingStates.value[domain as keyof typeof flashingStates.value] = true
+      
+      // Stop flashing after 5 seconds
+      setTimeout(() => {
+        flashingStates.value[domain as keyof typeof flashingStates.value] = false
+      }, 5000)
+    }
+  })
+  
+  // Update previous values for next comparison
+  previousClarities.value = currentClarities
+}, { deep: true })
 
 const normalizeClarityToProgress = (clarity: number | undefined) => {
   if (!clarity || clarity <= 0.2) {
@@ -200,28 +260,32 @@ onMounted(() => {
         <div class="rounded-full sm:bg-white p-2 flex flex-col sm:flex-row-reverse items-center gap-2"
           :class="`opacity-${normalizeClarityToProgress(managerClarity)}`">
           <span class="font-normal text-base text-black pr-2">Manager</span>
-          <div class="domain-icons outline bg-blue rounded-full flex items-center justify-center">
+          <div class="domain-icons outline bg-blue rounded-full flex items-center justify-center"
+            :class="{ 'flashing-effect': flashingStates.manager }">
             <IconStar color="var(--color-dark)" />
           </div>
         </div>
         <div class="rounded-full sm:bg-white p-2 flex flex-col sm:flex-row-reverse items-center gap-2"
           :class="`opacity-${normalizeClarityToProgress(peersClarity)}`">
           <span class="font-normal text-base text-black pr-2">Peers</span>
-          <div class="domain-icons outline bg-yellow rounded-full flex items-center justify-center">
+          <div class="domain-icons outline bg-yellow rounded-full flex items-center justify-center"
+            :class="{ 'flashing-effect': flashingStates.peers }">
             <IconPeople color="var(--color-dark)" />
           </div>
         </div>
         <div class="rounded-full sm:bg-white p-2 flex flex-col sm:flex-row-reverse items-center gap-2"
           :class="`opacity-${normalizeClarityToProgress(selfClarity)}`">
           <span class="font-normal text-base text-black pr-2">Self</span>
-          <div class="domain-icons outline bg-orange rounded-full flex items-center justify-center">
+          <div class="domain-icons outline bg-orange rounded-full flex items-center justify-center"
+            :class="{ 'flashing-effect': flashingStates.self }">
             <IconPerson color="var(--color-dark)" />
           </div>
         </div>
         <div class="rounded-full sm:bg-white p-2 flex flex-col sm:flex-row-reverse items-center gap-2"
           :class="`opacity-${normalizeClarityToProgress(companyClarity)}`">
           <span class="font-normal text-base text-black pr-2">Company</span>
-          <div class="domain-icons outline bg-venn-purple rounded-full flex items-center justify-center">
+          <div class="domain-icons outline bg-venn-purple rounded-full flex items-center justify-center"
+            :class="{ 'flashing-effect': flashingStates.company }">
             <IconBuilding color="var(--color-dark)" />
           </div>
         </div>
@@ -278,5 +342,29 @@ onMounted(() => {
 
 .overflow-y-auto::-webkit-scrollbar {
   display: none; /* Safari and Chrome */
+}
+
+/* Flashing effect animation */
+.flashing-effect {
+  animation: flash 5s ease-in-out;
+}
+
+@keyframes flash {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  25% {
+    transform: scale(1.1);
+    opacity: 0.8;
+  }
+  50% {
+    transform: scale(1.05);
+    opacity: 0.6;
+  }
+  75% {
+    transform: scale(1.15);
+    opacity: 0.8;
+  }
 }
 </style>
