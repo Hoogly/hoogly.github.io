@@ -197,7 +197,7 @@ onMounted(() => {
     :class="{ 'bg-white': variant === 'full', 'bg-white/40 md:min-w-2xl lg:min-w-4xl': variant === 'mini' }">
     <div class="flex flex-col overflow-hidden h-full w-full">
       <div id="insights-container" v-if="variant === 'full'" class="py-2 px-1 flex flex-row justify-between gap-4">
-        <div class="rounded-full sm:bg-white sm:outline p-2 flex flex-col sm:flex-row-reverse items-center gap-2"
+        <div class="rounded-full sm:bg-white p-2 flex flex-col sm:flex-row-reverse items-center gap-2"
           :class="`opacity-${normalizeClarityToProgress(managerClarity)}`">
           <span class="font-normal text-base text-black pr-2">Manager</span>
           <div class="domain-icons outline bg-blue rounded-full flex items-center justify-center">
