@@ -56,7 +56,7 @@ onUnmounted(() => {
 
 <template>
   <Layout>
-    <LoadingScreen v-if="loading" />
+     <LoadingScreen v-if="loading" /> 
     <div class="flex flex-row justify-between gap-4">
       <div class="flex flex-col">
         <div class="self-stretch justify-center text-dark text-lg font-normal leading-tight">
