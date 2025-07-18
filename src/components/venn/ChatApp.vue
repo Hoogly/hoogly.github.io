@@ -191,7 +191,22 @@ const normalizeClarityToProgress = (clarity: number | undefined) => {
   }
 }
 
-const handleOnShowResultsClick = () => {
+const handleOnShowResultsClick = async () => {
+  // Send thank you message as user
+  inputDisabled.value = true
+  try {
+    const newMessage = {
+      authorId: $userId.value!,
+      text: 'Thank you so much, I am ready to see my results.',
+      type: 'user',
+      createdAt: Timestamp.now()
+    }
+    await addDoc(getMessagesRef($userId.value), newMessage)
+  } catch (error) {
+    console.error('Error sending thank you message:', error)
+  } finally {
+    inputDisabled.value = false
+  }
   updateCurrentView('personal-results')
 }
 

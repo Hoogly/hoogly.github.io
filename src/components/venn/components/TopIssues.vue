@@ -28,7 +28,7 @@ const getMacroDomainColor = (macroDomain: string): string => {
 <template>
   <div class="bg-white rounded-xl px-6 py-8">
     <div class="flex flex-col">
-      <div class="text-center justify-center text-dark text-xl font-semibold leading-loose">
+      <div class="text-center justify-center text-dark text-xl font-normal leading-loose">
         Top Reported Issues
       </div>
       <div class="text-center justify-center text-body-dark-1 text-xs font-normal">

@@ -21,7 +21,7 @@ const insightsByDomain = computed(() => {
 <template>
   <div class="bg-white rounded-xl px-6 py-8">
     <div class="flex flex-col">
-      <div class="text-center justify-center text-dark text-lg font-semibold leading-loose">
+      <div class="text-center justify-center text-dark text-lg font-normal leading-loose">
         Employee Engagement
       </div>
       <div class="text-center justify-center text-body-dark-1 text-sm font-normal">
@@ -61,7 +61,7 @@ const insightsByDomain = computed(() => {
         </div>
       </div>
       <hr class="border-dark/10 mx-7 my-7" />
-      <div class="text-center justify-center text-dark text-lg font-semibold leading-loose">
+      <div class="text-center justify-center text-dark text-lg font-normal leading-loose">
         Breakdown by Domain
       </div>
       <div class="text-center justify-center text-body-dark-1 text-sm font-normal">
