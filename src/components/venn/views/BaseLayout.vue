@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import IconLogo from '@venn/components/icons/IconLogo.vue';
-
 const props = defineProps({
   stickyFooter: {
     type: Boolean,
