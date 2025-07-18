@@ -16,6 +16,7 @@ import { addDoc } from 'firebase/firestore'
 import { Timestamp } from 'firebase/firestore'
 import { useStore } from '@nanostores/vue'
 import ContactForm from './components/ContactForm.vue'
+import VennAvatar from './components/atoms/VennAvatar.vue'
 
 
 const props = withDefaults(defineProps<{
@@ -360,12 +361,14 @@ onMounted(() => {
           <YourMessage v-if="message.authorId === $userId" :message="message" />
           <TheirMessage v-else :message="message" />
         </div>
-      </div>
-
-      <div class="sticky bottom-0" :class="[isTyping ? 'pt-0' : 'pt-4']">
-        <div v-if="isTyping" class="flex items-center justify-center py-4">
+        <div v-if="isTyping" class="flex flex-row items-center gap-2">
+          <VennAvatar />
           <AnimatedDots />
         </div>
+      </div>
+
+      <div class="sticky bottom-0 pt-4">
+
         <Button v-if="surveyUser?.status === 'completed'" label="Show results" @click="handleOnShowResultsClick" />
         <MessageInput v-else-if="$userId" :room-id="$userId" :submit="handleOnMessageSubmit" :disabled="inputDisabled"
           :show-extras="variant === 'mini'" :placeholder="variant === 'mini' ? '' : 'Chat with Venn'" />
