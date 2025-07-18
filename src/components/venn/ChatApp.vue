@@ -242,8 +242,8 @@ const handleOnMessageSubmit = async (message: string) => {
 
 onMounted(() => {
   // fresh id on every load
-  console.log('mounted:$userId', $userId.value)
-  if ($userId.value.length === 0) {
+  console.log('mounted:$userId', $userId.value, props.variant)
+  if ($userId.value.length === 0 || props.variant === 'mini') {
     updateUserId(crypto.randomUUID())
   }
   if ($pseudonym.value.length === 0) {
