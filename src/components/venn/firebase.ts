@@ -19,10 +19,10 @@ const db = getFirestore(firebaseApp)
 
 export const functions = getFunctions(firebaseApp, 'us-central1')
 
-// if (typeof window !== 'undefined' && location.hostname === "localhost") {
-// connectFirestoreEmulator(db, "127.0.0.1", 5005);
-//connectFunctionsEmulator(functions, "127.0.0.1", 5001);
-//}
+if (typeof window !== 'undefined' && location.hostname === "localhost") {
+  connectFirestoreEmulator(db, "127.0.0.1", 5005);
+  connectFunctionsEmulator(functions, "127.0.0.1", 5001);
+}
 
 export const pseudonymsRef: CollectionReference<Pseudonym> = collection(db, '/userspaces/public/pseudonyms') as CollectionReference<Pseudonym>
 
