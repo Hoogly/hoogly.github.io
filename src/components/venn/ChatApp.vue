@@ -368,7 +368,7 @@ onMounted(() => {
         </div>
         <Button v-if="surveyUser?.status === 'completed'" label="Show results" @click="handleOnShowResultsClick" />
         <MessageInput v-else-if="$userId" :room-id="$userId" :submit="handleOnMessageSubmit" :disabled="inputDisabled"
-          :show-extras="variant === 'mini'" />
+          :show-extras="variant === 'mini'" :placeholder="variant === 'mini' ? '' : 'Chat with Venn'" />
       </div>
     </div>
   </div>
