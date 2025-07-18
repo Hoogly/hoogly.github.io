@@ -88,9 +88,9 @@ watch(() => props.percentage, (newVal) => {
         </g>
       </svg>
     </div>
-    <div class="flex flex-row justify-between">
-      <div class="text-body-dark-1/30 text-xs font-normal">Not Engaged</div>
-      <div class="text-body-dark-1/30 text-xs font-normal">Fully Engaged</div>
+    <div class="flex flex-row justify-between" style="margin-top: 1.2rem;">
+      <div class="text-xs font-normal" style="color: #706F6D; font-size: 1rem;">Not Engaged</div>
+      <div class="text-xs font-normal" style="color: #706F6D; font-size: 1rem;">Fully Engaged</div>
     </div>
   </div>
 </template>

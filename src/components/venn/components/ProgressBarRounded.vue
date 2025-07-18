@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, onMounted } from 'vue'
+import { ref, onMounted, watch } from 'vue'
 
 interface Props {
   progress?: number
@@ -24,6 +24,12 @@ onMounted(() => {
     isVisible.value = true
     animatedProgress.value = props.progress
   }, 100)
+})
+
+watch(() => props.progress, (newVal) => {
+  setTimeout(() => {
+    animatedProgress.value = newVal
+  }, 50)
 })
 </script>
 

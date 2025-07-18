@@ -7,7 +7,8 @@ import ProgressBarRounded from './ProgressBarRounded.vue'
 import { IconPersonChecked, IconUsers } from './icons'
 
 const props = defineProps<{
-  engagement: EmployeeEngagement
+  engagement: EmployeeEngagement,
+  barsAnimate?: boolean
 }>()
 
 const insightsByDomain = computed(() => {
@@ -19,72 +20,83 @@ const insightsByDomain = computed(() => {
 </script>
 
 <template>
-  <div class="bg-white rounded-xl px-6 py-8">
+  <div class="bg-white rounded-xl px-6 py-8" style="box-shadow: 0 0 0 2px #ececec;">
     <div class="flex flex-col">
-      <div class="text-center justify-center text-dark text-lg font-normal leading-loose">
+      <div class="text-center justify-center text-dark font-normal leading-loose flex items-center justify-center gap-2" style="font-size: 1.5rem; font-weight: 400; position: relative;">
         Employee Engagement
-      </div>
-      <div class="text-center justify-center text-body-dark-1 text-sm font-normal">
-        Snapshot of company-wide engagement and key areas for improvement.
+        <span class="info-icon" tabindex="0" style="cursor: pointer; display: inline-block; position: relative;">
+          <svg width="18" height="18" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" style="vertical-align: middle;"><circle cx="10" cy="10" r="9" stroke="#888" stroke-width="2" fill="#fff"/><text x="10" y="15" text-anchor="middle" font-size="12" fill="#888" font-family="Arial, sans-serif">i</text></svg>
+          <span class="tooltip-text" style="display: none; position: absolute; left: 50%; transform: translateX(-50%); top: 120%; background: #23221F; color: #fff; padding: 0.5em 1em; border-radius: 8px; font-size: 1rem; white-space: pre-line; z-index: 10; min-width: 220px; text-align: left;">Snapshot of company-wide engagement and key areas for improvement.</span>
+        </span>
       </div>
       <div class="flex justify-center my-4">
         <GaugeMeter :percentage="engagement.averageEngagementScore" />
       </div>
-      <div class="text-center justify-center text-dark text-6xl font-normal mb-6">{{
-        engagement.averageEngagementScore.toFixed(0) }}</div>
+      <div class="text-center justify-center text-dark font-normal mb-6" style="font-size: 3rem;">
+        {{ engagement.averageEngagementScore.toFixed(0) }}
+      </div>
 
-      <div class="bg-white rounded-lg outline outline-body-light-2 p-6">
-        <div class="flex flex-row justify-evenly">
-          <div class="flex flex-col">
-            <div class="text-center justify-center text-sm font-normal">
-              Participation Rate
-            </div>
-            <div class="flex flex-row items-center gap-1">
-              <IconPersonChecked />
-              <div class="text-center justify-center text-dark text-4xl font-normal">
-                {{ getParticipationRate(engagement).toFixed(0) }}%
-              </div>
+      <div class="flex flex-row justify-evenly">
+        <div class="flex flex-col">
+          <div class="text-center justify-center text-sm font-normal">
+            Participation Rate
+          </div>
+          <div class="flex flex-row items-center gap-1 justify-center">
+            <IconPersonChecked />
+            <div class="text-center justify-center text-dark text-4xl" style="font-weight: 400;">
+              {{ getParticipationRate(engagement).toFixed(0) }}%
             </div>
           </div>
-          <div class="w-px bg-body-light-2 mx-4"></div>
-          <div class="flex flex-col">
-            <div class="text-center justify-center text-sm font-normal">
-              Total Participants
-            </div>
-            <div class="flex flex-row items-center gap-1">
-              <IconUsers />
-              <div class="text-center justify-center text-dark text-4xl font-normal">
-                {{ engagement.totalEmployees }}
-              </div>
+        </div>
+        <div class="w-px bg-body-light-2 mx-4"></div>
+        <div class="flex flex-col">
+          <div class="text-center justify-center text-sm font-normal">
+            Total Participants
+          </div>
+          <div class="flex flex-row items-center gap-1 justify-center">
+            <IconUsers />
+            <div class="text-center justify-center text-dark text-4xl" style="font-weight: 400;">
+              {{ engagement.totalEmployees }}
             </div>
           </div>
         </div>
       </div>
-      <hr class="border-dark/10 mx-7 my-7" />
-      <div class="text-center justify-center text-dark text-lg font-normal leading-loose">
+      <div class="text-center justify-center text-dark font-normal leading-loose flex items-center justify-center gap-2" style="font-size: 1.5rem; font-weight: 400; position: relative; margin-top: 2rem;">
         Breakdown by Domain
-      </div>
-      <div class="text-center justify-center text-body-dark-1 text-sm font-normal">
-        Engagement reflects four relationships for each employee: company, manager, peers, and self.
+        <span class="info-icon" tabindex="0" style="cursor: pointer; display: inline-block; position: relative;">
+          <svg width="18" height="18" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" style="vertical-align: middle;"><circle cx="10" cy="10" r="9" stroke="#888" stroke-width="2" fill="#fff"/><text x="10" y="15" text-anchor="middle" font-size="12" fill="#888" font-family="Arial, sans-serif">i</text></svg>
+          <span class="tooltip-text" style="display: none; position: absolute; left: 50%; transform: translateX(-50%); top: 120%; background: #23221F; color: #fff; padding: 0.5em 1em; border-radius: 8px; font-size: 1rem; white-space: pre-line; z-index: 10; min-width: 220px; text-align: left;">Engagement reflects four relationships for each employee: company, manager, peers, and self.</span>
+        </span>
       </div>
       <div class="flex flex-col gap-2">
-        <div class="justify-center text-base font-normal">
+        <div class="justify-center font-normal" style="font-size: 1rem;">
           Company
         </div>
-        <ProgressBarRounded :progress="insightsByDomain.company" color="green" />
-        <div class="justify-center text-base font-normal">
+        <ProgressBarRounded :progress="barsAnimate ? insightsByDomain.company : 0" color="green" />
+        <div class="justify-center font-normal" style="font-size: 1rem;">
           Manager
         </div>
-        <ProgressBarRounded :progress="insightsByDomain.manager" color="amber" />
-        <div class="justify-center text-base font-normal">
+        <ProgressBarRounded :progress="barsAnimate ? insightsByDomain.manager : 0" color="amber" />
+        <div class="justify-center font-normal" style="font-size: 1rem;">
           Peers
         </div>
-        <ProgressBarRounded :progress="insightsByDomain.peers" color="red" />
-        <div class="justify-center text-base font-normal">
+        <ProgressBarRounded :progress="barsAnimate ? insightsByDomain.peers : 0" color="red" />
+        <div class="justify-center font-normal" style="font-size: 1rem;">
           Self
         </div>
-        <ProgressBarRounded :progress="insightsByDomain.self" color="amber-2" />
+        <ProgressBarRounded :progress="barsAnimate ? insightsByDomain.self : 0" color="amber-2" />
       </div>
     </div>
   </div>
 </template>
+
+<style scoped>
+.info-icon:focus .tooltip-text,
+.info-icon:hover .tooltip-text {
+  display: block !important;
+}
+.tooltip-text {
+  background: #60195A !important;
+  line-height: 1.5;
+}
+</style>
