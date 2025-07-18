@@ -12,7 +12,9 @@ const $currentView = useStore(currentView)
 <template>
     <div class="h-screen flex flex-col">
         <div class="flex-shrink-0 pl-8 pt-10 pb-2">
-            <IconLogo />
+            <a href="/">
+                <IconLogo />
+            </a>
         </div>
         <div class="flex-1 overflow-y-auto pb-10">
             <ChatApp v-if="$currentView === 'chat'" variant="full" />

@@ -15,6 +15,8 @@ import type { Message } from './types'
 import { addDoc } from 'firebase/firestore'
 import { Timestamp } from 'firebase/firestore'
 import { useStore } from '@nanostores/vue'
+import ContactForm from './components/ContactForm.vue'
+import VennAvatar from './components/atoms/VennAvatar.vue'
 
 
 const props = withDefaults(defineProps<{
@@ -26,6 +28,7 @@ const props = withDefaults(defineProps<{
 const $userId = useStore(userId)
 const inputDisabled = ref(false)
 const $pseudonym = useStore(pseudonym)
+const showContactForm = ref(true)
 
 // Ref for the scroll container
 const scrollContainer = ref<HTMLElement>()
@@ -78,7 +81,7 @@ const companyClarity = computed(() => aiUnderstanding.value?.understandingStatus
 const greetingMessage = computed(() => {
   const now = new Date()
   const hour = now.getHours()
-  
+
   let greetingText = ''
   if (hour >= 0 && hour < 12) {
     greetingText = `Hey ${$pseudonym.value}, how's your morning been so far?`
@@ -87,7 +90,7 @@ const greetingMessage = computed(() => {
   } else {
     greetingText = `Hey ${$pseudonym.value}, how's your day been?`
   }
-  
+
   return {
     messageId: crypto.randomUUID(),
     authorId: 'i_am_venn',
@@ -135,7 +138,7 @@ watch($userId, () => {
 // Watch for clarity level changes and trigger flashing effects
 watch(aiUnderstanding, (newUnderstanding) => {
   if (!newUnderstanding?.understandingStatus) return
-  
+
   const currentClarities = {
     manager: newUnderstanding.understandingStatus.find(
       status => normalizeMacroDomain(status.macroDomain) === 'manager'
@@ -150,11 +153,11 @@ watch(aiUnderstanding, (newUnderstanding) => {
       status => normalizeMacroDomain(status.macroDomain) === 'company'
     )?.clarityLevel
   }
-  
+
   // Check each domain for increases and trigger flashing
   Object.entries(currentClarities).forEach(([domain, currentClarity]) => {
     const previousClarity = previousClarities.value[domain as keyof typeof previousClarities.value]
-    
+
     // Trigger flashing if:
     // 1. Clarity increased from previous value, OR
     // 2. This is the first time we're seeing clarity > 0 (no previous value defined)
@@ -162,17 +165,17 @@ watch(aiUnderstanding, (newUnderstanding) => {
       (previousClarity !== undefined && currentClarity > previousClarity) ||
       (previousClarity === undefined)
     )) {
-      
+
       // Trigger flashing effect
       flashingStates.value[domain as keyof typeof flashingStates.value] = true
-      
+
       // Stop flashing after 5 seconds
       setTimeout(() => {
         flashingStates.value[domain as keyof typeof flashingStates.value] = false
       }, 5000)
     }
   })
-  
+
   // Update previous values for next comparison
   previousClarities.value = currentClarities
 }, { deep: true })
@@ -210,6 +213,20 @@ const handleOnShowResultsClick = async () => {
   updateCurrentView('personal-results')
 }
 
+const handleContactFormSubmit = (data: { name: string, email: string, company: string }) => {
+  if (typeof window !== 'undefined' && (window as any).posthog) {
+    (window as any).posthog.capture('get_started_form_submitted', {
+      name: data.name,
+      email: data.email,
+      company: data.company,
+      referrer: 'chat',
+      buttonLabel: 'Submit',
+      pageSource: 'chat'
+    });
+  }
+  showContactForm.value = false
+}
+
 const handleOnMessageSubmit = async (message: string) => {
   console.log('message submitted')
   inputDisabled.value = true
@@ -242,8 +259,8 @@ const handleOnMessageSubmit = async (message: string) => {
 
 onMounted(() => {
   // fresh id on every load
-  console.log('mounted:$userId', $userId.value)
-  if ($userId.value.length === 0) {
+  console.log('mounted:$userId', $userId.value, props.variant)
+  if ($userId.value.length === 0 || props.variant === 'mini') {
     updateUserId(crypto.randomUUID())
   }
   if ($pseudonym.value.length === 0) {
@@ -278,6 +295,17 @@ onMounted(() => {
       >
         End Chat
       </button>
+    </div>
+    <!-- Modal backdrop with blur effect -->
+    <div v-if="variant === 'full' && showContactForm"
+      class="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center p-4">
+      <!-- Modal content -->
+      <div class="relative max-w-xl" @click.stop>
+        <!-- Contact form container -->
+        <div id="contact-form-container">
+          <ContactForm :onSubmit="handleContactFormSubmit" />
+        </div>
+      </div>
     </div>
     <div class="flex flex-col overflow-hidden h-full w-full">
       <div id="insights-container" v-if="variant === 'full'" class="py-2 px-1 flex flex-row justify-between gap-4">
@@ -333,17 +361,19 @@ onMounted(() => {
           <YourMessage v-if="message.authorId === $userId" :message="message" />
           <TheirMessage v-else :message="message" />
         </div>
+        <div v-if="isTyping" class="flex flex-row items-center gap-2">
+          <VennAvatar />
+          <AnimatedDots />
+        </div>
       </div>
 
-      <div class="sticky bottom-0" :class="[isTyping ? 'pt-0' : 'pt-4']">
-        <div v-if="isTyping" class="flex items-center justify-center py-4">
-          <AnimatedDots />
+      <div class="sticky bottom-0 pt-4">
+
+        <Button v-if="surveyUser?.status === 'completed'" label="Show results" @click="handleOnShowResultsClick" />
+        <MessageInput v-else-if="$userId" :room-id="$userId" :submit="handleOnMessageSubmit" :disabled="inputDisabled"
+          :show-extras="variant === 'mini'" :placeholder="variant === 'mini' ? '' : 'Chat with Venn'" />
       </div>
-      <Button v-if="surveyUser?.status === 'completed'" label="Show results" @click="handleOnShowResultsClick" />
-      <MessageInput v-else-if="$userId" :room-id="$userId" :submit="handleOnMessageSubmit" :disabled="inputDisabled"
-        :show-extras="variant === 'mini'" />
     </div>
-  </div>
   </div>
 </template>
 
@@ -360,12 +390,15 @@ onMounted(() => {
 
 /* Hide scrollbars while maintaining scroll functionality */
 .overflow-y-auto {
-  scrollbar-width: none; /* Firefox */
-  -ms-overflow-style: none; /* Internet Explorer 10+ */
+  scrollbar-width: none;
+  /* Firefox */
+  -ms-overflow-style: none;
+  /* Internet Explorer 10+ */
 }
 
 .overflow-y-auto::-webkit-scrollbar {
-  display: none; /* Safari and Chrome */
+  display: none;
+  /* Safari and Chrome */
 }
 
 /* Flashing effect animation */
@@ -374,18 +407,23 @@ onMounted(() => {
 }
 
 @keyframes flash {
-  0%, 100% {
+
+  0%,
+  100% {
     transform: scale(1);
     opacity: 1;
   }
+
   25% {
     transform: scale(1.1);
     opacity: 0.8;
   }
+
   50% {
     transform: scale(1.05);
     opacity: 0.6;
   }
+
   75% {
     transform: scale(1.15);
     opacity: 0.8;

@@ -9,10 +9,12 @@ const props = withDefaults(defineProps<{
   roomId: string
   disabled?: boolean
   showExtras?: boolean
+  placeholder?: string
   submit?: (message: string) => void
 }>(), {
   disabled: false,
   showExtras: true,
+  placeholder: '',
   submit: () => { }
 })
 
@@ -32,7 +34,7 @@ const emotions = [
   'Overwhelmed'
 ]
 const currentEmotionIndex = ref(0)
-const placeholderText = ref('')
+const placeholderText = ref(props.placeholder)
 let animationId: number | null = null
 let isTyping = true
 let currentCharIndex = 0
@@ -102,7 +104,10 @@ const startTypingAnimation = () => {
 }
 
 onMounted(() => {
-  startTypingAnimation()
+  // replace with animated one if none is provided
+  if (placeholderText.value === '') {
+    startTypingAnimation()
+  }
 })
 
 onUnmounted(() => {
