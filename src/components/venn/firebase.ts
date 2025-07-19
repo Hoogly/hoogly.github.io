@@ -5,16 +5,15 @@ import { getFunctions, connectFunctionsEmulator } from 'firebase/functions'
 import type { ActionPlan } from './types/ActionPlan'
 
 export const firebaseApp = initializeApp({
-  apiKey: "AIzaSyBZK7XVhv8FEm-kLbvqGM5ivb6k75LjTYo",
-  authDomain: "hoogly-sandbox-dev.firebaseapp.com",
-  databaseURL: "https://hoogly-sandbox-dev-default-rtdb.asia-southeast1.firebasedatabase.app",
-  projectId: "hoogly-sandbox-dev",
-  storageBucket: "hoogly-sandbox-dev.firebasestorage.app",
-  messagingSenderId: "443473545442",
-  appId: "1:443473545442:web:8945f58625e07655a576bb",
-  measurementId: "G-SPKNJNGRSE"
+  apiKey: import.meta.env.PUBLIC_FIREBASE_API_KEY,
+  authDomain: import.meta.env.PUBLIC_FIREBASE_AUTH_DOMAIN,
+  databaseURL: import.meta.env.PUBLIC_FIREBASE_DATABASE_URL,
+  projectId: import.meta.env.PUBLIC_FIREBASE_PROJECT_ID,
+  storageBucket: import.meta.env.PUBLIC_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: import.meta.env.PUBLIC_FIREBASE_MESSAGING_SENDER_ID,
+  appId: import.meta.env.PUBLIC_FIREBASE_APP_ID,
+  measurementId: import.meta.env.PUBLIC_FIREBASE_MEASUREMENT_ID
 })
-
 const db = getFirestore(firebaseApp)
 
 export const functions = getFunctions(firebaseApp, 'us-central1')

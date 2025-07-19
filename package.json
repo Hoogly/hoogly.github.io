@@ -2,12 +2,12 @@
   "name": "hoogly-site",
   "type": "module",
   "version": "0.0.1",
-  "packageManager": "pnpm@8",
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "postinstall": "node -e \"const fs = require('fs'); if (!fs.existsSync('.env') && fs.existsSync('.env.example')) { fs.copyFileSync('.env.example', '.env'); console.log('✅ Created .env file from .env.example'); } else if (fs.existsSync('.env')) { console.log('ℹ️  .env file already exists'); } else { console.log('⚠️  .env.example not found'); }\""
   },
   "dependencies": {
     "@astrojs/vue": "^5.1.0",

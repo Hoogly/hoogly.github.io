@@ -288,7 +288,7 @@ onMounted(() => {
   <div class="h-full p-3 flex flex-col rounded-2xl max-w-2xl mx-auto"
     :class="{ 'bg-white': variant === 'full', 'bg-white/40 md:min-w-2xl lg:min-w-4xl': variant === 'mini' }">
     <!-- End Chat button positioned outside the white box, above Company text -->
-    <div class="relative w-full mb-2">
+    <div class="relative w-full mb-2" v-if="variant === 'full'">
       <button
         class="end-chat-btn"
         @click="handleOnShowResultsClick"

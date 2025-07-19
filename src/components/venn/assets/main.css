@@ -53,6 +53,7 @@
 @source inline("bg-white/40");
 @source inline("md:min-w-2xl");
 @source inline("lg:min-w-4xl");
+@source inline("outline-red-500");
 
 .gradient-text {
   background: linear-gradient(90deg, #ca6e7f 0%, #ae6790 35%, #4a54eb 70%);
