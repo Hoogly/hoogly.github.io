@@ -15,13 +15,13 @@ const getMacroDomainColor = (macroDomain: string): string => {
   switch (sanitizedMacroDomain) {
     case 'company':
       return 'orange'
-    case 'Manager':
+    case 'manager':
       return 'blue'
     case 'peer':
     case 'peers':
       return 'yellow'
     case 'self':
-      return 'purple'
+      return 'venn-purple'
     default:
       return 'transparent'
   }
@@ -79,7 +79,7 @@ const getMacroDomainColor = (macroDomain: string): string => {
           </div>
         </div>
       </div>
-      <ProgressBarRounded :progress="barsAnimate ? concern.percentageEmployeesMentioned * 100 : 0"
+      <ProgressBarRounded :progress="barsAnimate ? (concern.percentageEmployeesMentioned > 1 ? concern.percentageEmployeesMentioned : concern.percentageEmployeesMentioned * 100) : 0"
         :color="getMacroDomainColor(concern.macroDomain)" height="8px" :showPercentage="false" />
     </div>
   </div>
