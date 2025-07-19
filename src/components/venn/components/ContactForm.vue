@@ -1,15 +1,28 @@
 <script setup lang="ts">
+import { ref } from 'vue'
+
 const props = defineProps<{
   onSubmit: (data: { name: string, email: string, company: string }) => void
 }>()
 
+const hasSubmitted = ref(false)
+const nameValue = ref('')
+const emailValue = ref('')
+const companyValue = ref('')
+
 const handleSubmit = (event: Event) => {
-  const form = event.target as HTMLFormElement
-  const formData = new FormData(form)
+  event.preventDefault()
+  
+  // Check if all fields are filled
+  if (!nameValue.value.trim() || !emailValue.value.trim() || !companyValue.value.trim()) {
+    hasSubmitted.value = true
+    return
+  }
+  
   const data = {
-    name: formData.get('name') as string,
-    email: formData.get('email') as string,
-    company: formData.get('company') as string
+    name: nameValue.value.trim(),
+    email: emailValue.value.trim(),
+    company: companyValue.value.trim()
   }
   props.onSubmit(data)
 }
@@ -28,8 +41,9 @@ const handleSubmit = (event: Event) => {
         <div class="text-sm font-normal mb-2">
           Name
         </div>
-        <div class="rounded-2xl shadow outline outline-stone-100">
-          <input name="name" type="text" placeholder="Jane Doe"
+        <div class="rounded-2xl shadow"
+             :class="hasSubmitted && !nameValue ? 'outline outline-red-500' : 'outline outline-stone-100'">
+          <input name="name" type="text" placeholder="Jane Doe" v-model="nameValue"
             class="w-full px-3 py-3 outline-none focus:outline-none focus:ring-0 focus:border-transparent placeholder:text-dark/30" />
         </div>
       </div>
@@ -37,8 +51,9 @@ const handleSubmit = (event: Event) => {
         <div class="text-sm font-normal mb-2">
           Company Email
         </div>
-        <div class="rounded-2xl shadow outline outline-stone-100">
-          <input name="email" type="text" placeholder="janedoe@hoogly.com"
+        <div class="rounded-2xl shadow"
+             :class="hasSubmitted && !emailValue ? 'outline outline-red-500' : 'outline outline-stone-100'">
+          <input name="email" type="text" placeholder="janedoe@hoogly.com" v-model="emailValue"
             class="w-full px-3 py-3 outline-none focus:outline-none focus:ring-0 focus:border-transparent placeholder:text-dark/30" />
         </div>
       </div>
@@ -46,8 +61,9 @@ const handleSubmit = (event: Event) => {
         <div class="text-sm font-normal mb-2">
           Company Name
         </div>
-        <div class="rounded-2xl shadow outline outline-stone-100">
-          <input name="company" type="text" placeholder="Hoogly"
+        <div class="rounded-2xl shadow"
+             :class="hasSubmitted && !companyValue ? 'outline outline-red-500' : 'outline outline-stone-100'">
+          <input name="company" type="text" placeholder="Hoogly" v-model="companyValue"
             class="w-full px-3 py-3 outline-none focus:outline-none focus:ring-0 focus:border-transparent placeholder:text-dark/30" />
         </div>
       </div>
