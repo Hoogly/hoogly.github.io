@@ -11,6 +11,7 @@ import { useStore } from '@nanostores/vue';
 import WhatsGoingWell from '@venn/components/WhatsGoingWell.vue';
 import ActionPlan from '@venn/components/ActionPlan.vue';
 import Footer from '@venn/components/Footer.vue';
+import AnimatedDots from '@venn/components/AnimatedDots.vue';
 
 const $pseudonym = useStore(pseudonym)
 
@@ -36,6 +37,16 @@ watch(isDataReady, (ready) => {
     document.body.style.overflow = 'auto'
   }
 }, { immediate: true })
+
+// Show loading for at least 2 seconds to prevent flash
+onMounted(() => {
+  setTimeout(() => {
+    if (isDataReady.value) {
+      loading.value = false
+      document.body.style.overflow = 'auto'
+    }
+  }, 2000)
+})
 
 
 // Prevent scrolling when modal is active
@@ -63,8 +74,31 @@ const handleOnBackToIndividualViewClick = () => {
 </script>
 
 <template>
-  <Layout>
-    <LoadingScreen v-if="loading" />
+  <Layout :sticky-footer="false">
+    <!-- Loading screen with same indicator as chat flow -->
+    <div v-if="loading" class="fixed inset-0 bg-creme z-50 flex flex-col items-center justify-center">
+      <div class="widget flex flex-col items-center justify-end relative px-3 pb-3 gap-2 mb-12">
+        <img src="/images/folder.svg" alt="loading" class="absolute inset-0 w-full h-full object-cover" />
+        <div class="flex flex-row relative z-10 gap-2 items-center">
+          <div class="w-8 h-8 bg-gray-300 rounded-full"></div>
+          <div class="flex flex-col">
+            <div class="justify-start text-xs font-medium">{{ $pseudonym }}</div>
+            <div class="justify-start text-xs text-body-light-2 font-normal">Edited 1m ago</div>
+          </div>
+        </div>
+        <div class="w-full flex flex-col z-10 rounded-md shadow-sm gap-2 p-3">
+          <div class="skeleton-bar skeleton-bar-1"></div>
+          <div class="skeleton-bar skeleton-bar-2"></div>
+          <div class="skeleton-bar skeleton-bar-3"></div>
+        </div>
+      </div>
+      <div class="text-center justify-center text-dark text-lg sm:text-4xl">
+        One moment please...
+      </div>
+      <div class="text-center justify-center text-xl sm:text-5xl font-medium leading-snug gradient-text-animated">
+        Processing your results
+      </div>
+    </div>
     <div class="flex flex-row justify-between gap-4">
       <div class="flex flex-col">
         <div class="self-stretch justify-center text-dark text-lg font-normal leading-tight" style="font-size: 2rem;">
@@ -77,10 +111,10 @@ const handleOnBackToIndividualViewClick = () => {
       </div>
       <button class="rounded-full px-3 py-1 outline" @click="handleOnBackToIndividualViewClick" style="padding: 0.4em 1.1em; font-size: 1rem;">Back to Individual View</button>
     </div>
-    <div class="flex flex-col sm:flex-row gap-3 mt-4 pb-5">
-      <EmployeeEngagement v-if="employeeEngagement" :engagement="employeeEngagement" class="dashboard-section animate-in" :bars-animate="barsAnimate" />
+    <div class="flex flex-col sm:flex-row gap-3 mt-4 pb-8">
+      <EmployeeEngagement :engagement="employeeEngagement" class="dashboard-section animate-in" :bars-animate="barsAnimate" />
       <div class="flex flex-col gap-3 dashboard-section dashboard-section-wide">
-        <TopIssues v-if="employeeConcerns" :concerns="employeeConcerns.concerns" class="animate-in" :bars-animate="barsAnimate" />
+        <TopIssues :concerns="employeeConcerns?.concerns" class="animate-in" :bars-animate="barsAnimate" />
         <ActionPlan class="dashboard-section animate-in" />
         <div class="cta-section animate-in" style="background: #fff; border-radius: 20px; margin-top: 0; padding: 1.5rem 2rem; display: flex; align-items: center; justify-content: space-between; gap: 2rem; box-shadow: 0 0 0 2px #ececec;">
           <span style="font-size: 1.6rem; font-weight: 500; color: #23221F;">
@@ -94,9 +128,6 @@ const handleOnBackToIndividualViewClick = () => {
 </template>
 
 <style scoped>
-body, .dashboard-no-scroll, .container, .dashboard-section, .dashboard-section-wide {
-  overflow: hidden !important;
-}
 .dashboard-section {
   flex: 1 1 0%;
   min-width: 0;
@@ -117,7 +148,62 @@ body, .dashboard-no-scroll, .container, .dashboard-section, .dashboard-section-w
 }
 
 /* Prevent horizontal scroll during animation */
-body, .container, .dashboard-section, .dashboard-section-wide {
+.dashboard-section, .dashboard-section-wide {
   overflow-x: hidden;
+}
+
+/* Loading screen styles */
+.widget {
+  width: 197px;
+  height: 173px;
+}
+
+.skeleton-bar {
+  height: 14px;
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+  border-radius: 0.5rem;
+  animation: skeleton-loading 1.5s ease-in-out infinite;
+}
+
+.skeleton-bar-1 {
+  animation-delay: 0s;
+}
+
+.skeleton-bar-2 {
+  animation-delay: 0.2s;
+}
+
+.skeleton-bar-3 {
+  animation-delay: 0.4s;
+}
+
+@keyframes skeleton-loading {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+.gradient-text-animated {
+  background: linear-gradient(90deg, #ca6e7f 0%, #ae6790 40%, #4a54eb 75%);
+  background-size: 200% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  animation: gradient-shift 3s ease-in-out infinite;
+}
+
+@keyframes gradient-shift {
+  0% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: -100% 50%;
+  }
 }
 </style>

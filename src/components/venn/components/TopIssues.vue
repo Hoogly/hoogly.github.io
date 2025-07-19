@@ -5,7 +5,7 @@ import ProgressBarRounded from './ProgressBarRounded.vue';
 import { defineProps } from 'vue';
 
 const props = defineProps<{
-  concerns: Concern[],
+  concerns?: Concern[],
   barsAnimate?: boolean
 }>()
 
@@ -34,7 +34,10 @@ const getMacroDomainColor = (macroDomain: string): string => {
         Top Reported Issues
         <span class="info-icon" tabindex="0" style="cursor: pointer; display: inline-block; position: relative;">
           <svg width="18" height="18" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" style="vertical-align: middle;"><circle cx="10" cy="10" r="9" stroke="#888" stroke-width="2" fill="#fff"/><text x="10" y="15" text-anchor="middle" font-size="12" fill="#888" font-family="Arial, sans-serif">i</text></svg>
-          <span class="tooltip-text" style="display: none; position: absolute; left: 50%; transform: translateX(-50%); top: 120%; background: #23221F; color: #fff; padding: 0.5em 1em; border-radius: 8px; font-size: 1rem; white-space: pre-line; z-index: 10; min-width: 220px; text-align: left;">Top employee concerns ranked by how frequently they were raised.</span>
+          <span class="tooltip-text" style="display: none; position: absolute; left: 50%; top: 140%; transform: translateX(-50%); background: #60195A; color: #fff; padding: 0.75em 1em; border-radius: 8px; font-size: 0.9rem; white-space: pre-line; z-index: 10; min-width: 240px; text-align: left; box-shadow: 0 4px 12px rgba(0,0,0,0.15);">
+            Top employee concerns ranked by how frequently they were raised.
+            <div style="position: absolute; top: -6px; left: 50%; transform: translateX(-50%); width: 0; height: 0; border-left: 6px solid transparent; border-right: 6px solid transparent; border-bottom: 6px solid #60195A;"></div>
+          </span>
         </span>
       </div>
     </div>
@@ -64,7 +67,7 @@ const getMacroDomainColor = (macroDomain: string): string => {
         </div>
       </div>
     </div>
-    <div class="flex flex-col gap-2 mb-5" v-for="concern in concerns" :key="concern.label">
+    <div class="flex flex-col gap-2 mb-5" v-for="concern in (concerns || [])" :key="concern.label">
       <div class="flex flex-row justify-between">
         <div class="justify-center text-dark font-normal leading-normal" style="font-size: 1rem;">
           {{ concern.label }}
