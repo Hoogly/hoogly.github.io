@@ -119,17 +119,19 @@ const scrollToBottom = () => {
 }
 
 // Watch for changes in messages and scroll to bottom
-watch(() => messages.value.length, (_) => {
+watch(messages, (_) => {
   nextTick(() => {
     scrollToBottom()
   })
-})
+}, { deep: true })
 
-watch(typingUsers, () => {
-  nextTick(() => {
-    scrollToBottom()
-  })
-})
+watch(typingUsers, (newTypingUsers) => {
+  if (newTypingUsers?.some(user => user.userId !== $userId.value && user.isTyping)) {
+    nextTick(() => {
+      scrollToBottom()
+    })
+  }
+}, { deep: true })
 
 watch($userId, () => {
   console.log('userId changed', $userId.value)
