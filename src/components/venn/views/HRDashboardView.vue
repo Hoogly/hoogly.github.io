@@ -76,6 +76,7 @@ const handleOnBackToIndividualViewClick = () => {
 
 <template>
   <Layout :sticky-footer="false">
+    <div class="team-results-root">
     <!-- Loading screen with same indicator as chat flow -->
     <div v-if="loading" class="fixed inset-0 bg-creme z-50 flex flex-col items-center justify-center">
       <div class="widget flex flex-col items-center justify-end relative px-3 pb-3 gap-2 mb-12">
@@ -100,7 +101,7 @@ const handleOnBackToIndividualViewClick = () => {
         Processing your results
       </div>
     </div>
-    <div class="flex flex-row justify-between gap-4">
+    <div class="flex flex-row justify-between gap-4 flex-shrink-0">
       <div class="flex flex-col">
         <div class="self-stretch justify-center text-dark text-lg font-normal leading-tight" style="font-size: 2rem;">
           <span>Hey </span><span class="gradient-text">{{ $pseudonym }}</span><span>, here are your </span><span
@@ -112,7 +113,7 @@ const handleOnBackToIndividualViewClick = () => {
       </div>
       <button class="rounded-full px-3 py-1 outline" @click="handleOnBackToIndividualViewClick" style="padding: 0.4em 1.1em; font-size: 1rem;">Back to Individual View</button>
     </div>
-    <div class="flex flex-col sm:flex-row gap-3 mt-4 pb-8">
+    <div class="flex flex-col sm:flex-row gap-3 mt-4 pb-8 flex-shrink-0">
       <EmployeeEngagement :engagement="employeeEngagement" class="dashboard-section animate-in" :bars-animate="barsAnimate" />
       <div class="flex flex-col gap-3 dashboard-section dashboard-section-wide">
         <TopIssues :concerns="employeeConcerns?.concerns" class="animate-in" :bars-animate="barsAnimate" />
@@ -124,6 +125,7 @@ const handleOnBackToIndividualViewClick = () => {
           <a href="https://calendly.com/hoogly/30min" target="_blank" rel="noopener noreferrer" style="background: #FF8661; color: #23221F; font-size: 1.3rem; font-weight: 500; border-radius: 999px; padding: 0.6em 1.4em; text-decoration: none; box-shadow: 0 2px 8px rgba(44,41,80,0.08); border: 2px solid #23221F; transition: background 0.2s, color 0.2s; white-space: nowrap;">Start Free</a>
         </div>
       </div>
+    </div>
     </div>
   </Layout>
 </template>
@@ -206,5 +208,12 @@ const handleOnBackToIndividualViewClick = () => {
   100% {
     background-position: -100% 50%;
   }
+}
+.team-results-root {
+  min-height: 100vh;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
 }
 </style>

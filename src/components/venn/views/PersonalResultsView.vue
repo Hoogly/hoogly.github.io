@@ -64,11 +64,11 @@ onUnmounted(() => {
         </div>
       </div>
     </div>
-    <div class="flex flex-col sm:flex-row gap-3 mt-4 pb-5">
+    <div class="flex flex-col sm:flex-row gap-3 mt-2 pb-2">
       <div class="flex-1 personal-analytics-section"><PersonalAnalytics v-if="scores" :scores="scores" /></div>
       <div class="flex-1 action-plans-section"><ActionPlans v-if="actionPlans.length > 0" :actionPlans="actionPlans" /></div>
     </div>
-    <div class="cta-section animate-in" style="background: #fff; border-radius: 20px; margin-top: 0; padding: 1.5rem 2rem; display: flex; align-items: center; justify-content: space-between; gap: 2rem; box-shadow: 0 0 0 2px #ececec;">
+    <div class="cta-section animate-in" style="background: #fff; border-radius: 20px; margin-top: 0.5rem; padding: 1rem 1.5rem; display: flex; align-items: center; justify-content: space-between; gap: 2rem; box-shadow: 0 0 0 2px #ececec;">
       <span style="font-size: 1.6rem; font-weight: 400; color: #23221F;">
         Flip the lens: View the <span class="gradient-text" style="font-weight: 600;">HR perspective</span>
       </span>
@@ -86,15 +86,13 @@ onUnmounted(() => {
   70% { box-shadow: 0 0 0 12px rgba(255,134,97,0); }
   100% { box-shadow: 0 0 0 0 rgba(255,134,97,0); }
 }
-@media (min-width: 640px) {
-  .personal-analytics-section,
-  .action-plans-section {
-    box-shadow: 0 0 0 2px #ececec;
-    border-radius: 20px;
-    min-height: 480px;
-    background: #fff;
-    display: flex;
-    flex-direction: column;
-  }
+.personal-analytics-section,
+.action-plans-section {
+  box-shadow: 0 0 0 2px #ececec;
+  border-radius: 20px;
+  min-height: 480px;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
 }
 </style>
