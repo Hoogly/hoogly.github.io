@@ -9,7 +9,7 @@ const messages = [
   'Scanning your inputs',
   'Mapping your data',
   'Filtering noise. Isolating insights.',
-  'Adding simulated data to test outcomes',
+  'Adding simulated data',
   'Refining interpretations',
   'Checking for contradictions',
   'Composing the final outcome',
@@ -23,13 +23,26 @@ let fadeTimeout: number | undefined;
 function nextMessage() {
   showMessage.value = false;
   fadeTimeout = window.setTimeout(() => {
-    currentMessageIndex.value = (currentMessageIndex.value + 1) % messages.length;
-    showMessage.value = true;
+    if (currentMessageIndex.value < messages.length - 1) {
+      currentMessageIndex.value++;
+      showMessage.value = true;
+    } else {
+      // Stay on the last message
+      showMessage.value = true;
+      if (intervalId) clearInterval(intervalId);
+    }
   }, 1000); // match fade duration (1s)
 }
 
 onMounted(() => {
-  intervalId = window.setInterval(nextMessage, 6000); // 6 seconds
+  intervalId = window.setInterval(() => {
+    if (currentMessageIndex.value < messages.length - 1) {
+      nextMessage();
+    } else {
+      // Stop cycling when last message is reached
+      if (intervalId) clearInterval(intervalId);
+    }
+  }, 7000); // 7 seconds
 });
 onBeforeUnmount(() => {
   if (intervalId) clearInterval(intervalId);

@@ -12,6 +12,7 @@ import WhatsGoingWell from '@venn/components/WhatsGoingWell.vue';
 import ActionPlan from '@venn/components/ActionPlan.vue';
 import Footer from '@venn/components/Footer.vue';
 import AnimatedDots from '@venn/components/AnimatedDots.vue';
+import IncognitoAvatar from '@venn/components/atoms/IncognitoAvatar.vue';
 
 const $pseudonym = useStore(pseudonym)
 
@@ -80,7 +81,7 @@ const handleOnBackToIndividualViewClick = () => {
       <div class="widget flex flex-col items-center justify-end relative px-3 pb-3 gap-2 mb-12">
         <img src="/images/folder.svg" alt="loading" class="absolute inset-0 w-full h-full object-cover" />
         <div class="flex flex-row relative z-10 gap-2 items-center">
-          <div class="w-8 h-8 bg-gray-300 rounded-full"></div>
+          <IncognitoAvatar />
           <div class="flex flex-col">
             <div class="justify-start text-xs font-medium">{{ $pseudonym }}</div>
             <div class="justify-start text-xs text-body-light-2 font-normal">Edited 1m ago</div>

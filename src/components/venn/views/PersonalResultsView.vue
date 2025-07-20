@@ -60,19 +60,41 @@ onUnmounted(() => {
     <div class="flex flex-row justify-between gap-4">
       <div class="flex flex-col">
         <div class="self-stretch justify-center text-dark text-lg font-normal leading-tight" style="font-size: 2rem;">
-          <span>Hey </span><span class="gradient-text">{{ $pseudonym }}</span><span>, here are your </span><span
-            class="font-semibold">simulated individual</span><span> results:</span>
-        </div>
-        <div class="text-dark text-sm opacity-70">
-          This is a simulated view based on your chat and demo data. Real insights come from your full team's
-          contributions.
+          <span>Hey </span><span class="gradient-text">{{ $pseudonym }}</span><span>, here are your individual results:</span>
         </div>
       </div>
-      <button class="rounded-full bg-orange px-4 outline py-1" @click="handleOnSeeHRViewClick">See HR view</button>
     </div>
     <div class="flex flex-col sm:flex-row gap-3 mt-4 pb-5">
-      <PersonalAnalytics v-if="scores" :scores="scores" />
-      <ActionPlans v-if="actionPlans.length > 0" :actionPlans="actionPlans" />
+      <div class="flex-1 personal-analytics-section"><PersonalAnalytics v-if="scores" :scores="scores" /></div>
+      <div class="flex-1 action-plans-section"><ActionPlans v-if="actionPlans.length > 0" :actionPlans="actionPlans" /></div>
+    </div>
+    <div class="cta-section animate-in" style="background: #fff; border-radius: 20px; margin-top: 0; padding: 1.5rem 2rem; display: flex; align-items: center; justify-content: space-between; gap: 2rem; box-shadow: 0 0 0 2px #ececec;">
+      <span style="font-size: 1.6rem; font-weight: 400; color: #23221F;">
+        Flip the lens: View the <span class="gradient-text" style="font-weight: 600;">HR perspective</span>
+      </span>
+      <button class="rounded-full" @click="handleOnSeeHRViewClick" style="background: #FF8661; color: #23221F; font-size: 1.3rem; font-weight: 500; border-radius: 999px; padding: 0.6em 1.4em; text-decoration: none; box-shadow: 0 2px 8px rgba(44,41,80,0.08); border: 2px solid #23221F; transition: background 0.2s, color 0.2s; white-space: nowrap;">View as HR</button>
     </div>
   </Layout>
 </template>
+
+<style scoped>
+.pulse-cta {
+  animation: pulse-cta 1.5s infinite;
+}
+@keyframes pulse-cta {
+  0% { box-shadow: 0 0 0 0 rgba(255,134,97,0.7); }
+  70% { box-shadow: 0 0 0 12px rgba(255,134,97,0); }
+  100% { box-shadow: 0 0 0 0 rgba(255,134,97,0); }
+}
+@media (min-width: 640px) {
+  .personal-analytics-section,
+  .action-plans-section {
+    box-shadow: 0 0 0 2px #ececec;
+    border-radius: 20px;
+    min-height: 480px;
+    background: #fff;
+    display: flex;
+    flex-direction: column;
+  }
+}
+</style>
