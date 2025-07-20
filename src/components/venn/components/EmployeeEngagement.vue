@@ -34,10 +34,10 @@ const insightsByDomain = computed(() => {
         </span>
       </div>
       <div class="flex justify-center my-4">
-        <GaugeMeter :percentage="(engagement?.averageEngagementScore || 0) * 100" />
+        <GaugeMeter :percentage="engagement?.averageEngagementScore || 0" />
       </div>
       <div class="text-center justify-center text-dark font-normal mb-6" style="font-size: 3rem;">
-        {{ ((engagement?.averageEngagementScore || 0) * 100).toFixed(0) }}
+        {{ engagement?.averageEngagementScore?.toFixed(0) || '0' }}
       </div>
 
       <div class="flex flex-row justify-evenly">
