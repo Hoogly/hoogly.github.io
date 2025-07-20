@@ -159,6 +159,17 @@ const handleKeydown = (event: KeyboardEvent) => {
         class="resize-none flex-1 focus:outline-none focus:ring-0 focus:border-transparent placeholder:text-dark/30 resize-none min-h-[20px] max-h-[120px] overflow-y-auto"
         @keydown="handleKeydown"
         />
+      <button v-if="!showExtras" type="submit" class="ml-auto"
+        :disabled="disabled || !message.trim()"
+        :style="!message.trim() ? 'filter: grayscale(0.4); pointer-events: none;' : 'filter: none;'"
+        @click.prevent="sendMessage">
+        <div class="rounded-full button-container flex items-center justify-center"
+          :style="!message.trim() ? 'background-color: #CCCAC6;' : 'background-color: #FF7A4D;'">
+          <IconBase>
+            <IconArrowUp />
+          </IconBase>
+        </div>
+      </button>
     </form>
     <div v-if="showExtras" class="flex flex-row gap-2 items-center">
       <div class="flex flex-row items-center justify-center gap-1 outline outline-body-dark-1 rounded-full px-2 py-1">
@@ -195,7 +206,6 @@ textarea {
   caret-width: 3px;
 }
 textarea::placeholder {
-  color: #888;
-  opacity: 1;
+  color: #CCCAC6;
 }
 </style>
