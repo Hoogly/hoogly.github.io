@@ -29,15 +29,15 @@ const handleSubmit = (event: Event) => {
 </script>
 
 <template>
-  <div class="bg-white rounded-3xl px-6 sm:px-10 py-6 sm:py-12 flex flex-col">
-    <div class="text-2xl sm:text-4xl text-center">
-      Almost there! Help us get your <span class="gradient-text">results</span> to the right place.
+  <div class="bg-white rounded-3xl px-6 sm:px-10 py-10 sm:py-20 flex flex-col">
+    <div class="text-3xl sm:text-5xl text-center">
+      Try your first <span class="gradient-text">conversation</span>
     </div>
     <div class="text-sm sm:text-base text-center mt-2 mb-4 sm:mb-6">
       Don't worry, your information will be kept private and confidential
     </div>
     <form @submit.prevent="handleSubmit">
-      <div class="mb-3 sm:mb-4">
+      <div class="mb-6 sm:mb-8">
         <div class="text-sm font-normal mb-1 sm:mb-2">
           Name
         </div>
@@ -47,7 +47,7 @@ const handleSubmit = (event: Event) => {
             class="w-full px-3 py-2 sm:py-3 outline-none focus:outline-none focus:ring-0 focus:border-transparent placeholder:text-dark/30" />
         </div>
       </div>
-      <div class="mb-3 sm:mb-4">
+      <div class="mb-6 sm:mb-8">
         <div class="text-sm font-normal mb-1 sm:mb-2">
           Company Email
         </div>

@@ -15,18 +15,17 @@ import ChatApp from "@venn/ChatApp.vue";
 				<div class="hero-text">
 					<div
 						class="hero-title"
-						style="text-align: center; margin-bottom: 0.2em; font-family: 'Outfit', sans-serif;"
+						style="text-align: center; margin-bottom: 0.2em; font-family: 'Outfit', sans-serif; font-size: 4rem;"
 					>
 						<div class="hero-title-align" style="display: block;">
 							<span class="hero-title-text">Tired of </span><span
 								class="hero-highlight"
 								><span class="hero-highlight-text">meh</span
-								></span
-							><span class="hero-title-text">
+								></span><br class="mobile-break" style="display:none;"><span class="hero-title-text">
 								survey results?</span
 							>
 						</div>
-						<div class="hero-title-second-line">
+						<div class="hero-title-second-line" style="font-size: 4rem;">
 							So are your employees.
 						</div>
 					</div>
@@ -976,6 +975,22 @@ import ChatApp from "@venn/ChatApp.vue";
 			width: 260px !important;
 			height: 260px !important;
 			margin: 0 !important;
+		}
+	}
+	@media (max-width: 600px) {
+		.hero-title {
+			font-size: 2.4rem !important;
+		}
+		.hero-title-second-line {
+			font-size: 2.4rem !important;
+		}
+		.mobile-break {
+			display: inline;
+		}
+	}
+	@media (min-width: 601px) {
+		.mobile-break {
+			display: none;
 		}
 	}
 </style>

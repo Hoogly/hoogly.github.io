@@ -16,4 +16,14 @@ import BlankLayout from "../layouts/BlankLayout.astro";
     .chat-container {
         background-color: var(--color-creme);
     }
+    @media (max-width: 600px) {
+        .chat-container {
+            height: 100dvh;
+            max-height: 100dvh;
+            box-sizing: border-box;
+            overflow: hidden;
+            padding-left: 1rem;
+            padding-right: 1rem;
+        }
+    }
 </style>

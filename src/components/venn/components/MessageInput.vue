@@ -194,4 +194,11 @@ const handleKeydown = (event: KeyboardEvent) => {
   width: 29px;
   height: 29px;
 }
+textarea {
+  caret-width: 3px;
+}
+textarea::placeholder {
+  color: #888;
+  opacity: 1;
+}
 </style>
