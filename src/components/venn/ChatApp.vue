@@ -2,7 +2,7 @@
 import './assets/main.css'
 import { navigate } from "astro:transitions/client"
 import { pseudonym, updateCurrentView, updatePseudonym, updateUserId, userId } from '@venn/store'
-import { computed, ref, nextTick, watch, onMounted } from 'vue'
+import { computed, ref, nextTick, watch, onMounted, defineExpose } from 'vue'
 import { useCollection, useDocument } from 'vuefire'
 import { getAiUnderstandingDoc, getMessagesQuery, getMessagesRef, getSurveyUserDoc, getTypingUsersQuery, pseudonymsRef } from '@venn/firebase'
 import MessageInput from '@venn/components/MessageInput.vue'
@@ -282,21 +282,15 @@ onMounted(() => {
     scrollToBottom()
   })
 })
+
+defineExpose({
+  endChat: handleOnShowResultsClick
+})
 </script>
 
 <template>
   <div class="h-full p-3 flex flex-col rounded-2xl max-w-2xl mx-auto"
     :class="{ 'bg-white': variant === 'full', 'bg-white/40 md:min-w-2xl lg:min-w-4xl': variant === 'mini' }">
-    <!-- End Chat button positioned outside the white box, above Company text -->
-    <div class="relative w-full mb-2" v-if="variant === 'full'">
-      <button
-        class="end-chat-btn"
-        @click="handleOnShowResultsClick"
-        style="position: absolute; top: 0; right: 0; z-index: 10; background: #FF6B6B; color: #fff; border: none; border-radius: 999px; padding: 0.5em 1.5em; font-weight: 600; font-size: 1rem; box-shadow: 0 2px 8px rgba(44,41,80,0.08); cursor: pointer; transition: background 0.2s;"
-      >
-        End Chat
-      </button>
-    </div>
     <!-- Modal backdrop with blur effect -->
     <div v-if="variant === 'full' && showContactForm"
       class="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center p-4">
@@ -428,6 +422,27 @@ onMounted(() => {
   75% {
     transform: scale(1.15);
     opacity: 0.8;
+  }
+}
+
+@media (max-width: 639px) {
+  #insights-container > div {
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+    gap: 0.25rem !important;
+  }
+  #insights-container span {
+    display: block;
+    margin-bottom: 0.25rem;
+    text-align: center !important;
+    width: 100%;
+  }
+  .domain-icons {
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 }
 </style>

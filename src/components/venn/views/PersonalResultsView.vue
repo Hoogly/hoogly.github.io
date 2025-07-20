@@ -59,7 +59,7 @@ onUnmounted(() => {
      <LoadingScreen v-if="loading" /> 
     <div class="flex flex-row justify-between gap-4">
       <div class="flex flex-col">
-        <div class="self-stretch justify-center text-dark text-lg font-normal leading-tight">
+        <div class="self-stretch justify-center text-dark text-lg font-normal leading-tight" style="font-size: 2rem;">
           <span>Hey </span><span class="gradient-text">{{ $pseudonym }}</span><span>, here are your </span><span
             class="font-semibold">simulated individual</span><span> results:</span>
         </div>

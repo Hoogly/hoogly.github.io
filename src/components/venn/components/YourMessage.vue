@@ -11,7 +11,7 @@ defineProps<Props>()
 
 <template>
   <div class="flex flex-row items-center gap-2">
-    <div class="bg-venn-purple rounded-tl-2xl rounded-bl-2xl rounded-br-2xl p-4 max-w-md">
+    <div class="bg-venn-purple drop-shadow-lg/5 rounded-tl-2xl rounded-bl-2xl rounded-br-2xl p-4 max-w-md">
       <div class="text-left">{{ message.text }}</div>
     </div>
     <IncognitoAvatar />

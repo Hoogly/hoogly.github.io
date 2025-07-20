@@ -2,8 +2,39 @@
 import IncognitoAvatar from './atoms/IncognitoAvatar.vue';
 import { pseudonym } from '@venn/store';
 import { useStore } from '@nanostores/vue';
+import { ref, onMounted, onBeforeUnmount } from 'vue';
 const $pseudonym = useStore(pseudonym)
 
+const messages = [
+  'Scanning your inputs',
+  'Mapping your data',
+  'Filtering noise. Isolating insights.',
+  'Adding simulated data to test outcomes',
+  'Refining interpretations',
+  'Checking for contradictions',
+  'Composing the final outcome',
+  'Polishing the final results'
+];
+const currentMessageIndex = ref(0);
+const showMessage = ref(true);
+let intervalId: number | undefined;
+let fadeTimeout: number | undefined;
+
+function nextMessage() {
+  showMessage.value = false;
+  fadeTimeout = window.setTimeout(() => {
+    currentMessageIndex.value = (currentMessageIndex.value + 1) % messages.length;
+    showMessage.value = true;
+  }, 1000); // match fade duration (1s)
+}
+
+onMounted(() => {
+  intervalId = window.setInterval(nextMessage, 6000); // 6 seconds
+});
+onBeforeUnmount(() => {
+  if (intervalId) clearInterval(intervalId);
+  if (fadeTimeout) clearTimeout(fadeTimeout);
+});
 </script>
 
 <template>
@@ -14,7 +45,7 @@ const $pseudonym = useStore(pseudonym)
         <IncognitoAvatar />
         <div class="flex flex-col">
           <div class="justify-start text-xs font-medium">{{ $pseudonym }}</div>
-          <div class="justify-start text-xs text-body-light-2 font-normal">Edited 1m ago</div>
+          <div class="justify-start text-xs text-body-light-2 font-normal edited-timestamp">Edited 1m ago</div>
         </div>
       </div>
       <div class="w-full flex flex-col z-10 rounded-md shadow-sm gap-2 p-3">
@@ -26,9 +57,11 @@ const $pseudonym = useStore(pseudonym)
     <div class="text-center justify-center text-dark text-lg sm:text-4xl">
       One moment please...
     </div>
-    <div class="text-center justify-center text-xl sm:text-5xl font-medium leading-snug gradient-text-animated">
-      Processing your results
-    </div>
+    <transition name="fade">
+      <div v-if="showMessage" key="message-{{currentMessageIndex}}" class="text-center justify-center text-xl sm:text-5xl font-medium leading-snug gradient-text-animated staged-loading-message">
+        {{ messages[currentMessageIndex] }}
+      </div>
+    </transition>
   </div>
 </template>
 
@@ -43,7 +76,7 @@ const $pseudonym = useStore(pseudonym)
   background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
   background-size: 200% 100%;
   border-radius: 0.5rem;
-  animation: skeleton-loading 1.5s ease-in-out infinite;
+  animation: skeleton-loading 4s ease-in-out infinite;
 }
 
 .skeleton-bar-1 {
@@ -74,7 +107,7 @@ const $pseudonym = useStore(pseudonym)
   background-clip: text;
   -webkit-text-fill-color: transparent;
   color: transparent;
-  animation: gradient-shift 3s ease-in-out infinite;
+  animation: gradient-shift 8s ease-in-out infinite;
 }
 
 @keyframes gradient-shift {
@@ -85,5 +118,21 @@ const $pseudonym = useStore(pseudonym)
   100% {
     background-position: -100% 50%;
   }
+}
+
+.edited-timestamp {
+  color: #CCCAC6 !important;
+}
+.fade-enter-active, .fade-leave-active {
+  transition: opacity 1s;
+}
+.fade-enter-from, .fade-leave-to {
+  opacity: 0;
+}
+.fade-enter-to, .fade-leave-from {
+  opacity: 1;
+}
+.staged-loading-message {
+  min-height: 2.5em;
 }
 </style>
