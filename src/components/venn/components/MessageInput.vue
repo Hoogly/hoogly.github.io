@@ -159,15 +159,8 @@ const handleKeydown = (event: KeyboardEvent) => {
         class="resize-none flex-1 focus:outline-none focus:ring-0 focus:border-transparent placeholder:text-dark/30 resize-none min-h-[20px] max-h-[120px] overflow-y-auto"
         @keydown="handleKeydown"
         />
-      <button v-if="!showExtras" type="submit" class="ml-auto mt-1" :disabled="disabled">
-        <div class="rounded-full bg-orange button-container flex items-center justify-center">
-          <IconBase>
-            <IconArrowUp />
-          </IconBase>
-        </div>
-      </button>
     </form>
-    <div v-if="showExtras" class="flex flex-row gap-2">
+    <div v-if="showExtras" class="flex flex-row gap-2 items-center">
       <div class="flex flex-row items-center justify-center gap-1 outline outline-body-dark-1 rounded-full px-2 py-1">
         <IncognitoAvatar :width="18" :height="18" />
         <div class="text-xs">{{ $pseudonym }}</div>
@@ -178,8 +171,12 @@ const handleKeydown = (event: KeyboardEvent) => {
         </IconBase>
         <div class="text-xs">Confidential</div>
       </div>
-      <button @click.prevent="sendMessage" class="ml-auto" :disabled="disabled" v-show="showSendButton">
-        <div class="rounded-full bg-orange button-container flex items-center justify-center">
+      <button type="submit" class="ml-auto"
+        :disabled="disabled || !message.trim()"
+        :style="!message.trim() ? 'filter: grayscale(0.4); pointer-events: none;' : 'filter: none;'"
+        @click.prevent="sendMessage">
+        <div class="rounded-full button-container flex items-center justify-center"
+          :style="!message.trim() ? 'background-color: #CCCAC6;' : 'background-color: #FF7A4D;'">
           <IconBase>
             <IconArrowUp />
           </IconBase>
