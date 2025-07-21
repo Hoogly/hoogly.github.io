@@ -18,7 +18,7 @@ function handleEndChat() {
 </script>
 
 <template>
-    <div class="h-screen flex flex-col">
+    <div class="grid grid-rows-[auto_1fr] min-h-dvh max-h-dvh">
         <div class="flex-shrink-0 pl-8 pt-10 pb-2 flex flex-row items-center gap-4 header-bar">
             <a href="/" class="logo-left-align">
                 <IconLogo />
@@ -33,7 +33,7 @@ function handleEndChat() {
                 End Chat
             </button>
         </div>
-        <div class="flex-1 overflow-y-auto pb-10">
+        <div  class="h-full overflow-hidden pb-4">
             <ChatApp ref="chatAppRef" v-if="$currentView === 'chat'" variant="full" />
             <PersonalResultsView v-else-if="$currentView === 'personal-results'" />
             <HRDashboardView v-else-if="$currentView === 'hr-dashboard'" />

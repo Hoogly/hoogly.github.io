@@ -304,7 +304,9 @@ defineExpose({
         </div>
       </div>
     </div>
-    <div class="flex flex-col overflow-hidden h-full w-full">
+    
+    <!-- Main content wrapper with grid layout -->
+    <div class="grid grid-rows-[auto_1fr_auto] h-full">
       <div id="insights-container" v-if="variant === 'full'" class="py-2 px-1 flex flex-row justify-between gap-4">
         <div class="rounded-full sm:bg-white p-2 flex flex-col sm:flex-row-reverse items-center gap-2"
           :class="`opacity-${normalizeClarityToProgress(managerClarity)}`">
@@ -341,7 +343,7 @@ defineExpose({
       </div>
 
 
-      <div ref="scrollContainer" class="flex-1 overflow-y-auto min-h-0 pb-4">
+      <div ref="scrollContainer" class="overflow-y-auto pb-4 min-h-0">
         <div v-if="variant === 'full'" class="flex flex-row items-center justify-center gap-2 my-5 px-4">
           <IconBase width="34" height="34">
             <IconLock />
@@ -364,8 +366,7 @@ defineExpose({
         </div>
       </div>
 
-      <div class="sticky bottom-0 pt-4">
-
+      <div id="input-container" class="pt-4">
         <Button v-if="surveyUser?.status === 'completed'" label="Show results" @click="handleOnShowResultsClick" />
         <MessageInput v-else-if="$userId" :room-id="$userId" :submit="handleOnMessageSubmit" :disabled="inputDisabled"
           :show-extras="variant === 'mini'" :placeholder="variant === 'mini' ? '' : 'Chat with Venn'" />
