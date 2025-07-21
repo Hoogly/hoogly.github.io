@@ -28,7 +28,7 @@ const props = withDefaults(defineProps<{
 const $userId = useStore(userId)
 const inputDisabled = ref(false)
 const $pseudonym = useStore(pseudonym)
-const showContactForm = ref(false)
+const showContactForm = ref(true)
 
 // Ref for the scroll container
 const scrollContainer = ref<HTMLElement>()
