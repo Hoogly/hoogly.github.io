@@ -1,6 +1,6 @@
 import { initializeApp } from 'firebase/app'
 import { connectFirestoreEmulator, collection, getFirestore, CollectionReference, query, orderBy, Query, doc, DocumentReference } from 'firebase/firestore'
-import type { AiUnderstanding, EmployeeConcerns, EmployeeEngagement, GraphScore, Message, Pseudonym, SurveyActionPlan, SurveyUser, TypingUser, WhatsGoingWell } from './types'
+import type { AiUnderstanding, EmployeeConcerns, EmployeeEngagement, GraphScore, Message, Pseudonym, SurveyActionPlan, SurveyUser, SurveyUserData, TypingUser, WhatsGoingWell } from './types'
 import { getFunctions, connectFunctionsEmulator } from 'firebase/functions'
 import type { ActionPlan } from './types/ActionPlan'
 
@@ -53,24 +53,24 @@ export const getAiUnderstandingDoc = (userId: string) => {
   return doc(db, `/userspaces/public/survey_users/public_survey/users/${userId}/insights/ai_understanding`) as DocumentReference<AiUnderstanding>
 }
 
-export const getSurveyUserDoc = (userId: string) => {
-  return doc(db, `/userspaces/public/survey_users/public_survey/users/${userId}`) as DocumentReference<SurveyUser>
+export const getSurveyUserDataDoc = (userId: string) => {
+  return doc(db, `/userspaces/public/survey_user_data/${userId}`) as DocumentReference<SurveyUserData>
 }
 
 export const getSurveyScoreDoc = (userId: string) => {
-  return doc(db, `/userspaces/public/survey_users/public_survey/users/${userId}/graphs/scores`) as DocumentReference<GraphScore>
+  return doc(db, `/userspaces/public/survey_user_data/${userId}/sessions/public_survey/user_reports/scores`) as DocumentReference<GraphScore>
 }
 
 export const getSurveyActionPlansQuery = (userId: string) => {
-  return query(collection(db, `/userspaces/public/survey_users/public_survey/users/${userId}/action_plans`)) as Query<SurveyActionPlan>
+  return query(collection(db, `/userspaces/public/survey_user_data/${userId}/sessions/public_survey/user_reports/action_plans/items`)) as Query<SurveyActionPlan>
 }
 
-export const getEmployeeEngagementDoc = () => {
-  return doc(db, `/userspaces/public/survey_reports/public_survey/graphs/domain_feedback`) as DocumentReference<EmployeeEngagement>
+export const getEmployeeEngagementDoc = (userId: string) => {
+  return doc(db, `/userspaces/public/survey_user_data/${userId}/sessions/public_survey/hr_reports/domain_feedback`) as DocumentReference<EmployeeEngagement>
 }
 
-export const getEmployeeConcernsDoc = () => {
-  return doc(db, `/userspaces/public/survey_reports/public_survey/graphs/employee_concerns`) as DocumentReference<EmployeeConcerns>
+export const getEmployeeConcernsDoc = (userId: string) => {
+  return doc(db, `/userspaces/public/survey_user_data/${userId}/sessions/public_survey/hr_reports/employee_concerns`) as DocumentReference<EmployeeConcerns>
 }
 
 export const getWhatsGoingWellDoc = () => {

@@ -48,7 +48,7 @@ const getCategoryColor = (category: string) => {
         <div class="justify-center text-dark font-normal" style="font-size: 1rem;">
           {{ score.category }}
         </div>
-        <ProgressBar :color="getCategoryColor(score.category)" :progress="score.score * 100" />
+        <ProgressBar :color="getCategoryColor(score.category)" :progress="Math.ceil(score.score * 100)" />
       </div>
     </div>
   </div>

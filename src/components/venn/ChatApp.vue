@@ -4,7 +4,7 @@ import { navigate } from "astro:transitions/client"
 import { pseudonym, updateCurrentView, updatePseudonym, updateUserId, userId } from '@venn/store'
 import { computed, ref, nextTick, watch, onMounted, defineExpose } from 'vue'
 import { useCollection, useDocument } from 'vuefire'
-import { getAiUnderstandingDoc, getMessagesQuery, getMessagesRef, getSurveyUserDoc, getTypingUsersQuery, pseudonymsRef } from '@venn/firebase'
+import { getAiUnderstandingDoc, getMessagesQuery, getMessagesRef, getSurveyUserDataDoc, getTypingUsersQuery, pseudonymsRef } from '@venn/firebase'
 import MessageInput from '@venn/components/MessageInput.vue'
 import { IconLock, IconBase, IconStar, IconPeople, IconPerson, IconBuilding } from '@venn/components/icons'
 import YourMessage from '@venn/components/YourMessage.vue'
@@ -28,7 +28,7 @@ const props = withDefaults(defineProps<{
 const $userId = useStore(userId)
 const inputDisabled = ref(false)
 const $pseudonym = useStore(pseudonym)
-const showContactForm = ref(true)
+const showContactForm = ref(false)
 
 // Ref for the scroll container
 const scrollContainer = ref<HTMLElement>()
@@ -104,9 +104,9 @@ const isTyping = computed(() => {
   return typingUsers.value?.some(user => user.userId !== $userId.value && user.isTyping)
 })
 
-const surveyUser = useDocument(
-  computed(() => $userId.value ? getSurveyUserDoc($userId.value) : null), {
-  ssrKey: 'survey-user',
+const surveyUserData = useDocument(
+  computed(() => $userId.value ? getSurveyUserDataDoc($userId.value) : null), {
+  ssrKey: 'survey-user-data',
 }
 )
 
@@ -367,7 +367,7 @@ defineExpose({
       </div>
 
       <div id="input-container" class="pt-4">
-        <Button v-if="surveyUser?.status === 'completed'" label="Show results" @click="handleOnShowResultsClick" />
+        <Button v-if="surveyUserData?.status === 'completed'" label="Show results" @click="handleOnShowResultsClick" />
         <MessageInput v-else-if="$userId" :room-id="$userId" :submit="handleOnMessageSubmit" :disabled="inputDisabled"
           :show-extras="variant === 'mini'" :placeholder="variant === 'mini' ? '' : 'Chat with Venn'" />
       </div>

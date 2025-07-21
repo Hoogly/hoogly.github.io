@@ -6,7 +6,7 @@ import { computed, onMounted, onUnmounted, ref, watch } from 'vue';
 import { useDocument } from 'vuefire';
 import { getEmployeeConcernsDoc, getEmployeeEngagementDoc } from '@venn/firebase';
 import LoadingScreen from '@venn/components/LoadingScreen.vue';
-import { pseudonym, updateCurrentView } from '@venn/store';
+import { pseudonym, updateCurrentView, userId } from '@venn/store';
 import { useStore } from '@nanostores/vue';
 import WhatsGoingWell from '@venn/components/WhatsGoingWell.vue';
 import ActionPlan from '@venn/components/ActionPlan.vue';
@@ -15,12 +15,13 @@ import AnimatedDots from '@venn/components/AnimatedDots.vue';
 import IncognitoAvatar from '@venn/components/atoms/IncognitoAvatar.vue';
 
 const $pseudonym = useStore(pseudonym)
+const $userId = useStore(userId)
 
-const employeeEngagement = useDocument(computed(() => getEmployeeEngagementDoc()), {
+const employeeEngagement = useDocument(computed(() => $userId.value ? getEmployeeEngagementDoc($userId.value) : null), {
   ssrKey: 'employee-engagement',
 })
 
-const employeeConcerns = useDocument(computed(() => getEmployeeConcernsDoc()), {
+const employeeConcerns = useDocument(computed(() => $userId.value ? getEmployeeConcernsDoc($userId.value) : null), {
   ssrKey: 'employee-concerns',
 })
 
