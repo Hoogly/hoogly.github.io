@@ -50,7 +50,7 @@ export const getTypingUsersQuery = (roomId: string): Query<TypingUser> => {
 }
 
 export const getAiUnderstandingDoc = (userId: string) => {
-  return doc(db, `/userspaces/public/survey_users/public_survey/users/${userId}/insights/ai_understanding`) as DocumentReference<AiUnderstanding>
+  return doc(db, `/userspaces/public/survey_user_data/${userId}/sessions/public_survey/user_reports/ai_understanding`) as DocumentReference<AiUnderstanding>
 }
 
 export const getSurveyUserDataDoc = (userId: string) => {
