@@ -28,7 +28,7 @@ const props = withDefaults(defineProps<{
 const $userId = useStore(userId)
 const inputDisabled = ref(false)
 const $pseudonym = useStore(pseudonym)
-const showContactForm = ref(true)
+const showContactForm = ref(false)
 
 // Ref for the scroll container
 const scrollContainer = ref<HTMLElement>()
@@ -196,9 +196,23 @@ const normalizeClarityToProgress = (clarity: number | undefined) => {
   }
 }
 
-const handleOnShowResultsClick = async () => {
-  // Send thank you message as user
+const handleOnShowResultsClick =  () => {
   inputDisabled.value = true
+  showContactForm.value = true;
+}
+
+const handleContactFormSubmit = async (data: { name: string, email: string, company: string }) => {
+  if (typeof window !== 'undefined' && (window as any).posthog) {
+    (window as any).posthog.capture('get_started_form_submitted', {
+      name: data.name,
+      email: data.email,
+      company: data.company,
+      referrer: 'chat',
+      buttonLabel: 'Submit',
+      pageSource: 'chat'
+    });
+  }
+  // Send thank you message as user 
   try {
     const newMessage = {
       authorId: $userId.value!,
@@ -212,21 +226,8 @@ const handleOnShowResultsClick = async () => {
   } finally {
     inputDisabled.value = false
   }
-  updateCurrentView('personal-results')
-}
-
-const handleContactFormSubmit = (data: { name: string, email: string, company: string }) => {
-  if (typeof window !== 'undefined' && (window as any).posthog) {
-    (window as any).posthog.capture('get_started_form_submitted', {
-      name: data.name,
-      email: data.email,
-      company: data.company,
-      referrer: 'chat',
-      buttonLabel: 'Submit',
-      pageSource: 'chat'
-    });
-  }
   showContactForm.value = false
+  updateCurrentView('personal-results')
 }
 
 const handleOnMessageSubmit = async (message: string) => {

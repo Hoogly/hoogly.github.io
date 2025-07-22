@@ -74,7 +74,7 @@ const handleSubmit = (event: Event) => {
              :class="((hasSubmitted && !nameValue) || nameError) ? 'input-error-outline' : 'outline outline-stone-100'">
           <input name="name" type="text" placeholder="Jane Doe" v-model="nameValue"
             class="w-full px-3 py-2 sm:py-3 outline-none focus:outline-none focus:ring-0 focus:border-transparent placeholder:text-dark/30"
-            @blur="nameTouched.value = true; if(!nameValue) nameError.value = 'We’d love to know your name (just first is fine!)'; else nameError.value = ''" />
+            @blur="nameTouched = true; if(!nameValue) nameError = 'We’d love to know your name (just first is fine!)'; else nameError = ''" />
         </div>
         <div v-if="(nameTouched || hasSubmitted) && nameError" class="text-xs error-message mt-1">{{ nameError }}</div>
       </div>
@@ -86,7 +86,7 @@ const handleSubmit = (event: Event) => {
              :class="((hasSubmitted && !emailValue) || emailError) ? 'input-error-outline' : 'outline outline-stone-100'">
           <input name="email" type="text" placeholder="janedoe@hoogly.com" v-model="emailValue"
             class="w-full px-3 py-2 sm:py-3 outline-none focus:outline-none focus:ring-0 focus:border-transparent placeholder:text-dark/30"
-            @blur="emailTouched.value = true; if(!emailValue || !validateEmail(emailValue)) emailError.value = 'Oops! That doesn’t look like a valid email address'; else emailError.value = ''" />
+            @blur="emailTouched = true; if(!emailValue || !validateEmail(emailValue)) emailError = 'Oops! That doesn’t look like a valid email address'; else emailError = ''" />
         </div>
         <div v-if="(emailTouched || hasSubmitted) && emailError" class="text-xs error-message mt-1">{{ emailError }}</div>
       </div>
@@ -98,7 +98,7 @@ const handleSubmit = (event: Event) => {
              :class="((hasSubmitted && !companyValue) || companyError) ? 'input-error-outline' : 'outline outline-stone-100'">
           <input name="company" type="text" placeholder="Hoogly" v-model="companyValue"
             class="w-full px-3 py-2 sm:py-3 outline-none focus:outline-none focus:ring-0 focus:border-transparent placeholder:text-dark/30"
-            @blur="companyTouched.value = true; if(!companyValue) companyError.value = 'Let us know where you work—this helps us personalize things.'; else companyError.value = ''" />
+            @blur="companyTouched = true; if(!companyValue) companyError = 'Let us know where you work—this helps us personalize things.'; else companyError = ''" />
         </div>
         <div v-if="(companyTouched || hasSubmitted) && companyError" class="text-xs error-message mt-1">{{ companyError }}</div>
       </div>
