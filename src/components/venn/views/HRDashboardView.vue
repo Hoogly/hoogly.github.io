@@ -112,7 +112,7 @@ const handleOnBackToIndividualViewClick = () => {
           This is a simulated view based on your chat and demo data.
         </div>
       </div>
-      <button class="rounded-full px-3 py-1 outline" @click="handleOnBackToIndividualViewClick" style="padding: 0.4em 1.1em; font-size: 1rem;">Back to Individual View</button>
+      <button class="rounded-full px-3 py-1 outline m-1" @click="handleOnBackToIndividualViewClick" style="padding: 0.4em 1.1em; font-size: 1rem;">Back to Individual View</button>
     </div>
     <div class="flex flex-col sm:flex-row gap-3 mt-4 pb-8 flex-shrink-0">
       <EmployeeEngagement :engagement="employeeEngagement" class="dashboard-section animate-in" :bars-animate="barsAnimate" />
