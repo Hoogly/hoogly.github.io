@@ -211,8 +211,9 @@ import Layout from '../layouts/Layout.astro';
               <button type="submit">Claim my discount</button>
             </form>
           </div>
+          
           <!-- Offer details below the form, outside the white box -->
-          <div style="max-width: 500px; margin: 0 auto 0 auto;">
+          <div style="max-width: 500px; margin: 0.5rem auto 0 auto;">
             <div class="anonymous-ai-headline" style="margin-bottom: 0.5rem; font-size: 2rem; font-weight: 400;">Offer Details</div>
             <ul class="anonymous-ai-subheadline" style="padding-left: 1.2em; margin: 0 0 0.5em 0; font-size: 1.15rem; color: #444; text-align: left;">
               <li>Offer valid for Startup People Summit attendees only</li>
@@ -223,6 +224,7 @@ import Layout from '../layouts/Layout.astro';
               <li>This offer is non-transferable and can't be shared or passed on to others.</li>
             </ul>
           </div>
+          
           <div style="height: 4rem;"></div>
         </div>
       </div>
@@ -340,17 +342,39 @@ import Layout from '../layouts/Layout.astro';
         const formContainer = document.querySelector('.get-started-form-container');
         if (formContainer) {
           formContainer.innerHTML = `
-            <div style="text-align: center; padding: 2rem 0;">
+            <div style="text-align: center; padding: 1.5rem 0;">
               <div class="anonymous-ai-headline" style="margin-bottom: 1rem; font-size: 2rem; font-weight: normal;">You're All Set!</div>
-              <div class="anonymous-ai-subheadline" style="font-size: 1.1rem; color: #444; line-height: 1.6; margin-bottom: 2rem;">
+              <div class="anonymous-ai-subheadline" style="font-size: 1.1rem; color: #444; line-height: 1.6; margin-bottom: 0;">
                 You've secured your 20% off.<br><br>
-                We'll be in touch soon to walk you through what Hoogly can do for your team (or <a href="https://calendly.com/hoogly/30min" target="_blank" style="color: #b16ba6; text-decoration: underline;">book a time</a> to skip the queue).
+                We'll be in touch soon to walk you through what Hoogly can do for your team.
               </div>
-              <img src="/images/hi-venn.png" alt="Venn Character" style="max-width: 200px; height: auto; margin: 0 auto; display: block;" />
+              <!-- <img src="/images/hi-venn.png" alt="Venn Character" style="max-width: 200px; height: auto; margin: 0 auto; display: block;" /> -->
             </div>
           `;
+          
+          // Add Calendly section after the form container
+          const calendlySection = document.createElement('div');
+          calendlySection.style.cssText = 'max-width: 500px; margin: 2rem auto 0 auto;';
+          calendlySection.innerHTML = `
+            <div class="anonymous-ai-headline" style="margin-bottom: 1rem; font-size: 2rem; font-weight: 400;">Skip the queue</div>
+            <div id="calendly-inline-widget" style="min-width: 320px; height: 1100px;"></div>
+          `;
+          formContainer.parentNode?.insertBefore(calendlySection, formContainer.nextSibling);
+          
+          // Initialize Calendly widget
+          if (typeof window !== 'undefined' && (window as any).Calendly) {
+            (window as any).Calendly.initInlineWidget({
+              url: 'https://calendly.com/hoogly/mohit-midha',
+              parentElement: document.getElementById('calendly-inline-widget'),
+              prefill: {},
+              utm: {}
+            });
+          }
         }
       });
     }
   </script>
+  
+  <!-- Calendly inline widget script -->
+  <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
 </Layout> 
