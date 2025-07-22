@@ -57,7 +57,8 @@ import Layout from '../layouts/Layout.astro';
     margin-right: auto;
   }
   .get-started-form input[type="text"],
-  .get-started-form input[type="email"] {
+  .get-started-form input[type="email"],
+  .get-started-form input[type="tel"] {
     width: 100%;
     max-width: 370px;
     padding: 1.1rem 1.2rem;
@@ -77,13 +78,15 @@ import Layout from '../layouts/Layout.astro';
     text-align: left;
   }
   .get-started-form input[type="text"]::placeholder,
-  .get-started-form input[type="email"]::placeholder {
+  .get-started-form input[type="email"]::placeholder,
+  .get-started-form input[type="tel"]::placeholder {
     color: #c7c7c7;
     opacity: 1;
     font-weight: 400;
   }
   .get-started-form input[type="text"]:focus,
-  .get-started-form input[type="email"]:focus {
+  .get-started-form input[type="email"]:focus,
+  .get-started-form input[type="tel"]:focus {
     box-shadow: 0 0 0 2px #b16ba6;
     border: 1px solid #b16ba6;
   }
@@ -193,6 +196,11 @@ import Layout from '../layouts/Layout.astro';
                 <input type="text" id="company" name="company" placeholder="Hoogly" required />
                 <div class="error-message" id="company-error"></div>
               </div>
+              <div class="form-group">
+                <label for="phone">Phone Number</label>
+                <input type="tel" id="phone" name="phone" placeholder="+61 400 123 456" />
+                <div class="error-message" id="phone-error"></div>
+              </div>
               <div class="honeypot">
                 <label for="website">Website</label>
                 <input type="text" id="website" name="website" tabindex="-1" autocomplete="off" />
@@ -243,7 +251,7 @@ import Layout from '../layouts/Layout.astro';
     const form = document.getElementById('getStartedForm') as HTMLFormElement | null;
     if (form) {
       // Clear error messages when user starts typing
-      const inputs = form.querySelectorAll('input[type="text"], input[type="email"]');
+      const inputs = form.querySelectorAll('input[type="text"], input[type="email"], input[type="tel"]');
       inputs.forEach(input => {
         input.addEventListener('input', function(this: HTMLInputElement) {
           const fieldName = this.name;
@@ -270,6 +278,7 @@ import Layout from '../layouts/Layout.astro';
         const nameInput = document.getElementById('name') as HTMLInputElement | null;
         const emailInput = document.getElementById('email') as HTMLInputElement | null;
         const companyInput = document.getElementById('company') as HTMLInputElement | null;
+        const phoneInput = document.getElementById('phone') as HTMLInputElement | null;
         const referrerInput = document.getElementById('referrer') as HTMLInputElement | null;
         const buttonLabelInput = document.getElementById('buttonLabel') as HTMLInputElement | null;
         const pageSourceInput = document.getElementById('pageSource') as HTMLInputElement | null;
@@ -277,6 +286,7 @@ import Layout from '../layouts/Layout.astro';
         const name = nameInput ? nameInput.value.trim() : '';
         const email = emailInput ? emailInput.value.trim() : '';
         const company = companyInput ? companyInput.value.trim() : '';
+        const phone = phoneInput ? phoneInput.value.trim() : '';
         const referrer = referrerInput ? referrerInput.value : '';
         const buttonLabel = buttonLabelInput ? buttonLabelInput.value : '';
         const pageSource = pageSourceInput ? pageSourceInput.value : '';
@@ -319,6 +329,7 @@ import Layout from '../layouts/Layout.astro';
             name,
             email,
             company,
+            phone,
             referrer,
             buttonLabel,
             pageSource
