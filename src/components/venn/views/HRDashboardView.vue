@@ -77,7 +77,7 @@ const handleOnBackToIndividualViewClick = () => {
 
 <template>
   <Layout :sticky-footer="false">
-    <div class="team-results-root">
+    <div class="h-full flex flex-col">
     <!-- Loading screen with same indicator as chat flow -->
     <div v-if="loading" class="fixed inset-0 bg-creme z-50 flex flex-col items-center justify-center">
       <div class="widget flex flex-col items-center justify-end relative px-3 pb-3 gap-2 mb-12">
@@ -104,11 +104,11 @@ const handleOnBackToIndividualViewClick = () => {
     </div>
     <div class="flex flex-row justify-between gap-4 flex-shrink-0">
       <div class="flex flex-col">
-        <div class="self-stretch justify-center text-dark text-lg font-normal leading-tight" style="font-size: 2rem;">
+        <div class="self-stretch justify-center text-dark text-2xl font-normal leading-tight">
           <span>Hey </span><span class="gradient-text">{{ $pseudonym }}</span><span>, here are your </span><span
             class="font-semibold">simulated team</span><span> results:</span>
         </div>
-        <div class="text-dark text-sm opacity-70" style="font-size: 1.2rem;">
+        <div class="text-dark opacity-70">
           This is a simulated view based on your chat and demo data.
         </div>
       </div>
@@ -209,12 +209,5 @@ const handleOnBackToIndividualViewClick = () => {
   100% {
     background-position: -100% 50%;
   }
-}
-.team-results-root {
-  min-height: 100vh;
-  height: 100vh;
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
 }
 </style>

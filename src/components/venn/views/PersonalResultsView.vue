@@ -59,7 +59,7 @@ onUnmounted(() => {
      <LoadingScreen v-if="loading" /> 
     <div class="flex flex-row justify-between gap-4">
       <div class="flex flex-col">
-        <div class="self-stretch justify-center text-dark text-lg font-normal leading-tight" style="font-size: 2rem;">
+        <div class="self-stretch justify-center text-dark text-2xl font-normal leading-tight">
           <span>Hey </span><span class="gradient-text">{{ $pseudonym }}</span><span>, here are your individual results:</span>
         </div>
       </div>
@@ -69,7 +69,7 @@ onUnmounted(() => {
       <div class="flex-1 action-plans-section"><ActionPlans v-if="actionPlans.length > 0" :actionPlans="actionPlans" /></div>
     </div>
     <div class="cta-section animate-in" style="background: #fff; border-radius: 20px; margin-top: 0.5rem; padding: 1rem 1.5rem; display: flex; align-items: center; justify-content: space-between; gap: 2rem; box-shadow: 0 0 0 2px #ececec;">
-      <span style="font-size: 1.6rem; font-weight: 400; color: #23221F;">
+      <span class="text-2xl">
         Flip the lens: View the <span class="gradient-text" style="font-weight: 600;">HR perspective</span>
       </span>
       <button class="rounded-full" @click="handleOnSeeHRViewClick" style="background: #FF8661; color: #23221F; font-size: 1.3rem; font-weight: 500; border-radius: 999px; padding: 0.6em 1.4em; text-decoration: none; box-shadow: 0 2px 8px rgba(44,41,80,0.08); border: 2px solid #23221F; transition: background 0.2s, color 0.2s; white-space: nowrap;">View as HR</button>

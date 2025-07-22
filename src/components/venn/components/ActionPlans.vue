@@ -14,7 +14,7 @@ const sortedActionPlans = computed(() => {
 <template>
   <div class="bg-white rounded-xl px-6 py-8">
     <div class="flex flex-col">
-      <div class="text-center justify-center text-dark font-normal leading-loose flex items-center justify-center gap-2" style="font-size: 1.5rem; font-weight: 400;">
+      <div class="text-center justify-center text-dark font-normal leading-loose flex items-center justify-center gap-2 text-2xl">
         Insights & Actions
         <span class="info-icon" tabindex="0" style="cursor: pointer; display: inline-block; position: relative;">
           <svg width="18" height="18" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" style="vertical-align: middle;"><circle cx="10" cy="10" r="9" stroke="#888" stroke-width="2" fill="#fff"/><text x="10" y="15" text-anchor="middle" font-size="12" fill="#888" font-family="Arial, sans-serif">i</text></svg>
@@ -24,16 +24,16 @@ const sortedActionPlans = computed(() => {
           </span>
         </span>
       </div>
-      <div v-for="actionPlan in sortedActionPlans" :key="actionPlan.id" class="flex flex-col items-start mb-6">
+      <div v-for="actionPlan in sortedActionPlans.slice(0,2)" :key="actionPlan.id" class="flex flex-col items-start mb-6">
         <div
-          class="mb-4 px-2 py-1 rounded-full outline outline-dark inline justify-start items-center gap-1 overflow-hidden" style="background: #F7F3F0;">
-          <div class="text-center justify-center text-dark font-normal" style="font-size: 1rem; font-weight: 400;">
+          class="mb-2 px-2 py-1 rounded-full outline outline-dark inline justify-start items-center gap-1 overflow-hidden bg-creme">
+          <div class="text-center justify-center text-dark font-normal">
             Priority {{ actionPlan.priority }}</div>
         </div>
-        <div class="mb-1 text-center text-dark font-semibold" style="font-size: 1rem; font-weight: 600;">
+        <div class="mb-1 text-center text-dark font-semibold">
           {{ actionPlan.title }}
         </div>
-        <div class="text-dark font-normal" style="font-size: 1rem;">
+        <div class="text-dark font-normal text-sm">
           {{ actionPlan.summary }}
         </div>
       </div>

@@ -28,7 +28,7 @@ const getMacroDomainColor = (macroDomain: string): string => {
 }
 </script>
 <template>
-  <div class="bg-white rounded-xl px-6 py-8" style="box-shadow: 0 0 0 2px #ececec;">
+  <div class="bg-white rounded-xl px-4 py-4" style="box-shadow: 0 0 0 2px #ececec;">
     <div class="flex flex-col">
       <div class="text-center justify-center text-dark font-normal leading-loose flex items-center justify-center gap-2" style="font-size: 1.5rem; font-weight: 400; position: relative;">
         Top Reported Issues
@@ -41,7 +41,7 @@ const getMacroDomainColor = (macroDomain: string): string => {
         </span>
       </div>
     </div>
-    <div class="flex flex-row justify-evenly px-5" style="margin-bottom: 1.5rem;">
+    <div class="flex flex-row justify-evenly px-5 mb-3">
       <div class="flex flex-row items-center gap-1">
         <div class="dots bg-orange" />
         <div class="text-center justify-center font-normal" style="font-size: 1.1rem; color: #706F6D;">
@@ -67,7 +67,7 @@ const getMacroDomainColor = (macroDomain: string): string => {
         </div>
       </div>
     </div>
-    <div class="flex flex-col gap-2 mb-5" v-for="concern in (concerns || [])" :key="concern.label">
+    <div class="flex flex-col gap-2" :class="{ 'mb-3': index !== (concerns || []).length - 1 }" v-for="(concern, index) in (concerns || [])" :key="concern.label">
       <div class="flex flex-row justify-between">
         <div class="justify-center text-dark font-normal leading-normal" style="font-size: 1rem;">
           {{ concern.label }}

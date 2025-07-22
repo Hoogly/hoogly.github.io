@@ -1,13 +1,5 @@
-<script setup lang="ts">
-const props = defineProps({
-  stickyFooter: {
-    type: Boolean,
-    default: false
-  }
-})
-</script>
 <template>
-  <div class="px-3 py-5 h-full flex flex-col container mx-auto max-w-6xl" :class="{ 'h-screen': stickyFooter }">
+  <div class="px-3 h-full flex flex-col container mx-auto max-w-6xl">
     <slot />
   </div>
 </template>

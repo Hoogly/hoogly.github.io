@@ -25,7 +25,7 @@ const getCategoryColor = (category: string) => {
 <template>
   <div class="bg-white rounded-xl px-6 py-8">
     <div class="flex flex-col">
-      <div class="text-center justify-center text-dark font-normal leading-loose flex items-center justify-center gap-2" style="font-size: 1.5rem; font-weight: 400;">
+      <div class="text-center justify-center text-dark font-normal leading-loose flex items-center justify-center gap-2 text-2xl">
         Personal Analytics
         <span class="info-icon" tabindex="0" style="cursor: pointer; display: inline-block; position: relative;">
           <svg width="18" height="18" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" style="vertical-align: middle;"><circle cx="10" cy="10" r="9" stroke="#888" stroke-width="2" fill="#fff"/><text x="10" y="15" text-anchor="middle" font-size="12" fill="#888" font-family="Arial, sans-serif">i</text></svg>
@@ -35,17 +35,17 @@ const getCategoryColor = (category: string) => {
           </span>
         </span>
       </div>
-      <div class="text-center justify-center text-dark/70 font-normal" style="font-size: 1rem; margin-bottom: 0.75rem;">
+      <div class="text-center justify-center text-dark/70 font-normal mb-2">
         Your Overall Score
       </div>
-      <div class="text-center justify-center text-dark text-5xl/18 font-normal" style="margin-bottom: 0.75rem;">
+      <div class="text-center justify-center text-dark text-5xl font-normal mb-3">
         {{ Math.ceil(averageScore * 100) }}%
       </div>
-      <div class="text-center justify-center text-dark font-normal" style="font-size: 1rem; margin-bottom: 1.25rem;">
+      <div class="text-center justify-center text-dark font-normal text-sm mb-4">
         Your motivation and growth mindset are slightly low, likely impacted by peer and manager relationships.
       </div>
-      <div class="flex flex-col gap-1 mt-6" v-for="score in scores?.scores" :key="score.categoryId">
-        <div class="justify-center text-dark font-normal" style="font-size: 1rem;">
+      <div class="flex flex-col gap-1 mt-4" v-for="score in scores?.scores" :key="score.categoryId">
+        <div class="justify-center text-dark font-normal text-sm">
           {{ score.category }}
         </div>
         <ProgressBar :color="getCategoryColor(score.category)" :progress="Math.ceil(score.score * 100)" />

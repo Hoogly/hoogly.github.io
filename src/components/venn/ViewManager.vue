@@ -32,7 +32,7 @@ function handleEndChat() {
         </div>
       </div>
     </div>
-    <div class="h-full pb-4" :class="{ 'overflow-hidden': $currentView === 'chat' }">
+    <div class="h-full pb-4 overflow-hidden">
       <ChatApp ref="chatAppRef" v-if="$currentView === 'chat'" variant="full" />
       <PersonalResultsView v-else-if="$currentView === 'personal-results'" />
       <HRDashboardView v-else-if="$currentView === 'hr-dashboard'" />

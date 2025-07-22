@@ -9,9 +9,9 @@ const actionPlan = useDocument<ActionPlan>(computed(() => getActionPlanDoc()), {
 })
 </script>
 <template>
-  <div class="bg-white rounded-xl px-6 py-8" style="box-shadow: 0 0 0 2px #ececec;">
+  <div class="bg-white rounded-xl px-4 py-4" style="box-shadow: 0 0 0 2px #ececec;">
     <div class="flex flex-col">
-      <div class="text-center justify-center text-dark font-normal leading-loose flex items-center justify-center gap-2" style="font-size: 1.5rem; font-weight: 400; position: relative;">
+      <div class="text-center justify-center text-dark font-normal leading-loose flex items-center justify-center gap-2 text-2xl">
         Action Plan
         <span class="info-icon" tabindex="0" style="cursor: pointer; display: inline-block; position: relative;">
           <svg width="18" height="18" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" style="vertical-align: middle;"><circle cx="10" cy="10" r="9" stroke="#888" stroke-width="2" fill="#fff"/><text x="10" y="15" text-anchor="middle" font-size="12" fill="#888" font-family="Arial, sans-serif">i</text></svg>
@@ -21,7 +21,7 @@ const actionPlan = useDocument<ActionPlan>(computed(() => getActionPlanDoc()), {
           </span>
         </span>
       </div>
-      <div v-for="(detail, index) in actionPlan?.details" :key="`detail-${index}`" style="font-size: 1rem;" class="mb-3">
+      <div v-for="(detail, index) in actionPlan?.details" :key="`detail-${index}`" :class="{ 'mb-2': index !== (actionPlan?.details || []).length - 1 }">
         {{ detail }}
       </div>
     </div>

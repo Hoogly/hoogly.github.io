@@ -264,7 +264,12 @@ onMounted(() => {
   // fresh id on every load
   console.log('mounted:$userId', $userId.value, props.variant)
   if ($userId.value.length === 0 || props.variant === 'mini') {
-    updateUserId(crypto.randomUUID())
+    const params = new URLSearchParams(window?.location?.search || '')
+    if (!params.has('user-id')) {
+      updateUserId(crypto.randomUUID())
+    } else {
+      updateUserId(params.get('user-id')!)
+    }
   }
   if ($pseudonym.value.length === 0) {
     const pseudonyms = useCollection(pseudonymsRef)

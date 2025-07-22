@@ -11,7 +11,7 @@ interface Props {
 const props = withDefaults(defineProps<Props>(), {
   progress: 0,
   color: 'bg-black/10',
-  height: '24px',
+  height: '16px',
   showPercentage: true
 })
 

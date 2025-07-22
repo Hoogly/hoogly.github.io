@@ -21,9 +21,9 @@ const insightsByDomain = computed(() => {
 </script>
 
 <template>
-  <div class="bg-white rounded-xl px-4 sm:px-6 py-4 sm:py-8 min-h-[800px] sm:min-h-auto" style="box-shadow: 0 0 0 2px #ececec;">
+  <div class="bg-white rounded-xl px-4 py-4 min-h-[800px] sm:min-h-auto" style="box-shadow: 0 0 0 2px #ececec;">
     <div class="flex flex-col">
-      <div class="text-center justify-center text-dark font-normal leading-loose flex items-center justify-center gap-2" style="font-size: 1.5rem; font-weight: 400; position: relative; margin-top: 0.5rem; sm:margin-top: 0.25rem;">
+      <div class="text-center justify-center text-dark font-normal leading-loose flex items-center justify-center gap-2 text-2xl">
         Employee Engagement
         <span class="info-icon" tabindex="0" style="cursor: pointer; display: inline-block; position: relative;">
           <svg width="18" height="18" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" style="vertical-align: middle;"><circle cx="10" cy="10" r="9" stroke="#888" stroke-width="2" fill="#fff"/><text x="10" y="15" text-anchor="middle" font-size="12" fill="#888" font-family="Arial, sans-serif">i</text></svg>
@@ -33,10 +33,10 @@ const insightsByDomain = computed(() => {
           </span>
         </span>
       </div>
-      <div class="flex justify-center my-4">
+      <div class="flex justify-center my-2">
         <GaugeMeter :percentage="(engagement?.averageEngagementScore || 0) * 100" />
       </div>
-      <div class="text-center justify-center text-dark font-normal mb-6" style="font-size: 3rem;">
+      <div class="text-center justify-center text-dark font-normal mb-2 text-5xl">
         {{ ((engagement?.averageEngagementScore || 0) * 100).toFixed(0) }}
       </div>
 
@@ -59,13 +59,13 @@ const insightsByDomain = computed(() => {
           </div>
           <div class="flex flex-row items-center gap-1 justify-center">
             <IconUsers />
-            <div class="text-center justify-center text-dark text-4xl" style="font-weight: 400;">
+            <div class="text-center justify-center text-dark text-4xl">
               {{ engagement?.totalEmployees || '0' }}
             </div>
           </div>
         </div>
       </div>
-      <div class="text-center justify-center text-dark font-normal leading-loose flex items-center justify-center gap-2" style="font-size: 1.5rem; font-weight: 400; position: relative; margin-top: 2rem;">
+      <div class="text-center justify-center text-dark font-normal leading-loose flex items-center justify-center gap-2 text-2xl mt-4">
         Breakdown by Domain
         <span class="info-icon" tabindex="0" style="cursor: pointer; display: inline-block; position: relative;">
           <svg width="18" height="18" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" style="vertical-align: middle;"><circle cx="10" cy="10" r="9" stroke="#888" stroke-width="2" fill="#fff"/><text x="10" y="15" text-anchor="middle" font-size="12" fill="#888" font-family="Arial, sans-serif">i</text></svg>
@@ -76,19 +76,19 @@ const insightsByDomain = computed(() => {
         </span>
       </div>
       <div class="flex flex-col gap-2">
-        <div class="justify-center font-normal" style="font-size: 1rem;">
+        <div class="justify-center font-normal text-sm">
           Company
         </div>
         <ProgressBarRounded :progress="barsAnimate ? insightsByDomain.company : 0" color="green" />
-        <div class="justify-center font-normal" style="font-size: 1rem;">
+        <div class="justify-center font-normal text-sm">
           Manager
         </div>
         <ProgressBarRounded :progress="barsAnimate ? insightsByDomain.manager : 0" color="amber" />
-        <div class="justify-center font-normal" style="font-size: 1rem;">
+        <div class="justify-center font-normal text-sm">
           Peers
         </div>
         <ProgressBarRounded :progress="barsAnimate ? insightsByDomain.peers : 0" color="red" />
-        <div class="justify-center font-normal" style="font-size: 1rem;">
+        <div class="justify-center font-normal text-sm">
           Self
         </div>
         <ProgressBarRounded :progress="barsAnimate ? insightsByDomain.self : 0" color="amber-2" />
