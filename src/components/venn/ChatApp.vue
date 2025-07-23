@@ -206,7 +206,7 @@ const normalizeClarityToProgress = (clarity: number | undefined) => {
   }
 }
 
-const handleOnShowResultsClick =  () => {
+const handleOnShowResultsClick = () => {
   inputDisabled.value = true
   showContactForm.value = true;
 }
@@ -321,7 +321,7 @@ defineExpose({
         </div>
       </div>
     </div>
-    
+
     <!-- Main content wrapper with grid layout -->
     <div class="grid grid-rows-[auto_1fr_auto] h-full">
       <div id="insights-container" v-if="variant === 'full'" class="py-2 px-1 flex flex-row justify-between gap-4">
@@ -446,18 +446,20 @@ defineExpose({
 }
 
 @media (max-width: 639px) {
-  #insights-container > div {
+  #insights-container>div {
     flex-direction: column !important;
     align-items: center !important;
     justify-content: flex-start !important;
     gap: 0.25rem !important;
   }
+
   #insights-container span {
     display: block;
     margin-bottom: 0.25rem;
     text-align: center !important;
     width: 100%;
   }
+
   .domain-icons {
     margin: 0 auto;
     display: flex;

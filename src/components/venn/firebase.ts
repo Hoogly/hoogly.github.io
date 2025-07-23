@@ -1,5 +1,6 @@
 import { initializeApp } from 'firebase/app'
 import { connectFirestoreEmulator, collection, getFirestore, CollectionReference, query, orderBy, Query, doc, DocumentReference } from 'firebase/firestore'
+import { initializeAppCheck, ReCaptchaV3Provider, getToken } from 'firebase/app-check'
 import type { AiUnderstanding, EmployeeConcerns, EmployeeEngagement, GraphScore, Message, Pseudonym, SurveyActionPlan, SurveyUser, SurveyUserData, TypingUser, WhatsGoingWell } from './types'
 import { getFunctions, connectFunctionsEmulator } from 'firebase/functions'
 import type { ActionPlan } from './types/ActionPlan'
@@ -14,6 +15,41 @@ export const firebaseApp = initializeApp({
   appId: import.meta.env.PUBLIC_FIREBASE_APP_ID,
   measurementId: import.meta.env.PUBLIC_FIREBASE_MEASUREMENT_ID
 })
+
+// Global state to track App Check readiness
+let appCheckInstance: any = null
+
+// Initialize App Check with reCAPTCHA v3
+if (typeof window !== 'undefined') {
+  const isLocalhost = location.hostname === "localhost"
+  
+  if (!isLocalhost && import.meta.env.PUBLIC_RECAPTCHA_V3_SITE_KEY) {
+    try {
+      appCheckInstance = initializeAppCheck(firebaseApp, {
+        provider: new ReCaptchaV3Provider(import.meta.env.PUBLIC_RECAPTCHA_V3_SITE_KEY),
+        isTokenAutoRefreshEnabled: true
+      })
+    } catch (error) {
+      console.error('App Check initialization failed for production:', error)
+    }
+  } else if (isLocalhost) {
+    // For localhost, use debug token
+    if (import.meta.env.PUBLIC_APP_CHECK_DEBUG_TOKEN) {
+      // @ts-ignore
+      window.FIREBASE_APPCHECK_DEBUG_TOKEN = import.meta.env.PUBLIC_APP_CHECK_DEBUG_TOKEN
+    }
+    
+    try {
+      appCheckInstance = initializeAppCheck(firebaseApp, {
+        provider: new ReCaptchaV3Provider('debug'),
+        isTokenAutoRefreshEnabled: true
+      })
+    } catch (error) {
+      console.error('App Check initialization failed for localhost:', error)
+    }
+  }
+}
+
 const db = getFirestore(firebaseApp)
 
 export const functions = getFunctions(firebaseApp, 'us-central1')
