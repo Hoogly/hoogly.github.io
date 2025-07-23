@@ -58,7 +58,8 @@ import Layout from '../layouts/Layout.astro';
   }
   .get-started-form input[type="text"],
   .get-started-form input[type="email"],
-  .get-started-form input[type="tel"] {
+  .get-started-form input[type="tel"],
+  .get-started-form select {
     width: 100%;
     max-width: 370px;
     padding: 1.1rem 1.2rem;
@@ -86,7 +87,8 @@ import Layout from '../layouts/Layout.astro';
   }
   .get-started-form input[type="text"]:focus,
   .get-started-form input[type="email"]:focus,
-  .get-started-form input[type="tel"]:focus {
+  .get-started-form input[type="tel"]:focus,
+  .get-started-form select:focus {
     box-shadow: 0 0 0 2px #b16ba6;
     border: 1px solid #b16ba6;
   }
@@ -167,9 +169,9 @@ import Layout from '../layouts/Layout.astro';
             <img src="/images/sps-logo.svg" alt="Startup People Summit Logo" style="height: 96px; width: auto; background: transparent;" />
           </div>
           
-          <div class="hero-title" style="text-align: center; margin-bottom: 1.2rem; font-family: 'Outfit', sans-serif;">
+          <div class="hero-title" style="text-align: center; margin-bottom: 1.2rem; font-family: 'Outfit', sans-serif; font-size: 3.08rem;">
             <div class="hero-title-align" style="display: block;">
-              Claim Your 20% <span class="hero-highlight animated"><span class="hero-highlight-text">Startup People Summit</span></span> Discount
+              Get your free Hoogly T-shirt<br>+ 20% discount voucher
             </div>
           </div>
           
@@ -182,6 +184,21 @@ import Layout from '../layouts/Layout.astro';
           <div class="get-started-form-container" style="margin-bottom: 3.5rem; margin-top: 2.5rem;">
             <form class="get-started-form" id="getStartedForm" autocomplete="off" novalidate>
               <div class="form-group">
+                <label for="tshirtSize">T-shirt Size *</label>
+                <select id="tshirtSize" name="tshirtSize" required style="width: 100%; max-width: 370px; padding: 1.1rem 1.2rem; border-radius: 0.7rem; border: 1px solid #e0e0e0; background: #fff; font-size: 1.15rem; margin-bottom: 0.5rem; font-family: 'Outfit', sans-serif; color: #23221F; box-shadow: 0 2px 8px 0 rgba(0,0,0,0.04); outline: none; transition: box-shadow 0.2s, border 0.2s; display: block; margin-left: auto; margin-right: auto; text-align: left;">
+                  <option value="">Select your size</option>
+                  <option value="XXS">XXS</option>
+                  <option value="XS">XS</option>
+                  <option value="S">S</option>
+                  <option value="M">M</option>
+                  <option value="L">L</option>
+                  <option value="XL">XL</option>
+                  <option value="XXL">XXL</option>
+                  <option value="3XL">3XL</option>
+                </select>
+                <div class="error-message" id="tshirtSize-error"></div>
+              </div>
+              <div class="form-group">
                 <label for="name">Name *</label>
                 <input type="text" id="name" name="name" placeholder="Jane Doe" required />
                 <div class="error-message" id="name-error"></div>
@@ -190,11 +207,6 @@ import Layout from '../layouts/Layout.astro';
                 <label for="email">Company Email *</label>
                 <input type="email" id="email" name="email" placeholder="janedoe@hoogly.com" required />
                 <div class="error-message" id="email-error"></div>
-              </div>
-              <div class="form-group">
-                <label for="company">Company Name *</label>
-                <input type="text" id="company" name="company" placeholder="Hoogly" required />
-                <div class="error-message" id="company-error"></div>
               </div>
               <div class="form-group">
                 <label for="phone">Phone Number</label>
@@ -208,9 +220,11 @@ import Layout from '../layouts/Layout.astro';
               <input type="hidden" id="referrer" name="referrer" />
               <input type="hidden" id="buttonLabel" name="buttonLabel" />
               <input type="hidden" id="pageSource" name="pageSource" />
-              <button type="submit">Claim my discount</button>
+              <button type="submit">Get my tee-shirt and discount</button>
             </form>
           </div>
+          
+
           
           <!-- Offer details below the form, outside the white box -->
           <div style="max-width: 500px; margin: 0.5rem auto 0 auto;">
@@ -248,12 +262,15 @@ import Layout from '../layouts/Layout.astro';
       if (highlight) {
         setTimeout(() => highlight.classList.add('animated'), 200);
       }
+
+
     });
 
     const form = document.getElementById('getStartedForm') as HTMLFormElement | null;
+    console.log('Form found:', form);
     if (form) {
       // Clear error messages when user starts typing
-      const inputs = form.querySelectorAll('input[type="text"], input[type="email"], input[type="tel"]');
+      const inputs = form.querySelectorAll('input[type="text"], input[type="email"], input[type="tel"], select');
       inputs.forEach(input => {
         input.addEventListener('input', function(this: HTMLInputElement) {
           const fieldName = this.name;
@@ -265,7 +282,21 @@ import Layout from '../layouts/Layout.astro';
         });
       });
 
+      // Clear error messages when user changes select
+      const selects = form.querySelectorAll('select');
+      selects.forEach(select => {
+        select.addEventListener('change', function(this: HTMLSelectElement) {
+          const fieldName = this.name;
+          const errorElement = document.getElementById(`${fieldName}-error`);
+          if (errorElement) {
+            errorElement.textContent = '';
+          }
+          this.classList.remove('error');
+        });
+      });
+
       form.addEventListener('submit', async function(e) {
+        console.log('Form submitted!');
         e.preventDefault();
         
         // Clear previous errors
@@ -279,7 +310,7 @@ import Layout from '../layouts/Layout.astro';
 
         const nameInput = document.getElementById('name') as HTMLInputElement | null;
         const emailInput = document.getElementById('email') as HTMLInputElement | null;
-        const companyInput = document.getElementById('company') as HTMLInputElement | null;
+        const tshirtSizeInput = document.getElementById('tshirtSize') as HTMLSelectElement | null;
         const phoneInput = document.getElementById('phone') as HTMLInputElement | null;
         const referrerInput = document.getElementById('referrer') as HTMLInputElement | null;
         const buttonLabelInput = document.getElementById('buttonLabel') as HTMLInputElement | null;
@@ -287,7 +318,7 @@ import Layout from '../layouts/Layout.astro';
 
         const name = nameInput ? nameInput.value.trim() : '';
         const email = emailInput ? emailInput.value.trim() : '';
-        const company = companyInput ? companyInput.value.trim() : '';
+        const tshirtSize = tshirtSizeInput ? tshirtSizeInput.value : '';
         const phone = phoneInput ? phoneInput.value.trim() : '';
         const referrer = referrerInput ? referrerInput.value : '';
         const buttonLabel = buttonLabelInput ? buttonLabelInput.value : '';
@@ -316,21 +347,24 @@ import Layout from '../layouts/Layout.astro';
           hasErrors = true;
         }
 
-        // Validate company
-        if (!company) {
-          const companyError = document.getElementById('company-error');
-          if (companyError) companyError.textContent = 'This field is mandatory';
-          if (companyInput) companyInput.classList.add('error');
+        // Validate tshirtSize
+        if (!tshirtSize) {
+          const tshirtSizeError = document.getElementById('tshirtSize-error');
+          if (tshirtSizeError) tshirtSizeError.textContent = 'This field is mandatory';
+          if (tshirtSizeInput) tshirtSizeInput.classList.add('error');
           hasErrors = true;
         }
 
-        if (hasErrors) return;
+        if (hasErrors) {
+          console.log('Form has errors, not proceeding');
+          return;
+        }
 
         if (typeof window !== 'undefined' && (window as any).posthog) {
           (window as any).posthog.capture('sps_discount_form_submitted', {
             name,
             email,
-            company,
+            tshirtSize,
             phone,
             referrer,
             buttonLabel,
@@ -338,15 +372,17 @@ import Layout from '../layouts/Layout.astro';
           });
         }
         
+        console.log('Form validation passed, showing thank you message');
         // Show thank you message
         const formContainer = document.querySelector('.get-started-form-container');
+        console.log('Form container found:', formContainer);
         if (formContainer) {
           formContainer.innerHTML = `
             <div style="text-align: center; padding: 1.5rem 0;">
               <div class="anonymous-ai-headline" style="margin-bottom: 1rem; font-size: 2rem; font-weight: normal;">You're All Set!</div>
               <div class="anonymous-ai-subheadline" style="font-size: 1.1rem; color: #444; line-height: 1.6; margin-bottom: 0;">
-                You've secured your 20% off.<br><br>
-                We'll be in touch soon to walk you through what Hoogly can do for your team.
+                You've secured your tee-shirt and 20% off voucher.<br><br>
+                We'll be in touch soon to understand where to send it.
               </div>
               <!-- <img src="/images/hi-venn.png" alt="Venn Character" style="max-width: 200px; height: auto; margin: 0 auto; display: block;" /> -->
             </div>
@@ -356,7 +392,7 @@ import Layout from '../layouts/Layout.astro';
           const calendlySection = document.createElement('div');
           calendlySection.style.cssText = 'max-width: 500px; margin: 2rem auto 0 auto;';
           calendlySection.innerHTML = `
-            <div class="anonymous-ai-headline" style="margin-bottom: 1rem; font-size: 2rem; font-weight: 400;">Skip the queue</div>
+            <div class="anonymous-ai-headline" style="margin-bottom: 1rem; font-size: 2rem; font-weight: 400;">Want to find out more about Hoogly?</div>
             <div id="calendly-inline-widget" style="min-width: 320px; height: 1100px;"></div>
           `;
           formContainer.parentNode?.insertBefore(calendlySection, formContainer.nextSibling);
