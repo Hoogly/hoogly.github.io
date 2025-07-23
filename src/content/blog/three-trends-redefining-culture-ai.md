@@ -82,4 +82,4 @@ The future belongs to organisations that honour human complexity while embracing
 
 **Let's shape it.**
 
-If you’d like to discuss this further, feel free to lock in a time via [Mohit’s calendar.](https://calendly.com/hoogly/mohit-midha) 
+If you'd like to discuss this further, feel free to [lock in a time with us.](https://calendly.com/hoogly/30min) 

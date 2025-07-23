@@ -72,4 +72,4 @@ And that's the kind of culture that lasts.
 
 Hoogly AI is designed to make coaching accessible, personalized, and scalable. By combining real-time insights with practical actions, we support every employee in growing with clarity, confidence, and impact. Coaching that meets people where they are and evolves as they do.
 
-If you'd like to discuss this further, feel free to lock in a time via [Mohit's calendar](https://calendly.com/hoogly/mohit-midha). 
+If you'd like to discuss this further, feel free to [lock in a time with us](https://calendly.com/hoogly/30min). 
