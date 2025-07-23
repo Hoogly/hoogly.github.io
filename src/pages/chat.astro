@@ -7,23 +7,7 @@ import BlankLayout from "../layouts/BlankLayout.astro";
     title="Hoogly | Reinventing Employee Engagement"
     description="AI-powered employee engagement platform that's 10X better than surveys. Transform your workplace culture with Venn AI."
 >
-    <div class="chat-container">
+    <div class="bg-creme px-4">
         <ViewManager client:only="vue" />
     </div>
 </BlankLayout>
-
-<style>
-    .chat-container {
-        background-color: var(--color-creme);
-    }
-    @media (max-width: 600px) {
-        .chat-container {
-            height: 100dvh;
-            max-height: 100dvh;
-            box-sizing: border-box;
-            overflow: hidden;
-            padding-left: 1rem;
-            padding-right: 1rem;
-        }
-    }
-</style>

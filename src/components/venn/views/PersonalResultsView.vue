@@ -64,7 +64,7 @@ onUnmounted(() => {
         </div>
       </div>
     </div>
-    <div class="flex flex-col sm:flex-row gap-3 mt-2 pb-2">
+    <div class="flex flex-col sm:flex-row gap-3 mt-2 pb-2 space-y-3 sm:space-y-0">
       <div class="flex-1 personal-analytics-section"><PersonalAnalytics v-if="scores" :scores="scores" /></div>
       <div class="flex-1 action-plans-section"><ActionPlans v-if="actionPlans.length > 0" :actionPlans="actionPlans" /></div>
     </div>
