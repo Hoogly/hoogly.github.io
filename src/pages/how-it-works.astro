@@ -1,0 +1,252 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="How It Works | Hoogly" description="From setup to culture change—in 8 simple steps" type="website">
+  <style>
+    body, html {
+      background: #faf6f4 !important;
+    }
+    
+    /* Override the global body gradient for this page */
+    body {
+      background: #faf6f4 !important;
+    }
+
+    .how-it-works-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 4rem 2rem;
+    }
+
+    .hero-section {
+      text-align: center;
+      margin-bottom: 4rem;
+    }
+
+    .hero-title {
+      font-family: 'Outfit', sans-serif;
+      font-size: 3.5rem;
+      font-weight: 600;
+      color: #23221F;
+      margin-bottom: 1rem;
+      line-height: 1.1;
+    }
+
+    .hero-title-text {
+      font-family: 'Outfit', sans-serif;
+      font-size: 3.5rem;
+      font-weight: 400;
+      color: #23221F;
+      margin-bottom: 1rem;
+      line-height: 1.1;
+    }
+
+    .hero-subtitle {
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.8rem;
+      font-weight: 400;
+      color: #23221F;
+      line-height: 1.4;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .steps-container {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+      margin-top: 3rem;
+      max-width: 560px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .step-card {
+      background: #fff;
+      border-radius: 1.5rem;
+      padding: 2rem;
+      box-shadow: 0 4px 24px 0 rgba(0,0,0,0.04);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .step-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 32px 0 rgba(0,0,0,0.08);
+    }
+
+    .step-number {
+      font-family: 'Outfit', sans-serif;
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: #FF7D61;
+      margin-bottom: 0.5rem;
+      display: block;
+    }
+
+    .step-title {
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.4rem;
+      font-weight: 400;
+      color: #23221F;
+      margin-bottom: 1rem;
+      line-height: 1.3;
+    }
+
+    .step-description {
+      font-family: 'Inter', sans-serif;
+      font-size: 1rem;
+      color: var(--color-neutral-700);
+      line-height: 1.6;
+    }
+
+    .cta-section {
+      text-align: center;
+      margin-top: 2rem;
+      padding: 2rem 0;
+    }
+
+
+
+    @media (max-width: 768px) {
+      .hero-title {
+        font-size: 2.5rem;
+      }
+      
+      .hero-subtitle {
+        font-size: 1.2rem;
+      }
+      
+      .how-it-works-container {
+        padding: 2rem 1rem;
+      }
+      
+      .steps-container {
+        max-width: 100%;
+        gap: 1.5rem;
+      }
+      
+      .step-card {
+        padding: 1.5rem;
+      }
+    }
+
+    .hero-highlight {
+      position: relative;
+      color: #23221F;
+      font-weight: 600;
+      padding: 0.08em 0.5em;
+      border-radius: 2em;
+      display: inline-block;
+      overflow: visible;
+      background: none;
+      z-index: 1;
+      vertical-align: middle;
+      font-size: inherit;
+      line-height: inherit;
+      font-family: inherit;
+      transition: color 0.2s;
+      word-wrap: break-word;
+      hyphens: auto;
+    }
+
+    .hero-highlight::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      height: 100%;
+      width: 0%;
+      background: rgba(255, 125, 97, 0.5);
+      border-radius: 2em;
+      z-index: 0;
+      transition: width 1.2s cubic-bezier(0.77, 0, 0.175, 1);
+    }
+
+    .hero-highlight.animated::before {
+      width: 100%;
+    }
+
+    .hero-highlight.animated {
+      color: #23221F;
+    }
+
+    .hero-highlight-text {
+      position: relative;
+      z-index: 1;
+    }
+  </style>
+
+  <div class="how-it-works-container">
+    <div class="hero-section">
+      <h1 class="hero-title-text">How It <span class="hero-highlight"><span class="hero-highlight-text">Works</span></span></h1>
+      <p class="hero-subtitle">From setup to culture change in 8 simple steps</p>
+    </div>
+
+    <div class="steps-container">
+      <div class="step-card">
+        <span class="step-number">1</span>
+        <h3 class="step-title">Download the app</h3>
+        <p class="step-description">Get started by downloading Hoogly on your mobile.<br><em style="color: #666;">This is where you'll manage your workspace, launch surveys, and view insights.</em></p>
+      </div>
+
+      <div class="step-card">
+        <span class="step-number">2</span>
+        <h3 class="step-title">Set up your workspace</h3>
+        <p class="step-description">Create your teams and invite your people.<br><em style="color: #666;">You can do this manually or sync everything automatically from your HR system.</em></p>
+      </div>
+
+      <div class="step-card">
+        <span class="step-number">3</span>
+        <h3 class="step-title">Launch your first AI-powered survey</h3>
+        <p class="step-description">Select what matters most. Our AI does the rest.<br><em style="color: #666;">Pick focus areas like trust or wellbeing, set a deadline, and choose a cadence: monthly for fast feedback, quarterly for seasonal check-ins, or bi-annually for deeper resets.</em></p>
+      </div>
+
+      <div class="step-card">
+        <span class="step-number">4</span>
+        <h3 class="step-title">Share the survey link</h3>
+        <p class="step-description">Send it out via Slack, Teams, or email.<br><em style="color: #666;">Employees log in with SSO for a secure, private AI conversation.</em></p>
+      </div>
+
+      <div class="step-card">
+        <span class="step-number">5</span>
+        <h3 class="step-title">Anonymous conversations with AI</h3>
+        <p class="step-description">Employees answer questions in a safe, one-on-one chat.<br><em style="color: #666;">They receive a score, a personalised action plan, and ongoing support from their AI coach.</em></p>
+      </div>
+
+      <div class="step-card">
+        <span class="step-number">6</span>
+        <h3 class="step-title">Insights for leaders and HR</h3>
+        <p class="step-description">When the survey ends, results appear automatically.<br><em style="color: #666;">Leaders see team-level trends, while HR gets organisation-wide visibility.</em></p>
+      </div>
+
+      <div class="step-card">
+        <span class="step-number">7</span>
+        <h3 class="step-title">Coaching that drives change</h3>
+        <p class="step-description">Tailored coaching flows to everyone who needs it.<br><em style="color: #666;">Employees, managers, and HR each get their own AI coach guiding their next steps.</em></p>
+      </div>
+
+      <div class="step-card">
+        <span class="step-number">8</span>
+        <h3 class="step-title">Close the loop and celebrate wins</h3>
+        <p class="step-description">Track what's improving and spotlight what's working.<br><em style="color: #666;">Quick wins are surfaced and celebrated across the company via your social feed.</em></p>
+      </div>
+    </div>
+
+    <div class="cta-section">
+      <a href="/get-started?button-label=Start Free&page-source=how-it-works" class="btn btn-accent" style="font-size: 1.25rem; padding: 1rem 2rem; border-radius: 71px;">Start Free</a>
+    </div>
+  </div>
+
+  <script>
+    // Trigger the hero highlight animation
+    document.addEventListener('DOMContentLoaded', function() {
+      const heroHighlight = document.querySelector('.hero-highlight');
+      if (heroHighlight) {
+        setTimeout(() => {
+          heroHighlight.classList.add('animated');
+        }, 500);
+      }
+    });
+  </script>
+</Layout> 
