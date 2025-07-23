@@ -29,6 +29,7 @@ const $userId = useStore(userId)
 const inputDisabled = ref(false)
 const $pseudonym = useStore(pseudonym)
 const showContactForm = ref(false)
+const redirectToResults = ref(false)
 
 // Ref for the scroll container
 const scrollContainer = ref<HTMLElement>()
@@ -139,6 +140,12 @@ watch(typingUsers, (newTypingUsers) => {
 watch($userId, () => {
   console.log('userId changed', $userId.value)
 })
+
+watch(surveyUserData, () => {
+  if (surveyUserData.value?.status === 'completed' && redirectToResults.value) {
+    updateCurrentView('personal-results')
+  }
+}, { deep: true })
 
 // Watch for clarity level changes and trigger flashing effects
 watch(aiUnderstanding, (newUnderstanding) => {
@@ -272,6 +279,7 @@ onMounted(() => {
       updateUserId(crypto.randomUUID())
     } else {
       updateUserId(params.get('user-id')!)
+      redirectToResults.value = true
     }
   }
   if ($pseudonym.value.length === 0) {
