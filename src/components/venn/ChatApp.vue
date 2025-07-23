@@ -127,9 +127,12 @@ watch(messages, (_) => {
 
 watch(typingUsers, (newTypingUsers) => {
   if (newTypingUsers?.some(user => user.userId !== $userId.value && user.isTyping)) {
+    inputDisabled.value = true
     nextTick(() => {
       scrollToBottom()
     })
+  } else {
+    inputDisabled.value = false
   }
 }, { deep: true })
 
