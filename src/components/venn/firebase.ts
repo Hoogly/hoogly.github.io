@@ -20,40 +20,19 @@ export const firebaseApp = initializeApp({
 let appCheckInstance: any = null
 
 // Initialize App Check with reCAPTCHA v3
-const initializeAppCheckAsync = async () => {
-  if (typeof window !== 'undefined') {
-    const isLocalhost = location.hostname === "localhost" || location.hostname === "127.0.0.1"
+if (typeof window !== 'undefined') {
+  const isLocalhost = location.hostname === "localhost"
+
+  if (!isLocalhost && import.meta.env.PUBLIC_RECAPTCHA_V3_SITE_KEY) {
     try {
-      // Only initialize App Check in production with a valid site key
-      if (!isLocalhost  && import.meta.env.PUBLIC_RECAPTCHA_V3_SITE_KEY) {
-        console.log('Initializing App Check for production...')
-        appCheckInstance = initializeAppCheck(firebaseApp, {
-          provider: new ReCaptchaV3Provider(import.meta.env.PUBLIC_RECAPTCHA_V3_SITE_KEY),
-          isTokenAutoRefreshEnabled: true
-        })
-        
-        // Wait for App Check to be ready
-        await getToken(appCheckInstance, true)
-        console.log('App Check initialized successfully')
-      } else {
-        console.log('Skipping App Check initialization (development/localhost environment)')
-        // For development, we skip App Check entirely
-        // Firebase will work without App Check in development
-      }
+      appCheckInstance = initializeAppCheck(firebaseApp, {
+        provider: new ReCaptchaV3Provider(import.meta.env.PUBLIC_RECAPTCHA_V3_SITE_KEY),
+        isTokenAutoRefreshEnabled: true
+      })
     } catch (error) {
-      console.warn('App Check initialization failed, continuing without App Check:', error)
-      // Set appCheckInstance to null on failure
-      appCheckInstance = null
-      // Don't throw the error - let the app continue without App Check
+      console.error('App Check initialization failed for production:', error)
     }
   }
-}
-
-// Initialize App Check but don't block the module loading
-if (typeof window !== 'undefined') {
-  initializeAppCheckAsync().catch(error => {
-    console.warn('Failed to initialize App Check, app will continue without it:', error)
-  })
 }
 
 const db = getFirestore(firebaseApp)
