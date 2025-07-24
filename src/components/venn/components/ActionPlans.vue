@@ -12,7 +12,7 @@ const sortedActionPlans = computed(() => {
 </script>
 
 <template>
-  <div class="bg-white rounded-xl px-6 py-8">
+  <div class="bg-white rounded-xl px-6 py-8 shadow-sm">
     <div class="flex flex-col">
       <div class="text-center justify-center text-dark font-normal leading-loose flex items-center justify-center gap-2 text-2xl">
         Insights & Actions

@@ -45,7 +45,7 @@ const handleOnSeeHRViewClick = () => {
 
 // Prevent scrolling when modal is active
 onMounted(() => {
-  document.body.style.overflow = 'hidden'
+  document.body.style.overflow = isDataReady.value ? 'auto' : 'hidden'
 })
 
 onUnmounted(() => {
@@ -64,11 +64,11 @@ onUnmounted(() => {
         </div>
       </div>
     </div>
-    <div class="flex flex-col sm:flex-row gap-3 mt-2 pb-2 space-y-3 sm:space-y-0">
-      <div class="flex-1 personal-analytics-section"><PersonalAnalytics v-if="scores" :scores="scores" /></div>
-      <div class="flex-1 action-plans-section"><ActionPlans v-if="actionPlans.length > 0" :actionPlans="actionPlans" /></div>
+    <div class="flex flex-col sm:flex-row gap-3 mt-2">
+      <PersonalAnalytics v-if="scores" :scores="scores" />
+      <ActionPlans v-if="actionPlans.length > 0" :actionPlans="actionPlans" />
     </div>
-    <div class="cta-section animate-in" style="background: #fff; border-radius: 20px; margin-top: 0.5rem; padding: 1rem 1.5rem; display: flex; align-items: center; justify-content: space-between; gap: 2rem; box-shadow: 0 0 0 2px #ececec;">
+    <div class="cta-section animate-in rounded-xl shadow-sm bg-white px-6 py-8 mt-3 flex flex-row justify-between items-center">
       <span class="text-2xl">
         Flip the lens: View the <span class="gradient-text" style="font-weight: 600;">HR perspective</span>
       </span>
@@ -86,13 +86,5 @@ onUnmounted(() => {
   70% { box-shadow: 0 0 0 12px rgba(255,134,97,0); }
   100% { box-shadow: 0 0 0 0 rgba(255,134,97,0); }
 }
-.personal-analytics-section,
-.action-plans-section {
-  box-shadow: 0 0 0 2px #ececec;
-  border-radius: 20px;
-  min-height: 480px;
-  background: #fff;
-  display: flex;
-  flex-direction: column;
-}
+
 </style>

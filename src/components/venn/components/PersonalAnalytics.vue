@@ -23,7 +23,7 @@ const getCategoryColor = (category: string) => {
 </script>
 
 <template>
-  <div class="bg-white rounded-xl px-6 py-8">
+  <div class="bg-white rounded-xl px-6 py-8 shadow-sm">
     <div class="flex flex-col">
       <div class="text-center justify-center text-dark font-normal leading-loose flex items-center justify-center gap-2 text-2xl">
         Personal Analytics
@@ -40,9 +40,6 @@ const getCategoryColor = (category: string) => {
       </div>
       <div class="text-center justify-center text-dark text-5xl font-normal mb-3">
         {{ Math.ceil(averageScore * 100) }}%
-      </div>
-      <div class="text-center justify-center text-dark font-normal text-sm mb-4">
-        Your motivation and growth mindset are slightly low, likely impacted by peer and manager relationships.
       </div>
       <div class="flex flex-col gap-1 mt-4" v-for="score in scores?.scores" :key="score.categoryId">
         <div class="justify-center text-dark font-normal text-sm">
