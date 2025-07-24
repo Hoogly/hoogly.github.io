@@ -88,9 +88,11 @@ import Layout from '../layouts/Layout.astro';
   .get-started-form input[type="text"]:focus,
   .get-started-form input[type="email"]:focus,
   .get-started-form input[type="tel"]:focus,
-  .get-started-form select:focus {
-    box-shadow: 0 0 0 2px #b16ba6;
-    border: 1px solid #b16ba6;
+  .get-started-form select:focus,
+  .get-started-form textarea:focus {
+    box-shadow: 0 0 0 2px #ff8661;
+    border: 1px solid #ff8661;
+    outline: none;
   }
   .get-started-form button {
     background: #ff8661;
@@ -150,6 +152,16 @@ import Layout from '../layouts/Layout.astro';
   .get-started-form-container form {
     padding-top: 2rem;
   }
+  .get-started-form select {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><polygon points="6,9 12,15 18,9" fill="black"/></svg>');
+    background-repeat: no-repeat;
+    background-position: calc(100% - 10px) center;
+    background-size: 24px 24px;
+    padding-right: 2.5rem;
+  }
   @media (max-width: 600px) {
     .get-started-form-container {
       padding: 1.5rem 0.5rem 2.5rem 0.5rem;
@@ -185,7 +197,7 @@ import Layout from '../layouts/Layout.astro';
             <form class="get-started-form" id="getStartedForm" autocomplete="off" novalidate>
               <div class="form-group">
                 <label for="tshirtSize">T-shirt Size *</label>
-                <select id="tshirtSize" name="tshirtSize" required style="width: 100%; max-width: 370px; padding: 1.1rem 1.2rem; border-radius: 0.7rem; border: 1px solid #e0e0e0; background: #fff; font-size: 1.15rem; margin-bottom: 0.5rem; font-family: 'Outfit', sans-serif; color: #23221F; box-shadow: 0 2px 8px 0 rgba(0,0,0,0.04); outline: none; transition: box-shadow 0.2s, border 0.2s; display: block; margin-left: auto; margin-right: auto; text-align: left;">
+                <select id="tshirtSize" name="tshirtSize" required>
                   <option value="">Select your size</option>
                   <option value="S">S</option>
                   <option value="M">M</option>
