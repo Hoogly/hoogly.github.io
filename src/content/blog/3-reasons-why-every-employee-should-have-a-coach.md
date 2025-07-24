@@ -7,12 +7,6 @@ tags: ["Coaching", "Employee Development", "Leadership"]
 image: "/images/blog/article-images/3-reasons-why-coaching.png"
 ---
 
-# 3 Reasons Why Every Employee Should Have a Coach
-
-## Scaling coaching beyond the C-suite to unlock performance, leadership, and retention.
-
-**Excerpt:** Coaching has long been seen as a luxury reserved for high performers or senior leaders. But in today's complex world of work marked by constant change, hybrid teams, and rising disengagement, the case for scaling coaching across the entire organisation has never been stronger.
-
 Coaching has long been seen as a luxury reserved for high performers or senior leaders. But in today's complex world of work marked by constant change, hybrid teams, and rising disengagement, the case for scaling coaching across the entire organisation has never been stronger.
 
 Whether you're rethinking how your teams grow, lead, or stay engaged, coaching is a strategic tool for building clarity, capability, and connection at every level.
