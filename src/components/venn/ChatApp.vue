@@ -233,7 +233,7 @@ const handleContactFormSubmit = async (data: { name: string, email: string, comp
   try {
     const newMessage = {
       authorId: $userId.value!,
-      text: 'Thank you so much, I am ready to see my results.',
+      text: 'I am done. End the survey.',
       type: 'user',
       createdAt: Timestamp.now()
     }
