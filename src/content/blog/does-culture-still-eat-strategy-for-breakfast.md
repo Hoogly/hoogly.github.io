@@ -3,7 +3,7 @@ title: "Does Culture Still Eat Strategy for Breakfast? A Reflection in the Age o
 description: "As AI reshapes work, culture still eats strategy. Only now, strategy’s hungrier. It’s the dance between the two that really matters."
 publishDate: 2025-07-24
 author: "Mohit Midha"
-tags: ["Strategy", "FutureOfWork", "Leadership"]
+tags: ["Strategy", "FutureOfWork", "Leadership", "AI", "Organizational Change", "Workplace Culture"]
 image: /images/blog/article-images/does-culture-still-eat-strategy-for-breakfast.png
 ---
 
