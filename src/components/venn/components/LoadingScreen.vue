@@ -73,7 +73,7 @@ onBeforeUnmount(() => {
     <transition name="fade">
       <div v-if="showMessage" key="message-{{currentMessageIndex}}" class="text-center justify-center text-xl sm:text-5xl font-medium leading-snug gradient-text-animated staged-loading-message">
         {{ messages[currentMessageIndex] }}
-      </div>
+    </div>
     </transition>
   </div>
 </template>
