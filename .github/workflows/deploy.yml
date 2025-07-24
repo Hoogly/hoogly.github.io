@@ -27,6 +27,7 @@ jobs:
           PUBLIC_FIREBASE_MESSAGING_SENDER_ID: ${{ secrets.PUBLIC_FIREBASE_MESSAGING_SENDER_ID }}
           PUBLIC_FIREBASE_APP_ID: ${{ secrets.PUBLIC_FIREBASE_APP_ID }}
           PUBLIC_FIREBASE_MEASUREMENT_ID: ${{ secrets.PUBLIC_FIREBASE_MEASUREMENT_ID }}
+          PUBLIC_RECAPTCHA_V3_SITE_KEY: ${{ secrets.PUBLIC_RECAPTCHA_V3_SITE_KEY }}
         with:
           path: . # The root location of your Astro project inside the repository. (optional)
           node-version: 22 # The specific version of Node that should be used to build your site. Defaults to 20. (optional)
