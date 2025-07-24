@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import './assets/main.css'
 import { navigate } from "astro:transitions/client"
-import { pseudonym, updateCurrentView, updatePseudonym, updateUserId, userId } from '@venn/store'
+import { pseudonym, updateCurrentView, updatePseudonym, updateUserId, userId, appCheckInstance } from '@venn/store'
 import { computed, ref, nextTick, watch, onMounted, defineExpose } from 'vue'
 import { useCollection, useDocument } from 'vuefire'
 import { getAiUnderstandingDoc, getMessagesQuery, getMessagesRef, getSurveyUserDataDoc, getTypingUsersQuery, pseudonymsRef } from '@venn/firebase'
@@ -52,20 +52,20 @@ const flashingStates = ref({
 
 // Real-time listener for messages with ordering
 const messages = useCollection(
-  computed(() => $userId.value ? getMessagesQuery($userId.value) : null), {
+  computed(() => $userId.value && appCheckInstance.value ? getMessagesQuery($userId.value) : null), {
   ssrKey: 'messages',
   wait: true,
 }
 )
 
 const typingUsers = useCollection(
-  computed(() => $userId.value ? getTypingUsersQuery($userId.value) : null), {
+  computed(() => $userId.value && appCheckInstance.value ? getTypingUsersQuery($userId.value) : null), {
   ssrKey: 'typing-users',
 }
 )
 
 const aiUnderstanding = useDocument(
-  computed(() => $userId.value ? getAiUnderstandingDoc($userId.value) : null), {
+  computed(() => $userId.value && appCheckInstance.value ? getAiUnderstandingDoc($userId.value) : null), {
   ssrKey: 'ai-understanding',
 }
 )
@@ -106,8 +106,15 @@ const isTyping = computed(() => {
 })
 
 const surveyUserData = useDocument(
-  computed(() => $userId.value ? getSurveyUserDataDoc($userId.value) : null), {
+  computed(() => $userId.value && appCheckInstance.value ? getSurveyUserDataDoc($userId.value) : null), {
   ssrKey: 'survey-user-data',
+}
+)
+
+// Pseudonyms collection - only active when App Check is ready
+const pseudonyms = useCollection(
+  computed(() => appCheckInstance.value ? pseudonymsRef : null), {
+  ssrKey: 'pseudonyms',
 }
 )
 
@@ -282,18 +289,17 @@ onMounted(() => {
       redirectToResults.value = true
     }
   }
+  
+  // Set up pseudonym if not already set
   if ($pseudonym.value.length === 0) {
-    const pseudonyms = useCollection(pseudonymsRef)
-
-    // Wait for pseudonyms to load, then randomly select one
+    // Watch for pseudonyms to load, then randomly select one
     const unwatchPseudonyms = watch(pseudonyms, (pseudonymsList) => {
       if (pseudonymsList && pseudonymsList.length > 0) {
         const randomIndex = Math.floor(Math.random() * pseudonymsList.length)
         const selectedPseudonym = pseudonymsList[randomIndex]
         updatePseudonym(selectedPseudonym.pseudonym)
-        console.log('Assigned pseudonym:', selectedPseudonym.pseudonym)
+        unwatchPseudonyms() // Stop watching once we've assigned a pseudonym
       }
-      unwatchPseudonyms() // Stop watching once we've assigned a pseudonym
     })
   }
 

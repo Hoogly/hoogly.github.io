@@ -4,6 +4,7 @@ import { initializeAppCheck, ReCaptchaV3Provider, getToken } from 'firebase/app-
 import type { AiUnderstanding, EmployeeConcerns, EmployeeEngagement, GraphScore, Message, Pseudonym, SurveyActionPlan, SurveyUser, SurveyUserData, TypingUser, WhatsGoingWell } from './types'
 import { getFunctions, connectFunctionsEmulator } from 'firebase/functions'
 import type { ActionPlan } from './types/ActionPlan'
+import { appCheckInstance } from './store'
 
 export const firebaseApp = initializeApp({
   apiKey: import.meta.env.PUBLIC_FIREBASE_API_KEY,
@@ -16,26 +17,43 @@ export const firebaseApp = initializeApp({
   measurementId: import.meta.env.PUBLIC_FIREBASE_MEASUREMENT_ID
 })
 
-// Global state to track App Check readiness
-let appCheckInstance: any = null
-
 // Initialize App Check with reCAPTCHA v3
-if (typeof window !== 'undefined') {
-  const isLocalhost = location.hostname === "localhost"
+const initializeAppCheckInstance = async () => {
+  const isLocalhost = typeof window !== 'undefined' && window.location.hostname === "localhost"
+  
+  if (isLocalhost) {
+    // Enable debug mode for localhost
+    // @ts-ignore
+    window.FIREBASE_APPCHECK_DEBUG_TOKEN = true
+  }
 
-  if (!isLocalhost && import.meta.env.PUBLIC_RECAPTCHA_V3_SITE_KEY) {
+  if (import.meta.env.PUBLIC_RECAPTCHA_V3_SITE_KEY) {
     try {
-      appCheckInstance = initializeAppCheck(firebaseApp, {
+      const { initializeAppCheck, ReCaptchaV3Provider } = await import('firebase/app-check')
+      const instance = initializeAppCheck(firebaseApp, {
         provider: new ReCaptchaV3Provider(import.meta.env.PUBLIC_RECAPTCHA_V3_SITE_KEY),
         isTokenAutoRefreshEnabled: true
       })
+      
+      // Update the store with the instance
+      appCheckInstance.value = instance
+      return instance
     } catch (error) {
-      console.error('App Check initialization failed for production:', error)
+      console.error('App Check initialization failed:', error)
+      return null
     }
   }
+  
+  return null
 }
 
-const db = getFirestore(firebaseApp)
+// Initialize App Check when the module loads
+if (typeof window !== 'undefined') {
+  initializeAppCheckInstance()
+}
+
+
+const db = getFirestore()
 
 export const functions = getFunctions(firebaseApp, 'us-central1')
 
