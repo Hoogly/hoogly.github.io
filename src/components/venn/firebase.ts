@@ -37,6 +37,7 @@ const initializeAppCheckInstance = async () => {
       
       // Update the store with the instance
       appCheckInstance.value = instance
+      console.log('App Check initialized:', instance)
       return instance
     } catch (error) {
       console.error('App Check initialization failed:', error)
