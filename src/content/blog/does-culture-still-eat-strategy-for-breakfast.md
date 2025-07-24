@@ -3,7 +3,7 @@ title: "Does Culture Still Eat Strategy for Breakfast? A Reflection in the Age o
 description: "As AI reshapes work, culture still eats strategy. Only now, strategy’s hungrier. It’s the dance between the two that really matters."
 publishDate: 2025-07-24
 author: "Mohit Midha"
-tags: ["Strategy", "FutureOfWork", "Leadership", "AI", "Organizational Change", "Workplace Culture"]
+tags: ["Strategy", "FutureOfWork", "Leadership", "AI", "Organisational Change", "Workplace Culture"]
 image: /images/blog/article-images/does-culture-still-eat-strategy-for-breakfast.png
 ---
 
@@ -83,9 +83,4 @@ Yes. Always.
 However, the companies that win won’t be the ones with the loudest strategy or the softest culture.  They’ll be the ones that understand the rhythm. The timing. The trust it takes to lead and follow at once.
 They’ll know that sometimes strategy steps forward. Sometimes culture takes the lead.
 And when both move in sync — that's when real transformation begins.
-At Hoogly, we’d love to help you find your rhythm.
-
-[Lock in a time with us.](https://calendly.com/hoogly/30min?from=slack) You’re one step away from seeing something different.
-
-On the call, you’ll try the tool yourself.
-See how anonymous AI chats uncover what surveys miss, and help you build a high-performing culture. 
+At Hoogly, we’d love to help you find your rhythm. [Lock in a time with us.](https://calendly.com/hoogly/30min?from=slack) 
