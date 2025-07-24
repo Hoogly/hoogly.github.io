@@ -28,7 +28,7 @@ const getMacroDomainColor = (macroDomain: string): string => {
 }
 </script>
 <template>
-  <div class="bg-white rounded-xl px-4 py-4" style="box-shadow: 0 0 0 2px #ececec;">
+  <div class="bg-white rounded-xl px-4 py-4 shadow-sm">
     <div class="flex flex-col">
       <div class="text-center justify-center text-dark font-normal leading-loose flex items-center justify-center gap-2" style="font-size: 1.5rem; font-weight: 400; position: relative;">
         Top Reported Issues

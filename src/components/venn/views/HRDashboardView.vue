@@ -53,7 +53,7 @@ onMounted(() => {
 
 // Prevent scrolling when modal is active
 onMounted(() => {
-  document.body.style.overflow = 'hidden'
+  document.body.style.overflow = isDataReady.value ? 'auto' : 'hidden'
 })
 
 onUnmounted(() => {
@@ -119,7 +119,7 @@ const handleOnBackToIndividualViewClick = () => {
       <div class="flex flex-col gap-3 dashboard-section dashboard-section-wide">
         <TopIssues :concerns="employeeConcerns?.concerns" class="animate-in" :bars-animate="barsAnimate" />
         <ActionPlan class="dashboard-section animate-in" />
-        <div class="cta-section animate-in" style="background: #fff; border-radius: 20px; margin-top: 0; padding: 1.5rem 2rem; display: flex; align-items: center; justify-content: space-between; gap: 2rem; box-shadow: 0 0 0 2px #ececec;">
+        <div class="cta-section animate-in rounded-xl shadow-sm bg-white px-6 py-8 flex flex-row justify-between items-center">
           <span style="font-size: 1.6rem; font-weight: 500; color: #23221F;">
             Try it for <span class="gradient-text" style="font-weight: 600;">FREE</span> with your team today.
           </span>
