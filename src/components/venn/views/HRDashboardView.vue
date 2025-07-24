@@ -36,7 +36,6 @@ const isDataReady = computed(() => {
 watch(isDataReady, (ready) => {
   if (ready) {
     loading.value = false
-    document.body.style.overflow = 'auto'
   }
 }, { immediate: true })
 
@@ -45,19 +44,8 @@ onMounted(() => {
   setTimeout(() => {
     if (isDataReady.value) {
       loading.value = false
-      document.body.style.overflow = 'auto'
     }
   }, 2000)
-})
-
-
-// Prevent scrolling when modal is active
-onMounted(() => {
-  document.body.style.overflow = isDataReady.value ? 'auto' : 'hidden'
-})
-
-onUnmounted(() => {
-  document.body.style.overflow = 'auto'
 })
 
 const barsAnimate = ref(false);
@@ -114,11 +102,11 @@ const handleOnBackToIndividualViewClick = () => {
       </div>
       <button class="rounded-full px-3 py-1 outline m-1" @click="handleOnBackToIndividualViewClick" style="padding: 0.4em 1.1em; font-size: 1rem;">Back to Individual View</button>
     </div>
-    <div class="flex flex-col sm:flex-row gap-3 mt-4 pb-8 flex-shrink-0">
-      <EmployeeEngagement :engagement="employeeEngagement" class="dashboard-section animate-in" :bars-animate="barsAnimate" />
-      <div class="flex flex-col gap-3 dashboard-section dashboard-section-wide">
+    <div class="flex flex-col sm:flex-row gap-3 mt-4 pb-8 flex-shrink-0 scrollbar-hidden">
+      <EmployeeEngagement :engagement="employeeEngagement" class="animate-in sm:flex-[1_1_0] scrollbar-hidden" :bars-animate="barsAnimate" />
+      <div class="flex flex-col gap-3 sm:flex-[2_1_0] scrollbar-hidden">
         <TopIssues :concerns="employeeConcerns?.concerns" class="animate-in" :bars-animate="barsAnimate" />
-        <ActionPlan class="dashboard-section animate-in" />
+        <ActionPlan class="animate-in sm:flex-[1_1_0]" />
         <div class="cta-section animate-in rounded-xl shadow-sm bg-white px-6 py-8 flex flex-row justify-between items-center">
           <span style="font-size: 1.6rem; font-weight: 500; color: #23221F;">
             Try it for <span class="gradient-text" style="font-weight: 600;">FREE</span> with your team today.
@@ -132,13 +120,6 @@ const handleOnBackToIndividualViewClick = () => {
 </template>
 
 <style scoped>
-.dashboard-section {
-  flex: 1 1 0%;
-  min-width: 0;
-}
-.dashboard-section-wide {
-  flex: 2 1 0%;
-}
 .animate-in {
   opacity: 0;
   transform: translateY(40px);

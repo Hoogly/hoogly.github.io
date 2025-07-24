@@ -35,23 +35,12 @@ const isDataReady = computed(() => {
 watch(isDataReady, (ready) => {
   if (ready) {
     loading.value = false
-    document.body.style.overflow = 'auto'
   }
 }, { immediate: true })
 
 const handleOnSeeHRViewClick = () => {
   updateCurrentView('hr-dashboard')
 }
-
-// Prevent scrolling when modal is active
-onMounted(() => {
-  document.body.style.overflow = isDataReady.value ? 'auto' : 'hidden'
-})
-
-onUnmounted(() => {
-  document.body.style.overflow = 'auto'
-})
-
 </script>
 
 <template>
