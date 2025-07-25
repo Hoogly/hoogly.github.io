@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import type { GraphScore } from '@venn/types'
-import { computed, ref, onMounted, nextTick } from 'vue'
+import { computed } from 'vue'
 import ProgressBar from './ProgressBar.vue'
 
 const props = defineProps<{
@@ -20,27 +20,10 @@ const getCategoryColor = (category: string) => {
   if (categoryLower.includes('company')) return 'orange'
   return 'orange' // default fallback
 }
-
-// Animation logic
-const fadeIn = ref(false)
-const animatedProgress = ref<number[]>([])
-
-onMounted(async () => {
-  fadeIn.value = true
-  animatedProgress.value = props.scores?.scores?.map(() => 0) || []
-  await nextTick()
-  setTimeout(() => {
-    props.scores?.scores?.forEach((score, i) => {
-      setTimeout(() => {
-        animatedProgress.value[i] = Math.ceil(score.score * 100)
-      }, i * 180) // stagger bars
-    })
-  }, 350) // delay after fade-in
-})
 </script>
 
 <template>
-  <div class="bg-white rounded-xl px-6 py-8 shadow-sm personal-fade-in" :class="{ visible: fadeIn }">
+  <div class="bg-white rounded-xl px-6 py-8 shadow-sm">
     <div class="flex flex-col">
       <div class="text-center justify-center text-dark font-normal leading-loose flex items-center justify-center gap-2 text-2xl">
         Personal Analytics
@@ -58,26 +41,17 @@ onMounted(async () => {
       <div class="text-center justify-center text-dark text-5xl font-normal mb-3">
         {{ Math.ceil(averageScore * 100) }}%
       </div>
-      <div class="flex flex-col gap-1 mt-4" v-for="(score, i) in scores?.scores" :key="score.categoryId">
+      <div class="flex flex-col gap-1 mt-4" v-for="score in scores?.scores" :key="score.categoryId">
         <div class="justify-center text-dark font-normal text-sm">
           {{ score.category }}
         </div>
-        <ProgressBar :color="getCategoryColor(score.category)" :progress="animatedProgress[i]" />
+        <ProgressBar :color="getCategoryColor(score.category)" :progress="Math.ceil(score.score * 100)" />
       </div>
     </div>
   </div>
 </template>
 
 <style scoped>
-.personal-fade-in {
-  opacity: 0;
-  transform: translateY(32px);
-  transition: opacity 0.8s cubic-bezier(0.77,0,0.18,1), transform 0.8s cubic-bezier(0.77,0,0.18,1);
-}
-.personal-fade-in.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
 .info-icon:focus .tooltip-text,
 .info-icon:hover .tooltip-text {
   display: block !important;
