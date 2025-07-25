@@ -1,8 +1,9 @@
 ---
-import Layout from '../layouts/Layout.astro';
+import Layout from "../layouts/Layout.astro";
+import ChatApp from "@venn/ChatApp.vue";
 ---
 
-<Layout 
+<Layout
 	title="Hoogly | Reinventing Employee Engagement"
 	description="AI-powered employee engagement platform that's 10X better than surveys. Transform your workplace culture with Venn AI."
 	type="website"
@@ -12,123 +13,42 @@ import Layout from '../layouts/Layout.astro';
 		<div class="container">
 			<div class="hero-content">
 				<div class="hero-text">
-					<div class="hero-title" style="text-align: center; margin-bottom: 0.2em; font-family: 'Outfit', sans-serif;">
+					<div
+						class="hero-title"
+						style="text-align: center; margin-bottom: 0.2em; font-family: 'Outfit', sans-serif; font-size: 4rem;"
+					>
 						<div class="hero-title-align" style="display: block;">
-							<span class="hero-title-text">Tired of </span>
-							<span class="meh-underline-container" style="display: inline-block; vertical-align: baseline;">
-								<span class="hero-highlight"><span class="hero-highlight-text meh-text">Meh</span></span>
-							</span>
-							<span class="hero-title-text"> survey results?<br>So are your employees.</span>
+							<span class="hero-title-text">Tired of </span><span
+								class="hero-highlight"
+								><span class="hero-highlight-text">meh</span
+								></span><br class="mobile-break" style="display:none;"><span class="hero-title-text">
+								survey results?</span
+							>
+						</div>
+						<div class="hero-title-second-line" style="font-size: 4rem;">
+							So are your employees.
 						</div>
 					</div>
-					<div class="hero-subtitle" style="font-family: 'Outfit', sans-serif; font-weight: 400; font-size: 1.8rem; margin-bottom: 20.5m; margin-top: 1em; padding-top: 1em; line-height:30text-align: center;">
-						Because surveys don't spark change, conversations do.
+					<div
+						class="hero-subtitle"
+						style="font-family: 'Outfit', sans-serif; font-weight: 400; text-align: center; margin-bottom: 2.5em; padding-top: 1rem; line-height: 30px;"
+					>
+						Spark change with the AI conversations your team <em>wished</em> someone would have.
 					</div>
-					<style>
-						.flip-text {
-							transition: transform 0.6s cubic-bezier(0.4, 0.2, 0.2, 1), opacity 0.6s cubic-bezier(0.4, 0.2, 0.2, 1);
-							transform-origin: left center;
-							will-change: transform, opacity;
-						}
-						.flip-out {
-							transform: rotateX(90deg);
-							opacity: 0;
-						}
-						.flip-in {
-							transform: rotateX(-90deg);
-							opacity: 0;
-						}
-						.flip-active {
-							transform: rotateX(0deg);
-							opacity: 1;
-						}
-						.scroll-text {
-							will-change: transform;
-							min-width: 100%;
-						}
-						@keyframes underline-draw {
-							from { stroke-dasharray: 400; stroke-dashoffset: 400; opacity: 0; }
-							30% { opacity: 1; }
-							to { stroke-dasharray: 400; stroke-dashoffset: 0; opacity: 1; }
-						}
-						.hand-underline-img {
-							animation: underline-draw 1.2s cubic-bezier(0.77,0,0.18,1) forwards;
-							background: red !important;
-							border: 3px solid blue !important;
-							opacity: 1 !important;
-							visibility: visible !important;
-							display: block !important;
-							z-index:9999;
-						}
-						.hero-title {
-							font-size:60!important;
-							font-weight:400					}
-						.hero-title-text {
-							font-size:6!important;
-							font-weight: 400 !important;
-						}
-						.hand-underline-text {
-							font-weight: 600;
-						}
-						.meh-text {
-							font-weight: 600 !important;
-						}
-					</style>
-					<script>
-						const phrases = [
-							'Anonymous Conversations',
-							'Actionable Insights',
-							'Leadership Coaching'
-						];
-						const rotatingTextScroll = document.getElementById('rotating-text-scroll');
-						let phraseIndex = 0;
-
-						function scrollToNextPhrase() {
-							// Animate up
-							rotatingTextScroll.style.transform = 'translateY(-1.2em)';
-							setTimeout(() => {
-								// Instantly move down and change text
-								rotatingTextScroll.style.transition = 'none';
-								rotatingTextScroll.style.transform = 'translateY(1.2em)';
-								phraseIndex = (phraseIndex + 1) % phrases.length;
-								rotatingTextScroll.textContent = phrases[phraseIndex];
-								// Animate up to 0
-								setTimeout(() => {
-									rotatingTextScroll.style.transition = 'transform 0.6s cubic-bezier(0.4, 0.2, 0.2, 1)';
-									rotatingTextScroll.style.transform = 'translateY(0)';
-								}, 20);
-							}, 600);
-						}
-
-						// Initialize
-						setInterval(scrollToNextPhrase, 2200);
-					</script>
-					<div style="display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap;">
-						<a
-							href="https://calendly.com/hoogly/30min"
-							target="_blank"
-							rel="noopener noreferrer"
-							class="btn book-demo-btn"
-							style="font-size: 1.5rem; padding: 1rem 2.5rem; border-radius: 71px; background: white; color: #23221F; border: 1.5px solid #e0e0e0; transition: border-color 0.2s, color 0.2s, background 0.2s;"
-						>
-							Book a Demo
-						</a>
-						<a
-							href="/get-started?button-label=Start Free&page-source=homepage"
-							class="btn btn-accent"
-							style="font-size: 1.5rem; padding: 1rem 3.5rem; border-radius: 71px;"
-						>
-							Start Free
-						</a>
+					<ChatApp client:only="vue" variant="mini" />
+					<div style="height: 18vh; min-height: 120px; max-height: 180px; width: 100%;"></div>
 				</div>
-					<div class="hero-section-awards" style="display: flex; justify-content: center; gap: 2rem; margin: 4rem 0 0 0; align-items: center;">
-						<img src="/images/Home/Award 1.png" alt="Award 1" style="height: 120px; width: auto;" />
-						<img src="/images/Home/Award 2.png" alt="Award 2" style="height: 120px; width: auto;" />
-					</div>
+				<div
+					class="hero-flip-image"
+					style="display: flex; justify-content: center; align-items: flex-end; margin-top: 4.5rem;"
+				>
+					<img
+						id="heroFlipImage"
+						src="/images/new%20dash.png"
+						alt="Dashboard Hero"
+						style="max-width: 100%; height: auto; width: 1162.33px; min-width: 0; border-radius: 18px; box-shadow: 0 8px 32px rgba(44, 41, 80, 0.12);"
+					/>
 				</div>
-			</div>
-			<div class="hero-flip-image" style="display: flex; justify-content: center; align-items: flex-end; margin-top: 4.5rem;">
-				<img id="heroFlipImage" src="/images/new%20dash.png" alt="Dashboard Hero" style="max-width: 100%; height: auto; width: 1162.33px; min-width: 0; border-radius: 18px; box-shadow: 0 8px 32px rgba(44, 41, 80, 0.12);" />
 			</div>
 		</div>
 	</section>
@@ -137,11 +57,31 @@ import Layout from '../layouts/Layout.astro';
 	<section class="anonymous-ai-section section-gradient">
 		<div class="container">
 			<div class="anonymous-ai-content">
-				<img src="/images/Section 1.png" alt="Section 1" class="anonymous-ai-image animate-in" style="width: 420px; max-width: 100%;" />
+				<img
+					src="/images/Section 1.png"
+					alt="Section 1"
+					class="anonymous-ai-image animate-in"
+					style="width: 420px; max-width: 100%;"
+				/>
 				<div class="anonymous-ai-text">
-					<h2 class="anonymous-ai-headline" style="font-family: 'Outfit', sans-serif; font-weight: 400;"><span class="hero-highlight"><span class="hero-highlight-text">Anonymous</span></span><span> 1:1 conversations that uncover what surveys miss</span></h2>
-					<p class="anonymous-ai-subheadline" style="font-family: 'Outfit', sans-serif; font-weight: 400;">
-						Surveys give you answers people think they're supposed to say. Venn, our AI culture coach, chats privately with every employee—so they can speak freely and be truly heard. You don't just collect data. You unlock trust.
+					<h2
+						class="anonymous-ai-headline"
+						style="font-family: 'Outfit', sans-serif; font-weight: 400;"
+					>
+						<span class="hero-highlight"
+							><span class="hero-highlight-text">Anonymous</span
+							></span
+						><span>
+							1:1 conversations that uncover what surveys miss</span>
+					</h2>
+					<p
+						class="anonymous-ai-subheadline"
+						style="font-family: 'Outfit', sans-serif; font-weight: 400;"
+					>
+						Surveys give you answers people think they're supposed
+						to say. Venn, our AI culture coach, chats privately with
+						every employee—so they can speak freely and be truly
+						heard. You don't just collect data. You unlock trust.
 					</p>
 				</div>
 			</div>
@@ -153,27 +93,72 @@ import Layout from '../layouts/Layout.astro';
 		<div class="container">
 			<div class="anonymous-ai-content">
 				<div class="anonymous-ai-text">
-					<h2 class="anonymous-ai-headline" style="font-family: 'Outfit', sans-serif; font-weight: 400;"><span class="hero-highlight"><span class="hero-highlight-text">Emotions are messy.</span></span> We make sense of them — at scale.</h2>
-					<p class="anonymous-ai-subheadline" style="font-family: 'Outfit', sans-serif; font-weight: 400;">
-						Venn doesn't just listen—he reads between the lines. By analysing tone, patterns, and emerging themes across every conversation, our AI surfaces what's really going on beneath the surface. So instead of noise, you get clarity on what to act on now—and what to watch next.
+					<h2
+						class="anonymous-ai-headline"
+						style="font-family: 'Outfit', sans-serif; font-weight: 400;"
+					>
+						<span class="hero-highlight"
+							><span class="hero-highlight-text"
+								>Emotions are messy.</span
+							></span
+						> We make sense of them — at scale.
+					</h2>
+					<p
+						class="anonymous-ai-subheadline"
+						style="font-family: 'Outfit', sans-serif; font-weight: 400;"
+					>
+						Venn doesn't just listen—he reads between the lines. By
+						analysing tone, patterns, and emerging themes across
+						every conversation, our AI surfaces what's really going
+						on beneath the surface. So instead of noise, you get
+						clarity on what to act on now—and what to watch next.
 					</p>
 				</div>
-				<img src="/images/Section 2.png" alt="Section 2" class="anonymous-ai-image animate-in" style="width: 420px; max-width: 100%;" />
+				<img
+					src="/images/Section 2.png"
+					alt="Section 2"
+					class="anonymous-ai-image animate-in"
+					style="width: 420px; max-width: 100%;"
+				/>
 			</div>
 		</div>
 	</section>
 
 	<!-- Spot the Risks Section -->
-	<section class="anonymous-ai-section anonymous-ai-section-tight section-gradient">
+	<section
+		class="anonymous-ai-section anonymous-ai-section-tight section-gradient"
+	>
 		<div class="container">
 			<div class="anonymous-ai-content">
-				<img src="/images/Section 3.png" alt="Section 3" class="anonymous-ai-image animate-in" style="width: 420px; max-width: 100%;" />
+				<img
+					src="/images/Section 3.png"
+					alt="Section 3"
+					class="anonymous-ai-image animate-in"
+					style="width: 420px; max-width: 100%;"
+				/>
 				<div class="anonymous-ai-text">
-					<h2 class="anonymous-ai-headline" style="font-family: 'Outfit', sans-serif; font-weight: 400;">From insight to impact — with <span class="hero-highlight"><span class="hero-highlight-text">AI at your side</span></span></h2>
-					<p class="anonymous-ai-subheadline" style="font-family: 'Outfit', sans-serif; font-weight: 400;">
-						Venn turns honest feedback into clear action plans, like reducing meeting overload or rolling out a mentoring program. Then, our AI agents help you follow through: nudging the right people, syncing calendars, and tracking progress.
-						<br><br>
-						Because culture change doesn't happen in a spreadsheet. It needs action.
+					<h2
+						class="anonymous-ai-headline"
+						style="font-family: 'Outfit', sans-serif; font-weight: 400;"
+					>
+						From insight to impact — with <span
+							class="hero-highlight"
+							><span class="hero-highlight-text"
+								>AI at your side</span
+							></span>
+					</h2>
+					<p
+						class="anonymous-ai-subheadline"
+						style="font-family: 'Outfit', sans-serif; font-weight: 400;"
+					>
+						Venn turns honest feedback into clear action plans, like
+						reducing meeting overload or rolling out a mentoring
+						program. Then, our AI agents help you follow through:
+						nudging the right people, syncing calendars, and
+						tracking progress.
+						<br /><br />
+						Because culture change doesn't happen in a spreadsheet. It
+						needs action.
 					</p>
 				</div>
 			</div>
@@ -185,23 +170,97 @@ import Layout from '../layouts/Layout.astro';
 		<div class="container">
 			<div class="anonymous-ai-content">
 				<div class="anonymous-ai-text">
-					<h2 class="anonymous-ai-headline" style="font-family: 'Outfit', sans-serif; font-weight: 400;">Celebrate progress, build <span class="hero-highlight"><span class="hero-highlight-text">trust</span></span></h2>
-					<p class="anonymous-ai-subheadline" style="font-family: 'Outfit', sans-serif; font-weight: 400;">
-						In the past, employees gave feedback, but never saw what changed. With Hoogly, every positive action—big or small—is surfaced and celebrated across the team. It closes the loop, shows that leaders care, and encourages even more open, constructive feedback next time.
+					<h2
+						class="anonymous-ai-headline"
+						style="font-family: 'Outfit', sans-serif; font-weight: 400;"
+					>
+						Celebrate progress, build <span class="hero-highlight"
+							><span class="hero-highlight-text">trust</span
+							></span>
+					</h2>
+					<p
+						class="anonymous-ai-subheadline"
+						style="font-family: 'Outfit', sans-serif; font-weight: 400;"
+					>
+						In the past, employees gave feedback, but never saw what
+						changed. With Hoogly, every positive action—big or
+						small—is surfaced and celebrated across the team. It
+						closes the loop, shows that leaders care, and encourages
+						even more open, constructive feedback next time.
 					</p>
 				</div>
-				<img src="/images/Section 4.png" alt="Section 4" class="anonymous-ai-image animate-in" style="width: 420px; max-width: 100%;" />
+				<img
+					src="/images/Section 4.png"
+					alt="Section 4"
+					class="anonymous-ai-image animate-in"
+					style="width: 420px; max-width: 100%;"
+				/>
 			</div>
-			
 			<div class="integrations-subsection" style="margin-top: 4rem;">
-				<h3 class="integrations-title animate-in" style="text-align: center; margin-bottom: 2.5rem; color: #2d2a58; font-weight: 400; font-family: 'Outfit', sans-serif; font-size: var(--font-size-lg);">Integrates with:</h3>
-				<div class="integration-logos animate-in" id="integratesWithCarousel" style="display: flex; justify-content: center; align-items: center; gap: 4rem; flex-wrap: wrap;">
+				<h3
+					class="integrations-title animate-in"
+					style="text-align: center; margin-bottom: 2.5rem; color: #2d2a58; font-weight: 400; font-family: 'Outfit', sans-serif; font-size: var(--font-size-lg);"
+				>
+					Integrates with:
+				</h3>
+				<div
+					class="integration-logos animate-in"
+					id="integratesWithCarousel"
+					style="display: flex; justify-content: center; align-items: center; gap: 4rem; flex-wrap: wrap;"
+				>
 					<div class="logos-track" style="display: flex; gap: 4rem;">
-						<img src="/images/slack-logo.png" alt="Slack" style="height: 35px; filter: grayscale(1) opacity(0.7);" />
-						<img src="/images/teams-logo.png" alt="Microsoft Teams" style="height: 44px; width: auto; filter: grayscale(1) opacity(0.7);" />
-						<img src="/images/employment-hero.png" alt="Employment Hero" style="height: 24px; width: auto; margin-top: 6px; filter: grayscale(1) opacity(0.7);" />
-						<img src="/images/bamboohr-logo.png" alt="BambooHR" style="height: 35px; filter: grayscale(1) opacity(0.7);" />
-						<img src="/images/workday-logo.png" alt="Workday" style="height: 35px; filter: grayscale(1) opacity(0.7);" />
+						<img
+							src="/images/slack-logo.png"
+							alt="Slack"
+							style="height: 35px; filter: grayscale(1) opacity(0.7);"
+						/>
+						<img
+							src="/images/teams-logo.png"
+							alt="Microsoft Teams"
+							style="height: 44px; width: auto; filter: grayscale(1) opacity(0.7);"
+						/>
+						<img
+							src="/images/employment-hero.png"
+							alt="Employment Hero"
+							style="height: 24px; width: auto; margin-top: 6px; filter: grayscale(1) opacity(0.7);"
+						/>
+						<img
+							src="/images/bamboohr-logo.png"
+							alt="BambooHR"
+							style="height: 35px; filter: grayscale(1) opacity(0.7);"
+						/>
+						<img
+							src="/images/workday-logo.png"
+							alt="Workday"
+							style="height: 35px; filter: grayscale(1) opacity(0.7);"
+						/>
+					</div>
+					<div class="logos-track" style="display: flex; gap: 4rem;">
+						<img
+							src="/images/slack-logo.png"
+							alt="Slack"
+							style="height: 35px; filter: grayscale(1) opacity(0.7);"
+						/>
+						<img
+							src="/images/teams-logo.png"
+							alt="Microsoft Teams"
+							style="height: 44px; width: auto; filter: grayscale(1) opacity(0.7);"
+						/>
+						<img
+							src="/images/employment-hero.png"
+							alt="Employment Hero"
+							style="height: 24px; width: auto; margin-top: 6px; filter: grayscale(1) opacity(0.7);"
+						/>
+						<img
+							src="/images/bamboohr-logo.png"
+							alt="BambooHR"
+							style="height: 35px; filter: grayscale(1) opacity(0.7);"
+						/>
+						<img
+							src="/images/workday-logo.png"
+							alt="Workday"
+							style="height: 35px; filter: grayscale(1) opacity(0.7);"
+						/>
 					</div>
 				</div>
 			</div>
@@ -209,45 +268,114 @@ import Layout from '../layouts/Layout.astro';
 	</section>
 
 	<!-- Testimonial Section -->
-	<section class="testimonial-section" style="background: #FCF4E3; border-radius: 2rem; max-width: 1200px; margin: 4rem auto 9rem auto; display: flex; flex-direction: column; align-items: center; overflow: hidden; box-shadow: 0 2px 16px rgba(44,41,80,0.04); position: relative;">
-		<div class="testimonial-content" style="width: 100%; padding: 3.5rem 2rem 3rem 2rem; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center;">
-			<p style="font-family: 'Outfit', serif; font-size: 1.65rem; color: #23221F; margin-bottom: 2.5rem; line-height: 1.3; max-width: 600px; font-style: italic;">“Hoogly has shown building a company culture in a remote environment is not just possible but an opportunity to fix some of the flaws of the traditional workplace model.”</p>
-			<div style="margin-top: auto; display: flex; flex-direction: column; align-items: center; gap: 0.5rem;">
-				<div style="font-family: 'Outfit', sans-serif; color: #23221F; font-size: 1.1rem; font-weight: 500;">Sérgio Godinho</div>
-				<div style="font-family: 'Outfit', sans-serif; color: #888; font-size: 1.1rem;">Lisbon, Portugal</div>
+	<section
+		class="testimonial-section"
+		style="background: #FCF4E3; border-radius: 2rem; max-width: 1200px; margin: 4rem auto 9rem auto; display: flex; flex-direction: column; align-items: center; overflow: hidden; box-shadow: 0 2px 16px rgba(44,41,80,0.04); position: relative;"
+	>
+		<div
+			class="testimonial-content"
+			style="width: 100%; padding: 3.5rem 2rem 3rem 2rem; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center;"
+		>
+			<p
+				style="font-family: 'Outfit', serif; font-size: 1.65rem; color: #23221F; margin-bottom: 2.5rem; line-height: 1.3; max-width: 600px; font-style: italic;"
+			>
+				“Hoogly has shown building a company culture in a remote
+				environment is not just possible but an opportunity to fix some
+				of the flaws of the traditional workplace model.”
+			</p>
+			<div
+				style="margin-top: auto; display: flex; flex-direction: column; align-items: center; gap: 0.5rem;"
+			>
+				<div
+					style="font-family: 'Outfit', sans-serif; color: #23221F; font-size: 1.1rem; font-weight: 500;"
+				>
+					Sérgio Godinho
+				</div>
+				<div
+					style="font-family: 'Outfit', sans-serif; color: #888; font-size: 1.1rem;"
+				>
+					Lisbon, Portugal
+				</div>
 			</div>
 		</div>
 	</section>
 
 	<!-- Built by the People Behind the People Section -->
-	<section class="built-by-section" style="background: #E8E6FF; padding: var(--space-20) 0; width: 100vw; margin-left: calc(-50vw + 50%);">
+	<section
+		class="built-by-section"
+		style="background: #E8E6FF; padding: var(--space-20) 0; width: 100vw; margin-left: calc(-50vw + 50%);"
+	>
 		<div class="container">
 			<div style="text-align: center; max-width: 800px; margin: 0 auto;">
-				<h2 style="font-family: 'Outfit', sans-serif; font-weight: 600; font-size: var(--font-size-4xl); margin-bottom: 3rem; color: #23221F; text-align: center;">
+				<h2
+					style="font-family: 'Outfit', sans-serif; font-weight: 600; font-size: var(--font-size-4xl); margin-bottom: 3rem; color: #23221F; text-align: center;"
+				>
 					Built by people from some of the most iconic workplaces
 				</h2>
-				<p style="font-size: var(--font-size-xl); color: #23221F; margin-bottom: 2.5rem; font-family: 'Outfit', sans-serif; font-weight: 400; line-height: 1.6;">
-					We're ex-TikTok, Airbnb, Meta, Mangahigh, hipages, and we've seen what makes culture click (and what breaks it).
+				<p
+					style="font-size: var(--font-size-xl); color: #23221F; margin-bottom: 2.5rem; font-family: 'Outfit', sans-serif; font-weight: 400; line-height: 1.6;"
+				>
+					We're ex-TikTok, Airbnb, Meta, Mangahigh, hipages, and we've
+					seen what makes culture click (and what breaks it).
 				</p>
-				<div class="integration-logos animate-in" id="builtByPeopleCarousel" style="display: flex; justify-content: center; align-items: center; gap: 2rem; flex-wrap: nowrap; margin-bottom: 2.5rem;">
+				<div
+					class="integration-logos animate-in"
+					id="builtByPeopleCarousel"
+					style="display: flex; justify-content: center; align-items: center; gap: 2rem; flex-wrap: nowrap; margin-bottom: 2.5rem;"
+				>
 					<div class="logos-track" style="display: flex; gap: 2rem;">
-						<img src="/images/Home/tiktok_PNG22.png" alt="TikTok" style="height: 72px; width: auto; vertical-align: middle; filter: brightness(0) saturate(100%) invert(10%) sepia(7%) saturate(7500%) hue-rotate(205deg) brightness(90%) contrast(110%);" />
-						<img src="/images/Home/airbnb-logo.png" alt="Airbnb" style="height: 72px; width: auto; vertical-align: middle; filter: brightness(0) saturate(100%) invert(10%) sepia(7%) saturate(7500%) hue-rotate(205deg) brightness(90%) contrast(110%);" />
-						<img src="/images/Home/Meta-Logo.png" alt="Meta" style="height: 72px; width: auto; vertical-align: middle; filter: brightness(0) saturate(100%) invert(10%) sepia(7%) saturate(7500%) hue-rotate(205deg) brightness(90%) contrast(110%);" />
-						<img src="/images/Home/mangahighlogo.png" alt="Mangahigh" style="height: 120px; width: auto; vertical-align: middle; margin-top: -24px; filter: brightness(0) saturate(100%) invert(10%) sepia(7%) saturate(7500%) hue-rotate(205deg) brightness(90%) contrast(110%);" />
-						<img src="/images/Home/Hipages_logo.png" alt="hipages" style="height: 72px; width: auto; vertical-align: middle; filter: brightness(0) saturate(100%) invert(10%) sepia(7%) saturate(7500%) hue-rotate(205deg) brightness(90%) contrast(110%);" />
+						<img
+							src="/images/Home/tiktok_PNG22.png"
+							alt="TikTok"
+							style="height: 72px; width: auto; vertical-align: middle; filter: brightness(0) saturate(100%) invert(10%) sepia(7%) saturate(7500%) hue-rotate(205deg) brightness(90%) contrast(110%);"
+						/>
+						<img
+							src="/images/Home/airbnb-logo.png"
+							alt="Airbnb"
+							style="height: 72px; width: auto; vertical-align: middle; filter: brightness(0) saturate(100%) invert(10%) sepia(7%) saturate(7500%) hue-rotate(205deg) brightness(90%) contrast(110%);"
+						/>
+						<img
+							src="/images/Home/Meta-Logo.png"
+							alt="Meta"
+							style="height: 72px; width: auto; vertical-align: middle; filter: brightness(0) saturate(100%) invert(10%) sepia(7%) saturate(7500%) hue-rotate(205deg) brightness(90%) contrast(110%);"
+						/>
+						<img
+							src="/images/Home/mangahighlogo.png"
+							alt="Mangahigh"
+							style="height: 120px; width: auto; vertical-align: middle; margin-top: -24px; filter: brightness(0) saturate(100%) invert(10%) sepia(7%) saturate(7500%) hue-rotate(205deg) brightness(90%) contrast(110%);"
+						/>
+						<img
+							src="/images/Home/Hipages_logo.png"
+							alt="hipages"
+							style="height: 72px; width: auto; vertical-align: middle; filter: brightness(0) saturate(100%) invert(10%) sepia(7%) saturate(7500%) hue-rotate(205deg) brightness(90%) contrast(110%);"
+						/>
 					</div>
 				</div>
-				<a href="/about" class="btn btn-accent" style="font-size: 1.35rem; padding: 1.25rem 2.75rem; border-radius: 71px; margin-bottom: 2rem; display: inline-block;">Meet the team</a>
+				<a
+					href="/about"
+					class="btn btn-accent"
+					style="font-size: 1.35rem; padding: 1.25rem 2.75rem; border-radius: 71px; margin-bottom: 2rem; display: inline-block;"
+					>Meet the team</a
+				>
 			</div>
 		</div>
 	</section>
 
 	<!-- FAQ Section -->
-	<section class="faq-section" style="background: white; padding: var(--space-20) 0; width: 100vw; margin-left: calc(-50vw + 50%);">
+	<section
+		class="faq-section"
+		style="background: white; padding: var(--space-20) 0; width: 100vw; margin-left: calc(-50vw + 50%);"
+	>
 		<div class="container" style="max-width: 800px; margin: 0 auto;">
-			<div class="faq-section" style="display: flex; flex-direction: column; align-items: center; width: 100%;">
-				<h2 style="font-size: 2rem; font-weight: 600; color: #23221F; margin-bottom: 2rem; margin-top: 0;">Frequently Asked Questions</h2>
+			<div
+				class="faq-section"
+				style="display: flex; flex-direction: column; align-items: center; width: 100%;"
+			>
+				<h2
+					style="font-size: 2rem; font-weight: 600; color: #23221F; margin-bottom: 2rem; margin-top: 0;"
+				>
+					Frequently Asked Questions
+				</h2>
 				<style>
 					.faq-section {
 						width: 100%;
@@ -272,8 +400,8 @@ import Layout from '../layouts/Layout.astro';
 					.faq-summary {
 						font-size: 1.35rem;
 						font-weight: 500;
-						font-family: 'Outfit', sans-serif;
-						color: #23221F;
+						font-family: "Outfit", sans-serif;
+						color: #23221f;
 						cursor: pointer;
 						outline: none;
 						display: flex;
@@ -300,7 +428,7 @@ import Layout from '../layouts/Layout.astro';
 						gap: 6px;
 						flex-shrink: 0;
 						border-radius: 64px;
-						background: #D0CCFF;
+						background: #d0ccff;
 						backdrop-filter: blur(25px);
 						transition: background 0.2s;
 					}
@@ -327,7 +455,9 @@ import Layout from '../layouts/Layout.astro';
 						max-height: 0;
 						opacity: 0;
 						overflow: hidden;
-						transition: max-height 0.4s ease, opacity 0.4s ease;
+						transition:
+							max-height 0.4s ease,
+							opacity 0.4s ease;
 					}
 					.faq-item.open .faq-answer {
 						opacity: 1;
@@ -348,24 +478,43 @@ import Layout from '../layouts/Layout.astro';
 							height: 80px !important;
 						}
 					}
-					.book-demo-btn:hover, .book-demo-btn:focus {
+					.book-demo-btn:hover,
+					.book-demo-btn:focus {
 						outline: none;
 						border-width: 1.5px;
-						border-color: #23221F !important;
+						border-color: #23221f !important;
 						background: white !important;
-						color: #23221F !important;
+						color: #23221f !important;
 					}
 				</style>
 				<div class="faq-item">
 					<div class="faq-summary">
 						<span>How do I get support from Hoogly?</span>
 						<span class="faq-arrow">
-							<svg width="26" height="26" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" style="display: block; margin: auto;">
-								<path d="M7 8l3 3 3-3" stroke="#23221F" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+							<svg
+								width="26"
+								height="26"
+								viewBox="0 0 20 20"
+								fill="none"
+								xmlns="http://www.w3.org/2000/svg"
+								style="display: block; margin: auto;"
+							>
+								<path
+									d="M7 8l3 3 3-3"
+									stroke="#23221F"
+									stroke-width="1.4"
+									stroke-linecap="round"
+									stroke-linejoin="round"></path>
 							</svg>
 						</span>
 					</div>
-					<div class="faq-answer">You can email us at <a href='mailto:support@hoogly.com' style='color: #6c63ff; text-decoration: underline;'>support@hoogly.com</a> and our team will get back to you as soon as possible.</div>
+					<div class="faq-answer">
+						You can email us at <a
+							href="mailto:support@hoogly.com"
+							style="color: #6c63ff; text-decoration: underline;"
+							>support@hoogly.com</a
+						> and our team will get back to you as soon as possible.
+					</div>
 				</div>
 				<div class="faq-item">
 					<div class="faq-summary">
@@ -453,203 +602,399 @@ import Layout from '../layouts/Layout.astro';
 	</section>
 
 	<!-- Final CTA Section -->
-	<section class="final-cta-section" style="background: #F7F3F0; text-align: center; padding: var(--space-20) 0; width: 100vw; margin-left: calc(-50vw + 50%);">
+	<section
+		class="final-cta-section"
+		style="background: #F7F3F0; text-align: center; padding: var(--space-20) 0; width: 100vw; margin-left: calc(-50vw + 50%);"
+	>
 		<div class="container">
-			<h2 class="final-cta-title" style="font-family: 'Outfit', sans-serif; font-weight: 400; font-size: var(--font-size-4xl); margin-bottom: 1rem;"><span class="hero-highlight"><span class="hero-highlight-text">Build Culture,</span></span> don't just measure it.‍</h2>
-			<p style="font-size: var(--font-size-xl); color: var(--color-neutral-600); max-width: 600px; margin: 0 auto var(--space-8) auto; font-family: 'Outfit', sans-serif; font-weight: 400;">
-				Run an AI experiment. Try Hoogly alongside your next survey.<br>
-				Once you experience this new way of listening, the old way won't cut it anymore.
+			<h2
+				class="final-cta-title"
+				style="font-family: 'Outfit', sans-serif; font-weight: 400; font-size: var(--font-size-4xl); margin-bottom: 1rem;"
+			>
+				<span class="hero-highlight"
+					><span class="hero-highlight-text">Build Culture,</span
+					></span
+				> don't just measure it.‍
+			</h2>
+			<p
+				style="font-size: var(--font-size-xl); color: var(--color-neutral-600); max-width: 600px; margin: 0 auto var(--space-8) auto; font-family: 'Outfit', sans-serif; font-weight: 400;"
+			>
+				Run an AI experiment. Try Hoogly alongside your next survey.<br
+				/>
+				Once you experience this new way of listening, the old way won't
+				cut it anymore.
 			</p>
-			<a href="/get-started?button-label=Start Free&page-source=final-cta" class="btn btn-accent" style="font-size: 1.25rem; padding: 1rem 2rem; border-radius: 71px;">Start Free</a>
+			<a
+				href="/get-started?button-label=Start Free&page-source=final-cta"
+				class="btn btn-accent"
+				style="font-size: 1.25rem; padding: 1rem 2rem; border-radius: 71px;"
+				>Start Free</a
+			>
 		</div>
 	</section>
 </Layout>
 
 <style>
-.animate-in {
-  opacity: 0;
-  transform: translateY(40px);
-  transition: opacity 1.2s cubic-bezier(0.77,0,0.175,1), transform 1.2s cubic-bezier(0.77,0,0.175,1);
-}
-.animate-in.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-.book-demo-btn:hover, .book-demo-btn:focus {
-  outline: none;
-  border-width: 1.5px;
-  border-color: #23221F !important;
-  background: white !important;
-  color: #23221F !important;
-}
-/* --- CLEANUP: Remove carousel/mobile-specific logo styles --- */
-.integration-logos,
-#integratesWithCarousel,
-#builtByPeopleCarousel {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 2rem;
-  flex-wrap: wrap;
-  overflow: visible;
-  margin: 0;
-  padding: 0;
-}
-.logos-track {
-  display: flex;
-  gap: 2rem;
-  flex-wrap: wrap;
-  min-width: 0;
-}
-.integration-logos img,
-#integratesWithCarousel img,
-#builtByPeopleCarousel img {
-  display: inline-block;
-  height: auto;
-  max-height: 120px;
-  width: auto;
-  opacity: 1;
-  visibility: visible;
-}
-/* Remove all min-width, overflow-x, flex-wrap: nowrap, and duplicate hiding rules for logo carousels */
-@media (max-width: 900px) {
-  .testimonial-section {
-    flex-direction: column !important;
-    border-radius: 1.5rem !important;
-    max-width: 98vw !important;
-  }
-  .testimonial-content {
-    padding: 2.5rem 1.5rem 2rem 1.5rem !important;
-  }
-  .testimonial-image-wrapper {
-    justify-content: center !important;
-    margin: 0 auto 2rem auto !important;
-  }
-  .testimonial-image-wrapper img {
-    width: 260px !important;
-    height: 260px !important;
-    margin: 0 !important;
-  }
-}
-@media (max-width: 768px) {
-  .logos-track:only-child,
-  .logos-track {
-    justify-content: center;
-    width: 100%;
-  }
-  .logos-track img:only-child {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-  }
-}
-@keyframes fadeSlideInUnderline {
-  from { opacity: 0; transform: translateY(16px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-.fade-in-underline {
-  opacity: 0;
-  animation: fadeSlideInUnderline 1s cubic-bezier(0.77,0,0.18,1) 0.2s forwards;
-}
-.debug-underline {
-  background: #ffe4e1 !important;
-  border: 2px solid red !important;
-  min-height: 24px;
-}
+	.animate-in {
+		opacity: 0;
+		transform: translateY(40px);
+		transition:
+			opacity 1.2s cubic-bezier(0.77, 0, 0.175, 1),
+			transform 1.2s cubic-bezier(0.77, 0, 0.175, 1);
+	}
+	.animate-in.visible {
+		opacity: 1;
+		transform: translateY(0);
+	}
+	.book-demo-btn:hover,
+	.book-demo-btn:focus {
+		outline: none;
+		border-width: 1.5px;
+		border-color: #23221f !important;
+		background: white !important;
+		color: #23221f !important;
+	}
+	@media (max-width: 768px) {
+		.integration-logos {
+			overflow-x: auto !important;
+			flex-wrap: nowrap !important;
+			gap: 1.5rem !important;
+			-webkit-overflow-scrolling: touch;
+			scroll-behavior: smooth;
+			padding-bottom: 0.5rem;
+			position: relative;
+			margin-left: -1.25rem;
+			margin-right: -1.25rem;
+		}
+		.integration-logos::-webkit-scrollbar {
+			display: none;
+		}
+		.integration-logos img {
+			flex: 0 0 auto;
+			max-width: none;
+		}
+		.integration-logos .logos-track {
+			display: flex !important;
+			flex-wrap: nowrap !important;
+			min-width: 200vw;
+		}
+		.integration-logos::after {
+			content: none;
+		}
+	}
+	@media (max-width: 768px) {
+		#integratesWithCarousel {
+			overflow-x: auto !important;
+			flex-wrap: nowrap !important;
+			gap: 1.5rem !important;
+			-webkit-overflow-scrolling: touch;
+			scroll-behavior: smooth;
+			padding-bottom: 0.5rem;
+			position: relative;
+			margin-left: -1.25rem;
+			margin-right: -1.25rem;
+		}
+		#integratesWithCarousel::-webkit-scrollbar {
+			display: none;
+		}
+		#integratesWithCarousel img {
+			flex: 0 0 auto;
+			max-width: none;
+		}
+		#integratesWithCarousel .logos-track {
+			display: flex !important;
+			flex-wrap: nowrap !important;
+			min-width: 200vw;
+		}
+	}
+	@media (min-width: 769px) {
+		#integratesWithCarousel {
+			flex-wrap: wrap !important;
+		}
+		#integratesWithCarousel .logos-track:last-child {
+			display: none !important;
+		}
+	}
+	@media (max-width: 768px) {
+		#builtByPeopleCarousel {
+			overflow-x: auto !important;
+			flex-wrap: nowrap !important;
+			gap: 1.5rem !important;
+			-webkit-overflow-scrolling: touch;
+			scroll-behavior: smooth;
+			padding-bottom: 0.5rem;
+			position: relative;
+			margin-left: -1.25rem;
+			margin-right: -1.25rem;
+		}
+		#builtByPeopleCarousel::-webkit-scrollbar {
+			display: none;
+		}
+		#builtByPeopleCarousel img {
+			flex: 0 0 auto;
+			max-width: none;
+		}
+		.logos-track:not(:first-child) {
+			display: none !important;
+		}
+	}
+	@media (max-width: 900px) {
+		.testimonial-section {
+			flex-direction: column !important;
+			border-radius: 1.5rem !important;
+			max-width: 98vw !important;
+		}
+		.testimonial-content {
+			padding: 2.5rem 1.5rem 2rem 1.5rem !important;
+		}
+		.testimonial-image-wrapper {
+			justify-content: center !important;
+			margin: 0 auto 2rem auto !important;
+		}
+		.testimonial-image-wrapper img {
+			width: 260px !important;
+			height: 260px !important;
+			margin: 0 !important;
+		}
+	}
+	@media (max-width: 600px) {
+		.hero-title {
+			font-size: 2.4rem !important;
+		}
+		.hero-title-second-line {
+			font-size: 2.4rem !important;
+		}
+		.mobile-break {
+			display: inline;
+		}
+	}
+	@media (min-width: 601px) {
+		.mobile-break {
+			display: none;
+		}
+	}
 </style>
 
 <script>
 	document.addEventListener("astro:page-load", function () {
-  const highlight = document.querySelector('.hero-highlight');
-  if (highlight) {
-    setTimeout(() => highlight.classList.add('animated'), 200);
-  }
+		const highlight = document.querySelector(".hero-highlight");
+		if (highlight) {
+			setTimeout(() => highlight.classList.add("animated"), 200);
+		}
 
-  // Universal observer: animate every .hero-highlight on scroll into view
-  document.querySelectorAll('.hero-highlight').forEach(highlight => {
-    const observer = new window.IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          highlight.classList.add('animated');
-          observer.disconnect();
-        }
-      });
-    }, { threshold: 0.3 });
-    observer.observe(highlight);
-  });
+		// Universal observer: animate every .hero-highlight on scroll into view
+		document.querySelectorAll(".hero-highlight").forEach((highlight) => {
+			const observer = new window.IntersectionObserver(
+				(entries) => {
+					entries.forEach((entry) => {
+						if (entry.isIntersecting) {
+							highlight.classList.add("animated");
+							observer.disconnect();
+						}
+					});
+				},
+				{ threshold: 0.3 },
+			);
+			observer.observe(highlight);
+		});
 
-  // Scroll-synced flip and fade animation with early start
-  const heroFlipImage = document.getElementById('heroFlipImage');
-  const offset = 100; // px before top of viewport
-  function handleFlipScroll() {
-    if (!heroFlipImage) return;
-    const rect = heroFlipImage.getBoundingClientRect();
-    const imageHeight = heroFlipImage.offsetHeight;
-    if (rect.top >= offset) {
-      heroFlipImage.style.transform = 'rotateX(0deg) scale(0.95)';
-      heroFlipImage.style.opacity = '1';
-    } else if (rect.top <= offset - imageHeight) {
-      heroFlipImage.style.transform = 'rotateX(90deg) scale(0.95)';
-      heroFlipImage.style.opacity = '0';
-    } else {
-      // Interpolate angle and opacity from 0deg/1 to 90deg/0 as the image scrolls out
-      const ratio = Math.min(1, Math.max(0, (offset - rect.top) / imageHeight));
-      const angle = ratio * 90;
-      const opacity = 1 - ratio;
-      heroFlipImage.style.transform = `rotateX(${angle}deg) scale(0.95)`;
-      heroFlipImage.style.opacity = opacity.toString();
-    }
-  }
-  window.addEventListener('scroll', handleFlipScroll);
-  handleFlipScroll(); // Run once on load
+		// Scroll-synced flip and fade animation with early start
+		const heroFlipImage = document.getElementById("heroFlipImage");
+		const offset = 100; // px before top of viewport
+		function handleFlipScroll() {
+			if (!heroFlipImage) return;
+			const rect = heroFlipImage.getBoundingClientRect();
+			const imageHeight = heroFlipImage.offsetHeight;
+			if (rect.top >= offset) {
+				heroFlipImage.style.transform = "rotateX(0deg) scale(0.95)";
+				heroFlipImage.style.opacity = "1";
+			} else if (rect.top <= offset - imageHeight) {
+				heroFlipImage.style.transform = "rotateX(90deg) scale(0.95)";
+				heroFlipImage.style.opacity = "0";
+			} else {
+				// Interpolate angle and opacity from 0deg/1 to 90deg/0 as the image scrolls out
+				const ratio = Math.min(
+					1,
+					Math.max(0, (offset - rect.top) / imageHeight),
+				);
+				const angle = ratio * 90;
+				const opacity = 1 - ratio;
+				heroFlipImage.style.transform = `rotateX(${angle}deg) scale(0.95)`;
+				heroFlipImage.style.opacity = opacity.toString();
+			}
+		}
+		window.addEventListener("scroll", handleFlipScroll);
+		handleFlipScroll(); // Run once on load
 
-  // Animate all section images in on viewport
-  document.querySelectorAll('.anonymous-ai-image.animate-in').forEach(img => {
-    const observer = new window.IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          img.classList.add('visible');
-          observer.disconnect();
-        }
-      });
-    }, { threshold: 0.3 });
-    observer.observe(img);
-  });
+		// Animate all section images in on viewport
+		document
+			.querySelectorAll(".anonymous-ai-image.animate-in")
+			.forEach((img) => {
+				const observer = new window.IntersectionObserver(
+					(entries) => {
+						entries.forEach((entry) => {
+							if (entry.isIntersecting) {
+								img.classList.add("visible");
+								observer.disconnect();
+							}
+						});
+					},
+					{ threshold: 0.3 },
+				);
+				observer.observe(img);
+			});
 
-  // Animate all section images and integrations in on viewport
-  document.querySelectorAll('.anonymous-ai-image.animate-in, .integrations-title.animate-in, .integration-logos.animate-in').forEach(el => {
-    const observer = new window.IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          el.classList.add('visible');
-          observer.disconnect();
-        }
-      });
-    }, { threshold: 0.3 });
-    observer.observe(el);
-  });
+		// Animate all section images and integrations in on viewport
+		document
+			.querySelectorAll(
+				".anonymous-ai-image.animate-in, .integrations-title.animate-in, .integration-logos.animate-in",
+			)
+			.forEach((el) => {
+				const observer = new window.IntersectionObserver(
+					(entries) => {
+						entries.forEach((entry) => {
+							if (entry.isIntersecting) {
+								el.classList.add("visible");
+								observer.disconnect();
+							}
+						});
+					},
+					{ threshold: 0.3 },
+				);
+				observer.observe(el);
+			});
 
-  document.querySelectorAll('.faq-item').forEach(item => {
-    const summary = item.querySelector('.faq-summary');
-    const answer = item.querySelector('.faq-answer');
-    
-    summary.addEventListener('click', function() {
-      const isOpen = item.classList.contains('open');
-      
-      // Close all other FAQ items
-      document.querySelectorAll('.faq-item').forEach(otherItem => {
-        if (otherItem !== item) {
-          otherItem.classList.remove('open');
-        }
-      });
-      
-      // Toggle current item
-      if (isOpen) {
-        item.classList.remove('open');
-      } else {
-        item.classList.add('open');
-      }
-    });
-  });
-});
+		document.querySelectorAll(".faq-item").forEach((item) => {
+			const summary = item.querySelector(".faq-summary");
+			const answer = item.querySelector(".faq-answer");
+
+			summary?.addEventListener("click", function () {
+				const isOpen = item.classList.contains("open");
+
+				// Close all other FAQ items
+				document.querySelectorAll(".faq-item").forEach((otherItem) => {
+					if (otherItem !== item) {
+						otherItem.classList.remove("open");
+					}
+				});
+
+				// Toggle current item
+				if (isOpen) {
+					item.classList.remove("open");
+				} else {
+					item.classList.add("open");
+				}
+			});
+		});
+
+		// Helper to reset and auto-scroll when carousel enters viewport
+		function setupAutoScrollOnView(
+			carouselId: string,
+			autoScrollFn: () => void,
+		) {
+			const carousel = document.getElementById(carouselId);
+			if (!carousel || window.innerWidth > 768) return;
+			let observer = new window.IntersectionObserver(
+				(entries) => {
+					entries.forEach((entry) => {
+						if (entry.isIntersecting) {
+							carousel.scrollLeft = 0;
+							autoScrollFn();
+						}
+					});
+				},
+				{ threshold: 0.3 },
+			);
+			observer.observe(carousel);
+		}
+
+		// Infinite auto-scroll for integrates-with carousel on mobile
+		function infiniteAutoScrollIntegratesWith() {
+			const carousel = document.getElementById("integratesWithCarousel");
+			if (!carousel || window.innerWidth > 768) return;
+			let speed = 1.2;
+			let interval = setInterval(() => {
+				if (carousel.scrollLeft >= carousel.scrollWidth / 2) {
+					carousel.scrollLeft = 0;
+				}
+				carousel.scrollLeft += speed;
+			}, 16); // ~60fps
+			// Optional: Pause on touch
+			carousel.addEventListener(
+				"touchstart",
+				() => clearInterval(interval),
+				{ passive: true },
+			);
+			carousel.addEventListener(
+				"touchend",
+				() => {
+					interval = setInterval(() => {
+						if (carousel.scrollLeft >= carousel.scrollWidth / 2) {
+							carousel.scrollLeft = 0;
+						}
+						carousel.scrollLeft += speed;
+					}, 16);
+				},
+				{ passive: true },
+			);
+		}
+
+		// Infinite auto-scroll for built-by-people carousel on mobile
+		function infiniteAutoScrollBuiltByPeople() {
+			const carousel = document.getElementById("builtByPeopleCarousel");
+			if (!carousel || window.innerWidth > 768) return;
+			let speed = 1.2;
+			let interval = setInterval(() => {
+				if (carousel.scrollLeft >= carousel.scrollWidth / 2) {
+					carousel.scrollLeft = 0;
+				}
+				carousel.scrollLeft += speed;
+			}, 16);
+			// Optional: Pause on touch
+			carousel.addEventListener(
+				"touchstart",
+				() => clearInterval(interval),
+				{ passive: true },
+			);
+			carousel.addEventListener(
+				"touchend",
+				() => {
+					interval = setInterval(() => {
+						if (carousel.scrollLeft >= carousel.scrollWidth / 2) {
+							carousel.scrollLeft = 0;
+						}
+						carousel.scrollLeft += speed;
+					}, 16);
+				},
+				{ passive: true },
+			);
+		}
+
+		// Call both after both are defined
+		setupAutoScrollOnView(
+			"integratesWithCarousel",
+			infiniteAutoScrollIntegratesWith,
+		);
+		setupAutoScrollOnView(
+			"builtByPeopleCarousel",
+			infiniteAutoScrollBuiltByPeople,
+		);
+
+		// Duplicate logos for infinite scroll only on mobile
+		function duplicateLogosForMobile(carouselId: string) {
+			const carousel = document.getElementById(carouselId);
+			if (!carousel || window.innerWidth > 768) return;
+			const tracks = carousel.querySelectorAll(".logos-track");
+			tracks.forEach((track) => {
+				if (!("classList" in track) || !track.parentNode) return;
+				if (!track.classList.contains("duplicated")) {
+					const clone = track.cloneNode(true) as HTMLElement;
+					clone.classList.add("duplicated");
+					track.parentNode.appendChild(clone);
+				}
+			});
+		}
+		duplicateLogosForMobile("integratesWithCarousel");
+		duplicateLogosForMobile("builtByPeopleCarousel");
+	});
 </script>
