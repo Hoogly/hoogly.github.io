@@ -41,28 +41,28 @@ const getMacroDomainColor = (macroDomain: string): string => {
         </span>
       </div>
     </div>
-    <div class="flex flex-row justify-evenly px-5 mb-3">
-      <div class="flex flex-row items-center gap-1">
+    <div class="flex flex-row justify-between sm:justify-evenly px-1 mb-3">
+      <div class="flex flex-row items-center gap-1 sm:gap-2">
         <div class="dots bg-orange" />
-        <div class="text-center justify-center font-normal" style="font-size: 1.1rem; color: #706F6D;">
+        <div class="text-center justify-center font-normal" style="color: #706F6D;">
           Company
         </div>
       </div>
-      <div class="flex flex-row items-center gap-1">
+      <div class="flex flex-row items-center gap-1 sm:gap-2">
         <div class="dots bg-blue" />
-        <div class="text-center justify-center font-normal" style="font-size: 1.1rem; color: #706F6D;">
+        <div class="text-center justify-center font-normal" style="color: #706F6D;">
           Manager
         </div>
       </div>
-      <div class="flex flex-row items-center gap-1">
+      <div class="flex flex-row items-center gap-1 sm:gap-2">
         <div class="dots bg-yellow" />
-        <div class="text-center justify-center font-normal" style="font-size: 1.1rem; color: #706F6D;">
+        <div class="text-center justify-center font-normal" style="color: #706F6D;">
           Peer
         </div>
       </div>
       <div class="flex flex-row items-center gap-1">
         <div class="dots bg-venn-purple" />
-        <div class="text-center justify-center font-normal" style="font-size: 1.1rem; color: #706F6D;">
+        <div class="text-center justify-center font-normal" style="color: #706F6D;">
           Self
         </div>
       </div>
@@ -90,7 +90,6 @@ const getMacroDomainColor = (macroDomain: string): string => {
   width: 10px;
   height: 10px;
   border-radius: 50%;
-  margin-right: 0.5rem;
 }
 .info-icon:focus .tooltip-text,
 .info-icon:hover .tooltip-text {

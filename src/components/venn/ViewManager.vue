@@ -19,12 +19,12 @@ function handleEndChat() {
 
 <template>
   <div class="grid grid-rows-[auto_1fr] min-h-dvh" :class="$currentView === 'chat' ? 'max-h-dvh' : 'sm:max-h-dvh'">
-    <div class="flex-shrink-0 pl-8 pt-10 pb-2 flex flex-row items-center gap-4 header-bar relative">
+    <div class="flex-shrink-0 sm:pl-8 pt-8 pb-8 flex flex-row items-center gap-4 header-bar relative">
       <a href="/" class="logo-left-align">
         <IconLogo />
       </a>
       <div v-if="$currentView === 'chat'" class="absolute inset-0 flex flex-row items-center justify-center pointer-events-none">
-        <div class="flex flex-row justify-end max-w-2xl mx-auto w-full mt-6">
+        <div class="flex flex-row justify-end max-w-2xl mx-auto w-full">
           <button class="end-chat-btn pointer-events-auto" @click="handleEndChat"
             style="background: #F7F3F0; color: #23221F; border: 2px solid #23221F; border-radius: 999px; padding: 0.5em 1.5em; font-weight: 400; font-size: 1rem; box-shadow: 0 2px 8px rgba(44,41,80,0.08); cursor: pointer; transition: background 0.2s;">
             End Chat
@@ -43,14 +43,6 @@ function handleEndChat() {
 @media (min-width: 768px) {
   .header-bar {
     padding-right: 2.5rem;
-  }
-
-  .logo-left-align {
-    margin-left: 0 !important;
-    padding-left: 0 !important;
-    display: flex;
-    align-items: center;
-    padding-bottom: 1.5rem;
   }
 }
 </style>

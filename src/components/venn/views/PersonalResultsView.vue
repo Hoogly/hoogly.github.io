@@ -53,9 +53,13 @@ const handleOnSeeHRViewClick = () => {
         </div>
       </div>
     </div>
-    <div class="flex flex-col sm:flex-row gap-3 mt-2">
-      <PersonalAnalytics v-if="scores" :scores="scores" />
-      <ActionPlans v-if="actionPlans.length > 0" :actionPlans="actionPlans" />
+    <div class="flex flex-col sm:flex-row gap-3 mt-2 items-stretch">
+      <div class="flex-1 flex flex-col h-full">
+        <PersonalAnalytics v-if="scores" :scores="scores" class="h-full" />
+      </div>
+      <div class="flex-3 flex flex-col h-full">
+        <ActionPlans v-if="actionPlans.length > 0" :actionPlans="actionPlans.slice(0, 2)" class="h-full" />
+      </div>
     </div>
     <div class="cta-section animate-in rounded-xl shadow-sm bg-white px-6 py-8 mt-3 flex flex-row justify-between items-center">
       <span class="text-2xl">
