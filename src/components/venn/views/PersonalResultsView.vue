@@ -61,7 +61,7 @@ const handleOnSeeHRViewClick = () => {
         <ActionPlans v-if="actionPlans.length > 0" :actionPlans="actionPlans.slice(0, 2)" class="h-full" />
       </div>
     </div>
-    <div class="cta-section animate-in rounded-xl shadow-sm bg-white px-6 py-8 mt-3 flex flex-row justify-between items-center">
+    <div class="cta-section animate-in rounded-xl shadow-sm bg-white px-6 py-8 mt-3 flex flex-row justify-between items-center mb-8">
       <span class="text-2xl">
         Flip the lens: View the <span class="gradient-text" style="font-weight: 600;">HR perspective</span>
       </span>
