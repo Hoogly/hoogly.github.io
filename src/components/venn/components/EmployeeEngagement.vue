@@ -8,7 +8,6 @@ import { IconPersonChecked, IconUsers } from './icons'
 
 const props = defineProps<{
   engagement?: EmployeeEngagement,
-  barsAnimate?: boolean
 }>()
 
 const insightsByDomain = computed(() => {
@@ -87,19 +86,19 @@ const getColorFromValue = (value: number) => {
         <div class="justify-center font-normal text-sm">
           Company
         </div>
-        <ProgressBarRounded :progress="barsAnimate ? insightsByDomain.company : 0" :color="getColorFromValue(insightsByDomain.company)" />
+        <ProgressBarRounded :progress="insightsByDomain.company" :color="getColorFromValue(insightsByDomain.company)" />
         <div class="justify-center font-normal text-sm">
           Manager
         </div>
-        <ProgressBarRounded :progress="barsAnimate ? insightsByDomain.manager : 0" :color="getColorFromValue(insightsByDomain.manager)" />
+        <ProgressBarRounded :progress="insightsByDomain.manager" :color="getColorFromValue(insightsByDomain.manager)" />
         <div class="justify-center font-normal text-sm">
           Peers
         </div>
-        <ProgressBarRounded :progress="barsAnimate ? insightsByDomain.peers : 0" :color="getColorFromValue(insightsByDomain.peers)" />
+        <ProgressBarRounded :progress="insightsByDomain.peers" :color="getColorFromValue(insightsByDomain.peers)" />
         <div class="justify-center font-normal text-sm">
           Self
         </div>
-        <ProgressBarRounded :progress="barsAnimate ? insightsByDomain.self : 0" :color="getColorFromValue(insightsByDomain.self)" />
+        <ProgressBarRounded :progress="insightsByDomain.self" :color="getColorFromValue(insightsByDomain.self)" />
       </div>
     </div>
   </div>

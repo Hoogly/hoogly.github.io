@@ -23,13 +23,13 @@ onMounted(() => {
   setTimeout(() => {
     isVisible.value = true
     animatedProgress.value = props.progress
-  }, 100)
+  }, 700)
 })
 
 watch(() => props.progress, (newVal) => {
   setTimeout(() => {
     animatedProgress.value = newVal
-  }, 50)
+  }, 400)
 })
 </script>
 

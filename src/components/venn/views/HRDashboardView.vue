@@ -48,14 +48,10 @@ onMounted(() => {
   }, 2000)
 })
 
-const barsAnimate = ref(false);
 onMounted(() => {
   document.querySelectorAll('.animate-in').forEach(el => {
     setTimeout(() => el.classList.add('visible'), 100);
   });
-  setTimeout(() => {
-    barsAnimate.value = true;
-  }, 900); // delay to allow card animation first
 });
 
 const handleOnBackToIndividualViewClick = () => {
@@ -103,9 +99,9 @@ const handleOnBackToIndividualViewClick = () => {
       <button class="rounded-full px-3 py-1 outline m-1" @click="handleOnBackToIndividualViewClick" style="padding: 0.4em 1.1em; font-size: 1rem;">Back to Individual View</button>
     </div>
     <div class="flex flex-col sm:flex-row gap-3 mt-4 pb-8 flex-shrink-0 scrollbar-hidden">
-      <EmployeeEngagement :engagement="employeeEngagement" class="animate-in sm:flex-[1_1_0] scrollbar-hidden" :bars-animate="barsAnimate" />
+      <EmployeeEngagement :engagement="employeeEngagement" class="animate-in sm:flex-[1_1_0] scrollbar-hidden" />
       <div class="flex flex-col gap-3 sm:flex-[2_1_0] scrollbar-hidden">
-        <TopIssues :concerns="employeeConcerns?.concerns" class="animate-in" :bars-animate="barsAnimate" />
+        <TopIssues :concerns="employeeConcerns?.concerns" class="animate-in" />
         <ActionPlan class="animate-in sm:flex-[1_1_0]" />
         <div class="cta-section animate-in rounded-xl shadow-sm bg-white px-6 py-8 flex flex-row justify-between items-center">
           <span style="font-size: 1.6rem; font-weight: 500; color: #23221F;">

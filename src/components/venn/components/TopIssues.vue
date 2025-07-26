@@ -6,7 +6,6 @@ import { defineProps } from 'vue';
 
 const props = defineProps<{
   concerns?: Concern[],
-  barsAnimate?: boolean
 }>()
 
 const getMacroDomainColor = (macroDomain: string): string => {
@@ -79,7 +78,7 @@ const getMacroDomainColor = (macroDomain: string): string => {
           </div>
         </div>
       </div>
-      <ProgressBarRounded :progress="barsAnimate ? (concern.percentageEmployeesMentioned > 1 ? concern.percentageEmployeesMentioned : concern.percentageEmployeesMentioned * 100) : 0"
+      <ProgressBarRounded :progress="concern.percentageEmployeesMentioned > 1 ? concern.percentageEmployeesMentioned : concern.percentageEmployeesMentioned * 100"
         :color="getMacroDomainColor(concern.macroDomain)" height="8px" :showPercentage="false" />
     </div>
   </div>
