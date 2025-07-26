@@ -27,7 +27,7 @@ const sortedActionPlans = computed(() => {
       <div
         v-for="(actionPlan, idx) in sortedActionPlans"
         :key="actionPlan.id"
-        :class="['flex flex-col items-start', { 'mb-6': idx !== sortedActionPlans.length - 1 }]"
+        class="flex flex-col items-start mt-4"
       >
         <div
           class="mb-2 px-2 py-1 rounded-full outline outline-dark inline justify-start items-center gap-1 overflow-hidden bg-creme">
