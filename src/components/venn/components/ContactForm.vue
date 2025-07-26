@@ -59,8 +59,8 @@ const handleSubmit = (event: Event) => {
 
 <template>
   <div class="bg-white rounded-3xl px-6 sm:px-10 py-10 sm:py-20 flex flex-col">
-    <div class="try-convo-headline text-3xl sm:text-5xl text-center">
-      Try your first <span class="gradient-text">conversation</span>
+    <div class="try-convo-headline text-3xl sm:text-5xl text-center gradient-text">
+      Get your Results
     </div>
     <div class="text-sm sm:text-base text-center mt-2 mb-4 sm:mb-6">
       Don't worry, your information will be kept private and confidential
