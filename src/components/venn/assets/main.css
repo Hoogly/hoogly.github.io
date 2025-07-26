@@ -27,6 +27,11 @@
   --color-amber: #FFD659;
   --color-amber-2: #EE9016;
   --color-red: #E92F24;
+  --color-chart-red: #ED3224;
+  --color-chart-orange: #F39A1F;
+  --color-chart-yellow: #FDE06A;
+  --color-chart-green: #5DB97C;
+  --color-chart-dark-green: #338A5B;
 
   --font-outfit: 'Outfit', sans-serif;
 }
@@ -54,6 +59,11 @@
 @source inline("md:min-w-2xl");
 @source inline("lg:min-w-4xl");
 @source inline("outline-red-500");
+@source inline("bg-chart-red");
+@source inline("bg-chart-orange");
+@source inline("bg-chart-yellow");
+@source inline("bg-chart-green");
+@source inline("bg-chart-dark-green");
 
 .gradient-text {
   background: linear-gradient(90deg, #ca6e7f 0%, #ae6790 35%, #4a54eb 70%);

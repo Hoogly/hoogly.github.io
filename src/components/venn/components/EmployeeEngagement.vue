@@ -18,6 +18,14 @@ const insightsByDomain = computed(() => {
     return acc
   }, {} as Record<string, number>)
 })
+
+const getColorFromValue = (value: number) => {
+  if (value <= 20) return 'chart-red'
+  if (value <= 40) return 'chart-orange'
+  if (value <= 60) return 'chart-yellow'
+  if (value <= 80) return 'chart-green'
+  return 'chart-dark-green'
+}
 </script>
 
 <template>
@@ -79,19 +87,19 @@ const insightsByDomain = computed(() => {
         <div class="justify-center font-normal text-sm">
           Company
         </div>
-        <ProgressBarRounded :progress="barsAnimate ? insightsByDomain.company : 0" color="green" />
+        <ProgressBarRounded :progress="barsAnimate ? insightsByDomain.company : 0" :color="getColorFromValue(insightsByDomain.company)" />
         <div class="justify-center font-normal text-sm">
           Manager
         </div>
-        <ProgressBarRounded :progress="barsAnimate ? insightsByDomain.manager : 0" color="amber" />
+        <ProgressBarRounded :progress="barsAnimate ? insightsByDomain.manager : 0" :color="getColorFromValue(insightsByDomain.manager)" />
         <div class="justify-center font-normal text-sm">
           Peers
         </div>
-        <ProgressBarRounded :progress="barsAnimate ? insightsByDomain.peers : 0" color="red" />
+        <ProgressBarRounded :progress="barsAnimate ? insightsByDomain.peers : 0" :color="getColorFromValue(insightsByDomain.peers)" />
         <div class="justify-center font-normal text-sm">
           Self
         </div>
-        <ProgressBarRounded :progress="barsAnimate ? insightsByDomain.self : 0" color="amber-2" />
+        <ProgressBarRounded :progress="barsAnimate ? insightsByDomain.self : 0" :color="getColorFromValue(insightsByDomain.self)" />
       </div>
     </div>
   </div>
