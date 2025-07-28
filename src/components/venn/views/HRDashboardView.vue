@@ -2,16 +2,12 @@
 import Layout from '@venn/views/BaseLayout.vue'
 import EmployeeEngagement from '@venn/components/EmployeeEngagement.vue'
 import TopIssues from '@venn/components/TopIssues.vue'
-import { computed, onMounted, onUnmounted, ref, watch } from 'vue';
+import { computed, nextTick, watch } from 'vue';
 import { useDocument } from 'vuefire';
 import { getEmployeeConcernsDoc, getEmployeeEngagementDoc } from '@venn/firebase';
-import LoadingScreen from '@venn/components/LoadingScreen.vue';
 import { pseudonym, updateCurrentView, userId } from '@venn/store';
 import { useStore } from '@nanostores/vue';
-import WhatsGoingWell from '@venn/components/WhatsGoingWell.vue';
 import ActionPlan from '@venn/components/ActionPlan.vue';
-import Footer from '@venn/components/Footer.vue';
-import AnimatedDots from '@venn/components/AnimatedDots.vue';
 import IncognitoAvatar from '@venn/components/atoms/IncognitoAvatar.vue';
 
 const $pseudonym = useStore(pseudonym)
@@ -25,8 +21,6 @@ const employeeConcerns = useDocument(computed(() => $userId.value ? getEmployeeC
   ssrKey: 'employee-concerns',
 })
 
-const loading = ref(true)
-
 // Check if both data sources are loaded and not empty
 const isDataReady = computed(() => {
   return employeeEngagement.value && employeeConcerns.value
@@ -35,20 +29,13 @@ const isDataReady = computed(() => {
 // Watch for data readiness and hide loading screen
 watch(isDataReady, (ready) => {
   if (ready) {
-    loading.value = false
+    nextTick(() => {
+      document.querySelectorAll('.animate-in').forEach(el => {
+        setTimeout(() => el.classList.add('visible'), 100);
+      });
+    })
   }
 }, { immediate: true })
-
-onMounted(() => {
-  setTimeout(() => {
-    if (isDataReady.value) {
-      loading.value = false
-    }
-  }, 2000)
-  document.querySelectorAll('.animate-in').forEach(el => {
-    setTimeout(() => el.classList.add('visible'), 100);
-  });
-});
 
 const handleOnBackToIndividualViewClick = () => {
   updateCurrentView('personal-results')
@@ -59,7 +46,7 @@ const handleOnBackToIndividualViewClick = () => {
   <Layout :sticky-footer="false">
     <div class="h-full flex flex-col">
     <!-- Loading screen with same indicator as chat flow -->
-    <div v-if="loading" class="fixed inset-0 bg-creme z-50 flex flex-col items-center justify-center">
+    <div v-if="!isDataReady" class="fixed inset-0 bg-creme z-50 flex flex-col items-center justify-center">
       <div class="widget flex flex-col items-center justify-end relative px-3 pb-3 gap-2 mb-12">
         <img src="/images/folder.svg" alt="loading" class="absolute inset-0 w-full h-full object-cover" />
         <div class="flex flex-row relative z-10 gap-2 items-center">

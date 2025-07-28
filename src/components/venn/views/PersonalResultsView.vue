@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, onMounted, onUnmounted, ref, watch } from 'vue';
+import { computed, nextTick, watch } from 'vue';
 import { getSurveyActionPlansQuery, getSurveyScoreDoc } from '@venn/firebase';
 import { useCollection, useDocument } from 'vuefire';
 import PersonalAnalytics from '@venn/components/PersonalAnalytics.vue';
@@ -8,8 +8,6 @@ import Layout from '@venn/views/BaseLayout.vue'
 import LoadingScreen from '@venn/components/LoadingScreen.vue'
 import { pseudonym, updateCurrentView, userId } from '@venn/store';
 import { useStore } from '@nanostores/vue';
-
-const loading = ref(true)
 
 const $pseudonym = useStore(pseudonym)
 const $userId = useStore(userId)
@@ -34,15 +32,13 @@ const isDataReady = computed(() => {
 // Watch for data readiness and hide loading screen
 watch(isDataReady, (ready) => {
   if (ready) {
-    loading.value = false
+    nextTick(() => {
+      document.querySelectorAll('.animate-in').forEach(el => {
+        setTimeout(() => el.classList.add('visible'), 100);
+      });
+    })
   }
 }, { immediate: true })
-
-onMounted(() => {
-  document.querySelectorAll('.animate-in').forEach(el => {
-    setTimeout(() => el.classList.add('visible'), 100);
-  });
-});
 
 const handleOnSeeHRViewClick = () => {
   updateCurrentView('hr-dashboard')
@@ -51,7 +47,7 @@ const handleOnSeeHRViewClick = () => {
 
 <template>
   <Layout>
-     <LoadingScreen v-if="loading" /> 
+     <LoadingScreen v-if="!isDataReady" /> 
     <div class="flex flex-row justify-between gap-4">
       <div class="flex flex-col">
         <div class="self-stretch justify-center text-dark text-2xl font-normal leading-tight">
