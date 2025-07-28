@@ -39,16 +39,12 @@ watch(isDataReady, (ready) => {
   }
 }, { immediate: true })
 
-// Show loading for at least 2 seconds to prevent flash
 onMounted(() => {
   setTimeout(() => {
     if (isDataReady.value) {
       loading.value = false
     }
   }, 2000)
-})
-
-onMounted(() => {
   document.querySelectorAll('.animate-in').forEach(el => {
     setTimeout(() => el.classList.add('visible'), 100);
   });

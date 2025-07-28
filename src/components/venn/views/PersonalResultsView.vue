@@ -38,6 +38,12 @@ watch(isDataReady, (ready) => {
   }
 }, { immediate: true })
 
+onMounted(() => {
+  document.querySelectorAll('.animate-in').forEach(el => {
+    setTimeout(() => el.classList.add('visible'), 100);
+  });
+});
+
 const handleOnSeeHRViewClick = () => {
   updateCurrentView('hr-dashboard')
 }
@@ -54,10 +60,10 @@ const handleOnSeeHRViewClick = () => {
       </div>
     </div>
     <div class="flex flex-col sm:flex-row gap-3 mt-2 items-stretch">
-      <div class="flex-1 flex flex-col h-full">
+      <div class="flex-1 flex flex-col h-full animate-in">
         <PersonalAnalytics v-if="scores" :scores="scores" class="h-full" />
       </div>
-      <div class="flex-3 flex flex-col h-full">
+      <div class="flex-3 flex flex-col h-full animate-in">
         <ActionPlans v-if="actionPlans.length > 0" :actionPlans="actionPlans.slice(0, 2)" class="h-full" />
       </div>
     </div>
@@ -71,13 +77,16 @@ const handleOnSeeHRViewClick = () => {
 </template>
 
 <style scoped>
-.pulse-cta {
-  animation: pulse-cta 1.5s infinite;
+.animate-in {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 1.2s cubic-bezier(0.77,0,0.175,1), transform 1.2s cubic-bezier(0.77,0,0.175,1);
+  position: relative;
+  will-change: opacity, transform;
 }
-@keyframes pulse-cta {
-  0% { box-shadow: 0 0 0 0 rgba(255,134,97,0.7); }
-  70% { box-shadow: 0 0 0 12px rgba(255,134,97,0); }
-  100% { box-shadow: 0 0 0 0 rgba(255,134,97,0); }
+.animate-in.visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 </style>
