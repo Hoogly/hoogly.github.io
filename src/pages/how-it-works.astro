@@ -2,7 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 ---
 
-<Layout title="How It Works | Hoogly" description="From setup to culture change—in 8 simple steps" type="website">
+<Layout title="How It Works | Hoogly" description="Quick to set up. Built to last." type="website">
   <style>
     body, html {
       background: #faf6f4 !important;
@@ -14,14 +14,32 @@ import Layout from '../layouts/Layout.astro';
     }
 
     .how-it-works-container {
-      max-width: 1200px;
+      max-width: 800px;
       margin: 0 auto;
       padding: 4rem 2rem;
     }
 
     .hero-section {
       text-align: center;
-      margin-bottom: 4rem;
+      margin-bottom: 3rem;
+    }
+
+    .content-section {
+      display: flex;
+      justify-content: center;
+    }
+
+    .left-section {
+      max-width: 600px;
+    }
+
+    .right-section {
+      display: none;
+    }
+
+    .hero-section {
+      text-align: center;
+      margin-bottom: 3rem;
     }
 
     .hero-title {
@@ -33,102 +51,41 @@ import Layout from '../layouts/Layout.astro';
       line-height: 1.1;
     }
 
-    .hero-title-text {
-      font-family: 'Outfit', sans-serif;
-      font-size: 3.5rem;
-      font-weight: 400;
-      color: #23221F;
-      margin-bottom: 1rem;
-      line-height: 1.1;
-    }
-
     .hero-subtitle {
-      font-family: 'Outfit', sans-serif;
-      font-size: 1.8rem;
-      font-weight: 400;
-      color: #23221F;
-      line-height: 1.4;
-      max-width: 600px;
-      margin: 0 auto;
-    }
-
-    .steps-container {
-      display: flex;
-      flex-direction: column;
-      gap: 2rem;
-      margin-top: 3rem;
-      max-width: 560px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-
-    .step-card {
-      background: #fff;
-      border-radius: 1.5rem;
-      padding: 2rem;
-      box-shadow: 0 4px 24px 0 rgba(0,0,0,0.04);
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
-    }
-
-    .step-card:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 8px 32px 0 rgba(0,0,0,0.08);
-    }
-
-    .step-number {
-      font-family: 'Outfit', sans-serif;
-      font-size: 2.5rem;
-      font-weight: 700;
-      color: #FF7D61;
-      margin-bottom: 0.5rem;
-      display: block;
-    }
-
-    .step-title {
       font-family: 'Outfit', sans-serif;
       font-size: 1.4rem;
       font-weight: 400;
-      color: #23221F;
-      margin-bottom: 1rem;
-      line-height: 1.3;
+      color: #666;
+      margin-bottom: 2rem;
     }
 
-    .step-description {
-      font-family: 'Inter', sans-serif;
+    .toggle-buttons {
+      display: flex;
+      gap: 1rem;
+      margin-bottom: 3rem;
+    }
+
+    .toggle-btn {
+      padding: 0.75rem 1.5rem;
+      border-radius: 50px;
+      font-family: 'Outfit', sans-serif;
       font-size: 1rem;
-      color: var(--color-neutral-700);
-      line-height: 1.6;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      border: 2px solid #E5E5E5;
+      background: transparent;
+      color: #23221F;
     }
 
-    .cta-section {
-      text-align: center;
-      margin-top: 2rem;
-      padding: 2rem 0;
+    .toggle-btn.active {
+      background: #23221F;
+      color: white;
+      border-color: #23221F;
     }
 
-
-
-    @media (max-width: 768px) {
-      .hero-title {
-        font-size: 2.5rem;
-      }
-      
-      .hero-subtitle {
-        font-size: 1.2rem;
-      }
-      
-      .how-it-works-container {
-        padding: 2rem 1rem;
-      }
-      
-      .steps-container {
-        max-width: 100%;
-        gap: 1.5rem;
-      }
-      
-      .step-card {
-        padding: 1.5rem;
-      }
+    .toggle-btn:not(.active):hover {
+      background: #F5F5F5;
     }
 
     .hero-highlight {
@@ -175,78 +132,624 @@ import Layout from '../layouts/Layout.astro';
       position: relative;
       z-index: 1;
     }
+
+    .toggle-option {
+      background: transparent;
+      color: #666;
+      border: none;
+      font-weight: 400;
+      opacity: 0.3;
+      transition: all 0.3s ease;
+    }
+
+    .toggle-option.active {
+      background: #23221F;
+      color: white;
+      font-weight: 600;
+      opacity: 1;
+      transition: all 0.3s ease;
+    }
+
+    .steps-container {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    .step-item {
+      border-bottom: 1px solid #E5E5E5;
+      transition: all 0.3s ease;
+      position: relative;
+    }
+
+    .step-item:last-child {
+      border-bottom: none;
+    }
+
+    .step-progress {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      height: 1px;
+      background: #23221F;
+      width: 0%;
+      transition: width 8s linear;
+    }
+
+    .step-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.5rem 0;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .step-header:hover {
+      background: rgba(0,0,0,0.02);
+    }
+
+    .step-number {
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: #23221F;
+      margin-right: 1rem;
+    }
+
+    .step-title {
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.1rem;
+      font-weight: 500;
+      color: #23221F;
+      flex: 1;
+    }
+
+    .step-icon {
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s ease;
+    }
+
+    .step-item.active .step-icon {
+      background: #23221F;
+      transform: rotate(180deg);
+    }
+
+    .step-icon svg {
+      width: 6px;
+      height: 6px;
+    }
+
+    .chevron-path {
+      stroke: #666;
+    }
+
+    .step-item.active .chevron-path {
+      stroke: white !important;
+    }
+
+    .step-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease;
+      padding: 0 0 0 0;
+    }
+
+    .step-item.active .step-content {
+      max-height: 200px;
+      padding: 0 0 1.5rem 0;
+    }
+
+    /* Hide steps 7 and 8 in employee view */
+    .step-item[data-step="7"],
+    .step-item[data-step="8"] {
+      display: none;
+    }
+
+    /* Show all steps in HR view */
+    .hr-view .step-item[data-step="7"],
+    .hr-view .step-item[data-step="8"] {
+      display: block;
+    }
+
+    .step-description {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.95rem;
+      color: #666;
+      line-height: 1.5;
+      margin-top: 0.5rem;
+    }
+
+    /* Video Container */
+    .video-container {
+      width: 280px;
+      height: 500px;
+      border-radius: 25px;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .mockup-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+
+    .profile-section {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .profile-pic {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: #E5E5E5;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      color: #666;
+    }
+
+    .speech-bubble {
+      background: white;
+      padding: 8px 12px;
+      border-radius: 15px;
+      font-size: 12px;
+      color: #666;
+      max-width: 120px;
+    }
+
+    .points-card {
+      background: #FF7D61;
+      border-radius: 15px;
+      padding: 15px;
+      text-align: center;
+      color: white;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .points-number {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 5px;
+    }
+
+    .coffee-beans {
+      position: absolute;
+      top: 5px;
+      right: 10px;
+      font-size: 12px;
+    }
+
+    .action-card {
+      background: white;
+      border-radius: 15px;
+      padding: 15px;
+      margin-top: 15px;
+    }
+
+    .action-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 8px 0;
+      border-bottom: 1px solid #F0F0F0;
+    }
+
+    .action-item:last-child {
+      border-bottom: none;
+    }
+
+    .action-left {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .action-icon {
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 10px;
+    }
+
+    .action-icon.yellow { background: #FFD700; }
+    .action-icon.purple { background: #9370DB; }
+    .action-icon.green { background: #32CD32; }
+
+    .action-text {
+      font-size: 12px;
+      color: #333;
+    }
+
+    .action-points {
+      font-size: 12px;
+      font-weight: 600;
+      color: #FF7D61;
+    }
+
+    /* Countdown Timer */
+    .countdown-timer {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      width: 40px;
+      height: 40px;
+      border: 3px solid #E5E5E5;
+      border-top: 3px solid #FF7D61;
+      border-radius: 50%;
+      animation: spin 3s linear infinite;
+    }
+
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    @media (max-width: 768px) {
+      .hero-title {
+        font-size: 2.5rem;
+      }
+      
+      .hero-subtitle {
+        font-size: 1.1rem;
+      }
+      
+      .how-it-works-container {
+        padding: 2rem 1rem;
+      }
+    }
   </style>
 
   <div class="how-it-works-container">
     <div class="hero-section">
-      <h1 class="hero-title-text">How It <span class="hero-highlight"><span class="hero-highlight-text">Works</span></span></h1>
-      <p class="hero-subtitle">From setup to culture change in 8 simple steps</p>
-    </div>
-
-    <div class="steps-container">
-      <div class="step-card">
-        <span class="step-number">1</span>
-        <h3 class="step-title">Download the app</h3>
-        <p class="step-description">Get started by downloading Hoogly on your mobile.<br><em style="color: #666;">This is where you'll manage your workspace, launch surveys, and view insights.</em></p>
-      </div>
-
-      <div class="step-card">
-        <span class="step-number">2</span>
-        <h3 class="step-title">Set up your workspace</h3>
-        <p class="step-description">Create your teams and invite your people.<br><em style="color: #666;">You can do this manually or sync everything automatically from your HR system.</em></p>
-      </div>
-
-      <div class="step-card">
-        <span class="step-number">3</span>
-        <h3 class="step-title">Launch your first AI-powered survey</h3>
-        <p class="step-description">Select what matters most. Our AI does the rest.<br><em style="color: #666;">Pick focus areas like trust or wellbeing, set a deadline, and choose a cadence: monthly for fast feedback, quarterly for seasonal check-ins, or bi-annually for deeper resets.</em></p>
-      </div>
-
-      <div class="step-card">
-        <span class="step-number">4</span>
-        <h3 class="step-title">Share the survey link</h3>
-        <p class="step-description">Send it out via Slack, Teams, or email.<br><em style="color: #666;">Employees log in with SSO for a secure, private AI conversation.</em></p>
-      </div>
-
-      <div class="step-card">
-        <span class="step-number">5</span>
-        <h3 class="step-title">Anonymous conversations with AI</h3>
-        <p class="step-description">Employees answer questions in a safe, one-on-one chat.<br><em style="color: #666;">They receive a score, a personalised action plan, and ongoing support from their AI coach.</em></p>
-      </div>
-
-      <div class="step-card">
-        <span class="step-number">6</span>
-        <h3 class="step-title">Insights for leaders and HR</h3>
-        <p class="step-description">When the survey ends, results appear automatically.<br><em style="color: #666;">Leaders see team-level trends, while HR gets organisation-wide visibility.</em></p>
-      </div>
-
-      <div class="step-card">
-        <span class="step-number">7</span>
-        <h3 class="step-title">Coaching that drives change</h3>
-        <p class="step-description">Tailored coaching flows to everyone who needs it.<br><em style="color: #666;">Employees, managers, and HR each get their own AI coach guiding their next steps.</em></p>
-      </div>
-
-      <div class="step-card">
-        <span class="step-number">8</span>
-        <h3 class="step-title">Close the loop and celebrate wins</h3>
-        <p class="step-description">Track what's improving and spotlight what's working.<br><em style="color: #666;">Quick wins are surfaced and celebrated across the company via your social feed.</em></p>
+      <h1 class="hero-title">How it Works</h1>
+      <p class="hero-subtitle">Quick to set up. Built to last.</p>
+      
+      <div class="toggle-buttons">
+        <div class="pricing-toggle" id="viewToggle" style="display: inline-flex; background: white; border-radius: 999px; padding: 4px; margin: 0 auto 1.2rem auto; box-shadow: 0 1px 4px rgba(24,144,255,0.04); gap: 4px;">
+          <button class="toggle-option" id="hrBtn" type="button" style="font-size: 1.1rem; font-family: 'Outfit', sans-serif; padding: 0.5em 1.5em; border-radius: 999px; cursor: pointer; transition: background 0.2s, color 0.2s;">For HR</button>
+          <button class="toggle-option active" id="employeeBtn" type="button" style="font-size: 1.1rem; font-family: 'Outfit', sans-serif; padding: 0.5em 1.5em; border-radius: 999px; cursor: pointer; transition: background 0.2s, color 0.2s;">For Employees</button>
+        </div>
       </div>
     </div>
 
-    <div class="cta-section">
-      <a href="/get-started?button-label=Start Free&page-source=how-it-works" class="btn btn-accent" style="font-size: 1.25rem; padding: 1rem 2rem; border-radius: 71px;">Start Free</a>
+    <div class="content-section">
+      <div class="left-section">
+        <div class="steps-container">
+                <div class="step-item active" data-step="1">
+          <div class="step-progress"></div>
+          <div class="step-header">
+            <div style="display: flex; align-items: center;">
+              <span class="step-number">1</span>
+              <span class="step-title" data-hr="Download the app" data-employee="Tap the link shared to you">Tap the link shared to you</span>
+            </div>
+            <svg class="step-icon" width="8" height="8" viewBox="0 0 20 20" fill="none">
+              <path class="chevron-path" d="M5 7.5L10 12.5L15 7.5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <div class="step-content">
+            <p class="step-description" data-hr="Get started by downloading Hoogly on your mobile. This is where you'll manage your workspace, launch surveys, and view insights." data-employee="You'll get a link via Slack, Teams, or email. Log in securely with Single Sign-On (SSO) — no passwords, no hassle. Your identity stays private.">You'll get a link via Slack, Teams, or email. Log in securely with Single Sign-On (SSO) — no passwords, no hassle. Your identity stays private.</p>
+          </div>
+        </div>
+
+                <div class="step-item" data-step="2">
+          <div class="step-progress"></div>
+          <div class="step-header">
+            <div style="display: flex; align-items: center;">
+              <span class="step-number">2</span>
+              <span class="step-title" data-hr="Set up your workspace" data-employee="Download the app">Download the app</span>
+            </div>
+            <svg class="step-icon" width="8" height="8" viewBox="0 0 20 20" fill="none">
+              <path class="chevron-path" d="M5 7.5L10 12.5L15 7.5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <div class="step-content">
+            <p class="step-description" data-hr="Create your teams and invite your people. You can do this manually or sync everything automatically from your HR system." data-employee="Start by downloading Hoogly on your mobile. This is where your personal AI coach lives — ready to listen, guide, and support you.">Start by downloading Hoogly on your mobile. This is where your personal AI coach lives — ready to listen, guide, and support you.</p>
+          </div>
+        </div>
+
+                <div class="step-item" data-step="3">
+          <div class="step-progress"></div>
+          <div class="step-header">
+            <div style="display: flex; align-items: center;">
+              <span class="step-number">3</span>
+              <span class="step-title" data-hr="Launch your first AI-powered survey (HR)" data-employee="Have a private chat with Venn (your AI coach)">Have a private chat with Venn (your AI coach)</span>
+            </div>
+            <svg class="step-icon" width="8" height="8" viewBox="0 0 20 20" fill="none">
+              <path class="chevron-path" d="M5 7.5L10 12.5L15 7.5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <div class="step-content">
+            <p class="step-description" data-hr="Select what matters most. Our AI does the rest. Pick focus areas like trust or wellbeing, set a deadline, and choose a cadence: monthly for fast feedback, quarterly for seasonal check-ins, or bi-annually for deeper resets." data-employee="Answer just a few questions in a one-on-one, anonymous conversation. Venn listens, scores your experience, and offers a personalised action plan — just for you.">Answer just a few questions in a one-on-one, anonymous conversation. Venn listens, scores your experience, and offers a personalised action plan — just for you.</p>
+          </div>
+        </div>
+
+                <div class="step-item" data-step="4">
+          <div class="step-progress"></div>
+          <div class="step-header">
+            <div style="display: flex; align-items: center;">
+              <span class="step-number">4</span>
+              <span class="step-title" data-hr="Share the survey link" data-employee="Get insights that matter to you">Get insights that matter to you</span>
+            </div>
+            <svg class="step-icon" width="8" height="8" viewBox="0 0 20 20" fill="none">
+              <path class="chevron-path" d="M5 7.5L10 12.5L15 7.5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <div class="step-content">
+            <p class="step-description" data-hr="Send it out via Slack, Teams, or email. Employees log in with SSO for a secure, private AI conversation." data-employee="Right after your chat, you'll get a clear picture of how you're doing — and tips to improve focus, wellbeing, and trust. You see your progress. Leaders only see trends, not individuals.">Right after your chat, you'll get a clear picture of how you're doing — and tips to improve focus, wellbeing, and trust. You see your progress. Leaders only see trends, not individuals.</p>
+          </div>
+        </div>
+
+                <div class="step-item" data-step="5">
+          <div class="step-progress"></div>
+          <div class="step-header">
+            <div style="display: flex; align-items: center;">
+              <span class="step-number">5</span>
+              <span class="step-title" data-hr="Anonymous conversations with AI" data-employee="Coaching that actually helps">Coaching that actually helps</span>
+            </div>
+            <svg class="step-icon" width="8" height="8" viewBox="0 0 20 20" fill="none">
+              <path class="chevron-path" d="M5 7.5L10 12.5L15 7.5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <div class="step-content">
+            <p class="step-description" data-hr="Employees answer questions in a safe, one-on-one chat. They receive a score, a personalised action plan, and ongoing support from their AI coach." data-employee="Venn sticks around — checking in, nudging, guiding you with smart, simple coaching. Whether it's boosting confidence or building better work habits, your next step is always clear.">Venn sticks around — checking in, nudging, guiding you with smart, simple coaching. Whether it's boosting confidence or building better work habits, your next step is always clear.</p>
+          </div>
+        </div>
+
+                <div class="step-item" data-step="6">
+          <div class="step-progress"></div>
+          <div class="step-header">
+            <div style="display: flex; align-items: center;">
+              <span class="step-number">6</span>
+              <span class="step-title" data-hr="Insights for Leaders and HR" data-employee="Celebrate the wins (yes, really)">Celebrate the wins (yes, really)</span>
+            </div>
+            <svg class="step-icon" width="8" height="8" viewBox="0 0 20 20" fill="none">
+              <path class="chevron-path" d="M5 7.5L10 12.5L15 7.5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <div class="step-content">
+            <p class="step-description" data-hr="When the survey ends, results appear automatically. Leaders see team-level trends, while HR gets organisation-wide visibility." data-employee="From micro-improvements to team shout-outs, good things get noticed. You'll see what's working in your company — and feel proud you helped make it happen.">From micro-improvements to team shout-outs, good things get noticed. You'll see what's working in your company — and feel proud you helped make it happen.</p>
+          </div>
+        </div>
+
+                <div class="step-item" data-step="7">
+          <div class="step-progress"></div>
+          <div class="step-header">
+            <div style="display: flex; align-items: center;">
+              <span class="step-number">7</span>
+              <span class="step-title" data-hr="Coaching that drives change" data-employee="">Coaching that drives change</span>
+            </div>
+            <svg class="step-icon" width="8" height="8" viewBox="0 0 20 20" fill="none">
+              <path class="chevron-path" d="M5 7.5L10 12.5L15 7.5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <div class="step-content">
+            <p class="step-description" data-hr="Tailored coaching flows to everyone who needs it. Employees, managers, and HR each get their own AI coach guiding their next steps." data-employee="">Tailored coaching flows to everyone who needs it. Employees, managers, and HR each get their own AI coach guiding their next steps.</p>
+          </div>
+        </div>
+
+                <div class="step-item" data-step="8">
+          <div class="step-progress"></div>
+          <div class="step-header">
+            <div style="display: flex; align-items: center;">
+              <span class="step-number">8</span>
+              <span class="step-title" data-hr="Close the loop and celebrate wins" data-employee="">Close the loop and celebrate wins</span>
+            </div>
+            <svg class="step-icon" width="8" height="8" viewBox="0 0 20 20" fill="none">
+              <path class="chevron-path" d="M5 7.5L10 12.5L15 7.5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <div class="step-content">
+            <p class="step-description" data-hr="Track what's improving and spotlight what's working. Quick wins are surfaced and celebrated across the company via your social feed." data-employee="">Track what's improving and spotlight what's working. Quick wins are surfaced and celebrated across the company via your social feed.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="right-section">
+      <div class="video-container">
+        <video autoplay muted loop playsinline style="width: 100%; height: 100%; object-fit: cover; border-radius: 25px;">
+          <source src="/images/How it works/Experience a new way to understand your employees.mp4" type="video/mp4">
+        </video>
+      </div>
+    </div>
     </div>
   </div>
 
   <script>
-    // Trigger the hero highlight animation
+    let currentStep = 1;
+    let autoRotateInterval;
+
+    function toggleStep(stepNumber, isAutoRotation = false) {
+      const stepItems = document.querySelectorAll('.step-item');
+      
+      // Close all steps and stop their progress bars
+      stepItems.forEach((item, index) => {
+        const stepNum = index + 1;
+        item.classList.remove('active');
+        stopProgressBar(stepNum);
+      });
+      
+      // Open the clicked step
+      const clickedStep = document.querySelector(`[data-step="${stepNumber}"]`);
+      if (clickedStep) {
+        clickedStep.classList.add('active');
+        currentStep = stepNumber;
+        
+        // Animate the progress bar for the active step
+        animateProgressBar(stepNumber);
+        
+        // Stop auto-rotation only when user manually selects a step (not during auto-rotation)
+        if (!isAutoRotation && autoRotateInterval) {
+          clearInterval(autoRotateInterval);
+          autoRotateInterval = null;
+        }
+      }
+    }
+
+    function switchView(view) {
+      const hrBtn = document.getElementById('hrBtn');
+      const employeeBtn = document.getElementById('employeeBtn');
+      
+      if (view === 'hr') {
+        hrBtn.classList.add('active');
+        employeeBtn.classList.remove('active');
+        updateContent('hr');
+      } else {
+        employeeBtn.classList.add('active');
+        hrBtn.classList.remove('active');
+        updateContent('employee');
+      }
+    }
+
+    function updateContent(view) {
+      const stepTitles = document.querySelectorAll('.step-title');
+      const stepDescriptions = document.querySelectorAll('.step-description');
+      const stepsContainer = document.querySelector('.steps-container');
+      
+      // Update CSS class for showing/hiding steps
+      if (view === 'hr') {
+        stepsContainer.classList.add('hr-view');
+      } else {
+        stepsContainer.classList.remove('hr-view');
+      }
+      
+      stepTitles.forEach((title, index) => {
+        const hrText = title.getAttribute('data-hr');
+        const employeeText = title.getAttribute('data-employee');
+        
+        if (view === 'hr' && hrText) {
+          title.textContent = hrText;
+        } else if (view === 'employee' && employeeText) {
+          title.textContent = employeeText;
+        }
+      });
+      
+      stepDescriptions.forEach((description, index) => {
+        const hrText = description.getAttribute('data-hr');
+        const employeeText = description.getAttribute('data-employee');
+        
+        if (view === 'hr' && hrText) {
+          description.textContent = hrText;
+        } else if (view === 'employee' && employeeText) {
+          description.textContent = employeeText;
+        }
+      });
+      
+      // Reset to first step and restart auto-rotation
+      currentStep = 1;
+      if (autoRotateInterval) {
+        clearInterval(autoRotateInterval);
+      }
+      toggleStep(1, true);
+      startAutoRotation();
+    }
+
+    function startAutoRotation() {
+      autoRotateInterval = setInterval(() => {
+        // Determine max steps based on current view
+        const isEmployeeView = document.querySelector('#employeeBtn.active');
+        const maxSteps = isEmployeeView ? 6 : 8;
+        
+        currentStep = currentStep >= maxSteps ? 1 : currentStep + 1;
+        toggleStep(currentStep, true); // Pass true to indicate this is auto-rotation
+      }, 8000); // Rotate every 8 seconds
+    }
+
+    function animateProgressBar(stepNumber) {
+      const stepItem = document.querySelector(`[data-step="${stepNumber}"]`);
+      if (stepItem) {
+        const progressBar = stepItem.querySelector('.step-progress');
+        if (progressBar) {
+          // Clear any existing animation by removing transition temporarily
+          progressBar.style.transition = 'none';
+          progressBar.style.width = '0%';
+          // Force a reflow to ensure the reset is applied
+          progressBar.offsetHeight;
+          // Restore transition and start animation
+          progressBar.style.transition = 'width 8s linear';
+          progressBar.style.width = '100%';
+        }
+      }
+    }
+
+    function stopProgressBar(stepNumber) {
+      const stepItem = document.querySelector(`[data-step="${stepNumber}"]`);
+      if (stepItem) {
+        const progressBar = stepItem.querySelector('.step-progress');
+        if (progressBar) {
+          // Stop the animation by removing transition and resetting width
+          progressBar.style.transition = 'none';
+          progressBar.style.width = '0%';
+        }
+      }
+    }
+
+
+
+    // Initialize
     document.addEventListener('DOMContentLoaded', function() {
+      // Start with employee content by default
+      updateContent('employee');
+      
+      // Add click event listeners to all step headers
+      const stepHeaders = document.querySelectorAll('.step-header');
+      stepHeaders.forEach((header, index) => {
+        header.addEventListener('click', function(e) {
+          e.preventDefault();
+          const stepNumber = index + 1;
+          toggleStep(stepNumber, false); // Pass false to indicate this is manual click
+        });
+      });
+
+      // Trigger the hero highlight animation
       const heroHighlight = document.querySelector('.hero-highlight');
       if (heroHighlight) {
         setTimeout(() => {
           heroHighlight.classList.add('animated');
         }, 500);
       }
+
+
+
+      // View toggle functionality (For HR/For Employees)
+      const hrBtn = document.getElementById('hrBtn');
+      const employeeBtn = document.getElementById('employeeBtn');
+      
+      if (hrBtn && employeeBtn) {
+        hrBtn.addEventListener('click', function() {
+          hrBtn.classList.add('active');
+          employeeBtn.classList.remove('active');
+          switchView('hr');
+        });
+        
+        employeeBtn.addEventListener('click', function() {
+          employeeBtn.classList.add('active');
+          hrBtn.classList.remove('active');
+          switchView('employee');
+        });
+      }
+    });
+
+    // Clean up intervals when page is unloaded
+    window.addEventListener('beforeunload', function() {
+      if (autoRotateInterval) clearInterval(autoRotateInterval);
     });
   </script>
 </Layout> 
