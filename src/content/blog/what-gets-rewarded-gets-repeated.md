@@ -136,4 +136,4 @@ So ask yourself—and your leadership team:
 
 If you're building a culture rooted in rhythm, presence, and clarity—we'd love to support you. At Hoogly AI, we help organizations create more human-centered workplaces through intelligent tools and leadership insights that drive clarity and connection.
 
-If you’d like to discuss this further, feel free to [lock in a time with us.](https://calendly.com/hoogly/30min) 
+If you’d like to discuss this further, feel free to lock in a time via [Mohit’s calendar.](https://calendly.com/hoogly/mohit-midha) 

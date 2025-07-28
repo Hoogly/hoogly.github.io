@@ -76,6 +76,10 @@ import Layout from '../layouts/Layout.astro';
       border: 2px solid #E5E5E5;
       background: transparent;
       color: #23221F;
+      /* Mobile touch improvements */
+      min-height: 44px;
+      -webkit-tap-highlight-color: rgba(0,0,0,0.1);
+      touch-action: manipulation;
     }
 
     .toggle-btn.active {
@@ -183,10 +187,31 @@ import Layout from '../layouts/Layout.astro';
       padding: 1.5rem 0;
       cursor: pointer;
       transition: all 0.2s ease;
+      /* Ensure touch targets are large enough for mobile */
+      min-height: 44px;
+      -webkit-tap-highlight-color: rgba(0,0,0,0.1);
+      touch-action: manipulation;
     }
 
     .step-header:hover {
       background: rgba(0,0,0,0.02);
+    }
+
+    /* Mobile-specific touch improvements */
+    @media (max-width: 768px) {
+      .step-header {
+        padding: 1rem 0;
+        min-height: 48px; /* Larger touch target on mobile */
+      }
+      
+      .step-title {
+        font-size: 1rem; /* Slightly smaller on mobile */
+      }
+      
+      .step-number {
+        font-size: 1.1rem;
+        margin-right: 0.75rem;
+      }
     }
 
     .step-number {
@@ -423,8 +448,8 @@ import Layout from '../layouts/Layout.astro';
       
       <div class="toggle-buttons">
         <div class="pricing-toggle" id="viewToggle" style="display: inline-flex; background: white; border-radius: 999px; padding: 4px; margin: 0 auto 1.2rem auto; box-shadow: 0 1px 4px rgba(24,144,255,0.04); gap: 4px;">
-          <button class="toggle-option active" id="hrBtn" type="button" style="font-size: 1.1rem; font-family: 'Outfit', sans-serif; padding: 0.5em 1.5em; border-radius: 999px; cursor: pointer; transition: background 0.2s, color 0.2s;">For HR</button>
-          <button class="toggle-option" id="employeeBtn" type="button" style="font-size: 1.1rem; font-family: 'Outfit', sans-serif; padding: 0.5em 1.5em; border-radius: 999px; cursor: pointer; transition: background 0.2s, color 0.2s;">For Employees</button>
+          <button class="toggle-option active" id="hrBtn" type="button" style="font-size: 1.1rem; font-family: 'Outfit', sans-serif; padding: 0.5em 1.5em; border-radius: 999px; cursor: pointer; transition: background 0.2s, color 0.2s; min-height: 44px; -webkit-tap-highlight-color: rgba(0,0,0,0.1); touch-action: manipulation;">For HR</button>
+          <button class="toggle-option" id="employeeBtn" type="button" style="font-size: 1.1rem; font-family: 'Outfit', sans-serif; padding: 0.5em 1.5em; border-radius: 999px; cursor: pointer; transition: background 0.2s, color 0.2s; min-height: 44px; -webkit-tap-highlight-color: rgba(0,0,0,0.1); touch-action: manipulation;">For Employees</button>
         </div>
       </div>
     </div>
@@ -576,7 +601,7 @@ import Layout from '../layouts/Layout.astro';
     let currentStep = 1;
     let autoRotateInterval;
 
-    function toggleStep(stepNumber, isAutoRotation = false) {
+    function toggleStep(stepNumber: number, isAutoRotation = false) {
       const stepItems = document.querySelectorAll('.step-item');
       
       // Close all steps and stop their progress bars
@@ -603,7 +628,7 @@ import Layout from '../layouts/Layout.astro';
       }
     }
 
-    function switchView(view) {
+    function switchView(view: string) {
       const hrBtn = document.getElementById('hrBtn');
       const employeeBtn = document.getElementById('employeeBtn');
       
@@ -618,7 +643,7 @@ import Layout from '../layouts/Layout.astro';
       }
     }
 
-    function updateContent(view) {
+    function updateContent(view: string) {
       const stepTitles = document.querySelectorAll('.step-title');
       const stepDescriptions = document.querySelectorAll('.step-description');
       const stepsContainer = document.querySelector('.steps-container');
@@ -689,7 +714,7 @@ import Layout from '../layouts/Layout.astro';
       }, 8000); // Rotate every 8 seconds
     }
 
-    function animateProgressBar(stepNumber) {
+    function animateProgressBar(stepNumber: number) {
       const stepItem = document.querySelector(`[data-step="${stepNumber}"]`);
       if (stepItem) {
         const progressBar = stepItem.querySelector('.step-progress');
@@ -706,7 +731,7 @@ import Layout from '../layouts/Layout.astro';
       }
     }
 
-    function stopProgressBar(stepNumber) {
+    function stopProgressBar(stepNumber: number) {
       const stepItem = document.querySelector(`[data-step="${stepNumber}"]`);
       if (stepItem) {
         const progressBar = stepItem.querySelector('.step-progress');
@@ -729,14 +754,16 @@ import Layout from '../layouts/Layout.astro';
       const stepHeaders = document.querySelectorAll('.step-header');
       stepHeaders.forEach((header, index) => {
         // Create and store the click handler
-        header.clickHandler = function(e) {
+        const clickHandler = function(e: Event) {
           e.preventDefault();
+          e.stopPropagation();
           const stepNumber = index + 1;
           toggleStep(stepNumber, false); // Pass false to indicate this is manual click
         };
         
-        // Add the new listener
-        header.addEventListener('click', header.clickHandler);
+        // Add the new listener for both click and touch events
+        header.addEventListener('click', clickHandler);
+        header.addEventListener('touchend', clickHandler);
       });
 
       // Trigger the hero highlight animation
