@@ -423,8 +423,8 @@ import Layout from '../layouts/Layout.astro';
       
       <div class="toggle-buttons">
         <div class="pricing-toggle" id="viewToggle" style="display: inline-flex; background: white; border-radius: 999px; padding: 4px; margin: 0 auto 1.2rem auto; box-shadow: 0 1px 4px rgba(24,144,255,0.04); gap: 4px;">
-          <button class="toggle-option" id="hrBtn" type="button" style="font-size: 1.1rem; font-family: 'Outfit', sans-serif; padding: 0.5em 1.5em; border-radius: 999px; cursor: pointer; transition: background 0.2s, color 0.2s;">For HR</button>
-          <button class="toggle-option active" id="employeeBtn" type="button" style="font-size: 1.1rem; font-family: 'Outfit', sans-serif; padding: 0.5em 1.5em; border-radius: 999px; cursor: pointer; transition: background 0.2s, color 0.2s;">For Employees</button>
+          <button class="toggle-option active" id="hrBtn" type="button" style="font-size: 1.1rem; font-family: 'Outfit', sans-serif; padding: 0.5em 1.5em; border-radius: 999px; cursor: pointer; transition: background 0.2s, color 0.2s;">For HR</button>
+          <button class="toggle-option" id="employeeBtn" type="button" style="font-size: 1.1rem; font-family: 'Outfit', sans-serif; padding: 0.5em 1.5em; border-radius: 999px; cursor: pointer; transition: background 0.2s, color 0.2s;">For Employees</button>
         </div>
       </div>
     </div>
@@ -469,7 +469,7 @@ import Layout from '../layouts/Layout.astro';
           <div class="step-header">
             <div style="display: flex; align-items: center;">
               <span class="step-number">3</span>
-              <span class="step-title" data-hr="Launch your first AI-powered survey (HR)" data-employee="Have a private chat with Venn (your AI coach)">Have a private chat with Venn (your AI coach)</span>
+              <span class="step-title" data-hr="Launch your first AI-powered survey" data-employee="Have a private chat with Venn (your AI coach)">Have a private chat with Venn (your AI coach)</span>
             </div>
             <svg class="step-icon" width="8" height="8" viewBox="0 0 20 20" fill="none">
               <path class="chevron-path" d="M5 7.5L10 12.5L15 7.5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
@@ -722,8 +722,8 @@ import Layout from '../layouts/Layout.astro';
 
     // Initialize
     document.addEventListener('DOMContentLoaded', function() {
-      // Start with employee content by default
-      updateContent('employee');
+      // Start with HR content by default
+      updateContent('hr');
       
       // Add click event listeners to all step headers
       const stepHeaders = document.querySelectorAll('.step-header');
