@@ -220,7 +220,7 @@ const handleOnShowResultsClick = () => {
 
 const handleContactFormSubmit = async (data: { name: string, email: string, company: string }) => {
   if (typeof window !== 'undefined' && (window as any).posthog) {
-    (window as any).posthog.capture('get_started_form_submitted', {
+    (window as any).posthog.capture('public_venn_form_submitted', {
       name: data.name,
       email: data.email,
       company: data.company,
