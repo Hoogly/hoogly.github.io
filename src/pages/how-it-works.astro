@@ -652,6 +652,23 @@ import Layout from '../layouts/Layout.astro';
         }
       });
       
+      // Re-attach click event listeners to step headers
+      const stepHeaders = document.querySelectorAll('.step-header');
+      stepHeaders.forEach((header, index) => {
+        // Remove any existing listeners to prevent duplicates
+        header.removeEventListener('click', header.clickHandler);
+        
+        // Create and store the click handler
+        header.clickHandler = function(e) {
+          e.preventDefault();
+          const stepNumber = index + 1;
+          toggleStep(stepNumber, false); // Pass false to indicate this is manual click
+        };
+        
+        // Add the new listener
+        header.addEventListener('click', header.clickHandler);
+      });
+      
       // Reset to first step and restart auto-rotation
       currentStep = 1;
       if (autoRotateInterval) {
@@ -711,11 +728,15 @@ import Layout from '../layouts/Layout.astro';
       // Add click event listeners to all step headers
       const stepHeaders = document.querySelectorAll('.step-header');
       stepHeaders.forEach((header, index) => {
-        header.addEventListener('click', function(e) {
+        // Create and store the click handler
+        header.clickHandler = function(e) {
           e.preventDefault();
           const stepNumber = index + 1;
           toggleStep(stepNumber, false); // Pass false to indicate this is manual click
-        });
+        };
+        
+        // Add the new listener
+        header.addEventListener('click', header.clickHandler);
       });
 
       // Trigger the hero highlight animation
