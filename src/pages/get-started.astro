@@ -250,7 +250,56 @@ import Layout from '../layouts/Layout.astro';
       const pageSourceInput = document.getElementById('pageSource') as HTMLInputElement | null;
       if (pageSourceInput) pageSourceInput.value = pageSource;
 
-      // Trigger highlight animation
+      // Check if this is a pricing Contact Us click - if so, show thank you page directly
+      const isPricingContactUs = pageSource && (pageSource.includes('pricing-') && buttonLabel === 'Contact Us');
+      
+      if (isPricingContactUs) {
+        // Show thank you page directly for pricing Contact Us clicks
+        const formContainer = document.querySelector('.get-started-form-container');
+        if (formContainer) {
+          formContainer.innerHTML = `
+            <div style="text-align: center; padding: 1.5rem 0;">
+              <div class="anonymous-ai-headline" style="margin-bottom: 1.5rem; font-size: 2rem; font-weight: normal;">Message <span class="hero-highlight"><span class="hero-highlight-text">received</span></span></div>
+              <div class="anonymous-ai-subheadline" style="font-size: 1.1rem; color: #444; line-height: 1.6; margin-bottom: 1.5rem;">
+                Thank you for your message. We'll be in touch shortly.
+              </div>
+              <div class="anonymous-ai-subheadline" style="font-size: 1.1rem; color: #444; line-height: 1.6; margin-bottom: 1.5rem;">
+                If you want to skip the queue, feel free to pick the time that works best for you below.
+              </div>
+              
+              <!-- Calendly section inside the white container -->
+              <div style="margin-top: 3rem;">
+                <div class="anonymous-ai-headline" style="margin-bottom: 1rem; font-size: 2rem; font-weight: 400;">Schedule Your Demo</div>
+                <div id="calendly-inline-widget" style="min-width: 320px; height: 1100px;"></div>
+              </div>
+              
+              <div class="anonymous-ai-subheadline" style="font-size: 1.1rem; color: #444; line-height: 1.6; margin-bottom: 0; margin-top: 2rem;">
+                If you'd like to skip the queue, please book a time below.
+              </div>
+            </div>
+          `;
+          
+          // Initialize Calendly widget
+          if (typeof window !== 'undefined' && (window as any).Calendly) {
+            (window as any).Calendly.initInlineWidget({
+              url: 'https://calendly.com/hoogly/30min',
+              parentElement: document.getElementById('calendly-inline-widget'),
+              prefill: {},
+              utm: {}
+            });
+          }
+          
+          // Trigger highlight animation for the thank you page
+          const thankYouHighlight = document.querySelector('.hero-highlight');
+          if (thankYouHighlight) {
+            setTimeout(() => thankYouHighlight.classList.add('animated'), 200);
+          }
+          
+          return; // Exit early, don't set up form handling
+        }
+      }
+
+      // Trigger highlight animation for regular form page
       const highlight = document.querySelector('.hero-highlight');
       if (highlight) {
         setTimeout(() => highlight.classList.add('animated'), 200);
