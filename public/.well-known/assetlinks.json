@@ -1,0 +1,22 @@
+[{
+  "relation": ["delegate_permission/common.handle_all_urls"],
+  "target": {
+    "namespace": "com.hoogly",
+    "package_name": "com.hoogly.dev",
+    "sha256_cert_fingerprints": [
+      "b1:e5:19:72:11:06:eb:26:c8:02:93:cc:e9:02:21:a8:3c:7e:16:47:6c:42:91:a6:43:36:f7:cd:60:9c:61:83",
+      "03:54:8a:ff:9e:d5:a5:f8:7b:25:c1:6b:3d:a5:53:33:b6:9b:b7:7c:5d:e5:f2:fc:8f:2e:e5:1d:c7:a8:8e:e3"
+    ]
+  }
+},
+  {
+  "relation": ["delegate_permission/common.handle_all_urls"],
+  "target": {
+    "namespace": "com.hoogly",
+    "package_name": "com.hoogly",
+    "sha256_cert_fingerprints": [
+      "64:f6:a1:d8:f5:5b:27:19:57:81:bd:d8:a1:4a:d0:c4:d7:60:aa:f7:9c:ac:ee:7e:ba:fc:24:ed:16:96:ca:bf",
+      "c1:c3:33:02:c8:a3:7b:4c:ee:2e:db:52:57:ee:e6:e4:5d:82:08:86:dc:51:fb:0f:f9:54:6a:67:4e:d9:0b:97"
+    ]
+  }
+}]
