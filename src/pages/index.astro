@@ -270,43 +270,44 @@ import ChatApp from "@venn/ChatApp.vue";
 	<!-- Testimonial Section -->
 	<section
 		class="testimonial-section"
-		style="background: #FCF4E3; border-radius: 2rem; max-width: 1080px; margin: 4rem auto 9rem auto; display: flex; flex-direction: column; align-items: center; overflow: hidden; box-shadow: 0 2px 16px rgba(44,41,80,0.04); position: relative;"
+		style="max-width: 1080px; margin: 4rem auto 9rem auto; display: flex; flex-direction: column; align-items: center; position: relative; padding: 3rem;"
 	>
 		<div
 			class="testimonial-content"
-			style="width: 100%; padding: 0; display: flex; align-items: stretch; height: 100%;"
+			style="width: 100%; display: flex; align-items: center; gap: 3rem; position: relative;"
 		>
-			<!-- Photo Section -->
-			<div style="flex-shrink: 0; width: 300px;">
-				<img
-					src="/images/Home/Hassanah-Rudd.jpg"
-					alt="Hassanah Rudd"
-					style="width: 100%; height: 100%; object-fit: cover; border-radius: 0 0 0 1rem;"
-				/>
+			<!-- Left Section: Circular Profile Picture -->
+			<div style="flex-shrink: 0; position: relative;">
+				<!-- Circular Profile Picture -->
+				<div style="width: 200px; height: 200px; border-radius: 50%; border: 2.5px solid #23221F; overflow: hidden; position: relative;">
+					<img
+						src="/images/Home/Hassanah-Rudd.jpg"
+						alt="Hassanah Rudd"
+						style="width: 100%; height: 100%; object-fit: cover;"
+					/>
+				</div>
 			</div>
 			
-			<!-- Text Section -->
-			<div style="flex: 1; display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 3rem; text-align: center;">
+			<!-- Right Section: Testimonial Text -->
+			<div style="flex: 1; display: flex; flex-direction: column; gap: 1.5rem;">
+				<!-- Testimonial Quote -->
 				<p
-					style="font-family: 'Outfit', sans-serif; font-size: 1.65rem; color: #23221F; margin-bottom: 2rem; line-height: 1.3; font-weight: 600; max-width: 500px;"
+					style="font-family: 'Outfit', sans-serif; font-size: 1.5rem; color: #23221F; line-height: 1.4; font-weight: 400; margin: 0;"
 				>
 					"Hoogly is a complete game changer, when it comes to employee engagement"
 				</p>
-				<div style="display: flex; flex-direction: column; gap: 0.5rem; align-items: center;">
+				
+				<!-- Name and Title -->
+				<div style="display: flex; flex-direction: column; gap: 0.25rem;">
 					<div
-						style="font-family: 'Outfit', sans-serif; color: #23221F; font-size: 1.1rem; font-weight: 500;"
+						style="font-family: 'Outfit', sans-serif; color: #23221F; font-size: 1.1rem; font-weight: 600;"
 					>
 						Hassanah Rudd
 					</div>
 					<div
-						style="font-family: 'Outfit', sans-serif; color: #888; font-size: 1rem;"
+						style="font-family: 'Outfit', sans-serif; color: #666; font-size: 1rem;"
 					>
-						CPO at Hark Medical
-					</div>
-					<div
-						style="font-family: 'Outfit', sans-serif; color: #888; font-size: 1rem;"
-					>
-						Ex Global Head of Workforce Planning Canva
+						CPO at Hark Medical | Ex Global Head of Workforce Planning Canva
 					</div>
 				</div>
 			</div>
