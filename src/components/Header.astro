@@ -74,6 +74,21 @@ const currentPath = new URL(url).pathname;
   mask-size: 100% 100%;
   background-color: transparent !important;
 }
+
+/* Mobile navigation centering for social icons */
+@media (max-width: 768px) {
+  .nav-links li a[aria-label*="Slack"],
+  .nav-links li a[aria-label*="LinkedIn"] {
+    justify-content: center;
+    display: flex;
+    align-items: center;
+  }
+  
+  .nav-links li a[aria-label*="Slack"] img,
+  .nav-links li a[aria-label*="LinkedIn"] svg {
+    margin: 0 auto;
+  }
+}
 </style>
 
 <script is:inline>
