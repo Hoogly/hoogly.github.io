@@ -19,10 +19,9 @@ export async function GET() {
   return new Response(JSON.stringify(appleAppSiteAssociation, null, 2), {
     status: 200,
     headers: {
-      "Content-Type": "application/json",
+      "Content-Type": "application/json; charset=utf-8",
       "Cache-Control": "public, max-age=3600",
-      "X-Content-Type-Options": "nosniff",
-      "Content-Disposition": "inline"
+      "X-Content-Type-Options": "nosniff"
     }
   });
 } 
