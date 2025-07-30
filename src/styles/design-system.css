@@ -2029,6 +2029,8 @@ p {
   
   .container {
     padding: 0 var(--space-6);
+    max-width: 1200px;
+    margin: 0 auto;
   }
   
   /* .nav-links { display: none; } -- removed to fix mobile hamburger menu */
