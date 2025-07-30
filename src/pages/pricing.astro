@@ -256,8 +256,8 @@ import Layout from '../layouts/Layout.astro';
     if (country === 'GB') return 'GBP';
     return 'USD';
   }
-  // Default to USD
-  let region = 'USD';
+  // Default to AUD
+  let region = 'AUD';
   // Try to detect region
   fetch('https://ipapi.co/json/')
     .then(res => res.json())
