@@ -388,11 +388,29 @@ import Layout from '../layouts/Layout.astro';
           formContainer.innerHTML = `
             <div style="text-align: center; padding: 1.5rem 0;">
               <div class="anonymous-ai-headline" style="margin-bottom: 1rem; font-size: 2rem; font-weight: normal;">You're All Set!</div>
-              <div class="anonymous-ai-subheadline" style="font-size: 1.1rem; color: #444; line-height: 1.6; margin-bottom: 0;">
-                You've secured your tee-shirt and 20% off voucher.<br><br>
+              <div class="anonymous-ai-subheadline" style="font-size: 1.1rem; color: #444; line-height: 1.6; margin-bottom: 2rem;">
+                You've secured your t-shirt and 20% off voucher.<br>
                 We'll be in touch soon to understand where to send it.
               </div>
-              <!-- <img src="/images/hi-venn.png" alt="Venn Character" style="max-width: 200px; height: auto; margin: 0 auto; display: block;" /> -->
+              
+              <div class="anonymous-ai-headline" style="margin-bottom: 1.5rem; font-size: 1.5rem; font-weight: 600;">Get Started on your first survey</div>
+              <div style="display: flex; justify-content: center; gap: 1rem; margin-bottom: 2rem; flex-wrap: wrap;">
+                <a href="https://hoogly.page.link/viVj6EGk4E8mqqYdA" target="_blank" rel="noopener noreferrer">
+                  <img src="/images/App Store.png" alt="Download on the App Store" style="height: 50px; width: auto; cursor: pointer;" />
+                </a>
+                <a href="https://hoogly.page.link/viVj6EGk4E8mqqYdA" target="_blank" rel="noopener noreferrer">
+                  <img src="/images/Play Store.png" alt="GET IT ON Google Play" style="height: 50px; width: auto; cursor: pointer;" />
+                </a>
+              </div>
+              
+              <hr style="border: none; height: 1px; background-color: #e0e0e0; margin: 2rem 0;" />
+              
+              <div class="anonymous-ai-subheadline" style="font-size: 1.1rem; color: #444; line-height: 1.6; margin-bottom: 1.5rem;">
+                Join our <span style="color: #ff8661; font-weight: 600;">Human at Work</span> Community
+              </div>
+              <a href="https://join.slack.com/t/humanatworkgroup/shared_invite/zt-3ac8dkoh1-4jDbzie5we~4Z90zectWsw" target="_blank" rel="noopener noreferrer">
+                <img src="/images/Slack QR Code.png" alt="Slack QR Code" style="max-width: 150px; height: auto; margin: 0 auto; display: block; border: 2px solid #e6e1fa; border-radius: 12px; cursor: pointer;" />
+              </a>
             </div>
           `;
           
@@ -400,7 +418,7 @@ import Layout from '../layouts/Layout.astro';
           const calendlySection = document.createElement('div');
           calendlySection.style.cssText = 'max-width: 500px; margin: 2rem auto 0 auto;';
           calendlySection.innerHTML = `
-            <div class="anonymous-ai-headline" style="margin-bottom: 1rem; font-size: 2rem; font-weight: 400;">Want to find out more about Hoogly?</div>
+            <div class="anonymous-ai-headline" style="margin-bottom: 1rem; font-size: 2rem; font-weight: 400; text-align: center;">Want to find out more about Hoogly?</div>
             <div id="calendly-inline-widget" style="min-width: 320px; height: 1100px;"></div>
           `;
           formContainer.parentNode?.insertBefore(calendlySection, formContainer.nextSibling);
