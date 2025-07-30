@@ -680,18 +680,23 @@ import Layout from '../layouts/Layout.astro';
       // Re-attach click event listeners to step headers
       const stepHeaders = document.querySelectorAll('.step-header');
       stepHeaders.forEach((header, index) => {
-        // Remove any existing listeners to prevent duplicates
-        header.removeEventListener('click', header.clickHandler);
+        // Remove any existing listeners by cloning and replacing the element
+        const newHeader = header.cloneNode(true);
+        header.parentNode.replaceChild(newHeader, header);
         
-        // Create and store the click handler
-        header.clickHandler = function(e) {
+        // Add the new listener to the cloned element
+        newHeader.addEventListener('click', function(e) {
           e.preventDefault();
           const stepNumber = index + 1;
           toggleStep(stepNumber, false); // Pass false to indicate this is manual click
-        };
+        });
         
-        // Add the new listener
-        header.addEventListener('click', header.clickHandler);
+        // Also add touch event for mobile
+        newHeader.addEventListener('touchend', function(e) {
+          e.preventDefault();
+          const stepNumber = index + 1;
+          toggleStep(stepNumber, false); // Pass false to indicate this is manual click
+        });
       });
       
       // Reset to first step and restart auto-rotation
@@ -753,17 +758,21 @@ import Layout from '../layouts/Layout.astro';
       // Add click event listeners to all step headers
       const stepHeaders = document.querySelectorAll('.step-header');
       stepHeaders.forEach((header, index) => {
-        // Create and store the click handler
-        const clickHandler = function(e: Event) {
+        // Add click event listener
+        header.addEventListener('click', function(e: Event) {
           e.preventDefault();
           e.stopPropagation();
           const stepNumber = index + 1;
           toggleStep(stepNumber, false); // Pass false to indicate this is manual click
-        };
+        });
         
-        // Add the new listener for both click and touch events
-        header.addEventListener('click', clickHandler);
-        header.addEventListener('touchend', clickHandler);
+        // Add touch event listener for mobile
+        header.addEventListener('touchend', function(e: Event) {
+          e.preventDefault();
+          e.stopPropagation();
+          const stepNumber = index + 1;
+          toggleStep(stepNumber, false); // Pass false to indicate this is manual click
+        });
       });
 
       // Trigger the hero highlight animation
