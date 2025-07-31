@@ -602,6 +602,8 @@ import Layout from '../layouts/Layout.astro';
     let autoRotateInterval;
 
     function toggleStep(stepNumber: number, isAutoRotation = false) {
+      console.log('toggleStep called:', stepNumber, 'isAutoRotation:', isAutoRotation); // Debug log
+      
       const stepItems = document.querySelectorAll('.step-item');
       
       // Close all steps and stop their progress bars
@@ -685,11 +687,13 @@ import Layout from '../layouts/Layout.astro';
       if (autoRotateInterval) {
         clearInterval(autoRotateInterval);
       }
-      toggleStep(1, true);
       startAutoRotation();
     }
 
     function startAutoRotation() {
+      // Start the progress bar for the current step immediately
+      animateProgressBar(currentStep);
+      
       autoRotateInterval = setInterval(() => {
         // Determine max steps based on current view
         const isEmployeeView = document.querySelector('#employeeBtn.active');
@@ -731,16 +735,34 @@ import Layout from '../layouts/Layout.astro';
 
 
 
-    // Initialize
-    document.addEventListener('DOMContentLoaded', function() {
+    // Initialize function
+    let isInitialized = false;
+    
+    function initializeHowItWorks() {
+      if (isInitialized) {
+        console.log('Already initialized, skipping...');
+        return;
+      }
+      
+      console.log('Initializing how-it-works page...'); // Debug log
+      isInitialized = true;
+      
+      // Clear any existing intervals
+      if (autoRotateInterval) {
+        clearInterval(autoRotateInterval);
+        autoRotateInterval = null;
+      }
+      
       // Add click event listeners to all step headers first
       const stepHeaders = document.querySelectorAll('.step-header');
       stepHeaders.forEach((header, index) => {
+        const stepNumber = index + 1;
+        
         // Add click event listener
         header.addEventListener('click', function(e: Event) {
           e.preventDefault();
           e.stopPropagation();
-          const stepNumber = index + 1;
+          console.log('Step clicked:', stepNumber); // Debug log
           toggleStep(stepNumber, false); // Pass false to indicate this is manual click
         });
         
@@ -748,7 +770,7 @@ import Layout from '../layouts/Layout.astro';
         header.addEventListener('touchend', function(e: Event) {
           e.preventDefault();
           e.stopPropagation();
-          const stepNumber = index + 1;
+          console.log('Step touched:', stepNumber); // Debug log
           toggleStep(stepNumber, false); // Pass false to indicate this is manual click
         });
       });
@@ -771,8 +793,9 @@ import Layout from '../layouts/Layout.astro';
         });
       }
 
-      // Start with HR content by default (after event listeners are set up)
-      updateContent('hr');
+      // Simple initialization - just start auto-rotation
+      currentStep = 1;
+      startAutoRotation();
 
       // Trigger the hero highlight animation
       const heroHighlight = document.querySelector('.hero-highlight');
@@ -781,7 +804,10 @@ import Layout from '../layouts/Layout.astro';
           heroHighlight.classList.add('animated');
         }, 500);
       }
-    });
+    }
+
+    // Initialize on DOMContentLoaded
+    document.addEventListener('DOMContentLoaded', initializeHowItWorks);
 
     // Clean up intervals when page is unloaded
     window.addEventListener('beforeunload', function() {
