@@ -271,6 +271,16 @@ import Layout from '../layouts/Layout.astro';
       padding: 0 0 1.5rem 0;
     }
 
+    .step-progress {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      height: 3px;
+      background: linear-gradient(90deg, #ff8661, #ff6b35);
+      width: 0%;
+      transition: width 8s linear;
+    }
+
     /* Hide steps 7 and 8 in employee view */
     .step-item[data-step="7"],
     .step-item[data-step="8"] {
@@ -442,6 +452,7 @@ import Layout from '../layouts/Layout.astro';
       <div class="left-section">
         <div class="steps-container">
                 <div class="step-item active" data-step="1">
+          <div class="step-progress"></div>
           <div class="step-header">
             <div style="display: flex; align-items: center;">
               <span class="step-number">1</span>
@@ -457,6 +468,7 @@ import Layout from '../layouts/Layout.astro';
         </div>
 
                 <div class="step-item" data-step="2">
+          <div class="step-progress"></div>
           <div class="step-header">
             <div style="display: flex; align-items: center;">
               <span class="step-number">2</span>
@@ -472,6 +484,7 @@ import Layout from '../layouts/Layout.astro';
         </div>
 
                 <div class="step-item" data-step="3">
+          <div class="step-progress"></div>
           <div class="step-header">
             <div style="display: flex; align-items: center;">
               <span class="step-number">3</span>
@@ -487,6 +500,7 @@ import Layout from '../layouts/Layout.astro';
         </div>
 
                 <div class="step-item" data-step="4">
+          <div class="step-progress"></div>
           <div class="step-header">
             <div style="display: flex; align-items: center;">
               <span class="step-number">4</span>
@@ -502,6 +516,7 @@ import Layout from '../layouts/Layout.astro';
         </div>
 
                 <div class="step-item" data-step="5">
+          <div class="step-progress"></div>
           <div class="step-header">
             <div style="display: flex; align-items: center;">
               <span class="step-number">5</span>
@@ -517,6 +532,7 @@ import Layout from '../layouts/Layout.astro';
         </div>
 
                 <div class="step-item" data-step="6">
+          <div class="step-progress"></div>
           <div class="step-header">
             <div style="display: flex; align-items: center;">
               <span class="step-number">6</span>
@@ -532,6 +548,7 @@ import Layout from '../layouts/Layout.astro';
         </div>
 
                 <div class="step-item" data-step="7">
+          <div class="step-progress"></div>
           <div class="step-header">
             <div style="display: flex; align-items: center;">
               <span class="step-number">7</span>
@@ -547,6 +564,7 @@ import Layout from '../layouts/Layout.astro';
         </div>
 
                 <div class="step-item" data-step="8">
+          <div class="step-progress"></div>
           <div class="step-header">
             <div style="display: flex; align-items: center;">
               <span class="step-number">8</span>
@@ -575,15 +593,18 @@ import Layout from '../layouts/Layout.astro';
 
   <script>
     let currentStep = 1;
+    let autoRotateInterval = null;
 
-    function toggleStep(stepNumber: number) {
-      console.log('toggleStep called:', stepNumber); // Debug log
+    function toggleStep(stepNumber, isAutoRotation = false) {
+      console.log('=== TOGGLE STEP CALLED:', stepNumber, 'isAutoRotation:', isAutoRotation, '===');
       
       const stepItems = document.querySelectorAll('.step-item');
       
-      // Close all steps
+      // Close all steps and stop their progress bars
       stepItems.forEach((item, index) => {
+        const stepNum = index + 1;
         item.classList.remove('active');
+        stopProgressBar(stepNum);
       });
       
       // Open the clicked step
@@ -591,10 +612,19 @@ import Layout from '../layouts/Layout.astro';
       if (clickedStep) {
         clickedStep.classList.add('active');
         currentStep = stepNumber;
+        
+        // Animate the progress bar for the active step
+        animateProgressBar(stepNumber);
+        
+        // Stop auto-rotation only when user manually selects a step
+        if (!isAutoRotation && autoRotateInterval) {
+          clearInterval(autoRotateInterval);
+          autoRotateInterval = null;
+        }
       }
     }
 
-    function switchView(view: string) {
+    function switchView(view) {
       const hrBtn = document.getElementById('hrBtn');
       const employeeBtn = document.getElementById('employeeBtn');
       
@@ -609,7 +639,8 @@ import Layout from '../layouts/Layout.astro';
       }
     }
 
-    function updateContent(view: string) {
+    function updateContent(view) {
+      console.log('updateContent called with view:', view);
       const stepTitles = document.querySelectorAll('.step-title');
       const stepDescriptions = document.querySelectorAll('.step-description');
       const stepsContainer = document.querySelector('.steps-container');
@@ -643,46 +674,86 @@ import Layout from '../layouts/Layout.astro';
         }
       });
       
-      // Note: Event listeners are already set up in DOMContentLoaded
-      // No need to re-attach them here as they persist through content updates
-      
-      // Reset to first step
+      // Reset to first step and restart auto-rotation
       currentStep = 1;
+      if (autoRotateInterval) {
+        clearInterval(autoRotateInterval);
+      }
+      startAutoRotation();
     }
 
+    function startAutoRotation() {
+      // Start the progress bar for the current step immediately
+      animateProgressBar(currentStep);
+      
+      autoRotateInterval = setInterval(() => {
+        // Determine max steps based on current view
+        const isEmployeeView = document.querySelector('#employeeBtn.active');
+        const maxSteps = isEmployeeView ? 6 : 8;
+        
+        currentStep = currentStep >= maxSteps ? 1 : currentStep + 1;
+        toggleStep(currentStep, true); // Pass true to indicate this is auto-rotation
+      }, 8000); // Rotate every 8 seconds
+    }
 
+    function animateProgressBar(stepNumber) {
+      const stepItem = document.querySelector(`[data-step="${stepNumber}"]`);
+      if (stepItem) {
+        const progressBar = stepItem.querySelector('.step-progress');
+        if (progressBar) {
+          // Clear any existing animation by removing transition temporarily
+          progressBar.style.transition = 'none';
+          progressBar.style.width = '0%';
+          // Force a reflow to ensure the reset is applied
+          progressBar.offsetHeight;
+          // Restore transition and start animation
+          progressBar.style.transition = 'width 8s linear';
+          progressBar.style.width = '100%';
+        }
+      }
+    }
 
+    function stopProgressBar(stepNumber) {
+      const stepItem = document.querySelector(`[data-step="${stepNumber}"]`);
+      if (stepItem) {
+        const progressBar = stepItem.querySelector('.step-progress');
+        if (progressBar) {
+          // Stop the animation by removing transition and resetting width
+          progressBar.style.transition = 'none';
+          progressBar.style.width = '0%';
+        }
+      }
+    }
 
-    
     function initializeHowItWorks() {
-      console.log('Initializing how-it-works page...'); // Debug log
+      console.log('=== INITIALIZING HOW-IT-WORKS PAGE ===');
       
-      // Add click event listeners to all step headers first
-      const stepHeaders = document.querySelectorAll('.step-header');
-      console.log('Found step headers:', stepHeaders.length); // Debug log
+      // Set up event listeners for step headers
+      const headers = document.querySelectorAll('.step-header');
+      console.log('Found step headers:', headers.length);
       
-      stepHeaders.forEach((header, index) => {
+      headers.forEach((header, index) => {
         const stepNumber = index + 1;
-        console.log('Setting up listener for step:', stepNumber); // Debug log
+        console.log('Setting up listener for step:', stepNumber);
         
         // Add click event listener
-        header.addEventListener('click', function(e: Event) {
+        header.addEventListener('click', function(e) {
           e.preventDefault();
           e.stopPropagation();
-          console.log('Step clicked:', stepNumber); // Debug log
-          toggleStep(stepNumber);
+          console.log('Step clicked:', stepNumber);
+          toggleStep(stepNumber, false);
         });
         
         // Add touch event listener for mobile
-        header.addEventListener('touchend', function(e: Event) {
+        header.addEventListener('touchend', function(e) {
           e.preventDefault();
           e.stopPropagation();
-          console.log('Step touched:', stepNumber); // Debug log
-          toggleStep(stepNumber);
+          console.log('Step touched:', stepNumber);
+          toggleStep(stepNumber, false);
         });
       });
 
-      // View toggle functionality (For HR/For Employees)
+      // Set up toggle buttons
       const hrBtn = document.getElementById('hrBtn');
       const employeeBtn = document.getElementById('employeeBtn');
       
@@ -700,14 +771,14 @@ import Layout from '../layouts/Layout.astro';
         });
       }
 
-            // Start with HR content by default
-      updateContent('hr');
-      
       // Set first step as active by default
       const firstStep = document.querySelector('[data-step="1"]');
       if (firstStep) {
         firstStep.classList.add('active');
       }
+      
+      // Start with HR content by default
+      updateContent('hr');
       
       // Trigger the hero highlight animation
       const heroHighlight = document.querySelector('.hero-highlight');
@@ -720,7 +791,5 @@ import Layout from '../layouts/Layout.astro';
 
     // Initialize on DOMContentLoaded
     document.addEventListener('DOMContentLoaded', initializeHowItWorks);
-
-
   </script>
 </Layout> 
