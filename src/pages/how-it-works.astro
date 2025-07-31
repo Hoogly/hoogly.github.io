@@ -408,23 +408,7 @@ import Layout from '../layouts/Layout.astro';
       color: #FF7D61;
     }
 
-    /* Countdown Timer */
-    .countdown-timer {
-      position: absolute;
-      top: 20px;
-      left: 20px;
-      width: 40px;
-      height: 40px;
-      border: 3px solid #E5E5E5;
-      border-top: 3px solid #FF7D61;
-      border-radius: 50%;
-      animation: spin 3s linear infinite;
-    }
 
-    @keyframes spin {
-      0% { transform: rotate(0deg); }
-      100% { transform: rotate(360deg); }
-    }
 
     @media (max-width: 768px) {
       .hero-title {
@@ -458,7 +442,6 @@ import Layout from '../layouts/Layout.astro';
       <div class="left-section">
         <div class="steps-container">
                 <div class="step-item active" data-step="1">
-          <div class="step-progress"></div>
           <div class="step-header">
             <div style="display: flex; align-items: center;">
               <span class="step-number">1</span>
@@ -474,7 +457,6 @@ import Layout from '../layouts/Layout.astro';
         </div>
 
                 <div class="step-item" data-step="2">
-          <div class="step-progress"></div>
           <div class="step-header">
             <div style="display: flex; align-items: center;">
               <span class="step-number">2</span>
@@ -490,7 +472,6 @@ import Layout from '../layouts/Layout.astro';
         </div>
 
                 <div class="step-item" data-step="3">
-          <div class="step-progress"></div>
           <div class="step-header">
             <div style="display: flex; align-items: center;">
               <span class="step-number">3</span>
@@ -506,7 +487,6 @@ import Layout from '../layouts/Layout.astro';
         </div>
 
                 <div class="step-item" data-step="4">
-          <div class="step-progress"></div>
           <div class="step-header">
             <div style="display: flex; align-items: center;">
               <span class="step-number">4</span>
@@ -522,7 +502,6 @@ import Layout from '../layouts/Layout.astro';
         </div>
 
                 <div class="step-item" data-step="5">
-          <div class="step-progress"></div>
           <div class="step-header">
             <div style="display: flex; align-items: center;">
               <span class="step-number">5</span>
@@ -538,7 +517,6 @@ import Layout from '../layouts/Layout.astro';
         </div>
 
                 <div class="step-item" data-step="6">
-          <div class="step-progress"></div>
           <div class="step-header">
             <div style="display: flex; align-items: center;">
               <span class="step-number">6</span>
@@ -554,7 +532,6 @@ import Layout from '../layouts/Layout.astro';
         </div>
 
                 <div class="step-item" data-step="7">
-          <div class="step-progress"></div>
           <div class="step-header">
             <div style="display: flex; align-items: center;">
               <span class="step-number">7</span>
@@ -570,7 +547,6 @@ import Layout from '../layouts/Layout.astro';
         </div>
 
                 <div class="step-item" data-step="8">
-          <div class="step-progress"></div>
           <div class="step-header">
             <div style="display: flex; align-items: center;">
               <span class="step-number">8</span>
@@ -599,18 +575,15 @@ import Layout from '../layouts/Layout.astro';
 
   <script>
     let currentStep = 1;
-    let autoRotateInterval;
 
-    function toggleStep(stepNumber: number, isAutoRotation = false) {
-      console.log('toggleStep called:', stepNumber, 'isAutoRotation:', isAutoRotation); // Debug log
+    function toggleStep(stepNumber: number) {
+      console.log('toggleStep called:', stepNumber); // Debug log
       
       const stepItems = document.querySelectorAll('.step-item');
       
-      // Close all steps and stop their progress bars
+      // Close all steps
       stepItems.forEach((item, index) => {
-        const stepNum = index + 1;
         item.classList.remove('active');
-        stopProgressBar(stepNum);
       });
       
       // Open the clicked step
@@ -618,15 +591,6 @@ import Layout from '../layouts/Layout.astro';
       if (clickedStep) {
         clickedStep.classList.add('active');
         currentStep = stepNumber;
-        
-        // Animate the progress bar for the active step
-        animateProgressBar(stepNumber);
-        
-        // Stop auto-rotation only when user manually selects a step (not during auto-rotation)
-        if (!isAutoRotation && autoRotateInterval) {
-          clearInterval(autoRotateInterval);
-          autoRotateInterval = null;
-        }
       }
     }
 
@@ -682,88 +646,31 @@ import Layout from '../layouts/Layout.astro';
       // Note: Event listeners are already set up in DOMContentLoaded
       // No need to re-attach them here as they persist through content updates
       
-      // Reset to first step and restart auto-rotation
+      // Reset to first step
       currentStep = 1;
-      if (autoRotateInterval) {
-        clearInterval(autoRotateInterval);
-      }
-      startAutoRotation();
-    }
-
-    function startAutoRotation() {
-      // Start the progress bar for the current step immediately
-      animateProgressBar(currentStep);
-      
-      autoRotateInterval = setInterval(() => {
-        // Determine max steps based on current view
-        const isEmployeeView = document.querySelector('#employeeBtn.active');
-        const maxSteps = isEmployeeView ? 6 : 8;
-        
-        currentStep = currentStep >= maxSteps ? 1 : currentStep + 1;
-        toggleStep(currentStep, true); // Pass true to indicate this is auto-rotation
-      }, 8000); // Rotate every 8 seconds
-    }
-
-    function animateProgressBar(stepNumber: number) {
-      const stepItem = document.querySelector(`[data-step="${stepNumber}"]`);
-      if (stepItem) {
-        const progressBar = stepItem.querySelector('.step-progress');
-        if (progressBar) {
-          // Clear any existing animation by removing transition temporarily
-          progressBar.style.transition = 'none';
-          progressBar.style.width = '0%';
-          // Force a reflow to ensure the reset is applied
-          progressBar.offsetHeight;
-          // Restore transition and start animation
-          progressBar.style.transition = 'width 8s linear';
-          progressBar.style.width = '100%';
-        }
-      }
-    }
-
-    function stopProgressBar(stepNumber: number) {
-      const stepItem = document.querySelector(`[data-step="${stepNumber}"]`);
-      if (stepItem) {
-        const progressBar = stepItem.querySelector('.step-progress');
-        if (progressBar) {
-          // Stop the animation by removing transition and resetting width
-          progressBar.style.transition = 'none';
-          progressBar.style.width = '0%';
-        }
-      }
     }
 
 
 
-    // Initialize function
-    let isInitialized = false;
+
     
     function initializeHowItWorks() {
-      if (isInitialized) {
-        console.log('Already initialized, skipping...');
-        return;
-      }
-      
       console.log('Initializing how-it-works page...'); // Debug log
-      isInitialized = true;
-      
-      // Clear any existing intervals
-      if (autoRotateInterval) {
-        clearInterval(autoRotateInterval);
-        autoRotateInterval = null;
-      }
       
       // Add click event listeners to all step headers first
       const stepHeaders = document.querySelectorAll('.step-header');
+      console.log('Found step headers:', stepHeaders.length); // Debug log
+      
       stepHeaders.forEach((header, index) => {
         const stepNumber = index + 1;
+        console.log('Setting up listener for step:', stepNumber); // Debug log
         
         // Add click event listener
         header.addEventListener('click', function(e: Event) {
           e.preventDefault();
           e.stopPropagation();
           console.log('Step clicked:', stepNumber); // Debug log
-          toggleStep(stepNumber, false); // Pass false to indicate this is manual click
+          toggleStep(stepNumber);
         });
         
         // Add touch event listener for mobile
@@ -771,7 +678,7 @@ import Layout from '../layouts/Layout.astro';
           e.preventDefault();
           e.stopPropagation();
           console.log('Step touched:', stepNumber); // Debug log
-          toggleStep(stepNumber, false); // Pass false to indicate this is manual click
+          toggleStep(stepNumber);
         });
       });
 
@@ -793,10 +700,15 @@ import Layout from '../layouts/Layout.astro';
         });
       }
 
-      // Simple initialization - just start auto-rotation
-      currentStep = 1;
-      startAutoRotation();
-
+            // Start with HR content by default
+      updateContent('hr');
+      
+      // Set first step as active by default
+      const firstStep = document.querySelector('[data-step="1"]');
+      if (firstStep) {
+        firstStep.classList.add('active');
+      }
+      
       // Trigger the hero highlight animation
       const heroHighlight = document.querySelector('.hero-highlight');
       if (heroHighlight) {
@@ -809,9 +721,6 @@ import Layout from '../layouts/Layout.astro';
     // Initialize on DOMContentLoaded
     document.addEventListener('DOMContentLoaded', initializeHowItWorks);
 
-    // Clean up intervals when page is unloaded
-    window.addEventListener('beforeunload', function() {
-      if (autoRotateInterval) clearInterval(autoRotateInterval);
-    });
+
   </script>
 </Layout> 
