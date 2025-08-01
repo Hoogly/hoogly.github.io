@@ -64,7 +64,7 @@ const allTags = Array.from(new Set(sortedPosts.flatMap(post => post.data.tags ||
     <section class="blog-posts" style="padding: var(--space-16) 0;">
         <div class="container">
             <div id="posts-grid" class="posts-grid" style="grid-template-columns: repeat(3, 1fr); gap: 2rem;">
-                {sortedPosts.slice(1, 7).map((post, idx) => (
+                {sortedPosts.slice(1, 13).map((post, idx) => (
                     <a href={`/blog/${post.slug}`} style="text-decoration: none; color: inherit;">
                         <article class="blog-post-card animate-in">
                             <img src={post.data.image ? post.data.image : '/images/Blog%20Header.jpg'} alt={post.data.title} class="blog-card-image" />
@@ -93,6 +93,30 @@ const allTags = Array.from(new Set(sortedPosts.flatMap(post => post.data.tags ||
                     </a>
                 ))}
             </div>
+            
+            {sortedPosts.length > 13 && (
+                <div class="pagination" style="margin-top: 3rem; text-align: center;">
+                    <a href="/blog/page/2" class="next-page-btn" style="
+                        display: inline-flex;
+                        align-items: center;
+                        gap: 0.5rem;
+                        padding: 1rem 2rem;
+                        background: #23221F;
+                        color: white;
+                        text-decoration: none;
+                        border-radius: 8px;
+                        font-weight: 500;
+                        font-size: 1rem;
+                        transition: all 0.2s ease;
+                        font-family: 'Outfit', sans-serif;
+                    ">
+                        Next page
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M6 12L10 8L6 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </a>
+                </div>
+            )}
         </div>
     </section>
 
@@ -321,6 +345,17 @@ body.blog, .blog-header, .blog-header *, .blog-posts, .blog-posts *, .blog-post-
 }
 .blog-category-select:focus {
   outline: none;
+}
+
+/* Pagination styles */
+.next-page-btn:hover {
+  background: #444 !important;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.next-page-btn:active {
+  transform: translateY(0);
 }
 </style>
 
