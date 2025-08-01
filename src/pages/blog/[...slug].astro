@@ -421,7 +421,18 @@ const finalRelatedPosts = relatedPosts.length > 0 ? relatedPosts : fallbackPosts
                                 </div>
                                 <p class="related-article-description">{relatedPost.data.description}</p>
                                 <div class="related-article-meta">
-                                    {relatedPost.data.publishDate.toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' })}
+                                    <div style="display: flex; align-items: center; gap: 0.5rem;">
+                                        {relatedPost.data.author && relatedPost.data.author.includes('Mohit Midha') ? (
+                                            <img src="/images/about-us/mohit.avif" alt="Mohit Midha" style="width: 20px; height: 20px; border-radius: 50%; object-fit: cover;" />
+                                        ) : relatedPost.data.author && relatedPost.data.author.includes('Anitta') ? (
+                                            <img src="/images/about-us/anitta.jpeg" alt="Anitta Krishan" style="width: 20px; height: 20px; border-radius: 50%; object-fit: cover;" />
+                                        ) : (
+                                            <div style="width: 20px; height: 20px; border-radius: 50%; background: #F7F3F0; display: flex; align-items: center; justify-content: center; font-size: 10px; color: #666; font-weight: 500;">H</div>
+                                        )}
+                                        <span>
+                                            {relatedPost.data.author ? relatedPost.data.author.split(',')[0] : 'Hoogly Team'} · {relatedPost.data.publishDate.toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' })}
+                                        </span>
+                                    </div>
                                 </div>
                             </div>
                         </a>
