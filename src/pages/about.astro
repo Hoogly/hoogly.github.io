@@ -670,14 +670,20 @@ import Layout from '../layouts/Layout.astro';
       const windowHeight = window.innerHeight;
       
       let currentSection = 0;
+      let minDistance = Infinity;
       
       sections.forEach((section, index) => {
         const sectionTop = section.offsetTop;
         const sectionHeight = section.offsetHeight;
-        const sectionBottom = sectionTop + sectionHeight;
+        const sectionCenter = sectionTop + sectionHeight / 2;
         
-        // Check if section is in view (with some tolerance)
-        if (scrollPosition + windowHeight * 0.3 >= sectionTop && scrollPosition + windowHeight * 0.3 < sectionBottom) {
+        // Calculate distance from viewport center to section center
+        const viewportCenter = scrollPosition + windowHeight / 2;
+        const distance = Math.abs(viewportCenter - sectionCenter);
+        
+        // Find the section closest to the viewport center
+        if (distance < minDistance) {
+          minDistance = distance;
           currentSection = index;
         }
       });
