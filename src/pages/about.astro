@@ -674,20 +674,26 @@ import Layout from '../layouts/Layout.astro';
       const windowHeight = window.innerHeight;
       
       let currentSection = 0;
-      let minDistance = Infinity;
       
       sections.forEach((section, index) => {
         const sectionTop = section.offsetTop;
         const sectionHeight = section.offsetHeight;
-        const sectionCenter = sectionTop + sectionHeight / 2;
+        const sectionBottom = sectionTop + sectionHeight;
         
-        // Calculate distance from viewport center to section center
+        // Check if section is currently in view
+        // A section is considered "active" if its top is above the viewport center
+        // and its bottom is below the viewport center, or if it's the first section
+        // and we're at the top of the page
         const viewportCenter = scrollPosition + windowHeight / 2;
-        const distance = Math.abs(viewportCenter - sectionCenter);
         
-        // Find the section closest to the viewport center
-        if (distance < minDistance) {
-          minDistance = distance;
+        if (index === 0 && scrollPosition < sectionHeight / 2) {
+          // First section is active when at the top
+          currentSection = 0;
+        } else if (sectionTop <= viewportCenter && sectionBottom > viewportCenter) {
+          // Section is currently in the center of the viewport
+          currentSection = index;
+        } else if (sectionTop <= scrollPosition + windowHeight * 0.3) {
+          // Section is in the upper third of the viewport
           currentSection = index;
         }
       });
