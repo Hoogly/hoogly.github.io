@@ -660,9 +660,13 @@ import Layout from '../layouts/Layout.astro';
 
 <script is:inline>
   // Smooth scrolling navigation
-  document.addEventListener('DOMContentLoaded', function() {
+  function initializeNavigation() {
     const navItems = document.querySelectorAll('.nav-item');
     const sections = document.querySelectorAll('.section');
+    
+    if (navItems.length === 0 || sections.length === 0) {
+      return; // Exit if elements aren't found
+    }
     
     // Update active nav item on scroll
     function updateActiveNav() {
@@ -728,15 +732,23 @@ import Layout from '../layouts/Layout.astro';
     
     window.addEventListener('scroll', requestTick);
     
-    // Initial call
-    updateActiveNav();
+    // Initial call with a small delay to ensure DOM is ready
+    setTimeout(updateActiveNav, 100);
     
-    // Debug: Log section positions
-    console.log('Sections found:', sections.length);
-    sections.forEach((section, index) => {
-      console.log(`Section ${index}:`, section.offsetTop, section.offsetHeight);
-    });
-  });
+    // Also call immediately
+    updateActiveNav();
+  }
+  
+  // Initialize on multiple events to ensure it works
+  document.addEventListener('astro:page-load', initializeNavigation);
+  document.addEventListener('DOMContentLoaded', initializeNavigation);
+  
+  // Also try to initialize immediately if DOM is already ready
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initializeNavigation);
+  } else {
+    initializeNavigation();
+  }
 
   // Team card interactions
   function setupSeeMore(bioId, btnId) {
