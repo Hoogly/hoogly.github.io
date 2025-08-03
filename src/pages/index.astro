@@ -14,8 +14,9 @@ import ChatApp from "@venn/ChatApp.vue";
 			<div class="hero-content">
 				<div class="hero-text">
 					<div
-						class="hero-title"
-						style="text-align: center; margin-bottom: 0.2em; font-family: 'Outfit', sans-serif; font-size: 4rem;"
+						class="hero-title parallax-element scroll-animate"
+						style="text-align: center; margin-bottom: 0.2em; font-family: 'Outfit', sans-serif; font-size: 4rem; opacity: 0; transform: translateY(30px); transition: opacity 0.8s ease-out, transform 0.8s ease-out;"
+						data-parallax-speed="0.3"
 					>
 						<div class="hero-title-align" style="display: block;">
 							<span class="hero-title-text">Tired of </span><span
@@ -30,12 +31,15 @@ import ChatApp from "@venn/ChatApp.vue";
 						</div>
 					</div>
 					<div
-						class="hero-subtitle"
-						style="font-family: 'Outfit', sans-serif; font-weight: 400; text-align: center; margin-bottom: 2.5em; padding-top: 1rem; line-height: 30px;"
+						class="hero-subtitle parallax-element scroll-animate"
+						style="font-family: 'Outfit', sans-serif; font-weight: 400; text-align: center; margin-bottom: 2.5em; padding-top: 1rem; line-height: 30px; opacity: 0; transform: translateY(30px); transition: opacity 0.8s ease-out, transform 0.8s ease-out;"
+						data-parallax-speed="0.5"
 					>
 						Spark change with the AI conversations your team <em>wished</em> someone would have.
 					</div>
-					<ChatApp client:only="vue" variant="mini" />
+					<div class="parallax-element scroll-animate" data-parallax-speed="0.7" style="opacity: 0; transform: translateY(30px); transition: opacity 0.8s ease-out, transform 0.8s ease-out;">
+						<ChatApp client:only="vue" variant="mini" />
+					</div>
 					<div style="height: 18vh; min-height: 120px; max-height: 180px; width: 100%;"></div>
 				</div>
 				
@@ -1131,5 +1135,76 @@ import ChatApp from "@venn/ChatApp.vue";
 		
 		// Initialize testimonial animation
 		initializeTestimonialAnimation();
+		
+		// Parallax effect for hero elements
+		function initializeParallaxEffect() {
+			const parallaxElements = document.querySelectorAll('.parallax-element');
+			
+			function handleParallax() {
+				const scrolled = window.pageYOffset;
+				
+				parallaxElements.forEach(element => {
+					// Only apply parallax if the element has completed its scroll animation
+					if (element.classList.contains('scroll-animate') && element.style.opacity === '1') {
+						const speed = parseFloat(element.getAttribute('data-parallax-speed') || '0.5');
+						const yPos = -(scrolled * speed);
+						element.style.transform = `translateY(${yPos}px)`;
+					} else if (!element.classList.contains('scroll-animate')) {
+						// For elements without scroll animation, apply parallax immediately
+						const speed = parseFloat(element.getAttribute('data-parallax-speed') || '0.5');
+						const yPos = -(scrolled * speed);
+						element.style.transform = `translateY(${yPos}px)`;
+					}
+				});
+			}
+			
+			// Add scroll listener for parallax effect
+			window.addEventListener('scroll', handleParallax);
+			
+			// Initial call
+			handleParallax();
+		}
+		
+		// Initialize parallax effect
+		initializeParallaxEffect();
+		
+		// Scroll Animation Function for Hero elements
+		function initializeHeroScrollAnimations() {
+			const scrollElements = document.querySelectorAll('.scroll-animate');
+			
+			const observerOptions = {
+				threshold: 0.1,
+				rootMargin: '0px 0px -50px 0px'
+			};
+			
+			const observer = new IntersectionObserver((entries) => {
+				entries.forEach(entry => {
+					if (entry.isIntersecting) {
+						entry.target.style.opacity = '1';
+						// For parallax elements, we need to preserve the parallax transform
+						if (entry.target.classList.contains('parallax-element')) {
+							entry.target.style.transform = 'translateY(0)';
+							// Trigger parallax effect after animation
+							setTimeout(() => {
+								const scrolled = window.pageYOffset;
+								const speed = parseFloat(entry.target.getAttribute('data-parallax-speed') || '0.5');
+								const yPos = -(scrolled * speed);
+								entry.target.style.transform = `translateY(${yPos}px)`;
+							}, 800); // Match the transition duration
+						} else {
+							entry.target.style.transform = 'translateY(0)';
+						}
+					}
+				});
+			}, observerOptions);
+			
+			// Observe scroll elements
+			scrollElements.forEach(element => {
+				observer.observe(element);
+			});
+		}
+		
+		// Initialize hero scroll animations
+		initializeHeroScrollAnimations();
 	});
 </script>
