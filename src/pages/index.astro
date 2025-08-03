@@ -293,7 +293,7 @@ import ChatApp from "@venn/ChatApp.vue";
 		>
 			<!-- Testimonial Quote with word-by-word darkening -->
 			<p
-				style="font-family: 'Outfit', sans-serif; font-size: 3.5rem; color: #23221F; line-height: 1.2; font-weight: 400; margin: 0 0 3rem 0; opacity: 0; transform: translateY(20px); transition: opacity 1.2s ease-out 0.2s, transform 1.2s ease-out 0.2s;"
+				style="font-family: 'Outfit', sans-serif; font-size: 3.5rem; color: #23221F; line-height: 1.2; font-weight: 400; margin: 0 0 3rem 0; opacity: 0.4; transform: translateY(20px); transition: opacity 1.2s ease-out 0.2s, transform 1.2s ease-out 0.2s;"
 				id="testimonial-quote"
 			>
 				<span class="word" style="opacity: 0.2; transition: opacity 0.5s ease;">"Hoogly</span> 
@@ -311,7 +311,7 @@ import ChatApp from "@venn/ChatApp.vue";
 			</p>
 			
 			<!-- Name and Title with small image next to name -->
-			<div style="display: flex; align-items: center; gap: 1rem; opacity: 0; transform: translateY(20px); transition: opacity 1.2s ease-out 0.4s, transform 1.2s ease-out 0.4s;" id="testimonial-author">
+			<div style="display: flex; align-items: center; gap: 1rem; opacity: 0.4; transform: translateY(20px); transition: opacity 1.2s ease-out 0.4s, transform 1.2s ease-out 0.4s;" id="testimonial-author">
 				<!-- Small Profile Picture -->
 				<div style="flex-shrink: 0; position: relative;">
 					<div style="width: 60px; height: 60px; border-radius: 50%; overflow: hidden; position: relative; box-shadow: 0 4px 16px rgba(0,0,0,0.15); transition: transform 0.3s ease;">
@@ -324,14 +324,11 @@ import ChatApp from "@venn/ChatApp.vue";
 				</div>
 				
 				<!-- Name and Title -->
-				<div style="display: flex; flex-direction: column; gap: 0.25rem; text-align: left;">
+				<div style="display: flex; flex-direction: column; gap: 0.25rem; text-align: left;" class="testimonial-author-text">
 					<div
-						style="font-family: 'Outfit', sans-serif; color: #23221F; font-size: 1.5rem; font-weight: 600; display: flex; align-items: center; gap: 0.5rem;"
+						style="font-family: 'Outfit', sans-serif; color: #23221F; font-size: 1.5rem; font-weight: 600;"
 					>
-						Hassanah Rudd,
-						<span style="font-family: 'Outfit', sans-serif; color: #23221F; font-size: 1.5rem; font-weight: 600;">
-							CPO at Hark Medical
-						</span>
+						Hassanah Rudd, CPO at Hark Medical
 					</div>
 					<div
 						style="font-family: 'Outfit', sans-serif; color: #666; font-size: 1.25rem; font-weight: 400;"
@@ -349,7 +346,7 @@ import ChatApp from "@venn/ChatApp.vue";
 	<!-- Built by the People Behind the People Section -->
 	<section
 		class="built-by-section"
-		style="background: #E8E6FF; padding: var(--space-20) 0; width: 100vw; margin-left: calc(-50vw + 50%);"
+		style="background: #E8E6FF; padding: var(--space-20) 0; width: 100vw; margin-left: calc(-50vw + 50%); overflow-x: hidden;"
 	>
 		<div class="container">
 			<div style="text-align: center; max-width: 800px; margin: 0 auto;">
@@ -410,7 +407,7 @@ import ChatApp from "@venn/ChatApp.vue";
 	<!-- FAQ Section -->
 	<section
 		class="faq-section"
-		style="background: white; padding: var(--space-20) 0; width: 100vw; margin-left: calc(-50vw + 50%);"
+		style="background: white; padding: var(--space-20) 0; width: 100vw; margin-left: calc(-50vw + 50%); overflow-x: hidden;"
 	>
 		<div class="container" style="max-width: 800px; margin: 0 auto;">
 			<div
@@ -650,7 +647,7 @@ import ChatApp from "@venn/ChatApp.vue";
 	<!-- Final CTA Section -->
 	<section
 		class="final-cta-section"
-		style="background: #F7F3F0; text-align: center; padding: var(--space-20) 0; width: 100vw; margin-left: calc(-50vw + 50%);"
+		style="background: #F7F3F0; text-align: center; padding: var(--space-20) 0; width: 100vw; margin-left: calc(-50vw + 50%); overflow-x: hidden;"
 	>
 		<div class="container">
 			<h2
@@ -681,6 +678,29 @@ import ChatApp from "@venn/ChatApp.vue";
 </Layout>
 
 <style>
+	/* Prevent horizontal scrolling on mobile */
+	html, body {
+		overflow-x: hidden;
+		max-width: 100%;
+	}
+	
+	/* Mobile testimonial text centering */
+	@media (max-width: 768px) {
+		.testimonial-author-text {
+			text-align: center !important;
+		}
+		
+		#testimonial-author {
+			flex-direction: column !important;
+			gap: 1rem !important;
+		}
+		
+		#testimonial-author img {
+			width: 80px !important;
+			height: 80px !important;
+		}
+	}
+	
 	.animate-in {
 		opacity: 0;
 		transform: translateY(40px);
@@ -1077,6 +1097,10 @@ import ChatApp from "@venn/ChatApp.vue";
 							testimonialAuthor.style.opacity = '1';
 							testimonialAuthor.style.transform = 'translateY(0)';
 						}, 400);
+					} else {
+						// Reset to initial state when out of view
+						testimonialQuote.style.opacity = '0.4';
+						testimonialAuthor.style.opacity = '0.4';
 					}
 				});
 			}, {
@@ -1136,33 +1160,15 @@ import ChatApp from "@venn/ChatApp.vue";
 		// Initialize testimonial animation
 		initializeTestimonialAnimation();
 		
-		// Parallax effect for hero elements
+		// Parallax effect for hero elements - DISABLED
 		function initializeParallaxEffect() {
+			// Parallax effect is disabled - elements stay in place
 			const parallaxElements = document.querySelectorAll('.parallax-element');
 			
-			function handleParallax() {
-				const scrolled = window.pageYOffset;
-				
-				parallaxElements.forEach(element => {
-					// Only apply parallax if the element has completed its scroll animation
-					if (element.classList.contains('scroll-animate') && element.style.opacity === '1') {
-						const speed = parseFloat(element.getAttribute('data-parallax-speed') || '0.5');
-						const yPos = -(scrolled * speed);
-						element.style.transform = `translateY(${yPos}px)`;
-					} else if (!element.classList.contains('scroll-animate')) {
-						// For elements without scroll animation, apply parallax immediately
-						const speed = parseFloat(element.getAttribute('data-parallax-speed') || '0.5');
-						const yPos = -(scrolled * speed);
-						element.style.transform = `translateY(${yPos}px)`;
-					}
-				});
-			}
-			
-			// Add scroll listener for parallax effect
-			window.addEventListener('scroll', handleParallax);
-			
-			// Initial call
-			handleParallax();
+			// Ensure all parallax elements stay at their natural position
+			parallaxElements.forEach(element => {
+				element.style.transform = 'translateY(0)';
+			});
 		}
 		
 		// Initialize parallax effect
@@ -1179,18 +1185,13 @@ import ChatApp from "@venn/ChatApp.vue";
 			
 			const observer = new IntersectionObserver((entries) => {
 				entries.forEach(entry => {
-					if (entry.isIntersecting) {
+					if (entry.isIntersecting && !entry.target.classList.contains('animated')) {
+						// Mark as animated to prevent re-triggering
+						entry.target.classList.add('animated');
 						entry.target.style.opacity = '1';
-						// For parallax elements, we need to preserve the parallax transform
+						// For parallax elements, keep them in place (parallax disabled)
 						if (entry.target.classList.contains('parallax-element')) {
 							entry.target.style.transform = 'translateY(0)';
-							// Trigger parallax effect after animation
-							setTimeout(() => {
-								const scrolled = window.pageYOffset;
-								const speed = parseFloat(entry.target.getAttribute('data-parallax-speed') || '0.5');
-								const yPos = -(scrolled * speed);
-								entry.target.style.transform = `translateY(${yPos}px)`;
-							}, 800); // Match the transition duration
 						} else {
 							entry.target.style.transform = 'translateY(0)';
 						}
