@@ -253,25 +253,25 @@ import ChatApp from "@venn/ChatApp.vue";
 		>
 			<!-- Testimonial Quote with word-by-word darkening -->
 			<p
-				style="font-family: 'Outfit', sans-serif; font-size: 3.5rem; color: #23221F; line-height: 1.2; font-weight: 400; margin: 0 0 3rem 0; opacity: 0.4; transform: translateY(20px); transition: opacity 1.2s ease-out 0.2s, transform 1.2s ease-out 0.2s;"
+				style="font-family: 'Outfit', sans-serif; font-size: 3.5rem; color: #23221F; line-height: 1.2; font-weight: 400; margin: 0 0 3rem 0;"
 				id="testimonial-quote"
 			>
-				<span class="word" style="opacity: 0.2; transition: opacity 0.5s ease;">"Hoogly</span> 
-				<span class="word" style="opacity: 0.2; transition: opacity 0.5s ease;">is</span> 
-				<span class="word" style="opacity: 0.2; transition: opacity 0.5s ease;">a</span> 
-				<span class="word" style="opacity: 0.2; transition: opacity 0.5s ease;">complete</span> 
-				<span class="word" style="opacity: 0.2; transition: opacity 0.5s ease;">game</span> 
-				<span class="word" style="opacity: 0.2; transition: opacity 0.5s ease;">changer,</span> 
-				<span class="word" style="opacity: 0.2; transition: opacity 0.5s ease;">when</span> 
-				<span class="word" style="opacity: 0.2; transition: opacity 0.5s ease;">it</span> 
-				<span class="word" style="opacity: 0.2; transition: opacity 0.5s ease;">comes</span> 
-				<span class="word" style="opacity: 0.2; transition: opacity 0.5s ease;">to</span> 
-				<span class="word" style="opacity: 0.2; transition: opacity 0.5s ease;">employee</span> 
-				<span class="word" style="opacity: 0.2; transition: opacity 0.5s ease;">engagement"</span>
+				<span class="word" style="opacity: 0.25; transition: opacity 0.8s ease;">"Hoogly</span> 
+				<span class="word" style="opacity: 0.25; transition: opacity 0.8s ease;">is</span> 
+				<span class="word" style="opacity: 0.25; transition: opacity 0.8s ease;">a</span> 
+				<span class="word" style="opacity: 0.25; transition: opacity 0.8s ease;">complete</span> 
+				<span class="word" style="opacity: 0.25; transition: opacity 0.8s ease;">game</span> 
+				<span class="word" style="opacity: 0.25; transition: opacity 0.8s ease;">changer,</span> 
+				<span class="word" style="opacity: 0.25; transition: opacity 0.8s ease;">when</span> 
+				<span class="word" style="opacity: 0.25; transition: opacity 0.8s ease;">it</span> 
+				<span class="word" style="opacity: 0.25; transition: opacity 0.8s ease;">comes</span> 
+				<span class="word" style="opacity: 0.25; transition: opacity 0.8s ease;">to</span> 
+				<span class="word" style="opacity: 0.25; transition: opacity 0.8s ease;">employee</span> 
+				<span class="word" style="opacity: 0.25; transition: opacity 0.8s ease;">engagement"</span>
 			</p>
 			
 			<!-- Name and Title with small image next to name -->
-			<div style="display: flex; align-items: center; gap: 1rem; opacity: 0.4; transform: translateY(20px); transition: opacity 1.2s ease-out 0.4s, transform 1.2s ease-out 0.4s;" id="testimonial-author">
+			<div style="display: flex; align-items: center; gap: 1rem;" id="testimonial-author">
 				<!-- Small Profile Picture -->
 				<div style="flex-shrink: 0; position: relative;">
 					<div style="width: 60px; height: 60px; border-radius: 50%; overflow: hidden; position: relative; box-shadow: 0 4px 16px rgba(0,0,0,0.15); transition: transform 0.3s ease;">
@@ -288,12 +288,23 @@ import ChatApp from "@venn/ChatApp.vue";
 					<div
 						style="font-family: 'Outfit', sans-serif; color: #23221F; font-size: 1.5rem; font-weight: 600;"
 					>
-						Hassanah Rudd, CPO at Hark Medical
+						<span class="word" style="opacity: 0.25; transition: opacity 0.8s ease;">Hassanah</span> 
+						<span class="word" style="opacity: 0.25; transition: opacity 0.8s ease;">Rudd,</span> 
+						<span class="word" style="opacity: 0.25; transition: opacity 0.8s ease;">CPO</span> 
+						<span class="word" style="opacity: 0.25; transition: opacity 0.8s ease;">at</span> 
+						<span class="word" style="opacity: 0.25; transition: opacity 0.8s ease;">Hark</span> 
+						<span class="word" style="opacity: 0.25; transition: opacity 0.8s ease;">Medical</span>
 					</div>
 					<div
 						style="font-family: 'Outfit', sans-serif; color: #666; font-size: 1.25rem; font-weight: 400;"
 					>
-						Ex Global Head of Workforce Planning Canva
+						<span class="word" style="opacity: 0.25; transition: opacity 0.8s ease;">Ex</span> 
+						<span class="word" style="opacity: 0.25; transition: opacity 0.8s ease;">Global</span> 
+						<span class="word" style="opacity: 0.25; transition: opacity 0.8s ease;">Head</span> 
+						<span class="word" style="opacity: 0.25; transition: opacity 0.8s ease;">of</span> 
+						<span class="word" style="opacity: 0.25; transition: opacity 0.8s ease;">Workforce</span> 
+						<span class="word" style="opacity: 0.25; transition: opacity 0.8s ease;">Planning</span> 
+						<span class="word" style="opacity: 0.25; transition: opacity 0.8s ease;">Canva</span>
 					</div>
 				</div>
 			</div>
@@ -690,28 +701,57 @@ import ChatApp from "@venn/ChatApp.vue";
 	}
 	@media (max-width: 768px) {
 		#integratesWithCarousel {
-			overflow-x: auto !important;
-			flex-wrap: nowrap !important;
-			gap: 1.5rem !important;
-			-webkit-overflow-scrolling: touch;
-			scroll-behavior: smooth;
-			padding-bottom: 0.5rem;
-			position: relative;
-			margin-left: -1.25rem;
-			margin-right: -1.25rem;
-		}
-		#integratesWithCarousel::-webkit-scrollbar {
-			display: none;
-		}
-		#integratesWithCarousel img {
-			flex: 0 0 auto;
-			max-width: none;
+			display: grid !important;
+			grid-template-columns: 1fr 1fr !important;
+			grid-template-rows: 1fr 1fr !important;
+			gap: 2rem !important;
+			justify-items: center !important;
+			align-items: center !important;
+			padding: 2rem 1rem !important;
+			margin: 0 !important;
+			overflow: visible !important;
 		}
 		#integratesWithCarousel .logos-track {
-			display: flex !important;
-			flex-wrap: nowrap !important;
-			min-width: 200vw;
+			display: contents !important;
+			min-width: auto !important;
 		}
+		#integratesWithCarousel img {
+			height: 40px !important;
+			width: auto !important;
+			max-width: 120px !important;
+			object-fit: contain !important;
+		}
+		#integratesWithCarousel img:nth-child(1) { grid-area: 1 / 1; }
+		#integratesWithCarousel img:nth-child(2) { grid-area: 1 / 2; }
+		#integratesWithCarousel img:nth-child(3) { grid-area: 2 / 1; }
+		#integratesWithCarousel img:nth-child(4) { grid-area: 2 / 2; }
+		#integratesWithCarousel img:nth-child(5) { display: none !important; }
+		#builtByPeopleCarousel {
+			display: grid !important;
+			grid-template-columns: 1fr 1fr !important;
+			grid-template-rows: 1fr 1fr !important;
+			gap: 2rem !important;
+			justify-items: center !important;
+			align-items: center !important;
+			padding: 2rem 1rem !important;
+			margin: 0 !important;
+			overflow: visible !important;
+		}
+		#builtByPeopleCarousel .logos-track {
+			display: contents !important;
+			min-width: auto !important;
+		}
+		#builtByPeopleCarousel img {
+			height: 60px !important;
+			width: auto !important;
+			max-width: 140px !important;
+			object-fit: contain !important;
+		}
+		#builtByPeopleCarousel img:nth-child(1) { grid-area: 1 / 1; }
+		#builtByPeopleCarousel img:nth-child(2) { grid-area: 1 / 2; }
+		#builtByPeopleCarousel img:nth-child(3) { grid-area: 2 / 1; }
+		#builtByPeopleCarousel img:nth-child(4) { grid-area: 2 / 2; }
+		#builtByPeopleCarousel img:nth-child(5) { display: none !important; }
 	}
 	@media (min-width: 769px) {
 		#integratesWithCarousel {
@@ -721,29 +761,7 @@ import ChatApp from "@venn/ChatApp.vue";
 			display: none !important;
 		}
 	}
-	@media (max-width: 768px) {
-		#builtByPeopleCarousel {
-			overflow-x: auto !important;
-			flex-wrap: nowrap !important;
-			gap: 1.5rem !important;
-			-webkit-overflow-scrolling: touch;
-			scroll-behavior: smooth;
-			padding-bottom: 0.5rem;
-			position: relative;
-			margin-left: -1.25rem;
-			margin-right: -1.25rem;
-		}
-		#builtByPeopleCarousel::-webkit-scrollbar {
-			display: none;
-		}
-		#builtByPeopleCarousel img {
-			flex: 0 0 auto;
-			max-width: none;
-		}
-		.logos-track:not(:first-child) {
-			display: none !important;
-		}
-	}
+
 	@media (max-width: 900px) {
 		.testimonial-section {
 			flex-direction: column !important;
@@ -1017,7 +1035,7 @@ import ChatApp from "@venn/ChatApp.vue";
 		duplicateLogosForMobile("integratesWithCarousel");
 		duplicateLogosForMobile("builtByPeopleCarousel");
 
-		// Testimonial sticky scroll animation
+		// Testimonial center-triggered word animation
 		function initializeTestimonialAnimation() {
 			const testimonialSection = document.querySelector('.testimonial-section');
 			const testimonialContent = document.getElementById('testimonial-content');
@@ -1034,27 +1052,11 @@ import ChatApp from "@venn/ChatApp.vue";
 						testimonialContent.style.opacity = '1';
 						testimonialContent.style.transform = 'translateY(0)';
 						
-						// Animate the quote with delay
-						setTimeout(() => {
-							testimonialQuote.style.opacity = '1';
-							testimonialQuote.style.transform = 'translateY(0)';
-							
-							// Set initial word opacities
-							const words = document.querySelectorAll('.word');
-							words.forEach(word => {
-								word.style.opacity = '0.2';
-							});
-						}, 200);
-						
-						// Animate the author with delay
+						// Animate the author
 						setTimeout(() => {
 							testimonialAuthor.style.opacity = '1';
 							testimonialAuthor.style.transform = 'translateY(0)';
 						}, 400);
-					} else {
-						// Reset to initial state when out of view
-						testimonialQuote.style.opacity = '0.4';
-						testimonialAuthor.style.opacity = '0.4';
 					}
 				});
 			}, {
@@ -1064,51 +1066,40 @@ import ChatApp from "@venn/ChatApp.vue";
 			
 			observer.observe(testimonialSection);
 			
-					// Sticky scroll effect with word-by-word darkening
-		function handleStickyScroll() {
-			const rect = testimonialSection.getBoundingClientRect();
-			const sectionHeight = testimonialSection.offsetHeight;
-			const viewportHeight = window.innerHeight;
+			// Viewport-triggered word-by-word animation
+			let animationTriggered = false;
 			
-			// Calculate scroll progress through the testimonial section
-			const scrollProgress = Math.max(0, Math.min(1, 
-				(viewportHeight - rect.top) / (sectionHeight - viewportHeight)
-			));
-			
-			// Word-by-word darkening effect
-			const words = document.querySelectorAll('.word');
-			const totalWords = words.length;
-			
-			console.log('Found words:', totalWords, 'Scroll progress:', scrollProgress);
-			
-			words.forEach((word, index) => {
-				// Calculate when this word should start darkening (in reading order)
-				const wordStartProgress = index / totalWords;
-				const wordEndProgress = (index + 1) / totalWords;
+			function handleWordAnimation() {
+				const rect = testimonialSection.getBoundingClientRect();
+				const viewportHeight = window.innerHeight;
 				
-				// Calculate opacity for this word based on scroll progress
-				let opacity = 0.2; // Start at 20% opacity
+				// Check if testimonial is entering the viewport
+				const isInViewport = rect.top < viewportHeight && rect.bottom > 0;
 				
-				if (scrollProgress >= wordStartProgress) {
-					// Word should start darkening
-					const wordProgress = Math.min(1, (scrollProgress - wordStartProgress) / (wordEndProgress - wordStartProgress));
-					opacity = 0.2 + (wordProgress * 0.8); // Transition from 20% to 100%
+				if (isInViewport && !animationTriggered) {
+					animationTriggered = true;
+					console.log('Testimonial entering viewport - starting word animation');
+					
+					// Start word animation sequence
+					const words = document.querySelectorAll('.word');
+					const totalWords = words.length;
+					const animationDuration = 3000; // 3 seconds total for more words
+					const wordDelay = animationDuration / totalWords; // Time between each word
+					
+					words.forEach((word, index) => {
+						setTimeout(() => {
+							word.style.opacity = '1';
+							console.log(`Animating word ${index + 1}/${totalWords}`);
+						}, index * wordDelay);
+					});
+					
+					// Remove scroll listener after animation starts
+					window.removeEventListener('scroll', handleWordAnimation);
 				}
-				
-				word.style.opacity = opacity;
-				console.log(`Word ${index}: opacity ${opacity}`);
-			});
+			}
 			
-			// Optional: Add subtle scale effect to the content
-			const scale = 1 - (scrollProgress * 0.05); // Slight scale down effect
-			testimonialContent.style.transform = `translateY(0) scale(${scale})`;
-		}
-			
-			// Add scroll listener for sticky effect
-			window.addEventListener('scroll', handleStickyScroll);
-			
-			// Initial call
-			handleStickyScroll();
+			// Add scroll listener for viewport-triggered animation
+			window.addEventListener('scroll', handleWordAnimation, { passive: true });
 		}
 		
 		// Initialize testimonial animation
