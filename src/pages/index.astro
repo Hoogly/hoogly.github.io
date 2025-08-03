@@ -1045,6 +1045,20 @@ import ChatApp from "@venn/ChatApp.vue";
 			"builtByPeopleCarousel",
 			infiniteAutoScrollBuiltByPeople,
 		);
+		
+		// Also start auto-scroll immediately on mobile
+		if (window.innerWidth <= 768) {
+			infiniteAutoScrollIntegratesWith();
+			infiniteAutoScrollBuiltByPeople();
+		}
+		
+		// Handle window resize
+		window.addEventListener('resize', () => {
+			if (window.innerWidth <= 768) {
+				infiniteAutoScrollIntegratesWith();
+				infiniteAutoScrollBuiltByPeople();
+			}
+		});
 
 		// Duplicate logos for infinite scroll only on mobile
 		function duplicateLogosForMobile(carouselId: string) {
