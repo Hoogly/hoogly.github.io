@@ -272,51 +272,74 @@ import ChatApp from "@venn/ChatApp.vue";
 		</div>
 	</section>
 
-	<!-- Testimonial Section -->
+	<!-- Testimonial Section with Attio-style Sticky Scroll Effect -->
 	<section
 		class="testimonial-section"
-		style="max-width: 1080px; margin: 4rem auto 9rem auto; display: flex; flex-direction: column; align-items: center; position: relative; padding: 3rem;"
+		style="position: relative; height: 100vh; overflow: hidden; margin: 0;"
 	>
+		<!-- Sticky Container -->
 		<div
-			class="testimonial-content"
-			style="width: 100%; display: flex; align-items: center; gap: 3rem; position: relative;"
+			class="testimonial-sticky-container"
+			style="position: sticky; top: 0; height: 100vh; display: flex; align-items: center; justify-content: center; background: transparent;"
 		>
-			<!-- Left Section: Circular Profile Picture -->
-			<div style="flex-shrink: 0; position: relative;">
-				<!-- Circular Profile Picture -->
-				<div style="width: 200px; height: 200px; border-radius: 50%; border: 2.5px solid #23221F; overflow: hidden; position: relative;">
-					<img
-						src="/images/Home/Hassanah-Rudd.jpg"
-						alt="Hassanah Rudd"
-						style="width: 100%; height: 100%; object-fit: cover;"
-					/>
-				</div>
-			</div>
+					<div
+			class="testimonial-content"
+			style="max-width: 1200px; width: 100%; display: flex; flex-direction: column; align-items: center; text-align: center; padding: 2rem 4rem; opacity: 0; transform: translateY(40px); transition: opacity 1s ease-out, transform 1s ease-out;"
+			id="testimonial-content"
+		>
+			<!-- Testimonial Quote with word-by-word darkening -->
+			<p
+				style="font-family: 'Outfit', sans-serif; font-size: 3.5rem; color: #23221F; line-height: 1.2; font-weight: 400; margin: 0 0 3rem 0; opacity: 0; transform: translateY(20px); transition: opacity 1.2s ease-out 0.2s, transform 1.2s ease-out 0.2s;"
+				id="testimonial-quote"
+			>
+				<span class="word" style="opacity: 0.2; transition: opacity 0.5s ease;">"Hoogly</span> 
+				<span class="word" style="opacity: 0.2; transition: opacity 0.5s ease;">is</span> 
+				<span class="word" style="opacity: 0.2; transition: opacity 0.5s ease;">a</span> 
+				<span class="word" style="opacity: 0.2; transition: opacity 0.5s ease;">complete</span> 
+				<span class="word" style="opacity: 0.2; transition: opacity 0.5s ease;">game</span> 
+				<span class="word" style="opacity: 0.2; transition: opacity 0.5s ease;">changer,</span> 
+				<span class="word" style="opacity: 0.2; transition: opacity 0.5s ease;">when</span> 
+				<span class="word" style="opacity: 0.2; transition: opacity 0.5s ease;">it</span> 
+				<span class="word" style="opacity: 0.2; transition: opacity 0.5s ease;">comes</span> 
+				<span class="word" style="opacity: 0.2; transition: opacity 0.5s ease;">to</span> 
+				<span class="word" style="opacity: 0.2; transition: opacity 0.5s ease;">employee</span> 
+				<span class="word" style="opacity: 0.2; transition: opacity 0.5s ease;">engagement"</span>
+			</p>
 			
-			<!-- Right Section: Testimonial Text -->
-			<div style="flex: 1; display: flex; flex-direction: column; gap: 1.5rem;">
-				<!-- Testimonial Quote -->
-				<p
-					style="font-family: 'Outfit', sans-serif; font-size: 1.5rem; color: #23221F; line-height: 1.4; font-weight: 400; margin: 0;"
-				>
-					"Hoogly is a complete game changer, when it comes to employee engagement"
-				</p>
+			<!-- Name and Title with small image next to name -->
+			<div style="display: flex; align-items: center; gap: 1rem; opacity: 0; transform: translateY(20px); transition: opacity 1.2s ease-out 0.4s, transform 1.2s ease-out 0.4s;" id="testimonial-author">
+				<!-- Small Profile Picture -->
+				<div style="flex-shrink: 0; position: relative;">
+					<div style="width: 60px; height: 60px; border-radius: 50%; overflow: hidden; position: relative; box-shadow: 0 4px 16px rgba(0,0,0,0.15); transition: transform 0.3s ease;">
+						<img
+							src="/images/Home/Hassanah-Rudd.jpg"
+							alt="Hassanah Rudd"
+							style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s ease;"
+						/>
+					</div>
+				</div>
 				
 				<!-- Name and Title -->
-				<div style="display: flex; flex-direction: column; gap: 0.25rem;">
+				<div style="display: flex; flex-direction: column; gap: 0.25rem; text-align: left;">
 					<div
-						style="font-family: 'Outfit', sans-serif; color: #23221F; font-size: 1.1rem; font-weight: 600;"
+						style="font-family: 'Outfit', sans-serif; color: #23221F; font-size: 1.5rem; font-weight: 600; display: flex; align-items: center; gap: 0.5rem;"
 					>
-						Hassanah Rudd
+						Hassanah Rudd,
+						<span style="font-family: 'Outfit', sans-serif; color: #23221F; font-size: 1.5rem; font-weight: 600;">
+							CPO at Hark Medical
+						</span>
 					</div>
 					<div
-						style="font-family: 'Outfit', sans-serif; color: #666; font-size: 1rem;"
+						style="font-family: 'Outfit', sans-serif; color: #666; font-size: 1.25rem; font-weight: 400;"
 					>
-						CPO at Hark Medical | Ex Global Head of Workforce Planning Canva
+						Ex Global Head of Workforce Planning Canva
 					</div>
 				</div>
 			</div>
 		</div>
+		</div>
+		
+
 	</section>
 
 	<!-- Built by the People Behind the People Section -->
@@ -1015,5 +1038,98 @@ import ChatApp from "@venn/ChatApp.vue";
 		}
 		duplicateLogosForMobile("integratesWithCarousel");
 		duplicateLogosForMobile("builtByPeopleCarousel");
+
+		// Testimonial sticky scroll animation
+		function initializeTestimonialAnimation() {
+			const testimonialSection = document.querySelector('.testimonial-section');
+			const testimonialContent = document.getElementById('testimonial-content');
+			const testimonialQuote = document.getElementById('testimonial-quote');
+			const testimonialAuthor = document.getElementById('testimonial-author');
+			
+			if (!testimonialSection || !testimonialContent || !testimonialQuote || !testimonialAuthor) return;
+			
+			// Initial animation when testimonial comes into view
+			const observer = new IntersectionObserver((entries) => {
+				entries.forEach(entry => {
+					if (entry.isIntersecting) {
+						// Animate the main container
+						testimonialContent.style.opacity = '1';
+						testimonialContent.style.transform = 'translateY(0)';
+						
+						// Animate the quote with delay
+						setTimeout(() => {
+							testimonialQuote.style.opacity = '1';
+							testimonialQuote.style.transform = 'translateY(0)';
+							
+							// Set initial word opacities
+							const words = document.querySelectorAll('.word');
+							words.forEach(word => {
+								word.style.opacity = '0.2';
+							});
+						}, 200);
+						
+						// Animate the author with delay
+						setTimeout(() => {
+							testimonialAuthor.style.opacity = '1';
+							testimonialAuthor.style.transform = 'translateY(0)';
+						}, 400);
+					}
+				});
+			}, {
+				threshold: 0.3,
+				rootMargin: '0px 0px -50px 0px'
+			});
+			
+			observer.observe(testimonialSection);
+			
+					// Sticky scroll effect with word-by-word darkening
+		function handleStickyScroll() {
+			const rect = testimonialSection.getBoundingClientRect();
+			const sectionHeight = testimonialSection.offsetHeight;
+			const viewportHeight = window.innerHeight;
+			
+			// Calculate scroll progress through the testimonial section
+			const scrollProgress = Math.max(0, Math.min(1, 
+				(viewportHeight - rect.top) / (sectionHeight - viewportHeight)
+			));
+			
+			// Word-by-word darkening effect
+			const words = document.querySelectorAll('.word');
+			const totalWords = words.length;
+			
+			console.log('Found words:', totalWords, 'Scroll progress:', scrollProgress);
+			
+			words.forEach((word, index) => {
+				// Calculate when this word should start darkening (in reading order)
+				const wordStartProgress = index / totalWords;
+				const wordEndProgress = (index + 1) / totalWords;
+				
+				// Calculate opacity for this word based on scroll progress
+				let opacity = 0.2; // Start at 20% opacity
+				
+				if (scrollProgress >= wordStartProgress) {
+					// Word should start darkening
+					const wordProgress = Math.min(1, (scrollProgress - wordStartProgress) / (wordEndProgress - wordStartProgress));
+					opacity = 0.2 + (wordProgress * 0.8); // Transition from 20% to 100%
+				}
+				
+				word.style.opacity = opacity;
+				console.log(`Word ${index}: opacity ${opacity}`);
+			});
+			
+			// Optional: Add subtle scale effect to the content
+			const scale = 1 - (scrollProgress * 0.05); // Slight scale down effect
+			testimonialContent.style.transform = `translateY(0) scale(${scale})`;
+		}
+			
+			// Add scroll listener for sticky effect
+			window.addEventListener('scroll', handleStickyScroll);
+			
+			// Initial call
+			handleStickyScroll();
+		}
+		
+		// Initialize testimonial animation
+		initializeTestimonialAnimation();
 	});
 </script>
