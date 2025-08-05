@@ -121,7 +121,6 @@ const pseudonyms = useCollection(
 
 // Function to scroll to bottom
 const scrollToBottom = () => {
-  console.log('scrolling to bottom')
   if (scrollContainer.value) {
     scrollContainer.value.scrollTop = scrollContainer.value.scrollHeight
   }
@@ -144,10 +143,6 @@ watch(typingUsers, (newTypingUsers) => {
     inputDisabled.value = false
   }
 }, { deep: true })
-
-watch($userId, () => {
-  console.log('userId changed', $userId.value)
-})
 
 watch(surveyUserData, () => {
   if (surveyUserData.value?.status === 'completed' && redirectToResults.value) {
@@ -256,7 +251,6 @@ const handleContactFormSubmit = async (data: { name: string, email: string, comp
 }
 
 const handleOnMessageSubmit = async (message: string) => {
-  console.log('message submitted')
   inputDisabled.value = true
   try {
     const isFirstMessage = messages.value.length === 0
@@ -293,7 +287,6 @@ const handleOnMessageSubmit = async (message: string) => {
 
 onMounted(() => {
   // fresh id on every load
-  console.log('mounted:$userId', $userId.value, props.variant)
   if ($userId.value.length === 0 || props.variant === 'mini') {
     const params = new URLSearchParams(window?.location?.search || '')
     if (!params.has('user-id')) {

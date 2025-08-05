@@ -16,7 +16,6 @@ export const trackGAEvent = (eventName: string, params: GAEventParams = {}) => {
       event: eventName,
       ...params
     });
-    console.log(`GA Event tracked via GTM: ${eventName}`, params);
   } else {
     console.warn('GTM dataLayer not available');
   }
