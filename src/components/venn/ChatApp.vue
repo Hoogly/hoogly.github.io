@@ -17,6 +17,7 @@ import { Timestamp } from 'firebase/firestore'
 import { useStore } from '@nanostores/vue'
 import ContactForm from './components/ContactForm.vue'
 import VennAvatar from './components/atoms/VennAvatar.vue'
+import { trackFirstMessage, trackMessageSent, trackChatCompletion, trackChatContactFormSubmit } from './utils/analytics'
 
 
 const props = withDefaults(defineProps<{
@@ -216,9 +217,13 @@ const normalizeClarityToProgress = (clarity: number | undefined) => {
 const handleOnShowResultsClick = () => {
   inputDisabled.value = true
   showContactForm.value = true;
+  
+  // Track chat completion
+  trackChatCompletion($pseudonym.value, messages.value.length)
 }
 
 const handleContactFormSubmit = async (data: { name: string, email: string, company: string }) => {
+  // Track PostHog event
   if (typeof window !== 'undefined' && (window as any).posthog) {
     (window as any).posthog.capture('public_venn_form_submitted', {
       name: data.name,
@@ -229,6 +234,9 @@ const handleContactFormSubmit = async (data: { name: string, email: string, comp
       pageSource: 'chat'
     });
   }
+  
+  // Track Google Analytics event
+  trackChatContactFormSubmit(data.name, data.email, data.company)
   // Send thank you message as user 
   try {
     const newMessage = {
@@ -267,6 +275,12 @@ const handleOnMessageSubmit = async (message: string) => {
     }
 
     await addDoc(getMessagesRef($userId.value), newMessage)
+
+    // Track Google Analytics events
+    if (isFirstMessage) {
+      trackFirstMessage($pseudonym.value, message.length)
+    }
+    trackMessageSent(isFirstMessage, message.length)
   } catch (error) {
     console.error('Error sending message:', error)
   } finally {

@@ -8,6 +8,7 @@ import Layout from '@venn/views/BaseLayout.vue'
 import LoadingScreen from '@venn/components/LoadingScreen.vue'
 import { pseudonym, updateCurrentView, userId } from '@venn/store';
 import { useStore } from '@nanostores/vue';
+import { trackSeeHRViewClick } from '@venn/utils/analytics';
 
 const $pseudonym = useStore(pseudonym)
 const $userId = useStore(userId)
@@ -41,6 +42,9 @@ watch(isDataReady, (ready) => {
 }, { immediate: true })
 
 const handleOnSeeHRViewClick = () => {
+  // Track the HR view click event
+  trackSeeHRViewClick($pseudonym.value)
+  
   updateCurrentView('hr-dashboard')
 }
 </script>
