@@ -41,9 +41,9 @@ watch(isDataReady, (ready) => {
   }
 }, { immediate: true })
 
-const handleOnSeeHRViewClick = () => {
+const handleOnSeeHRViewClick = async () => {
   // Track the HR view click event
-  trackSeeHRViewClick($pseudonym.value)
+  await trackSeeHRViewClick($pseudonym.value)
   
   updateCurrentView('hr-dashboard')
 }

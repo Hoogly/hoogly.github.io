@@ -10,8 +10,8 @@
 
 ### 1. GA4 Configuration Tag
 **Go to GTM → Tags → New**
-- **Tag Type**: Google Analytics: GA4 Configuration
-- **Measurement ID**: Your GA4 property ID (G-XXXXXXXXXX)
+- **Tag Type**: `Google Tag`
+- **Tag ID**: Your GA4 Measurement ID (G-XXXXXXXXXX)
 - **Trigger**: All Pages
 - **Tag Name**: "GA4 - Configuration"
 
@@ -19,9 +19,9 @@
 
 #### A. First Message Sent Event
 **Tags → New**
-- **Tag Type**: Google Analytics: GA4 Event
+- **Tag Type**: `GA4 Event`
 - **Configuration Tag**: [Select your GA4 Configuration tag]
-- **Event Name**: `first_message_sent`
+- **Event Name**: `chat_with_venn_initiated` (matches your code)
 - **Event Parameters**:
   ```
   event_category: {{DLV - event_category}}
@@ -30,11 +30,11 @@
   message_length: {{DLV - message_length}}
   value: {{DLV - value}}
   ```
-- **Trigger**: Custom Event = `first_message_sent`
+- **Trigger**: Custom Event = `chat_with_venn_initiated`
 
 #### B. Message Sent Event
 **Tags → New**
-- **Tag Type**: Google Analytics: GA4 Event
+- **Tag Type**: `GA4 Event`
 - **Configuration Tag**: [Select your GA4 Configuration tag]
 - **Event Name**: `message_sent`
 - **Event Parameters**:
@@ -49,7 +49,7 @@
 
 #### C. Chat Session Start Event
 **Tags → New**
-- **Tag Type**: Google Analytics: GA4 Event
+- **Tag Type**: `GA4 Event`
 - **Event Name**: `chat_session_start`
 - **Event Parameters**:
   ```
@@ -62,8 +62,8 @@
 
 #### D. Chat Completed Event
 **Tags → New**
-- **Tag Type**: Google Analytics: GA4 Event
-- **Event Name**: `chat_completed`
+- **Tag Type**: `GA4 Event`
+- **Event Name**: `survey_chat_completed` (matches your code)
 - **Event Parameters**:
   ```
   event_category: {{DLV - event_category}}
@@ -72,12 +72,12 @@
   message_count: {{DLV - message_count}}
   value: {{DLV - value}}
   ```
-- **Trigger**: Custom Event = `chat_completed`
+- **Trigger**: Custom Event = `survey_chat_completed`
 
 #### E. Contact Form Submit Event
 **Tags → New**
-- **Tag Type**: Google Analytics: GA4 Event
-- **Event Name**: `chat_contact_form_submit`
+- **Tag Type**: `GA4 Event`
+- **Event Name**: `chat_contact_form_submitted`
 - **Event Parameters**:
   ```
   event_category: {{DLV - event_category}}
@@ -91,11 +91,11 @@
 
 #### F. See HR View Clicked Event
 **Tags → New**
-- **Tag Type**: Google Analytics: GA4 Event
+- **Tag Type**: `GA4 Event`
 - **Event Name**: `see_hr_view_clicked`
 - **Event Parameters**:
   ```
-  event_category: {{DLV - event_category}}
+  event_category: {{DLV - event_label}}
   event_label: {{DLV - event_label}}
   pseudonym: {{DLV - pseudonym}}
   value: {{DLV - value}}
@@ -125,10 +125,10 @@
 
 | Trigger Name | Event Name |
 |--------------|------------|
-| CE - First Message Sent | first_message_sent |
+| CE - First Message Sent | chat_with_venn_initiated |
 | CE - Message Sent | message_sent |
 | CE - Chat Session Start | chat_session_start |
-| CE - Chat Completed | chat_completed |
+| CE - Chat Completed | survey_chat_completed |
 | CE - Contact Form Submit | chat_contact_form_submit |
 | CE - See HR View Clicked | see_hr_view_clicked |
 
@@ -147,7 +147,7 @@
 
 ### 2. Browser Console
 - Open DevTools → Console
-- Look for: `"GA Event tracked via GTM: first_message_sent"`
+- Look for: `"GA Event tracked via GTM: chat_with_venn_initiated"`
 - Verify dataLayer contains your events
 
 ### 3. GA4 DebugView
@@ -161,12 +161,12 @@
 When a user sends their first message, this gets pushed to dataLayer:
 ```javascript
 {
-  event: "first_message_sent",
+  event: "chat_with_venn_initiated",
   event_category: "engagement",
   event_label: "user_first_interaction", 
   pseudonym: "Alex",
   message_length: 25,
-  value: 1
+  value: 10
 }
 ```
 

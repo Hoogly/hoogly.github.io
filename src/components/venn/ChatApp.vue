@@ -209,12 +209,12 @@ const normalizeClarityToProgress = (clarity: number | undefined) => {
   }
 }
 
-const handleOnShowResultsClick = () => {
+const handleOnShowResultsClick = async () => {
   inputDisabled.value = true
   showContactForm.value = true;
   
   // Track chat completion
-  trackChatCompletion($pseudonym.value, messages.value.length)
+  await trackChatCompletion($pseudonym.value, messages.value.length)
 }
 
 const handleContactFormSubmit = async (data: { name: string, email: string, company: string }) => {
@@ -231,7 +231,7 @@ const handleContactFormSubmit = async (data: { name: string, email: string, comp
   }
   
   // Track Google Analytics event
-  trackChatContactFormSubmit(data.name, data.email, data.company)
+  await trackChatContactFormSubmit(data.name, data.email, data.company)
   // Send thank you message as user 
   try {
     const newMessage = {
@@ -272,9 +272,9 @@ const handleOnMessageSubmit = async (message: string) => {
 
     // Track Google Analytics events
     if (isFirstMessage) {
-      trackFirstMessage($pseudonym.value, message.length)
+      await trackFirstMessage($pseudonym.value, message.length)
     }
-    trackMessageSent(isFirstMessage, message.length)
+    await trackMessageSent(isFirstMessage, message.length)
   } catch (error) {
     console.error('Error sending message:', error)
   } finally {
