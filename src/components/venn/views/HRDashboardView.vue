@@ -9,6 +9,7 @@ import { pseudonym, updateCurrentView, userId } from '@venn/store';
 import { useStore } from '@nanostores/vue';
 import ActionPlan from '@venn/components/ActionPlan.vue';
 import IncognitoAvatar from '@venn/components/atoms/IncognitoAvatar.vue';
+import { trackStartFreeClick } from '@venn/utils/analytics';
 
 const $pseudonym = useStore(pseudonym)
 const $userId = useStore(userId)
@@ -39,6 +40,10 @@ watch(isDataReady, (ready) => {
 
 const handleOnBackToIndividualViewClick = () => {
   updateCurrentView('personal-results')
+}
+
+const handleStartFreeClick = async () => {
+  await trackStartFreeClick($pseudonym.value)
 }
 </script>
 
@@ -90,7 +95,7 @@ const handleOnBackToIndividualViewClick = () => {
           <span style="font-size: 1.6rem; font-weight: 500; color: #23221F;">
             Try it for <span class="gradient-text" style="font-weight: 600;">FREE</span> with your team today.
           </span>
-          <a href="https://calendly.com/hoogly/30min" target="_blank" rel="noopener noreferrer" style="background: #FF8661; color: #23221F; font-size: 1.3rem; font-weight: 500; border-radius: 999px; padding: 0.6em 1.4em; text-decoration: none; box-shadow: 0 2px 8px rgba(44,41,80,0.08); border: 2px solid #23221F; transition: background 0.2s, color 0.2s; white-space: nowrap;">Start Free</a>
+          <a href="https://calendly.com/hoogly/30min" target="_blank" rel="noopener noreferrer" @click="handleStartFreeClick" style="background: #FF8661; color: #23221F; font-size: 1.3rem; font-weight: 500; border-radius: 999px; padding: 0.6em 1.4em; text-decoration: none; box-shadow: 0 2px 8px rgba(44,41,80,0.08); border: 2px solid #23221F; transition: background 0.2s, color 0.2s; white-space: nowrap;">Start Free</a>
         </div>
       </div>
     </div>

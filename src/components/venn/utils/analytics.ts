@@ -153,3 +153,12 @@ export const trackSeeHRViewClick = async (pseudonym: string) => {
     value: 25 // High value for advanced feature usage
   });
 };
+
+export const trackStartFreeClick = async (pseudonym: string) => {
+  await trackGAEvent('start_free', {
+    event_category: 'navigation',
+    event_label: 'start_free',
+    pseudonym,
+    value: 25 // High value for advanced feature usage
+  });
+};
