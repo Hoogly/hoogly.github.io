@@ -2,7 +2,7 @@
 title: "Drowning in data, starving for dialogue"
 description: "We're collecting more employee feedback than ever, but meaningful conversations are disappearing. Here's how to turn data into dialogue that drives real change."
 publishDate: 2025-07-01
-author: "Anitta Krishan, Work futurist, former CPO, and Chief Culture Officer at Hoogly AI"
+author: "Mohit M."
 image: /images/blog/article-images/drowning-in-data (1).png
 tags: [Employee Feedback, Data, Dialogue, Culture Change]
 ---
