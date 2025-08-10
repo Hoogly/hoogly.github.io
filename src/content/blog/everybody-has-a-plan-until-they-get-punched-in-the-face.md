@@ -1,7 +1,7 @@
 ---
 title: "Everybody has a plan until they get punched in the face"
 description: "Getting punched in the face (metaphorically) taught us grit, agility & purpose. Here's how Hoogly kept showing up—and found its real fight. 🥊"
-publishDate: 2025-08-01
+publishDate: 2025-08-11
 author: "Mohit Midha"
 image: /images/blog/article-images/Everybody has a plan until they get punched in the face.png
 tags: ["Startuplife", "OrganisationalAgility", "BuildingCulture"]
