@@ -64,7 +64,7 @@ We're proud (and still slightly breathless) to say: Hoogly's new product is LIVE
 And more than that, we've been recognised for it.
 
 🏆 We won the GSV Cup 50 in the Future of Work category
-🌍 We were named Best HR Technology at the HR Technologies show in London
+🌍 We were named Best HR Technology at the HR Technologies show in London and 🦘 We won the People's Choice award at the Startup World Cup in Sydney.
 
 It's not just validation. It's a sign we're building something that matters.
 
