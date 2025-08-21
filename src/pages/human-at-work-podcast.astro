@@ -1,0 +1,448 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Human at Work Podcast - Hoogly">
+  <main>
+    <!-- Hero Section -->
+    <section class="hero-section" style="
+      background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 50%, #ec4899 100%);
+      color: white;
+      padding: 8rem 2rem 4rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    ">
+      <div style="
+        max-width: 1200px;
+        margin: 0 auto;
+        position: relative;
+        z-index: 2;
+      ">
+        <h1 style="
+          font-size: 3.5rem;
+          font-weight: 700;
+          margin-bottom: 1.5rem;
+          line-height: 1.2;
+        ">
+          Human at Work Podcast
+        </h1>
+        <p style="
+          font-size: 1.25rem;
+          margin-bottom: 2rem;
+          opacity: 0.9;
+          max-width: 600px;
+          margin-left: auto;
+          margin-right: auto;
+          line-height: 1.6;
+        ">
+          Real conversations about the future of work, workplace culture, and what it means to be human in today's evolving professional landscape.
+        </p>
+        <div style="
+          display: flex;
+          gap: 1rem;
+          justify-content: center;
+          flex-wrap: wrap;
+          margin-top: 2rem;
+        ">
+          <a href="#episodes" style="
+            background: white;
+            color: #6366f1;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: transform 0.3s ease;
+          " onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='translateY(0)'">
+            Listen to Episodes
+          </a>
+          <a href="#subscribe" style="
+            background: transparent;
+            color: white;
+            padding: 1rem 2rem;
+            border: 2px solid white;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+          " onmouseover="this.style.background='white'; this.style.color='#6366f1'" onmouseout="this.style.background='transparent'; this.style.color='white'">
+            Subscribe
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- About the Podcast Section -->
+    <section style="
+      padding: 6rem 2rem;
+      background: white;
+    ">
+      <div style="
+        max-width: 1200px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 4rem;
+        align-items: center;
+      ">
+        <div>
+          <h2 style="
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            color: #1f2937;
+          ">
+            About the Show
+          </h2>
+          <p style="
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #4b5563;
+            margin-bottom: 1.5rem;
+          ">
+            The Human at Work Podcast explores the intersection of humanity and productivity in modern workplaces. We dive deep into workplace culture, employee engagement, leadership, and the evolving nature of work itself.
+          </p>
+          <p style="
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #4b5563;
+            margin-bottom: 2rem;
+          ">
+            Each episode features candid conversations with industry leaders, HR professionals, researchers, and workplace culture experts who are shaping the future of work.
+          </p>
+          <div style="
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+          ">
+            <div style="
+              width: 60px;
+              height: 60px;
+              border-radius: 50%;
+              background: linear-gradient(135deg, #6366f1, #8b5cf6);
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              color: white;
+              font-weight: 700;
+              font-size: 1.2rem;
+            ">
+              H
+            </div>
+            <div>
+              <div style="font-weight: 600; color: #1f2937;">Hosted by Team Hoogly</div>
+              <div style="color: #6b7280; font-size: 0.9rem;">Workplace Culture Experts</div>
+            </div>
+          </div>
+        </div>
+        <div style="
+          background: #f8fafc;
+          border-radius: 2rem;
+          padding: 3rem;
+          text-align: center;
+        ">
+          <div style="
+            width: 120px;
+            height: 120px;
+            background: linear-gradient(135deg, #6366f1, #ec4899);
+            border-radius: 50%;
+            margin: 0 auto 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 3rem;
+          ">
+            🎙️
+          </div>
+          <h3 style="
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: #1f2937;
+          ">
+            New Episodes Weekly
+          </h3>
+          <p style="
+            color: #6b7280;
+            line-height: 1.6;
+          ">
+            Join us every week for fresh insights and real conversations about the future of work.
+          </p>
+        </div>
+      </div>
+
+      <!-- Mobile responsive adjustments -->
+      <style>
+        @media (max-width: 768px) {
+          section div[style*="grid-template-columns: 1fr 1fr"] {
+            display: block !important;
+          }
+          
+          section div[style*="grid-template-columns: 1fr 1fr"] > div:first-child {
+            margin-bottom: 3rem;
+          }
+          
+          .hero-section h1 {
+            font-size: 2.5rem !important;
+          }
+          
+          .hero-section p {
+            font-size: 1.1rem !important;
+          }
+        }
+      </style>
+    </section>
+
+    <!-- Episodes Section -->
+    <section id="episodes" style="
+      padding: 6rem 2rem;
+      background: #f8fafc;
+    ">
+      <div style="
+        max-width: 1200px;
+        margin: 0 auto;
+        text-align: center;
+      ">
+        <h2 style="
+          font-size: 2.5rem;
+          font-weight: 700;
+          margin-bottom: 1rem;
+          color: #1f2937;
+        ">
+          Latest Episodes
+        </h2>
+        <p style="
+          font-size: 1.1rem;
+          color: #6b7280;
+          margin-bottom: 4rem;
+          max-width: 600px;
+          margin-left: auto;
+          margin-right: auto;
+        ">
+          Catch up on our most recent conversations about workplace culture, leadership, and the future of work.
+        </p>
+
+        <!-- Episodes will be added here -->
+        <div style="
+          background: white;
+          border-radius: 1.5rem;
+          padding: 3rem;
+          text-align: center;
+          border: 2px dashed #e5e7eb;
+        ">
+          <div style="
+            font-size: 3rem;
+            margin-bottom: 1rem;
+          ">
+            🎧
+          </div>
+          <h3 style="
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: #1f2937;
+          ">
+            Coming Soon
+          </h3>
+          <p style="
+            color: #6b7280;
+            line-height: 1.6;
+          ">
+            We're preparing our first episodes and will launch soon. Subscribe to be notified when new episodes are available.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Subscribe Section -->
+    <section id="subscribe" style="
+      padding: 6rem 2rem;
+      background: white;
+    ">
+      <div style="
+        max-width: 800px;
+        margin: 0 auto;
+        text-align: center;
+      ">
+        <h2 style="
+          font-size: 2.5rem;
+          font-weight: 700;
+          margin-bottom: 1rem;
+          color: #1f2937;
+        ">
+          Never Miss an Episode
+        </h2>
+        <p style="
+          font-size: 1.1rem;
+          color: #6b7280;
+          margin-bottom: 3rem;
+          line-height: 1.6;
+        ">
+          Subscribe to the Human at Work Podcast on your favorite platform and get notified when new episodes are released.
+        </p>
+
+        <!-- Subscription platforms -->
+        <div style="
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+          gap: 1.5rem;
+          margin-bottom: 3rem;
+        ">
+          <a href="#" style="
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem 1.5rem;
+            background: #f8fafc;
+            border-radius: 1rem;
+            text-decoration: none;
+            color: #1f2937;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+          " onmouseover="this.style.background='#6366f1'; this.style.color='white'" onmouseout="this.style.background='#f8fafc'; this.style.color='#1f2937'">
+            🍎 Apple Podcasts
+          </a>
+          <a href="#" style="
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem 1.5rem;
+            background: #f8fafc;
+            border-radius: 1rem;
+            text-decoration: none;
+            color: #1f2937;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+          " onmouseover="this.style.background='#6366f1'; this.style.color='white'" onmouseout="this.style.background='#f8fafc'; this.style.color='#1f2937'">
+            🎵 Spotify
+          </a>
+          <a href="#" style="
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem 1.5rem;
+            background: #f8fafc;
+            border-radius: 1rem;
+            text-decoration: none;
+            color: #1f2937;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+          " onmouseover="this.style.background='#6366f1'; this.style.color='white'" onmouseout="this.style.background='#f8fafc'; this.style.color='#1f2937'">
+            📻 Google Podcasts
+          </a>
+        </div>
+
+        <!-- Email subscription -->
+        <div style="
+          background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+          border-radius: 2rem;
+          padding: 3rem;
+          color: white;
+        ">
+          <h3 style="
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+          ">
+            Get Episode Updates
+          </h3>
+          <p style="
+            margin-bottom: 2rem;
+            opacity: 0.9;
+          ">
+            Subscribe to our newsletter to get notified about new episodes, show notes, and exclusive content.
+          </p>
+          <div style="
+            display: flex;
+            gap: 1rem;
+            max-width: 400px;
+            margin: 0 auto;
+          ">
+            <input 
+              type="email" 
+              placeholder="Enter your email"
+              style="
+                flex: 1;
+                padding: 1rem;
+                border-radius: 50px;
+                border: none;
+                font-size: 1rem;
+                outline: none;
+              "
+            />
+            <button style="
+              background: white;
+              color: #6366f1;
+              padding: 1rem 2rem;
+              border-radius: 50px;
+              border: none;
+              font-weight: 600;
+              cursor: pointer;
+              transition: transform 0.3s ease;
+            " onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+              Subscribe
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Mobile responsive adjustments -->
+      <style>
+        @media (max-width: 768px) {
+          section div[style*="display: flex"] {
+            flex-direction: column !important;
+          }
+          
+          section input[type="email"] {
+            margin-bottom: 1rem;
+          }
+        }
+      </style>
+    </section>
+
+    <!-- Contact Section -->
+    <section style="
+      padding: 6rem 2rem;
+      background: #1f2937;
+      color: white;
+    ">
+      <div style="
+        max-width: 800px;
+        margin: 0 auto;
+        text-align: center;
+      ">
+        <h2 style="
+          font-size: 2rem;
+          font-weight: 700;
+          margin-bottom: 1rem;
+        ">
+          Have a Story to Share?
+        </h2>
+        <p style="
+          font-size: 1.1rem;
+          opacity: 0.9;
+          margin-bottom: 2rem;
+          line-height: 1.6;
+        ">
+          We're always looking for inspiring workplace stories and expert insights. If you'd like to be a guest on the show or have a topic suggestion, we'd love to hear from you.
+        </p>
+        <a href="/contact-us" style="
+          background: linear-gradient(135deg, #6366f1, #8b5cf6);
+          color: white;
+          padding: 1rem 2rem;
+          border-radius: 50px;
+          text-decoration: none;
+          font-weight: 600;
+          display: inline-block;
+          transition: transform 0.3s ease;
+        " onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='translateY(0)'">
+          Get in Touch
+        </a>
+      </div>
+    </section>
+  </main>
+</Layout>
