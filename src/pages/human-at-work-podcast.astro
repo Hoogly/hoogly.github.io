@@ -531,6 +531,139 @@ import { ClientRouter } from "astro:transitions";
         }
       }
       
+      /* Mobile Responsive Design */
+      @media (max-width: 768px) {
+        main {
+          height: auto !important;
+          min-height: 100vh !important;
+          position: relative !important;
+        }
+        
+        main > div {
+          grid-template-columns: 1fr !important;
+          grid-template-rows: 60vh 1fr !important;
+          height: auto !important;
+          min-height: 100vh !important;
+        }
+        
+        /* Left Panel Mobile */
+        main > div > div:first-child {
+          padding: 1.5rem !important;
+          background-size: 120% !important;
+          background-position: center 40% !important;
+        }
+        
+        main > div > div:first-child h1 {
+          font-size: 3.5rem !important;
+          margin: 0 0 0.5rem 0 !important;
+        }
+        
+        main > div > div:first-child h2 {
+          font-size: 2.5rem !important;
+          margin: 0 0 0.5rem 0 !important;
+        }
+        
+        main > div > div:first-child p:first-of-type {
+          font-size: 1.2rem !important;
+          margin: 0 0 1rem 0 !important;
+        }
+        
+        main > div > div:first-child p:last-of-type {
+          font-size: 14px !important;
+          line-height: 1.4 !important;
+          margin: 0 0 1rem 0 !important;
+        }
+        
+        /* Coming Soon Badge Mobile */
+        .coming-soon-badge {
+          font-size: 0.8rem !important;
+          padding: 0.4rem 0.8rem !important;
+          margin-bottom: 1rem !important;
+        }
+        
+        /* Audio Visualizer Mobile */
+        main > div > div:first-child > div:first-child {
+          display: none !important;
+        }
+        
+        /* Main Content Container Mobile */
+        main > div > div:first-child > div:last-child {
+          margin-top: auto !important;
+          margin-bottom: 1rem !important;
+        }
+        
+        /* Right Panel Mobile */
+        main > div > div:last-child {
+          padding: 2rem 1rem !important;
+          padding-top: 2rem !important;
+          justify-content: flex-start !important;
+        }
+        
+        /* Email Signup Card Mobile */
+        main > div > div:last-child > div:last-child {
+          max-width: 100% !important;
+          margin-top: 0 !important;
+          padding: 2rem 1.5rem !important;
+        }
+        
+        main > div > div:last-child > div:last-child h2 {
+          font-size: 1.2rem !important;
+          line-height: 1.4 !important;
+        }
+        
+        /* Email Input Mobile */
+        main > div > div:last-child > div:last-child > div {
+          flex-direction: column !important;
+          gap: 1rem !important;
+          padding: 1rem !important;
+        }
+        
+        main > div > div:last-child > div:last-child input {
+          padding: 1rem !important;
+          text-align: center !important;
+        }
+        
+        main > div > div:last-child > div:last-child button {
+          width: 100% !important;
+          height: 48px !important;
+          border-radius: 25px !important;
+        }
+      }
+      
+      @media (max-width: 480px) {
+        main > div > div:first-child {
+          padding: 1rem !important;
+        }
+        
+        main > div > div:first-child h1 {
+          font-size: 2.8rem !important;
+        }
+        
+        main > div > div:first-child h2 {
+          font-size: 2rem !important;
+        }
+        
+        main > div > div:first-child p:first-of-type {
+          font-size: 1rem !important;
+        }
+        
+        main > div > div:first-child p:last-of-type {
+          font-size: 13px !important;
+        }
+        
+        main > div > div:last-child {
+          padding: 1.5rem 0.75rem !important;
+        }
+        
+        main > div > div:last-child > div:last-child {
+          padding: 1.5rem 1rem !important;
+        }
+        
+        main > div > div:last-child > div:last-child h2 {
+          font-size: 1.1rem !important;
+        }
+      }
+      
       /* Audio Visualizer Animation */
       .audio-bar {
         animation: audioWave 2s ease-in-out infinite;
