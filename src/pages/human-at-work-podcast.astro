@@ -118,41 +118,35 @@ import { ClientRouter } from "astro:transitions";
           margin-top: auto;
           margin-bottom: 2rem;
         ">
-          <!-- Coming Soon Badge and Human Title - Inline -->
+          <!-- Coming Soon Badge -->
           <div style="
-            display: flex;
-            align-items: baseline;
-            gap: 2rem;
-            margin-bottom: 1rem;
+            background: transparent;
+            border: 1px solid #ffffff;
+            border-radius: 37px;
+            padding: 0.5rem 1rem;
+            font-size: 1rem;
+            color: white;
+            font-family: 'Source Sans Pro', sans-serif;
+            display: inline-block;
+            margin-bottom: 2rem;
+            text-align: left;
+            align-self: flex-start;
           ">
-            <!-- Coming Soon Badge -->
-            <div style="
-              background: transparent;
-              border: 1px solid #ffffff;
-              border-radius: 37px;
-              padding: 0.5rem 1rem;
-              font-size: 1rem;
-              color: white;
-              font-family: 'Source Sans Pro', sans-serif;
-              display: inline-block;
-              flex-shrink: 0;
-            ">
-              Coming Soon
-            </div>
-            
-            <!-- Large Title -->
-            <h1 style="
-              font-family: 'Grenette Pro', serif;
-              font-size: 12.5rem;
-              font-weight: 400;
-              line-height: 0.6;
-              margin: 0;
-              color: #f7f3f0;
-              letter-spacing: -0.02em;
-            ">
-              Human
-            </h1>
+            Coming Soon
           </div>
+          
+          <!-- Large Title -->
+          <h1 style="
+            font-family: 'Grenette Pro', serif;
+            font-size: 12.5rem;
+            font-weight: 400;
+            line-height: 0.6;
+            margin: 0 0 1rem 0;
+            color: #f7f3f0;
+            letter-spacing: -0.02em;
+          ">
+            Human
+          </h1>
           <h2 style="
             font-family: 'Grenette Pro', serif;
             font-size: 8.8rem;
