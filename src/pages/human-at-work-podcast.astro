@@ -3,522 +3,339 @@ import Layout from '../layouts/Layout.astro';
 ---
 
 <Layout title="Human at Work Podcast - Hoogly">
-  <main style="background: #000; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif; min-height: 100vh;">
+  <main style="background: #f7f3f0; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif; min-height: 100vh;">
     <!-- Main Podcast Interface -->
     <div style="
       display: grid;
-      grid-template-columns: 1fr 400px;
+      grid-template-columns: 1fr 1fr;
       min-height: 100vh;
     ">
-      <!-- Left Panel - Featured Episode -->
+      <!-- Left Panel - Hero with Image -->
       <div style="
-        background: linear-gradient(135deg, #1a3b2e 0%, #2d5a4a 100%);
         position: relative;
-        padding: 3rem;
+        background: linear-gradient(135deg, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.6) 100%), url('https://images.unsplash.com/photo-1594736797933-d0501ba2fe65?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80') center/cover;
+        padding: 2rem;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
-        color: white;
+        color: #f7f3f0;
         overflow: hidden;
       ">
-        <!-- Hoogly Logo -->
+        <!-- Coming Soon Badge -->
         <div style="
           position: absolute;
           top: 2rem;
           left: 2rem;
-          z-index: 10;
+          background: transparent;
+          border: 1px solid #ffffff;
+          border-radius: 37px;
+          padding: 0.5rem 1rem;
+          font-size: 1rem;
+          color: white;
+          font-family: 'Source Sans Pro', sans-serif;
         ">
-          <div style="
-            width: 50px;
-            height: 50px;
-            background: #6366f1;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-weight: 700;
-            font-size: 1.5rem;
-          ">
-            H
-          </div>
+          Coming Soon
         </div>
 
-        <!-- Background Image -->
+        <!-- Audio Visualizer Background -->
         <div style="
           position: absolute;
-          top: 0;
-          right: 0;
-          width: 60%;
-          height: 100%;
-          background: url('data:image/svg+xml,<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 400 600\"><defs><linearGradient id=\"grad\" x1=\"0%\" y1=\"0%\" x2=\"100%\" y2=\"100%\"><stop offset=\"0%\" style=\"stop-color:%23ff6b6b;stop-opacity:0.3\" /><stop offset=\"100%\" style=\"stop-color:%23feca57;stop-opacity:0.3\" /></linearGradient></defs><ellipse cx=\"200\" cy=\"300\" rx=\"180\" ry=\"250\" fill=\"url(%23grad)\" /></svg>') no-repeat center;
-          background-size: cover;
-          opacity: 0.3;
-        "></div>
-
-        <!-- Episode Number -->
-        <div style="
-          font-size: 4rem;
-          font-weight: 900;
-          color: #6366f1;
-          margin-top: 4rem;
-          z-index: 5;
-          position: relative;
+          bottom: 40%;
+          left: -200px;
+          width: 200%;
+          height: 293px;
+          opacity: 0.1;
+          display: flex;
+          align-items: center;
+          gap: 29px;
+          z-index: 1;
         ">
-          E1
+          <div style="width: 29px; height: 29px; background: white; border-radius: 50%;"></div>
+          <div style="width: 29px; height: 117px; background: white; border-radius: 50px;"></div>
+          <div style="width: 29px; height: 176px; background: white; border-radius: 50px;"></div>
+          <div style="width: 29px; height: 146px; background: white; border-radius: 50px;"></div>
+          <div style="width: 29px; height: 293px; background: white; border-radius: 50px;"></div>
+          <div style="width: 29px; height: 146px; background: white; border-radius: 50px;"></div>
+          <div style="width: 29px; height: 176px; background: white; border-radius: 50px;"></div>
+          <div style="width: 29px; height: 205px; background: white; border-radius: 50px;"></div>
+          <div style="width: 29px; height: 44px; background: white; border-radius: 50px;"></div>
+          <div style="width: 29px; height: 146px; background: white; border-radius: 50px;"></div>
+          <div style="width: 29px; height: 293px; background: white; border-radius: 50px;"></div>
+          <div style="width: 29px; height: 205px; background: white; border-radius: 50px;"></div>
+          <div style="width: 29px; height: 176px; background: white; border-radius: 50px;"></div>
+          <div style="width: 29px; height: 146px; background: white; border-radius: 50px;"></div>
+          <div style="width: 29px; height: 146px; background: white; border-radius: 50px;"></div>
+          <div style="width: 29px; height: 88px; background: white; border-radius: 50px;"></div>
+          <div style="width: 29px; height: 205px; background: white; border-radius: 50px;"></div>
+          <div style="width: 29px; height: 293px; background: white; border-radius: 50px;"></div>
+          <div style="width: 29px; height: 176px; background: white; border-radius: 50px;"></div>
+          <div style="width: 29px; height: 146px; background: white; border-radius: 50px;"></div>
         </div>
 
-        <!-- Episode Title -->
+        <!-- Main Content -->
         <div style="
-          flex: 1;
-          display: flex;
-          flex-direction: column;
-          justify-content: center;
-          z-index: 5;
           position: relative;
+          z-index: 2;
+          margin-top: auto;
+          margin-bottom: 2rem;
         ">
+          <!-- Large Title -->
           <h1 style="
-            font-size: 3.5rem;
-            font-weight: 700;
-            line-height: 1.1;
-            margin: 0 0 2rem 0;
-            color: #6366f1;
-            text-transform: uppercase;
+            font-family: 'Grenette', serif;
+            font-size: 12.5rem;
+            font-weight: 400;
+            line-height: 0.6;
+            margin: 0 0 1rem 0;
+            color: #f7f3f0;
             letter-spacing: -0.02em;
           ">
-            The Future of Work
+            Human
           </h1>
-          
-          <!-- Audio Player -->
-          <div style="
-            background: rgba(0,0,0,0.8);
-            backdrop-filter: blur(10px);
-            border-radius: 16px;
-            padding: 1.5rem;
-            margin: 2rem 0;
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-          ">
-            <button style="
-              width: 60px;
-              height: 60px;
-              border-radius: 50%;
-              background: #6366f1;
-              border: none;
-              display: flex;
-              align-items: center;
-              justify-content: center;
-              cursor: pointer;
-              color: white;
-              font-size: 1.5rem;
-            ">
-              ▶
-            </button>
-            <div style="flex: 1;">
-              <div style="color: white; font-weight: 600; margin-bottom: 0.5rem;">
-                The Future of Work with Team Hoogly
-              </div>
-              <div style="color: #ccc; font-size: 0.9rem;">
-                00:00
-              </div>
-            </div>
-            <div style="
-              display: flex;
-              gap: 0.5rem;
-              align-items: center;
-            ">
-              <button style="
-                background: rgba(255,255,255,0.2);
-                border: none;
-                color: white;
-                padding: 0.5rem 1rem;
-                border-radius: 8px;
-                cursor: pointer;
-                font-size: 0.8rem;
-              ">
-                Copy screen
-              </button>
-              <button style="
-                background: rgba(255,255,255,0.2);
-                border: none;
-                color: white;
-                padding: 0.5rem 1rem;
-                border-radius: 8px;
-                cursor: pointer;
-                font-size: 0.8rem;
-              ">
-                Download
-              </button>
-            </div>
-          </div>
-        </div>
-
-        <!-- Bottom Section -->
-        <div style="
-          z-index: 5;
-          position: relative;
-        ">
           <h2 style="
-            font-size: 3rem;
-            font-weight: 700;
-            margin: 0 0 0.5rem 0;
-            color: white;
+            font-family: 'Grenette', serif;
+            font-size: 8.8rem;
+            font-weight: 400;
+            line-height: 0.6;
+            margin: 0 0 2rem 0;
+            color: #f7f3f0;
+            letter-spacing: -0.02em;
           ">
-            Human at Work
+            at Work
           </h2>
-          <div style="
-            font-size: 1.25rem;
-            color: #ccc;
-            margin-bottom: 2rem;
+          
+          <!-- Host Info -->
+          <p style="
+            font-family: 'Source Sans Pro', sans-serif;
+            font-size: 1.7rem;
+            margin: 0 0 2rem 0;
+            color: #f7f3f0;
           ">
-            S1:E1 The Future of Work with Team Hoogly
-          </div>
+            Hosted by Anitta Krishan
+          </p>
 
-          <!-- Subscribe Button and Social Links -->
-          <div style="
-            display: flex;
-            align-items: center;
-            gap: 1rem;
+          <!-- Description -->
+          <p style="
+            font-family: 'Source Sans Pro', sans-serif;
+            font-size: 1rem;
+            line-height: 1.33;
+            color: #ffffff;
+            max-width: 669px;
+            margin: 0;
           ">
-            <button style="
-              background: white;
-              color: #000;
-              border: none;
-              padding: 0.75rem 1.5rem;
-              border-radius: 8px;
-              font-weight: 600;
-              cursor: pointer;
-              text-transform: uppercase;
-              letter-spacing: 0.05em;
-              font-size: 0.9rem;
-            ">
-              SUBSCRIBE
-            </button>
-            <div style="
-              display: flex;
-              gap: 1rem;
-              color: #ccc;
-            ">
-              <div style="font-size: 1.5rem; cursor: pointer;">📘</div>
-              <div style="font-size: 1.5rem; cursor: pointer;">🐦</div>
-              <div style="font-size: 1.5rem; cursor: pointer;">✉️</div>
-              <div style="font-size: 1.5rem; cursor: pointer;">🔗</div>
-            </div>
-          </div>
-
-          <!-- Episode Details Tabs -->
-          <div style="
-            margin-top: 2rem;
-            border-top: 1px solid rgba(255,255,255,0.2);
-            padding-top: 1rem;
-          ">
-            <div style="
-              display: flex;
-              gap: 2rem;
-              margin-bottom: 1rem;
-            ">
-              <button style="
-                background: none;
-                border: none;
-                color: white;
-                font-weight: 600;
-                text-transform: uppercase;
-                letter-spacing: 0.05em;
-                font-size: 0.9rem;
-                cursor: pointer;
-                border-bottom: 2px solid white;
-                padding-bottom: 0.5rem;
-              ">
-                EPISODE DETAILS
-              </button>
-              <button style="
-                background: none;
-                border: none;
-                color: #666;
-                font-weight: 600;
-                text-transform: uppercase;
-                letter-spacing: 0.05em;
-                font-size: 0.9rem;
-                cursor: pointer;
-              ">
-                TRANSCRIPT
-              </button>
-            </div>
-            <p style="
-              color: #ccc;
-              line-height: 1.6;
-              font-size: 0.95rem;
-            ">
-              Team Hoogly explores the future of work, discussing workplace culture, employee engagement, and what it means to be human in today's evolving professional landscape. Join us for insights on building better workplaces.
-            </p>
-          </div>
+            Human at Work is a podcast that explores the heart of HR and the future of people at work. Each episode dives into real conversations with leaders, practitioners, and thinkers who are reimagining how organisations can build trust, connection, and wellbeing in the workplace. From tackling burnout and employee engagement to shaping culture and navigating change, Human at Work offers practical insights and inspiring stories to help you create workplaces where people — and performance — thrive.
+          </p>
         </div>
       </div>
 
       <!-- Right Panel - Episode List -->
       <div style="
-        background: white;
-        padding: 2rem;
+        background: #f7f3f0;
+        padding: 3rem 2rem;
         overflow-y: auto;
       ">
-        <!-- Header -->
-        <div style="
-          display: flex;
-          align-items: center;
-          justify-content: space-between;
-          margin-bottom: 2rem;
-        ">
-          <h3 style="
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: #000;
-            margin: 0;
-            transform: rotate(180deg);
-            writing-mode: horizontal-tb;
-          ">
-            Human at Work
-          </h3>
-          <button style="
-            background: none;
-            border: none;
-            font-size: 1.5rem;
-            cursor: pointer;
-          ">
-            ☰
-          </button>
-        </div>
-
-        <!-- Description -->
-        <p style="
-          color: #666;
-          line-height: 1.6;
-          margin-bottom: 2rem;
-          font-size: 0.95rem;
-        ">
-          Human at Work explores workplace culture and what it means to be human in today's evolving professional landscape. We investigate what drives engagement and uncover why understanding motivation matters.
-        </p>
-
-        <!-- Season Info -->
+        <!-- Season Info Header -->
         <div style="
           display: flex;
           justify-content: space-between;
           align-items: center;
-          margin-bottom: 2rem;
-          padding-bottom: 1rem;
-          border-bottom: 1px solid #eee;
+          margin-bottom: 3rem;
         ">
           <div style="
-            font-weight: 600;
-            color: #000;
+            font-family: 'Source Sans Pro', sans-serif;
+            font-weight: 400;
+            color: #000000;
+            opacity: 0.3;
             text-transform: uppercase;
             letter-spacing: 0.05em;
-            font-size: 0.9rem;
+            font-size: 1rem;
           ">
             SEASON 1
           </div>
           <div style="
-            color: #666;
-            font-size: 0.9rem;
+            font-family: 'Source Sans Pro', sans-serif;
+            font-weight: 400;
+            color: #000000;
+            opacity: 0.3;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            font-size: 1rem;
           ">
             5 EPISODES
           </div>
         </div>
 
+        <!-- Divider Line -->
+        <div style="
+          width: 100%;
+          height: 1px;
+          background: #000000;
+          opacity: 0.1;
+          margin-bottom: 3rem;
+        "></div>
+
         <!-- Episode List -->
-        <div style="display: flex; flex-direction: column; gap: 1.5rem;">
+        <div style="display: flex; flex-direction: column; gap: 3rem;">
           <!-- Episode 1 -->
-          <div style="
+          <div class="episode-container" style="
             display: flex;
-            gap: 1rem;
-            padding: 1rem;
-            background: #f8f9fa;
-            border-radius: 12px;
-            cursor: pointer;
-            transition: all 0.2s ease;
-          " onmouseover="this.style.background='#f0f1f2'" onmouseout="this.style.background='#f8f9fa'">
-            <div style="
-              width: 60px;
-              height: 60px;
-              background: linear-gradient(135deg, #6366f1, #8b5cf6);
-              border-radius: 8px;
+            gap: 1.5rem;
+            align-items: flex-start;
+          ">
+            <div class="episode-image" style="
+              width: 216px;
+              height: 168px;
+              background: url('https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80') center/cover;
+              border-radius: 12px;
               flex-shrink: 0;
-              display: flex;
-              align-items: center;
-              justify-content: center;
-              color: white;
-              font-weight: 700;
-            ">
-              H
-            </div>
-            <div style="flex: 1;">
+            "></div>
+            <div style="flex: 1; max-width: 435px;">
               <div style="
-                font-size: 0.8rem;
-                color: #666;
+                font-family: 'Source Sans Pro', sans-serif;
+                font-size: 1rem;
+                color: #000000;
+                opacity: 0.36;
                 text-transform: uppercase;
                 letter-spacing: 0.05em;
-                margin-bottom: 0.25rem;
+                margin-bottom: 1rem;
               ">
-                EPISODE 01
+                Episode 01
               </div>
-              <div style="
-                display: flex;
-                align-items: center;
-                gap: 0.5rem;
-                margin-bottom: 0.25rem;
+              <h3 style="
+                font-family: 'Grenette', serif;
+                font-size: 2.25rem;
+                font-weight: 400;
+                line-height: 1.1;
+                color: #23221f;
+                margin: 0 0 1rem 0;
               ">
-                <span style="
-                  background: #6366f1;
-                  color: white;
-                  padding: 0.25rem 0.5rem;
-                  border-radius: 4px;
-                  font-size: 0.7rem;
-                  text-transform: uppercase;
-                  letter-spacing: 0.05em;
-                ">
-                  LISTENING NOW
-                </span>
-              </div>
-              <h4 style="
-                font-size: 1.1rem;
-                font-weight: 700;
-                color: #000;
-                margin: 0 0 0.5rem 0;
-                line-height: 1.3;
-              ">
-                The Future of Work: Building Human-Centered Workplaces
-              </h4>
+                The Human Side of Work
+              </h3>
               <p style="
-                color: #666;
-                font-size: 0.9rem;
-                line-height: 1.4;
-                margin: 0 0 0.5rem 0;
+                font-family: 'Source Sans Pro', sans-serif;
+                font-size: 1rem;
+                line-height: 1.33;
+                color: #000000;
+                margin: 0 0 1rem 0;
               ">
-                Why does workplace culture matter more than ever? Team Hoogly explores the evolution of work and employee engagement.
+                Human at Work is a podcast that explores the heart of HR and the future of people at work. Each episode dives into real conversations with leaders, practitioners, and thinkers who are reimagining how
               </p>
               <div style="
-                color: #999;
-                font-size: 0.85rem;
+                font-family: 'Source Sans Pro', sans-serif;
+                font-size: 1rem;
+                color: #000000;
+                opacity: 0.3;
               ">
-                28 minutes
+                30 min
               </div>
             </div>
           </div>
 
           <!-- Episode 2 -->
-          <div style="
+          <div class="episode-container" style="
             display: flex;
-            gap: 1rem;
-            padding: 1rem;
-            border-radius: 12px;
-            cursor: pointer;
-            transition: all 0.2s ease;
-          " onmouseover="this.style.background='#f8f9fa'" onmouseout="this.style.background='transparent'">
-            <div style="
-              width: 60px;
-              height: 60px;
-              background: linear-gradient(135deg, #10b981, #059669);
-              border-radius: 8px;
+            gap: 1.5rem;
+            align-items: flex-start;
+          ">
+            <div class="episode-image" style="
+              width: 216px;
+              height: 168px;
+              background: url('https://images.unsplash.com/photo-1521737604893-d14cc237f11d?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80') center/cover;
+              border-radius: 12px;
               flex-shrink: 0;
-              display: flex;
-              align-items: center;
-              justify-content: center;
-              color: white;
-              font-weight: 700;
-            ">
-              H
-            </div>
-            <div style="flex: 1;">
+            "></div>
+            <div style="flex: 1; max-width: 435px;">
               <div style="
-                font-size: 0.8rem;
-                color: #666;
+                font-family: 'Source Sans Pro', sans-serif;
+                font-size: 1rem;
+                color: #000000;
+                opacity: 0.36;
                 text-transform: uppercase;
                 letter-spacing: 0.05em;
-                margin-bottom: 0.5rem;
+                margin-bottom: 1rem;
               ">
-                EPISODE 02
+                Episode 02
               </div>
-              <h4 style="
-                font-size: 1.1rem;
-                font-weight: 700;
-                color: #000;
-                margin: 0 0 0.5rem 0;
-                line-height: 1.3;
+              <h3 style="
+                font-family: 'Grenette', serif;
+                font-size: 2.25rem;
+                font-weight: 400;
+                line-height: 1.1;
+                color: #23221f;
+                margin: 0 0 1rem 0;
               ">
-                Beyond Surveys: Real-Time Employee Feedback
-              </h4>
+                People First:
+              </h3>
               <p style="
-                color: #666;
-                font-size: 0.9rem;
-                line-height: 1.4;
-                margin: 0 0 0.5rem 0;
+                font-family: 'Source Sans Pro', sans-serif;
+                font-size: 1rem;
+                line-height: 1.33;
+                color: #000000;
+                margin: 0 0 1rem 0;
               ">
-                How can organizations move beyond annual surveys to create continuous dialogue with their teams?
+                Human at Work is a podcast that explores the heart of HR and the future of people at work. Each episode dives into real conversations with leaders, practitioners, and thinkers who are reimagining how
               </p>
               <div style="
-                color: #999;
-                font-size: 0.85rem;
+                font-family: 'Source Sans Pro', sans-serif;
+                font-size: 1rem;
+                color: #000000;
+                opacity: 0.3;
               ">
-                24 minutes
+                30 min
               </div>
             </div>
           </div>
 
           <!-- Episode 3 -->
-          <div style="
+          <div class="episode-container" style="
             display: flex;
-            gap: 1rem;
-            padding: 1rem;
-            border-radius: 12px;
-            cursor: pointer;
-            transition: all 0.2s ease;
-          " onmouseover="this.style.background='#f8f9fa'" onmouseout="this.style.background='transparent'">
-            <div style="
-              width: 60px;
-              height: 60px;
-              background: linear-gradient(135deg, #f59e0b, #d97706);
-              border-radius: 8px;
+            gap: 1.5rem;
+            align-items: flex-start;
+          ">
+            <div class="episode-image" style="
+              width: 216px;
+              height: 168px;
+              background: url('https://images.unsplash.com/photo-1600880292203-757bb62b4baf?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80') center/cover;
+              border-radius: 12px;
               flex-shrink: 0;
-              display: flex;
-              align-items: center;
-              justify-content: center;
-              color: white;
-              font-weight: 700;
-            ">
-              H
-            </div>
-            <div style="flex: 1;">
+            "></div>
+            <div style="flex: 1; max-width: 435px;">
               <div style="
-                font-size: 0.8rem;
-                color: #666;
+                font-family: 'Source Sans Pro', sans-serif;
+                font-size: 1rem;
+                color: #000000;
+                opacity: 0.36;
                 text-transform: uppercase;
                 letter-spacing: 0.05em;
-                margin-bottom: 0.5rem;
+                margin-bottom: 1rem;
               ">
-                EPISODE 03
+                Episode 03
               </div>
-              <h4 style="
-                font-size: 1.1rem;
-                font-weight: 700;
-                color: #000;
-                margin: 0 0 0.5rem 0;
-                line-height: 1.3;
+              <h3 style="
+                font-family: 'Grenette', serif;
+                font-size: 2.25rem;
+                font-weight: 400;
+                line-height: 1.1;
+                color: #23221f;
+                margin: 0 0 1rem 0;
               ">
-                Psychological Safety: The Foundation of Great Teams
-              </h4>
+                Voices at Work
+              </h3>
               <p style="
-                color: #666;
-                font-size: 0.9rem;
-                line-height: 1.4;
-                margin: 0 0 0.5rem 0;
+                font-family: 'Source Sans Pro', sans-serif;
+                font-size: 1rem;
+                line-height: 1.33;
+                color: #000000;
+                margin: 0 0 1rem 0;
               ">
-                Exploring how psychological safety creates environments where people can bring their authentic selves to work.
+                Human at Work is a podcast that explores the heart of HR and the future of people at work. Each episode dives into real conversations with leaders, practitioners, and thinkers who are reimagining how
               </p>
               <div style="
-                color: #999;
-                font-size: 0.85rem;
+                font-family: 'Source Sans Pro', sans-serif;
+                font-size: 1rem;
+                color: #000000;
+                opacity: 0.3;
               ">
-                32 minutes
+                30 min
               </div>
             </div>
           </div>
@@ -526,8 +343,15 @@ import Layout from '../layouts/Layout.astro';
       </div>
     </div>
 
-    <!-- Mobile responsive adjustments -->
+    <!-- Font Imports and Mobile Responsive Styles -->
     <style>
+      @import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600;700&display=swap');
+      
+      /* Custom font fallbacks */
+      .grenette-font {
+        font-family: 'Grenette', 'Georgia', serif;
+      }
+      
       @media (max-width: 768px) {
         main > div {
           grid-template-columns: 1fr !important;
@@ -536,10 +360,49 @@ import Layout from '../layouts/Layout.astro';
         
         main > div > div:first-child {
           min-height: 70vh !important;
+          padding: 1.5rem !important;
+        }
+        
+        main > div > div:first-child h1 {
+          font-size: 4rem !important;
+        }
+        
+        main > div > div:first-child h2 {
+          font-size: 3rem !important;
+        }
+        
+        main > div > div:first-child p {
+          font-size: 0.9rem !important;
         }
         
         main > div > div:last-child {
-          max-height: none !important;
+          padding: 2rem 1.5rem !important;
+        }
+        
+        .episode-container {
+          flex-direction: column !important;
+          gap: 1rem !important;
+        }
+        
+        .episode-image {
+          width: 100% !important;
+          max-width: 300px !important;
+          height: 200px !important;
+          margin: 0 auto !important;
+        }
+        
+        .episode-content h3 {
+          font-size: 1.5rem !important;
+        }
+      }
+      
+      @media (max-width: 480px) {
+        main > div > div:first-child h1 {
+          font-size: 3rem !important;
+        }
+        
+        main > div > div:first-child h2 {
+          font-size: 2.2rem !important;
         }
       }
     </style>
