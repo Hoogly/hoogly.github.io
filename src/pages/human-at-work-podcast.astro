@@ -1,8 +1,51 @@
 ---
-import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Posthog from '../components/posthog.astro';
+import '../styles/design-system.css';
+import { ClientRouter } from "astro:transitions";
 ---
 
-<Layout title="Human at Work Podcast - Hoogly">
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/png" href="/images/Orange-cream.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="generator" content={Astro.generator} />
+
+    <!-- Primary Meta Tags -->
+    <title>Human at Work Podcast - Hoogly</title>
+    <meta name="title" content="Human at Work Podcast - Hoogly" />
+    <meta name="description" content="Real conversations about workplace culture and what it means to be human in today's evolving professional landscape." />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={Astro.url} />
+    <meta property="og:title" content="Human at Work Podcast - Hoogly" />
+    <meta property="og:description" content="Real conversations about workplace culture and what it means to be human in today's evolving professional landscape." />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content={Astro.url} />
+    <meta property="twitter:title" content="Human at Work Podcast - Hoogly" />
+    <meta property="twitter:description" content="Real conversations about workplace culture and what it means to be human in today's evolving professional landscape." />
+
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-TXHXQ8NW');</script>
+    <!-- End Google Tag Manager -->
+    <ClientRouter />
+  </head>
+  <body>
+    <Posthog />
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TXHXQ8NW"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+    <Header />
   <main style="background: #f7f3f0; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif; min-height: 100vh; width: 100%; max-width: 100vw; overflow-x: hidden;">
     <!-- Main Podcast Interface -->
     <div style="
@@ -430,6 +473,6 @@ import Layout from '../layouts/Layout.astro';
       }
     </style>
 
-
   </main>
-</Layout>
+  </body>
+</html>
