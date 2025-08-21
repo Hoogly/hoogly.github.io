@@ -575,6 +575,12 @@ import { ClientRouter } from "astro:transitions";
           box-sizing: border-box !important;
         }
         
+        /* Title Container Mobile */
+        main > div > div:first-child > div:last-child {
+          display: flex !important;
+          flex-direction: column !important;
+        }
+        
         main > div > div:first-child h1 {
           font-size: 2.5rem !important;
           margin: 0 !important;
@@ -603,10 +609,11 @@ import { ClientRouter } from "astro:transitions";
         }
         
         /* Coming Soon Badge Mobile */
-        .coming-soon-badge {
+        main > div > div:first-child > div:last-child > div:first-child {
           font-size: 0.8rem !important;
           padding: 0.4rem 0.8rem !important;
           margin-bottom: 1rem !important;
+          display: block !important;
         }
         
         /* Audio Visualizer Mobile */
@@ -665,6 +672,13 @@ import { ClientRouter } from "astro:transitions";
       @media (max-width: 480px) {
         main > div > div:first-child {
           padding: 1rem !important;
+        }
+        
+        /* Coming Soon Badge Small Mobile */
+        main > div > div:first-child > div:last-child > div:first-child {
+          font-size: 0.7rem !important;
+          padding: 0.3rem 0.7rem !important;
+          margin-bottom: 0.8rem !important;
         }
         
         main > div > div:first-child h1 {
