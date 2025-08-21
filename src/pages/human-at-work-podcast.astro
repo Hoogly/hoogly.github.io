@@ -481,5 +481,25 @@ import { ClientRouter } from "astro:transitions";
     </style>
 
   </main>
+
+  <script>
+    // Force navbar to blurred transparent state for podcast page
+    document.addEventListener('DOMContentLoaded', function() {
+      const navbar = document.getElementById('navbar');
+      if (navbar) {
+        navbar.classList.remove('navbar-transparent');
+        navbar.classList.add('navbar-solid');
+      }
+    });
+
+    // Also handle astro page loads
+    document.addEventListener('astro:page-load', function() {
+      const navbar = document.getElementById('navbar');
+      if (navbar) {
+        navbar.classList.remove('navbar-transparent');
+        navbar.classList.add('navbar-solid');
+      }
+    });
+  </script>
   </body>
 </html>
