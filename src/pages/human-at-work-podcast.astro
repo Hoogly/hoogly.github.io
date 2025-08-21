@@ -3,674 +3,547 @@ import Layout from '../layouts/Layout.astro';
 ---
 
 <Layout title="Human at Work Podcast - Hoogly">
-  <main style="background: #fafafa; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;">
-    <!-- Hero Section -->
-    <section style="
-      background: #fafafa;
-      padding: 8rem 2rem 6rem;
-      text-align: center;
-      min-height: 60vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+  <main style="background: #000; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif; min-height: 100vh;">
+    <!-- Main Podcast Interface -->
+    <div style="
+      display: grid;
+      grid-template-columns: 1fr 400px;
+      min-height: 100vh;
     ">
+      <!-- Left Panel - Featured Episode -->
       <div style="
-        max-width: 900px;
-        margin: 0 auto;
+        background: linear-gradient(135deg, #1a3b2e 0%, #2d5a4a 100%);
+        position: relative;
+        padding: 3rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        color: white;
+        overflow: hidden;
       ">
-        <h1 style="
-          font-size: 4rem;
-          font-weight: 700;
-          margin-bottom: 2rem;
-          line-height: 1.1;
-          color: #000;
-          letter-spacing: -0.02em;
-        ">
-          Don't just listen, <em style="font-style: italic; color: #6366f1;">engage</em>
-        </h1>
-        <p style="
-          font-size: 1.5rem;
-          margin-bottom: 3rem;
-          color: #666;
-          max-width: 700px;
-          margin-left: auto;
-          margin-right: auto;
-          line-height: 1.4;
-          font-weight: 400;
-        ">
-          Real conversations about workplace culture and what it means to be human in today's evolving professional landscape.
-        </p>
+        <!-- Hoogly Logo -->
         <div style="
-          display: flex;
-          gap: 1rem;
-          justify-content: center;
-          flex-wrap: wrap;
-          margin-top: 3rem;
+          position: absolute;
+          top: 2rem;
+          left: 2rem;
+          z-index: 10;
         ">
-          <a href="#episodes" style="
-            background: #000;
+          <div style="
+            width: 50px;
+            height: 50px;
+            background: #6366f1;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             color: white;
-            padding: 1rem 2rem;
-            border-radius: 12px;
-            text-decoration: none;
-            font-weight: 500;
-            font-size: 1rem;
-            transition: all 0.2s ease;
-            display: inline-block;
-          " onmouseover="this.style.background='#333'" onmouseout="this.style.background='#000'">
-            Listen now
-          </a>
-          <a href="#subscribe" style="
-            background: transparent;
-            color: #000;
-            padding: 1rem 2rem;
-            border: 1px solid #ddd;
-            border-radius: 12px;
-            text-decoration: none;
-            font-weight: 500;
-            font-size: 1rem;
-            transition: all 0.2s ease;
-            display: inline-block;
-          " onmouseover="this.style.borderColor='#000'" onmouseout="this.style.borderColor='#ddd'">
-            Subscribe
-          </a>
-        </div>
-        
-        <!-- Available platforms -->
-        <div style="
-          margin-top: 2rem;
-          color: #999;
-          font-size: 0.9rem;
-        ">
-          Available on iPhone, Mac and Windows
-        </div>
-      </div>
-    </section>
-
-    <!-- Features Section -->
-    <section style="
-      padding: 8rem 2rem;
-      background: white;
-      text-align: center;
-    ">
-      <div style="
-        max-width: 1200px;
-        margin: 0 auto;
-      ">
-        <h2 style="
-          font-size: 3rem;
-          font-weight: 700;
-          margin-bottom: 1rem;
-          color: #000;
-          letter-spacing: -0.02em;
-        ">
-          Listen faster in all your apps, on any device
-        </h2>
-        <p style="
-          font-size: 1.25rem;
-          color: #666;
-          margin-bottom: 4rem;
-          max-width: 600px;
-          margin-left: auto;
-          margin-right: auto;
-        ">
-          Seamless podcast experience across your iPhone, Mac, and Windows devices.
-        </p>
-
-        <!-- Company logos -->
-        <div style="
-          display: flex;
-          flex-wrap: wrap;
-          justify-content: center;
-          align-items: center;
-          gap: 2rem;
-          margin-bottom: 6rem;
-          opacity: 0.6;
-        ">
-          <div style="font-weight: 500; color: #999;">Trusted by professionals at</div>
-          <div>Meta</div>
-          <div>Amazon</div>
-          <div>Nvidia</div>
-          <div>Strava</div>
-          <div>Superhuman</div>
-        </div>
-
-        <!-- Speed comparison -->
-        <div style="
-          background: #fafafa;
-          border-radius: 24px;
-          padding: 4rem 2rem;
-          margin-bottom: 4rem;
-        ">
-          <h3 style="
-            font-size: 2.5rem;
             font-weight: 700;
-            margin-bottom: 1rem;
-            color: #000;
+            font-size: 1.5rem;
           ">
-            <span style="color: #6366f1; font-size: 3rem;">4x faster</span><br>
-            than reading
-          </h3>
-          <p style="
-            font-size: 1.1rem;
-            color: #666;
-            margin-bottom: 3rem;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
+            H
+          </div>
+        </div>
+
+        <!-- Background Image -->
+        <div style="
+          position: absolute;
+          top: 0;
+          right: 0;
+          width: 60%;
+          height: 100%;
+          background: url('data:image/svg+xml,<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 400 600\"><defs><linearGradient id=\"grad\" x1=\"0%\" y1=\"0%\" x2=\"100%\" y2=\"100%\"><stop offset=\"0%\" style=\"stop-color:%23ff6b6b;stop-opacity:0.3\" /><stop offset=\"100%\" style=\"stop-color:%23feca57;stop-opacity:0.3\" /></linearGradient></defs><ellipse cx=\"200\" cy=\"300\" rx=\"180\" ry=\"250\" fill=\"url(%23grad)\" /></svg>') no-repeat center;
+          background-size: cover;
+          opacity: 0.3;
+        "></div>
+
+        <!-- Episode Number -->
+        <div style="
+          font-size: 4rem;
+          font-weight: 900;
+          color: #6366f1;
+          margin-top: 4rem;
+          z-index: 5;
+          position: relative;
+        ">
+          E1
+        </div>
+
+        <!-- Episode Title -->
+        <div style="
+          flex: 1;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          z-index: 5;
+          position: relative;
+        ">
+          <h1 style="
+            font-size: 3.5rem;
+            font-weight: 700;
+            line-height: 1.1;
+            margin: 0 0 2rem 0;
+            color: #6366f1;
+            text-transform: uppercase;
+            letter-spacing: -0.02em;
           ">
-            After decades of traditional podcasts, audio that actually adapts is finally here. When you listen, learn, and engage faster, you free up time for more.
-          </p>
+            The Future of Work
+          </h1>
           
+          <!-- Audio Player -->
           <div style="
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 2rem;
-            max-width: 800px;
-            margin: 0 auto;
+            background: rgba(0,0,0,0.8);
+            backdrop-filter: blur(10px);
+            border-radius: 16px;
+            padding: 1.5rem;
+            margin: 2rem 0;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
           ">
-            <div style="
-              background: white;
-              border-radius: 16px;
-              padding: 2rem;
-              text-align: left;
-            ">
-              <div style="
-                font-size: 0.9rem;
-                color: #999;
-                margin-bottom: 1rem;
-                text-transform: uppercase;
-                letter-spacing: 0.05em;
-              ">Traditional Podcast</div>
-              <div style="
-                font-size: 2rem;
-                font-weight: 700;
-                color: #000;
-                margin-bottom: 1rem;
-              ">45 min</div>
-              <div style="
-                color: #666;
-                line-height: 1.6;
-              ">
-                Standard episode length with no personalization or speed control.
-              </div>
-            </div>
-            
-            <div style="
+            <button style="
+              width: 60px;
+              height: 60px;
+              border-radius: 50%;
               background: #6366f1;
+              border: none;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              cursor: pointer;
               color: white;
-              border-radius: 16px;
-              padding: 2rem;
-              text-align: left;
+              font-size: 1.5rem;
             ">
-              <div style="
-                font-size: 0.9rem;
-                opacity: 0.8;
-                margin-bottom: 1rem;
-                text-transform: uppercase;
-                letter-spacing: 0.05em;
-              ">Human at Work</div>
-              <div style="
-                font-size: 2rem;
-                font-weight: 700;
-                margin-bottom: 1rem;
-              ">12 min</div>
-              <div style="
-                opacity: 0.9;
-                line-height: 1.6;
-              ">
-                Concise, actionable insights delivered at the perfect pace for busy professionals.
+              ▶
+            </button>
+            <div style="flex: 1;">
+              <div style="color: white; font-weight: 600; margin-bottom: 0.5rem;">
+                The Future of Work with Team Hoogly
               </div>
+              <div style="color: #ccc; font-size: 0.9rem;">
+                00:00
+              </div>
+            </div>
+            <div style="
+              display: flex;
+              gap: 0.5rem;
+              align-items: center;
+            ">
+              <button style="
+                background: rgba(255,255,255,0.2);
+                border: none;
+                color: white;
+                padding: 0.5rem 1rem;
+                border-radius: 8px;
+                cursor: pointer;
+                font-size: 0.8rem;
+              ">
+                Copy screen
+              </button>
+              <button style="
+                background: rgba(255,255,255,0.2);
+                border: none;
+                color: white;
+                padding: 0.5rem 1rem;
+                border-radius: 8px;
+                cursor: pointer;
+                font-size: 0.8rem;
+              ">
+                Download
+              </button>
             </div>
           </div>
         </div>
-      </div>
-    </section>
 
-    <!-- Use Cases Section -->
-    <section style="
-      padding: 8rem 2rem;
-      background: #fafafa;
-      text-align: center;
-    ">
-      <div style="
-        max-width: 1200px;
-        margin: 0 auto;
-      ">
-        <h2 style="
-          font-size: 3rem;
-          font-weight: 700;
-          margin-bottom: 4rem;
-          color: #000;
-          letter-spacing: -0.02em;
-        ">
-          Podcast is made for you
-        </h2>
-
-        <!-- Use case tabs -->
+        <!-- Bottom Section -->
         <div style="
-          display: grid;
-          grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-          gap: 2rem;
-          margin-bottom: 4rem;
+          z-index: 5;
+          position: relative;
         ">
-          <div style="
-            background: white;
-            border-radius: 20px;
-            padding: 3rem 2rem;
-            text-align: left;
-            border: 1px solid #f0f0f0;
+          <h2 style="
+            font-size: 3rem;
+            font-weight: 700;
+            margin: 0 0 0.5rem 0;
+            color: white;
           ">
-            <h3 style="
-              font-size: 1.5rem;
-              font-weight: 700;
-              margin-bottom: 1rem;
-              color: #000;
-            ">
-              Podcast for <em style="font-style: italic; color: #6366f1;">Leaders</em>
-            </h3>
-            <p style="
-              color: #666;
-              line-height: 1.6;
-              margin-bottom: 2rem;
-            ">
-              Transform your leadership approach with insights from culture experts. Learn how to build engaged teams and drive meaningful change in your organization.
-            </p>
-            <a href="#subscribe" style="
-              color: #6366f1;
-              text-decoration: none;
-              font-weight: 500;
-            ">Listen now →</a>
-          </div>
-
+            Human at Work
+          </h2>
           <div style="
-            background: white;
-            border-radius: 20px;
-            padding: 3rem 2rem;
-            text-align: left;
-            border: 1px solid #f0f0f0;
-          ">
-            <h3 style="
-              font-size: 1.5rem;
-              font-weight: 700;
-              margin-bottom: 1rem;
-              color: #000;
-            ">
-              Podcast for <em style="font-style: italic; color: #6366f1;">HR Professionals</em>
-            </h3>
-            <p style="
-              color: #666;
-              line-height: 1.6;
-              margin-bottom: 2rem;
-            ">
-              Stay ahead of workplace trends and employee engagement strategies. Get practical tools to create cultures where people thrive.
-            </p>
-            <a href="#subscribe" style="
-              color: #6366f1;
-              text-decoration: none;
-              font-weight: 500;
-            ">Listen now →</a>
-          </div>
-
-          <div style="
-            background: white;
-            border-radius: 20px;
-            padding: 3rem 2rem;
-            text-align: left;
-            border: 1px solid #f0f0f0;
-          ">
-            <h3 style="
-              font-size: 1.5rem;
-              font-weight: 700;
-              margin-bottom: 1rem;
-              color: #000;
-            ">
-              Podcast for <em style="font-style: italic; color: #6366f1;">Employees</em>
-            </h3>
-            <p style="
-              color: #666;
-              line-height: 1.6;
-              margin-bottom: 2rem;
-            ">
-              Navigate your career with confidence. Learn how to communicate effectively, build relationships, and find meaning in your work.
-            </p>
-            <a href="#subscribe" style="
-              color: #6366f1;
-              text-decoration: none;
-              font-weight: 500;
-            ">Listen now →</a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Episodes Coming Soon -->
-    <section id="episodes" style="
-      padding: 6rem 2rem;
-      background: white;
-      text-align: center;
-    ">
-      <div style="
-        max-width: 800px;
-        margin: 0 auto;
-      ">
-        <div style="
-          background: #fafafa;
-          border-radius: 24px;
-          padding: 4rem 2rem;
-          border: 1px solid #f0f0f0;
-        ">
-          <div style="
-            font-size: 4rem;
+            font-size: 1.25rem;
+            color: #ccc;
             margin-bottom: 2rem;
           ">
-            🎙️
+            S1:E1 The Future of Work with Team Hoogly
           </div>
-          <h3 style="
-            font-size: 2rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-            color: #000;
+
+          <!-- Subscribe Button and Social Links -->
+          <div style="
+            display: flex;
+            align-items: center;
+            gap: 1rem;
           ">
-            Start listening
+            <button style="
+              background: white;
+              color: #000;
+              border: none;
+              padding: 0.75rem 1.5rem;
+              border-radius: 8px;
+              font-weight: 600;
+              cursor: pointer;
+              text-transform: uppercase;
+              letter-spacing: 0.05em;
+              font-size: 0.9rem;
+            ">
+              SUBSCRIBE
+            </button>
+            <div style="
+              display: flex;
+              gap: 1rem;
+              color: #ccc;
+            ">
+              <div style="font-size: 1.5rem; cursor: pointer;">📘</div>
+              <div style="font-size: 1.5rem; cursor: pointer;">🐦</div>
+              <div style="font-size: 1.5rem; cursor: pointer;">✉️</div>
+              <div style="font-size: 1.5rem; cursor: pointer;">🔗</div>
+            </div>
+          </div>
+
+          <!-- Episode Details Tabs -->
+          <div style="
+            margin-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.2);
+            padding-top: 1rem;
+          ">
+            <div style="
+              display: flex;
+              gap: 2rem;
+              margin-bottom: 1rem;
+            ">
+              <button style="
+                background: none;
+                border: none;
+                color: white;
+                font-weight: 600;
+                text-transform: uppercase;
+                letter-spacing: 0.05em;
+                font-size: 0.9rem;
+                cursor: pointer;
+                border-bottom: 2px solid white;
+                padding-bottom: 0.5rem;
+              ">
+                EPISODE DETAILS
+              </button>
+              <button style="
+                background: none;
+                border: none;
+                color: #666;
+                font-weight: 600;
+                text-transform: uppercase;
+                letter-spacing: 0.05em;
+                font-size: 0.9rem;
+                cursor: pointer;
+              ">
+                TRANSCRIPT
+              </button>
+            </div>
+            <p style="
+              color: #ccc;
+              line-height: 1.6;
+              font-size: 0.95rem;
+            ">
+              Team Hoogly explores the future of work, discussing workplace culture, employee engagement, and what it means to be human in today's evolving professional landscape. Join us for insights on building better workplaces.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Panel - Episode List -->
+      <div style="
+        background: white;
+        padding: 2rem;
+        overflow-y: auto;
+      ">
+        <!-- Header -->
+        <div style="
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          margin-bottom: 2rem;
+        ">
+          <h3 style="
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #000;
+            margin: 0;
+            transform: rotate(180deg);
+            writing-mode: horizontal-tb;
+          ">
+            Human at Work
           </h3>
-          <p style="
+          <button style="
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+          ">
+            ☰
+          </button>
+        </div>
+
+        <!-- Description -->
+        <p style="
+          color: #666;
+          line-height: 1.6;
+          margin-bottom: 2rem;
+          font-size: 0.95rem;
+        ">
+          Human at Work explores workplace culture and what it means to be human in today's evolving professional landscape. We investigate what drives engagement and uncover why understanding motivation matters.
+        </p>
+
+        <!-- Season Info -->
+        <div style="
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          margin-bottom: 2rem;
+          padding-bottom: 1rem;
+          border-bottom: 1px solid #eee;
+        ">
+          <div style="
+            font-weight: 600;
+            color: #000;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            font-size: 0.9rem;
+          ">
+            SEASON 1
+          </div>
+          <div style="
             color: #666;
-            line-height: 1.6;
-            font-size: 1.1rem;
-            margin-bottom: 3rem;
+            font-size: 0.9rem;
           ">
-            Real conversations about workplace culture and what it means to be human in today's evolving professional landscape: 4x more engaging than traditional podcasts, with AI-powered insights and actionable takeaways.
-          </p>
-          <a href="#subscribe" style="
-            background: #000;
-            color: white;
-            padding: 1rem 2rem;
-            border-radius: 12px;
-            text-decoration: none;
-            font-weight: 500;
-            display: inline-block;
-            transition: all 0.2s ease;
-          " onmouseover="this.style.background='#333'" onmouseout="this.style.background='#000'">
-            Subscribe now
-          </a>
-        </div>
-      </div>
-    </section>
-
-    <!-- Testimonials Section -->
-    <section style="
-      padding: 8rem 2rem;
-      background: #fafafa;
-      text-align: center;
-    ">
-      <div style="
-        max-width: 1200px;
-        margin: 0 auto;
-      ">
-        <h2 style="
-          font-size: 3rem;
-          font-weight: 700;
-          margin-bottom: 1rem;
-          color: #000;
-          letter-spacing: -0.02em;
-        ">
-          Love letters to Human at Work
-        </h2>
-        <p style="
-          font-size: 1.1rem;
-          color: #666;
-          margin-bottom: 4rem;
-        ">
-          What our listeners are saying about the show
-        </p>
-
-        <!-- Testimonials Grid -->
-        <div style="
-          display: grid;
-          grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-          gap: 2rem;
-        ">
-          <div style="
-            background: white;
-            border-radius: 20px;
-            padding: 2rem;
-            text-align: left;
-            border: 1px solid #f0f0f0;
-          ">
-            <p style="
-              color: #333;
-              line-height: 1.6;
-              margin-bottom: 1.5rem;
-              font-size: 1rem;
-            ">
-              "This podcast is making workplace conversations actually delightful right now! I can see it becoming a can't-live-without resource fast."
-            </p>
-            <div style="
-              font-weight: 600;
-              color: #000;
-              font-size: 0.9rem;
-            ">
-              Sarah Chen, VP of People at TechFlow
-            </div>
-          </div>
-
-          <div style="
-            background: white;
-            border-radius: 20px;
-            padding: 2rem;
-            text-align: left;
-            border: 1px solid #f0f0f0;
-          ">
-            <p style="
-              color: #333;
-              line-height: 1.6;
-              margin-bottom: 1.5rem;
-              font-size: 1rem;
-            ">
-              "This is the best workplace culture content I've consumed since joining HR. The insights are immediately actionable."
-            </p>
-            <div style="
-              font-weight: 600;
-              color: #000;
-              font-size: 0.9rem;
-            ">
-              Marcus Johnson, CHRO
-            </div>
-          </div>
-
-          <div style="
-            background: white;
-            border-radius: 20px;
-            padding: 2rem;
-            text-align: left;
-            border: 1px solid #f0f0f0;
-          ">
-            <p style="
-              color: #333;
-              line-height: 1.6;
-              margin-bottom: 1.5rem;
-              font-size: 1rem;
-            ">
-              "I've been listening almost every week since I discovered it. It's probably my favorite part of my commute now."
-            </p>
-            <div style="
-              font-weight: 600;
-              color: #000;
-              font-size: 0.9rem;
-            ">
-              Alex Rivera, Team Lead at Innovate Co
-            </div>
+            5 EPISODES
           </div>
         </div>
-      </div>
-    </section>
 
-    <!-- Subscribe Section -->
-    <section id="subscribe" style="
-      padding: 8rem 2rem;
-      background: white;
-      text-align: center;
-    ">
-      <div style="
-        max-width: 900px;
-        margin: 0 auto;
-      ">
-        <h2 style="
-          font-size: 3rem;
-          font-weight: 700;
-          margin-bottom: 1rem;
-          color: #000;
-          letter-spacing: -0.02em;
-        ">
-          Start listening
-        </h2>
-        <p style="
-          font-size: 1.25rem;
-          color: #666;
-          margin-bottom: 4rem;
-          max-width: 600px;
-          margin-left: auto;
-          margin-right: auto;
-        ">
-          Real conversations about workplace culture: 4x more engaging than traditional podcasts, with actionable insights and expert commentary.
-        </p>
-
-        <!-- Subscription platforms -->
-        <div style="
-          display: grid;
-          grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-          gap: 1rem;
-          max-width: 600px;
-          margin: 0 auto 4rem;
-        ">
-          <a href="#" style="
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 1rem;
-            background: #fafafa;
-            border-radius: 12px;
-            text-decoration: none;
-            color: #000;
-            font-weight: 500;
-            transition: all 0.2s ease;
-            border: 1px solid #f0f0f0;
-          " onmouseover="this.style.background='#000'; this.style.color='white'" onmouseout="this.style.background='#fafafa'; this.style.color='#000'">
-            🍎 Apple Podcasts
-          </a>
-          <a href="#" style="
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 1rem;
-            background: #fafafa;
-            border-radius: 12px;
-            text-decoration: none;
-            color: #000;
-            font-weight: 500;
-            transition: all 0.2s ease;
-            border: 1px solid #f0f0f0;
-          " onmouseover="this.style.background='#000'; this.style.color='white'" onmouseout="this.style.background='#fafafa'; this.style.color='#000'">
-            🎵 Spotify
-          </a>
-          <a href="#" style="
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 1rem;
-            background: #fafafa;
-            border-radius: 12px;
-            text-decoration: none;
-            color: #000;
-            font-weight: 500;
-            transition: all 0.2s ease;
-            border: 1px solid #f0f0f0;
-          " onmouseover="this.style.background='#000'; this.style.color='white'" onmouseout="this.style.background='#fafafa'; this.style.color='#000'">
-            📻 Google Podcasts
-          </a>
-        </div>
-
-        <!-- CTA Section -->
-        <div style="
-          background: #000;
-          border-radius: 24px;
-          padding: 4rem 2rem;
-          color: white;
-        ">
-          <h3 style="
-            font-size: 2rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-          ">
-            Get episode updates
-          </h3>
-          <p style="
-            margin-bottom: 3rem;
-            opacity: 0.8;
-            font-size: 1.1rem;
-          ">
-            Subscribe to our newsletter for new episodes, show notes, and exclusive workplace insights.
-          </p>
+        <!-- Episode List -->
+        <div style="display: flex; flex-direction: column; gap: 1.5rem;">
+          <!-- Episode 1 -->
           <div style="
             display: flex;
             gap: 1rem;
-            max-width: 400px;
-            margin: 0 auto;
-          ">
-            <input 
-              type="email" 
-              placeholder="Enter your email"
-              style="
-                flex: 1;
-                padding: 1rem;
-                border-radius: 12px;
-                border: none;
-                font-size: 1rem;
-                outline: none;
-              "
-            />
-            <button style="
-              background: #6366f1;
+            padding: 1rem;
+            background: #f8f9fa;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+          " onmouseover="this.style.background='#f0f1f2'" onmouseout="this.style.background='#f8f9fa'">
+            <div style="
+              width: 60px;
+              height: 60px;
+              background: linear-gradient(135deg, #6366f1, #8b5cf6);
+              border-radius: 8px;
+              flex-shrink: 0;
+              display: flex;
+              align-items: center;
+              justify-content: center;
               color: white;
-              padding: 1rem 1.5rem;
-              border-radius: 12px;
-              border: none;
-              font-weight: 500;
-              cursor: pointer;
-              transition: all 0.2s ease;
-              white-space: nowrap;
-            " onmouseover="this.style.background='#5855eb'" onmouseout="this.style.background='#6366f1'">
-              Subscribe
-            </button>
+              font-weight: 700;
+            ">
+              H
+            </div>
+            <div style="flex: 1;">
+              <div style="
+                font-size: 0.8rem;
+                color: #666;
+                text-transform: uppercase;
+                letter-spacing: 0.05em;
+                margin-bottom: 0.25rem;
+              ">
+                EPISODE 01
+              </div>
+              <div style="
+                display: flex;
+                align-items: center;
+                gap: 0.5rem;
+                margin-bottom: 0.25rem;
+              ">
+                <span style="
+                  background: #6366f1;
+                  color: white;
+                  padding: 0.25rem 0.5rem;
+                  border-radius: 4px;
+                  font-size: 0.7rem;
+                  text-transform: uppercase;
+                  letter-spacing: 0.05em;
+                ">
+                  LISTENING NOW
+                </span>
+              </div>
+              <h4 style="
+                font-size: 1.1rem;
+                font-weight: 700;
+                color: #000;
+                margin: 0 0 0.5rem 0;
+                line-height: 1.3;
+              ">
+                The Future of Work: Building Human-Centered Workplaces
+              </h4>
+              <p style="
+                color: #666;
+                font-size: 0.9rem;
+                line-height: 1.4;
+                margin: 0 0 0.5rem 0;
+              ">
+                Why does workplace culture matter more than ever? Team Hoogly explores the evolution of work and employee engagement.
+              </p>
+              <div style="
+                color: #999;
+                font-size: 0.85rem;
+              ">
+                28 minutes
+              </div>
+            </div>
+          </div>
+
+          <!-- Episode 2 -->
+          <div style="
+            display: flex;
+            gap: 1rem;
+            padding: 1rem;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+          " onmouseover="this.style.background='#f8f9fa'" onmouseout="this.style.background='transparent'">
+            <div style="
+              width: 60px;
+              height: 60px;
+              background: linear-gradient(135deg, #10b981, #059669);
+              border-radius: 8px;
+              flex-shrink: 0;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              color: white;
+              font-weight: 700;
+            ">
+              H
+            </div>
+            <div style="flex: 1;">
+              <div style="
+                font-size: 0.8rem;
+                color: #666;
+                text-transform: uppercase;
+                letter-spacing: 0.05em;
+                margin-bottom: 0.5rem;
+              ">
+                EPISODE 02
+              </div>
+              <h4 style="
+                font-size: 1.1rem;
+                font-weight: 700;
+                color: #000;
+                margin: 0 0 0.5rem 0;
+                line-height: 1.3;
+              ">
+                Beyond Surveys: Real-Time Employee Feedback
+              </h4>
+              <p style="
+                color: #666;
+                font-size: 0.9rem;
+                line-height: 1.4;
+                margin: 0 0 0.5rem 0;
+              ">
+                How can organizations move beyond annual surveys to create continuous dialogue with their teams?
+              </p>
+              <div style="
+                color: #999;
+                font-size: 0.85rem;
+              ">
+                24 minutes
+              </div>
+            </div>
+          </div>
+
+          <!-- Episode 3 -->
+          <div style="
+            display: flex;
+            gap: 1rem;
+            padding: 1rem;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+          " onmouseover="this.style.background='#f8f9fa'" onmouseout="this.style.background='transparent'">
+            <div style="
+              width: 60px;
+              height: 60px;
+              background: linear-gradient(135deg, #f59e0b, #d97706);
+              border-radius: 8px;
+              flex-shrink: 0;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              color: white;
+              font-weight: 700;
+            ">
+              H
+            </div>
+            <div style="flex: 1;">
+              <div style="
+                font-size: 0.8rem;
+                color: #666;
+                text-transform: uppercase;
+                letter-spacing: 0.05em;
+                margin-bottom: 0.5rem;
+              ">
+                EPISODE 03
+              </div>
+              <h4 style="
+                font-size: 1.1rem;
+                font-weight: 700;
+                color: #000;
+                margin: 0 0 0.5rem 0;
+                line-height: 1.3;
+              ">
+                Psychological Safety: The Foundation of Great Teams
+              </h4>
+              <p style="
+                color: #666;
+                font-size: 0.9rem;
+                line-height: 1.4;
+                margin: 0 0 0.5rem 0;
+              ">
+                Exploring how psychological safety creates environments where people can bring their authentic selves to work.
+              </p>
+              <div style="
+                color: #999;
+                font-size: 0.85rem;
+              ">
+                32 minutes
+              </div>
+            </div>
           </div>
         </div>
       </div>
+    </div>
 
-      <!-- Mobile responsive adjustments -->
-      <style>
-        @media (max-width: 768px) {
-          h1 {
-            font-size: 2.5rem !important;
-          }
-          
-          h2 {
-            font-size: 2rem !important;
-          }
-          
-          section div[style*="display: flex"]:has(input) {
-            flex-direction: column !important;
-          }
-          
-          section input[type="email"] {
-            margin-bottom: 1rem;
-          }
-          
-          section div[style*="grid-template-columns"] {
-            grid-template-columns: 1fr !important;
-          }
+    <!-- Mobile responsive adjustments -->
+    <style>
+      @media (max-width: 768px) {
+        main > div {
+          grid-template-columns: 1fr !important;
+          grid-template-rows: 1fr auto !important;
         }
-      </style>
-    </section>
+        
+        main > div > div:first-child {
+          min-height: 70vh !important;
+        }
+        
+        main > div > div:last-child {
+          max-height: none !important;
+        }
+      }
+    </style>
+
+
   </main>
 </Layout>
