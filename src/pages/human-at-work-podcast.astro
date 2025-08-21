@@ -581,20 +581,26 @@ import { ClientRouter } from "astro:transitions";
           flex-direction: column !important;
         }
         
-        main > div > div:first-child h1 {
+        /* Create container for one-line title */
+        main > div > div:first-child h1,
+        main > div > div:first-child h2 {
+          display: inline !important;
           font-size: 2.5rem !important;
           margin: 0 !important;
-          display: inline !important;
+          white-space: nowrap !important;
+        }
+        
+        main > div > div:first-child h1 {
+          margin-right: 0.3rem !important;
         }
         
         main > div > div:first-child h2 {
-          font-size: 2.5rem !important;
-          margin: 0 0 1rem 0 !important;
-          display: inline !important;
+          margin-bottom: 1rem !important;
         }
         
-        main > div > div:first-child h1::after {
-          content: " " !important;
+        /* Wrapper for title to ensure one line */
+        main > div > div:first-child h1 + h2 {
+          display: inline !important;
         }
         
         main > div > div:first-child p:first-of-type {
@@ -681,20 +687,21 @@ import { ClientRouter } from "astro:transitions";
           margin-bottom: 0.8rem !important;
         }
         
-        main > div > div:first-child h1 {
-          font-size: 2rem !important;
+        /* One-line title for small mobile */
+        main > div > div:first-child h1,
+        main > div > div:first-child h2 {
           display: inline !important;
+          font-size: 2rem !important;
           margin: 0 !important;
+          white-space: nowrap !important;
+        }
+        
+        main > div > div:first-child h1 {
+          margin-right: 0.3rem !important;
         }
         
         main > div > div:first-child h2 {
-          font-size: 2rem !important;
-          display: inline !important;
-          margin: 0 0 1rem 0 !important;
-        }
-        
-        main > div > div:first-child h1::after {
-          content: " " !important;
+          margin-bottom: 1rem !important;
         }
         
         main > div > div:first-child p:first-of-type {
