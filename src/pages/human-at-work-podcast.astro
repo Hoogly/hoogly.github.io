@@ -46,15 +46,15 @@ import { ClientRouter } from "astro:transitions";
     height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
     <Header />
-  <main style="background: #f7f3f0; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif; min-height: 100vh; width: 100%; max-width: 100vw; overflow-x: hidden;">
+  <main style="background: #f7f3f0; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif; height: 100vh; width: 100%; max-width: 100vw; overflow: hidden;">
     <!-- Main Podcast Interface -->
     <div style="
       display: grid;
       grid-template-columns: 1fr 1fr;
-      min-height: 100vh;
+      height: 100vh;
       width: 100%;
       max-width: 100vw;
-      overflow-x: hidden;
+      overflow: hidden;
     ">
       <!-- Left Panel - Hero with Image -->
       <div style="
@@ -181,9 +181,12 @@ import { ClientRouter } from "astro:transitions";
       <!-- Right Panel - Episode List -->
       <div style="
         background: #f7f3f0;
-        padding: 1rem 2rem 3rem 2rem;
-        overflow-y: auto;
-        overflow-x: hidden;
+        padding: 2rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
         width: 100%;
         max-width: 50vw;
         box-sizing: border-box;
