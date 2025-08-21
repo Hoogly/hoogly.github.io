@@ -576,13 +576,19 @@ import { ClientRouter } from "astro:transitions";
         }
         
         main > div > div:first-child h1 {
-          font-size: 3.5rem !important;
-          margin: 0 0 0.5rem 0 !important;
+          font-size: 2.5rem !important;
+          margin: 0 !important;
+          display: inline !important;
         }
         
         main > div > div:first-child h2 {
           font-size: 2.5rem !important;
-          margin: 0 0 0.5rem 0 !important;
+          margin: 0 0 1rem 0 !important;
+          display: inline !important;
+        }
+        
+        main > div > div:first-child h1::after {
+          content: " " !important;
         }
         
         main > div > div:first-child p:first-of-type {
@@ -662,11 +668,19 @@ import { ClientRouter } from "astro:transitions";
         }
         
         main > div > div:first-child h1 {
-          font-size: 2.8rem !important;
+          font-size: 2rem !important;
+          display: inline !important;
+          margin: 0 !important;
         }
         
         main > div > div:first-child h2 {
           font-size: 2rem !important;
+          display: inline !important;
+          margin: 0 0 1rem 0 !important;
+        }
+        
+        main > div > div:first-child h1::after {
+          content: " " !important;
         }
         
         main > div > div:first-child p:first-of-type {
