@@ -294,8 +294,8 @@ import { ClientRouter } from "astro:transitions";
               align-items: center;
               backdrop-filter: blur(10px);
               border: 1px solid rgba(255, 255, 255, 0.2);
-              width: 100%;
-              max-width: 400px;
+              width: 400px;
+              max-width: 100%;
               opacity: 1 !important;
               visibility: visible !important;
               position: relative !important;
@@ -400,9 +400,9 @@ import { ClientRouter } from "astro:transitions";
 
         /* Adjust email input for mobile */
         main > div > div:first-child > div:nth-child(3) .mobile-email-input {
-          max-width: 350px !important;
-          width: 100% !important;
-          margin-left: 0 !important;
+          width: 350px !important;
+          max-width: 100% !important;
+          margin: 0 !important;
           align-self: flex-start !important;
         }
       }
