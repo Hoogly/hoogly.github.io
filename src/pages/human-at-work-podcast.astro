@@ -218,6 +218,72 @@ import { ClientRouter } from "astro:transitions";
               Human at Work is a podcast that explores the heart of HR and the future of people at work. Each episode dives into real conversations with leaders, practitioners, and thinkers who are reimagining how organisations can build trust, connection, and wellbeing in the workplace. From tackling burnout and employee engagement to shaping culture and navigating change, Human at Work offers practical insights and inspiring stories to help you create workplaces where people and performance thrive.
             </p>
 
+            <!-- Call to Action Text -->
+            <p class="animate-in" style="
+              font-family: 'Source Sans Pro', sans-serif;
+              font-size: 1.5rem;
+              line-height: 1.4;
+              color: #ffffff;
+              margin: 0 0 1rem 0;
+              font-weight: 400;
+              text-align: left;
+            ">
+              Drop your email so you don't miss the first episode
+            </p>
+
+            <!-- Email Input -->
+            <div class="mobile-email-input animate-in" style="
+              display: flex !important;
+              background: rgba(255, 255, 255, 0.1);
+              border-radius: 50px;
+              padding: 4px;
+              align-items: center;
+              backdrop-filter: blur(10px);
+              border: 1px solid rgba(255, 255, 255, 0.2);
+              width: 400px;
+              max-width: 100%;
+              opacity: 1 !important;
+              visibility: visible !important;
+              position: relative !important;
+              z-index: 10 !important;
+              margin: 0 0 2rem 0;
+            ">
+              <input 
+                type="email" 
+                placeholder="What's your email?"
+                style="
+                  flex: 1;
+                  border: none;
+                  outline: none;
+                  background: transparent;
+                  color: #ffffff;
+                  padding: 0.8rem 1.2rem;
+                  font-size: 1rem;
+                  font-family: 'Grenette', 'Outfit', sans-serif;
+                  font-weight: 400;
+                "
+              />
+              <button 
+                type="submit"
+                style="
+                  background: #ffffff;
+                  border: none;
+                  border-radius: 50px;
+                  width: 44px;
+                  height: 44px;
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                  cursor: pointer;
+                  transition: transform 0.2s ease;
+                "
+              >
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                  <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="#23221f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </button>
+            </div>
+
             <!-- Podcast Platform Logos -->
             <div class="animate-in" style="
               display: flex;
@@ -263,78 +329,7 @@ import { ClientRouter } from "astro:transitions";
             </div>
           </div>
 
-          <!-- Right Side Email Section -->
-          <div style="
-            flex: 0 0 400px;
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-            text-align: left;
-            margin-left: 4rem;
-          ">
-            <!-- Call to Action Text -->
-            <p class="animate-in" style="
-              font-family: 'Source Sans Pro', sans-serif;
-              font-size: 1.5rem;
-              line-height: 1.4;
-              color: #ffffff;
-              margin: 0 0 1rem 0;
-              font-weight: 400;
-              text-align: left;
-            ">
-              Drop your email so you don't miss the first episode
-            </p>
 
-            <!-- Email Input -->
-            <div class="mobile-email-input animate-in" style="
-              display: flex !important;
-              background: rgba(255, 255, 255, 0.1);
-              border-radius: 50px;
-              padding: 4px;
-              align-items: center;
-              backdrop-filter: blur(10px);
-              border: 1px solid rgba(255, 255, 255, 0.2);
-              width: 400px;
-              max-width: 100%;
-              opacity: 1 !important;
-              visibility: visible !important;
-              position: relative !important;
-              z-index: 10 !important;
-            ">
-              <input 
-                type="email" 
-                placeholder="What's your email?"
-                style="
-                  flex: 1;
-                  border: none;
-                  outline: none;
-                  padding: 1rem 1.5rem;
-                  font-size: 1rem;
-                  font-family: 'Grenette', 'Outfit', sans-serif;
-                  font-weight: 400;
-                  color: white;
-                  background: transparent;
-                  border-radius: 50px;
-                "
-              />
-              <button style="
-                background: rgba(255, 255, 255, 0.2);
-                border: none;
-                border-radius: 50px;
-                width: 48px;
-                height: 48px;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                cursor: pointer;
-                transition: all 0.2s ease;
-              ">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-              </button>
-            </div>
-          </div>
         </div>
       </div>
     </div>
@@ -393,13 +388,8 @@ import { ClientRouter } from "astro:transitions";
           justify-content: flex-start !important;
         }
 
-        /* Left-align email section on mobile */
-        main > div > div:first-child > div:nth-child(3) p {
-          text-align: left !important;
-        }
-
-        /* Move email input to left side of screen on mobile */
-        main > div > div:first-child > div:nth-child(3) .mobile-email-input {
+        /* Email input is now in left side content - adjust mobile styling */
+        main > div > div:first-child > div:nth-child(2) .mobile-email-input {
           width: 300px !important;
           max-width: 80% !important;
           margin: 0 !important;
@@ -425,7 +415,7 @@ import { ClientRouter } from "astro:transitions";
         }
 
         /* Smaller email input on smaller screens - keep left positioning */
-        main > div > div:first-child > div:nth-child(3) .mobile-email-input {
+        main > div > div:first-child > div:nth-child(2) .mobile-email-input {
           width: 280px !important;
           max-width: 75% !important;
           margin-left: -1rem !important;
