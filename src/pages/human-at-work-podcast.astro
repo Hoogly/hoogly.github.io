@@ -106,7 +106,7 @@ import { ClientRouter } from "astro:transitions";
         overflow: hidden;
       ">
         <!-- Audio Visualizer -->
-        <div style="
+        <div class="audio-visualizer-container" style="
           position: absolute;
           bottom: 25%;
           left: -50px;
@@ -483,14 +483,19 @@ import { ClientRouter } from "astro:transitions";
         border-radius: 50px !important;
       }
 
-      /* Ensure consistent audio bar width on mobile */
+      /* Make audio bars thicker on mobile to match desktop visual appearance */
       @media (max-width: 1024px) {
         .audio-bar {
-          width: 29px !important;
+          width: 40px !important;
           background: white !important;
           border-radius: 50px !important;
           animation: audioWave 2s ease-in-out infinite !important;
           transform-origin: bottom !important;
+        }
+        
+        /* Adjust the container gap for thicker bars */
+        .audio-visualizer-container {
+          gap: 25px !important;
         }
       }
       
