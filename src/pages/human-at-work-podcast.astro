@@ -922,6 +922,9 @@ import { ClientRouter } from "astro:transitions";
           margin-right: auto !important;
           text-align: center !important;
           align-self: center !important;
+          display: flex !important;
+          justify-content: center !important;
+          width: 100% !important;
         }
 
         /* Restore original mobile text styling - target left column content */
@@ -971,12 +974,30 @@ import { ClientRouter } from "astro:transitions";
         main > div > div:first-child > div:nth-child(3) .mobile-email-input {
           display: flex !important;
           max-width: 350px !important;
-          margin: 1rem auto !important;
+          margin: 1rem auto 0.5rem auto !important;
           align-self: center !important;
           position: absolute !important;
           left: 50% !important;
           transform: translateX(-50%) !important;
-          bottom: 20% !important;
+          bottom: 25% !important;
+        }
+
+        /* Mobile Podcast Icons - Show under email input */
+        main > div > div:first-child > div:nth-child(3) .mobile-email-input::after {
+          content: "";
+          position: absolute;
+          top: calc(100% + 1rem);
+          left: 50%;
+          transform: translateX(-50%);
+          width: 100px;
+          height: 40px;
+          background-image: 
+            url('/images/Human at Work/apple podcast.png'),
+            url('/images/Human at Work/Spotify.png');
+          background-size: 40px 40px, 40px 40px;
+          background-position: 0 0, 60px 0;
+          background-repeat: no-repeat, no-repeat;
+          display: block;
         }
         
         /* Podcast Platform Logos Mobile - Hidden */
@@ -1093,8 +1114,10 @@ import { ClientRouter } from "astro:transitions";
           margin-left: auto !important;
           margin-right: auto !important;
           text-align: center !important;
-          width: fit-content !important;
+          width: 100% !important;
           align-self: center !important;
+          display: flex !important;
+          justify-content: center !important;
         }
         
         /* One-line title for small mobile */
