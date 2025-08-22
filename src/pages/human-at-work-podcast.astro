@@ -81,15 +81,15 @@ import { ClientRouter } from "astro:transitions";
         <!-- Audio Visualizer Background -->
         <div style="
           position: absolute;
-          bottom: 40%;
-          left: -200px;
-          width: 200%;
+          bottom: 20%;
+          left: -100px;
+          width: 150%;
           height: 293px;
-          opacity: 0.1;
+          opacity: 0.08;
           display: flex;
           align-items: center;
           gap: 29px;
-          z-index: 1;
+          z-index: 0;
         ">
           <div class="audio-bar" style="width: 29px; height: 29px; background: white; border-radius: 50%; animation-delay: 0s;"></div>
           <div class="audio-bar" style="width: 29px; height: 117px; background: white; border-radius: 50px; animation-delay: 0.1s;"></div>
@@ -131,6 +131,7 @@ import { ClientRouter } from "astro:transitions";
             font-family: 'Source Sans Pro', sans-serif;
             display: inline-block;
             margin-bottom: 2rem;
+            margin-left: 10px;
             text-align: left;
             align-self: flex-start;
           ">
@@ -178,10 +179,46 @@ import { ClientRouter } from "astro:transitions";
             line-height: 1.33;
             color: #ffffff;
             max-width: 669px;
-            margin: 0 0 3rem 0;
+            margin: 0 0 2rem 0;
           ">
             Human at Work is a podcast that explores the heart of HR and the future of people at work. Each episode dives into real conversations with leaders, practitioners, and thinkers who are reimagining how organisations can build trust, connection, and wellbeing in the workplace. From tackling burnout and employee engagement to shaping culture and navigating change, Human at Work offers practical insights and inspiring stories to help you create workplaces where people — and performance — thrive.
           </p>
+
+          <!-- Podcast Platform Logos -->
+          <div style="
+            display: flex;
+            gap: 1.5rem;
+            align-items: center;
+            margin-bottom: 3rem;
+          ">
+            <!-- Apple Podcasts -->
+            <a href="#" style="
+              display: flex;
+              align-items: center;
+              text-decoration: none;
+              transition: transform 0.2s ease;
+            " onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+              <img src="/images/Human at Work/apple podcast.png" alt="Listen on Apple Podcasts" style="
+                height: 40px;
+                width: auto;
+                border-radius: 8px;
+              ">
+            </a>
+
+            <!-- Spotify -->
+            <a href="#" style="
+              display: flex;
+              align-items: center;
+              text-decoration: none;
+              transition: transform 0.2s ease;
+            " onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+              <img src="/images/Human at Work/Spotify.png" alt="Listen on Spotify" style="
+                height: 40px;
+                width: auto;
+                border-radius: 8px;
+              ">
+            </a>
+          </div>
         </div>
       </div>
 
@@ -655,7 +692,7 @@ import { ClientRouter } from "astro:transitions";
         
         main > div {
           grid-template-columns: 1fr !important;
-          grid-template-rows: 60vh 1fr !important;
+          grid-template-rows: 150vh auto !important;
           height: auto !important;
           min-height: 100vh !important;
           width: 100vw !important;
@@ -716,11 +753,23 @@ import { ClientRouter } from "astro:transitions";
           margin: 0 0 1rem 0 !important;
         }
         
+        /* Podcast Platform Logos Mobile */
+        main > div > div:first-child > div:last-child > div:nth-last-child(2) {
+          gap: 1rem !important;
+          margin-bottom: 1.5rem !important;
+          justify-content: flex-start !important;
+        }
+        
+        main > div > div:first-child > div:last-child > div:nth-last-child(2) img {
+          height: 24px !important;
+        }
+        
         /* Coming Soon Badge Mobile */
         main > div > div:first-child > div:last-child > div:first-child {
           font-size: 0.8rem !important;
           padding: 0.4rem 0.8rem !important;
           margin-bottom: 1rem !important;
+          margin-left: 0 !important;
           display: block !important;
         }
         
@@ -729,7 +778,10 @@ import { ClientRouter } from "astro:transitions";
         /* Main Content Container Mobile */
         main > div > div:first-child > div:last-child {
           margin-top: auto !important;
-          margin-bottom: 1rem !important;
+          margin-bottom: 0rem !important;
+          display: flex !important;
+          flex-direction: column !important;
+          justify-content: flex-end !important;
         }
         
         /* Right Panel Mobile */
@@ -784,6 +836,7 @@ import { ClientRouter } from "astro:transitions";
           font-size: 0.7rem !important;
           padding: 0.3rem 0.7rem !important;
           margin-bottom: 0.8rem !important;
+          margin-left: 0 !important;
         }
         
         /* One-line title for small mobile */
@@ -810,6 +863,16 @@ import { ClientRouter } from "astro:transitions";
         
         main > div > div:first-child p:last-of-type {
           font-size: 13px !important;
+        }
+        
+        /* Podcast Platform Logos Small Mobile */
+        main > div > div:first-child > div:last-child > div:nth-last-child(2) {
+          gap: 0.8rem !important;
+          margin-bottom: 1rem !important;
+        }
+        
+        main > div > div:first-child > div:last-child > div:nth-last-child(2) img {
+          height: 20px !important;
         }
         
         main > div > div:last-child {
