@@ -388,10 +388,10 @@ import { ClientRouter } from "astro:transitions";
           justify-content: flex-start !important;
         }
 
-        /* Email input is now in left side content - adjust mobile styling */
+        /* Email input is now in left side content - make longer for better button spacing */
         main > div > div:first-child > div:nth-child(2) .mobile-email-input {
-          width: 300px !important;
-          max-width: 80% !important;
+          width: 380px !important;
+          max-width: 90% !important;
           margin: 0 !important;
           margin-left: -1rem !important;
           align-self: flex-start !important;
@@ -414,10 +414,10 @@ import { ClientRouter } from "astro:transitions";
           font-size: 14px !important;
         }
 
-        /* Smaller email input on smaller screens - keep left positioning */
+        /* Longer email input on smaller screens - fix button spacing */
         main > div > div:first-child > div:nth-child(2) .mobile-email-input {
-          width: 280px !important;
-          max-width: 75% !important;
+          width: 320px !important;
+          max-width: 85% !important;
           margin-left: -1rem !important;
         }
 
