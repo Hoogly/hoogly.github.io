@@ -680,8 +680,8 @@ import { ClientRouter } from "astro:transitions";
       /* Custom font fallbacks */
       .grenette-font {
         font-family: 'Grenette Pro', 'Georgia', serif;
-            }
-
+      }
+      
 
 
       @media (max-width: 1024px) {
@@ -806,17 +806,19 @@ import { ClientRouter } from "astro:transitions";
         
         /* Left Panel Mobile */
         main > div > div:first-child {
-          padding: 1.5rem !important;
-          padding-top: 5rem !important;
+          padding: 1rem !important;
+          padding-top: 4rem !important;
           background-size: cover !important;
           background-position: center 40% !important;
           width: 100vw !important;
           max-width: 100vw !important;
-          min-height: 100vh !important;
+          height: 100vh !important;
+          max-height: 100vh !important;
           margin: 0 !important;
           box-sizing: border-box !important;
           justify-content: center !important;
           align-items: center !important;
+          overflow: hidden !important;
         }
         
         /* Title Container Mobile */
@@ -832,8 +834,8 @@ import { ClientRouter } from "astro:transitions";
         /* Force titles on one line for mobile - no pseudo content needed */
         main > div > div:first-child h1 {
           font-family: 'Grenette', 'Outfit', sans-serif !important;
-          font-size: 4.5rem !important;
-          margin: 0 !important;
+          font-size: 3rem !important;
+          margin: 0 0 0.5rem 0 !important;
           display: inline-block !important;
           vertical-align: baseline !important;
           white-space: nowrap !important;
@@ -848,27 +850,22 @@ import { ClientRouter } from "astro:transitions";
           display: none !important;
         }
         
-        /* Add margin after the combined title */
-        main > div > div:first-child h1 {
-          margin-bottom: 1rem !important;
-        }
-        
         main > div > div:first-child p:first-of-type {
-          font-size: 1.2rem !important;
-          margin: 0 0 1rem 0 !important;
+          font-size: 1rem !important;
+          margin: 0 0 0.5rem 0 !important;
         }
         
         main > div > div:first-child p:last-of-type {
-          font-size: 14px !important;
-          line-height: 1.4 !important;
-          margin: 0 0 1rem 0 !important;
+          font-size: 12px !important;
+          line-height: 1.3 !important;
+          margin: 0 0 0.5rem 0 !important;
         }
         
         /* Mobile Email Input - Ensure it's visible and matches desktop */
         .mobile-email-input {
           display: flex !important;
-          max-width: 430px !important;
-          margin: 1rem auto !important;
+          max-width: 350px !important;
+          margin: 0.5rem auto !important;
           align-self: center !important;
         }
         
@@ -879,9 +876,9 @@ import { ClientRouter } from "astro:transitions";
         
         /* Coming Soon Badge Mobile */
         main > div > div:first-child > div:last-child > div:first-child {
-          font-size: 0.8rem !important;
-          padding: 0.4rem 0.8rem !important;
-          margin-bottom: 1rem !important;
+          font-size: 0.7rem !important;
+          padding: 0.3rem 0.6rem !important;
+          margin-bottom: 0.5rem !important;
           margin-left: auto !important;
           margin-right: auto !important;
           display: block !important;
@@ -963,22 +960,25 @@ import { ClientRouter } from "astro:transitions";
       
       @media (max-width: 480px) {
         main > div > div:first-child {
-          padding: 0 !important;
-          padding-top: 5rem !important;
+          padding: 0.5rem !important;
+          padding-top: 3.5rem !important;
+          height: 100vh !important;
+          max-height: 100vh !important;
+          overflow: hidden !important;
         }
         
         /* Main Content Container Small Mobile */
         main > div > div:first-child > div:last-child {
-          padding: 0 2rem 0.5rem 2rem !important;
+          padding: 0 1.5rem 0.25rem 1.5rem !important;
           margin-bottom: auto !important;
           justify-content: center !important;
         }
         
         /* Coming Soon Badge Small Mobile */
         main > div > div:first-child > div:last-child > div:first-child {
-          font-size: 0.7rem !important;
-          padding: 0.3rem 0.7rem !important;
-          margin-bottom: 0.8rem !important;
+          font-size: 0.6rem !important;
+          padding: 0.25rem 0.5rem !important;
+          margin-bottom: 0.4rem !important;
           margin-left: auto !important;
           margin-right: auto !important;
           text-align: center !important;
@@ -988,8 +988,8 @@ import { ClientRouter } from "astro:transitions";
         /* One-line title for small mobile - no pseudo content needed */
         main > div > div:first-child h1 {
           font-family: 'Grenette', 'Outfit', sans-serif !important;
-          font-size: 3.5rem !important;
-          margin: 0 0 1rem 0 !important;
+          font-size: 2.5rem !important;
+          margin: 0 0 0.4rem 0 !important;
           display: inline-block !important;
           white-space: nowrap !important;
           font-weight: 600 !important;
@@ -1004,28 +1004,31 @@ import { ClientRouter } from "astro:transitions";
         }
         
         main > div > div:first-child p:first-of-type {
-          font-size: 1rem !important;
+          font-size: 0.9rem !important;
+          margin: 0 0 0.4rem 0 !important;
         }
         
         main > div > div:first-child p:last-of-type {
-          font-size: 13px !important;
+          font-size: 11px !important;
+          line-height: 1.2 !important;
+          margin: 0 0 0.4rem 0 !important;
         }
         
         /* Mobile Email Input Small */
         .mobile-email-input {
-          max-width: 280px !important;
-          margin: 1.5rem auto !important;
+          max-width: 250px !important;
+          margin: 0.4rem auto !important;
           align-self: center !important;
         }
         
         .mobile-email-input input {
-          padding: 0.8rem 1.2rem !important;
-          font-size: 0.9rem !important;
+          padding: 0.6rem 1rem !important;
+          font-size: 0.8rem !important;
         }
         
         .mobile-email-input button {
-          width: 40px !important;
-          height: 40px !important;
+          width: 36px !important;
+          height: 36px !important;
         }
         
         /* Podcast Platform Logos Small Mobile - Hidden */
@@ -1090,7 +1093,7 @@ import { ClientRouter } from "astro:transitions";
         opacity: 1;
         transform: translateY(0);
       }
-
+      
       /* Audio Visualizer Animation */
       .audio-bar {
         animation: audioWave 2s ease-in-out infinite;
