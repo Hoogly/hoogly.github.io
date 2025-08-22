@@ -396,6 +396,16 @@ import { ClientRouter } from "astro:transitions";
           margin-left: -1rem !important;
           align-self: flex-start !important;
         }
+
+        /* Ensure submit button stays circular on mobile */
+        main > div > div:first-child > div:nth-child(2) .mobile-email-input button {
+          width: 44px !important;
+          height: 44px !important;
+          border-radius: 50% !important;
+          flex-shrink: 0 !important;
+          min-width: 44px !important;
+          min-height: 44px !important;
+        }
       }
 
       @media (max-width: 768px) {
@@ -419,6 +429,16 @@ import { ClientRouter } from "astro:transitions";
           width: 320px !important;
           max-width: 85% !important;
           margin-left: -1rem !important;
+        }
+
+        /* Ensure submit button stays perfectly circular on smaller screens */
+        main > div > div:first-child > div:nth-child(2) .mobile-email-input button {
+          width: 40px !important;
+          height: 40px !important;
+          border-radius: 50% !important;
+          flex-shrink: 0 !important;
+          min-width: 40px !important;
+          min-height: 40px !important;
         }
 
         /* Reduce padding on smaller screens */
