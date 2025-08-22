@@ -478,6 +478,20 @@ import { ClientRouter } from "astro:transitions";
       .audio-bar {
         animation: audioWave 2s ease-in-out infinite;
         transform-origin: bottom;
+        width: 29px !important;
+        background: white !important;
+        border-radius: 50px !important;
+      }
+
+      /* Ensure consistent audio bar width on mobile */
+      @media (max-width: 1024px) {
+        .audio-bar {
+          width: 29px !important;
+          background: white !important;
+          border-radius: 50px !important;
+          animation: audioWave 2s ease-in-out infinite !important;
+          transform-origin: bottom !important;
+        }
       }
       
       @keyframes audioWave {
