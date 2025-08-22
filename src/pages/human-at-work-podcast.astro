@@ -398,11 +398,12 @@ import { ClientRouter } from "astro:transitions";
           text-align: left !important;
         }
 
-        /* Adjust email input for mobile */
+        /* Move email input to left side of screen on mobile */
         main > div > div:first-child > div:nth-child(3) .mobile-email-input {
-          width: 350px !important;
-          max-width: 100% !important;
+          width: 300px !important;
+          max-width: 80% !important;
           margin: 0 !important;
+          margin-left: -1rem !important;
           align-self: flex-start !important;
         }
       }
@@ -423,9 +424,11 @@ import { ClientRouter } from "astro:transitions";
           font-size: 14px !important;
         }
 
-        /* Smaller email input on smaller screens */
+        /* Smaller email input on smaller screens - keep left positioning */
         main > div > div:first-child > div:nth-child(3) .mobile-email-input {
-          max-width: 300px !important;
+          width: 280px !important;
+          max-width: 75% !important;
+          margin-left: -1rem !important;
         }
 
         /* Reduce padding on smaller screens */
