@@ -499,7 +499,7 @@ p {
 }
 
 /* Mobile Navigation Styles */
-@media (max-width: 768px) {
+@media (max-width: 920px) {
   .mobile-menu-toggle {
     display: flex !important;
   }

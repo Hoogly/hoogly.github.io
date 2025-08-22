@@ -10,7 +10,7 @@ import { ClientRouter } from "astro:transitions";
   <head>
     <meta charset="utf-8" />
     <link rel="icon" type="image/png" href="/images/Orange-cream.png" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <meta name="generator" content={Astro.generator} />
 
     <!-- Primary Meta Tags -->
@@ -1003,6 +1003,19 @@ import { ClientRouter } from "astro:transitions";
       .mobile-email-input {
         display: flex !important;
       }
+
+      /* Mobile Email Input Focus Enhancement */
+      .mobile-email-input.mobile-focused {
+        transform: scale(1.02);
+        box-shadow: 0 8px 25px rgba(255, 255, 255, 0.3);
+        border: 2px solid rgba(255, 255, 255, 0.4);
+        transition: all 0.3s ease;
+      }
+
+      .mobile-email-input.mobile-focused input {
+        background: rgba(255, 255, 255, 0.05);
+        transition: all 0.3s ease;
+      }
       
       /* Desktop-specific styles (above mobile breakpoint) */
       @media (min-width: 1025px) {
@@ -1065,11 +1078,13 @@ import { ClientRouter } from "astro:transitions";
     // Initialize viewport animations
     document.addEventListener('DOMContentLoaded', function() {
       initializeAnimations();
+      initializeMobileEmailFocus();
     });
 
     // Also handle astro page loads
     document.addEventListener('astro:page-load', function() {
       initializeAnimations();
+      initializeMobileEmailFocus();
     });
 
     // Viewport animation system
@@ -1088,6 +1103,67 @@ import { ClientRouter } from "astro:transitions";
           { threshold: 0.3 }
         );
         observer.observe(element);
+      });
+    }
+
+    // Mobile email input focus and zoom functionality
+    function initializeMobileEmailFocus() {
+      const emailInput = document.querySelector('.mobile-email-input input[type="email"]');
+      if (!emailInput) return;
+
+      // Detect if device is mobile
+      function isMobile() {
+        return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || 
+               (window.innerWidth <= 920);
+      }
+
+      // Handle email input focus on mobile
+      function handleMobileEmailFocus() {
+        if (!isMobile()) return;
+
+        // Smooth scroll to input with offset for better positioning
+        const inputRect = emailInput.getBoundingClientRect();
+        const offset = window.innerHeight * 0.3; // Position input 30% from top
+        
+        window.scrollTo({
+          top: window.scrollY + inputRect.top - offset,
+          behavior: 'smooth'
+        });
+
+        // Small delay to ensure smooth scroll starts before focus
+        setTimeout(() => {
+          emailInput.focus();
+        }, 300);
+      }
+
+      // Add event listeners
+      emailInput.addEventListener('touchstart', function(e) {
+        if (isMobile()) {
+          // Prevent default to avoid double-tap zoom
+          e.preventDefault();
+          handleMobileEmailFocus();
+        }
+      });
+
+      emailInput.addEventListener('click', function(e) {
+        if (isMobile()) {
+          handleMobileEmailFocus();
+        }
+      });
+
+      // Handle focus event for additional mobile optimizations
+      emailInput.addEventListener('focus', function() {
+        if (isMobile()) {
+          // Add a class for mobile-specific styling during focus
+          emailInput.closest('.mobile-email-input').classList.add('mobile-focused');
+        }
+      });
+
+      emailInput.addEventListener('blur', function() {
+        if (isMobile()) {
+          // Remove mobile focus class
+          emailInput.closest('.mobile-email-input').classList.remove('mobile-focused');
+        }
       });
     }
   </script>
