@@ -46,7 +46,7 @@ import { ClientRouter } from "astro:transitions";
     height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
     <Header />
-  <main style="background: #f7f3f0; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif; height: 100vh; width: 100%; max-width: 100vw; overflow: hidden; position: absolute; top: 0; left: 0; z-index: 1; padding-top: 0;">
+  <main style="background: #f7f3f0; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif; height: 100vh; width: 100%; max-width: 100vw; overflow: hidden; position: absolute; top: 0; left: 0; z-index: 1; padding-top: 6.5rem;">
     <!-- Main Podcast Interface -->
     <div style="
       display: grid;
@@ -121,7 +121,7 @@ import { ClientRouter } from "astro:transitions";
           margin-bottom: 2rem;
         ">
           <!-- Coming Soon Badge -->
-          <div style="
+          <div class="animate-in" style="
             background: transparent;
             border: 1px solid #ffffff;
             border-radius: 37px;
@@ -139,7 +139,7 @@ import { ClientRouter } from "astro:transitions";
           </div>
           
           <!-- Large Title -->
-          <h1 style="
+          <h1 class="animate-in" style="
             font-family: 'Grenette Pro', serif;
             font-size: 12.5rem;
             font-weight: 400;
@@ -150,7 +150,7 @@ import { ClientRouter } from "astro:transitions";
           ">
             Human
           </h1>
-          <h2 style="
+          <h2 class="animate-in" style="
             font-family: 'Grenette Pro', serif;
             font-size: 8.8rem;
             font-weight: 400;
@@ -163,7 +163,7 @@ import { ClientRouter } from "astro:transitions";
           </h2>
           
           <!-- Host Info -->
-          <p style="
+          <p class="animate-in" style="
             font-family: 'Source Sans Pro', sans-serif;
             font-size: 1.7rem;
             margin: 1rem 0 2rem 0;
@@ -173,7 +173,7 @@ import { ClientRouter } from "astro:transitions";
           </p>
 
           <!-- Description -->
-          <p style="
+          <p class="animate-in" style="
             font-family: 'Source Sans Pro', sans-serif;
             font-size: 18px;
             line-height: 1.33;
@@ -184,12 +184,58 @@ import { ClientRouter } from "astro:transitions";
             Human at Work is a podcast that explores the heart of HR and the future of people at work. Each episode dives into real conversations with leaders, practitioners, and thinkers who are reimagining how organisations can build trust, connection, and wellbeing in the workplace. From tackling burnout and employee engagement to shaping culture and navigating change, Human at Work offers practical insights and inspiring stories to help you create workplaces where people — and performance — thrive.
           </p>
 
+          <!-- Mobile Email Input (hidden on desktop) -->
+          <div class="mobile-email-input animate-in" style="
+            display: none;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50px;
+            padding: 4px;
+            align-items: center;
+            margin: 2rem 0;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            width: 100%;
+            max-width: 320px;
+          ">
+            <input 
+              type="email" 
+              placeholder="What's your email?"
+              style="
+                flex: 1;
+                border: none;
+                outline: none;
+                padding: 1rem 1.5rem;
+                font-size: 1rem;
+                font-family: 'Source Sans Pro', sans-serif;
+                color: white;
+                background: transparent;
+                border-radius: 50px;
+              "
+            />
+            <button style="
+              background: rgba(255, 255, 255, 0.2);
+              border: none;
+              border-radius: 50px;
+              width: 48px;
+              height: 48px;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              cursor: pointer;
+              transition: all 0.2s ease;
+            ">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </button>
+          </div>
+
           <!-- Podcast Platform Logos -->
-          <div style="
+          <div class="animate-in" style="
             display: flex;
             gap: 1.5rem;
             align-items: center;
-            margin-bottom: 3rem;
+            margin-bottom: 5rem;
           ">
             <!-- Apple Podcasts -->
             <a href="#" style="
@@ -425,7 +471,7 @@ import { ClientRouter } from "astro:transitions";
         </div>
 
         <!-- Desktop Email Signup Card (Foreground) -->
-        <div style="
+        <div class="animate-in" style="
           background: #D0CCFF;
           border-radius: 24px;
           padding: 3rem 2.5rem;
@@ -688,12 +734,14 @@ import { ClientRouter } from "astro:transitions";
           right: 0 !important;
           margin: 0 !important;
           padding: 0 !important;
+          padding-top: 6rem !important;
+          top: 0 !important;
         }
         
         main > div {
           grid-template-columns: 1fr !important;
-          grid-template-rows: 150vh auto !important;
-          height: auto !important;
+          grid-template-rows: 100vh !important;
+          height: 100vh !important;
           min-height: 100vh !important;
           width: 100vw !important;
           max-width: 100vw !important;
@@ -704,6 +752,7 @@ import { ClientRouter } from "astro:transitions";
         /* Left Panel Mobile */
         main > div > div:first-child {
           padding: 1.5rem !important;
+          padding-top: 5rem !important;
           background-size: 120% !important;
           background-position: center 40% !important;
           width: 100vw !important;
@@ -720,17 +769,19 @@ import { ClientRouter } from "astro:transitions";
         
         /* Force titles on one line for mobile */
         main > div > div:first-child h1 {
-          font-size: 3.5rem !important;
+          font-size: 4.5rem !important;
           margin: 0 !important;
           display: inline-block !important;
           vertical-align: baseline !important;
+          white-space: nowrap !important;
         }
         
         main > div > div:first-child h1::after {
           content: " at Work" !important;
-          font-size: 3.5rem !important;
+          font-size: 4.5rem !important;
           font-family: 'Grenette Pro', serif !important;
           font-weight: 400 !important;
+          white-space: nowrap !important;
         }
         
         main > div > div:first-child h2 {
@@ -753,15 +804,14 @@ import { ClientRouter } from "astro:transitions";
           margin: 0 0 1rem 0 !important;
         }
         
-        /* Podcast Platform Logos Mobile */
-        main > div > div:first-child > div:last-child > div:nth-last-child(2) {
-          gap: 1rem !important;
-          margin-bottom: 1.5rem !important;
-          justify-content: flex-start !important;
+        /* Mobile Email Input */
+        .mobile-email-input {
+          display: flex !important;
         }
         
-        main > div > div:first-child > div:last-child > div:nth-last-child(2) img {
-          height: 24px !important;
+        /* Podcast Platform Logos Mobile - Hidden */
+        main > div > div:first-child > div:last-child > div:nth-last-child(1) {
+          display: none !important;
         }
         
         /* Coming Soon Badge Mobile */
@@ -769,8 +819,11 @@ import { ClientRouter } from "astro:transitions";
           font-size: 0.8rem !important;
           padding: 0.4rem 0.8rem !important;
           margin-bottom: 1rem !important;
-          margin-left: 0 !important;
+          margin-left: auto !important;
+          margin-right: auto !important;
           display: block !important;
+          text-align: center !important;
+          width: fit-content !important;
         }
         
         /* Audio Visualizer Mobile - Now visible like desktop */
@@ -778,21 +831,19 @@ import { ClientRouter } from "astro:transitions";
         /* Main Content Container Mobile */
         main > div > div:first-child > div:last-child {
           margin-top: auto !important;
-          margin-bottom: 0rem !important;
+          margin-bottom: 0 !important;
+          padding-bottom: 2rem !important;
           display: flex !important;
           flex-direction: column !important;
           justify-content: flex-end !important;
+          align-items: center !important;
+          text-align: center !important;
+          height: 100% !important;
         }
         
-        /* Right Panel Mobile */
+        /* Right Panel Mobile - Hide cream section */
         main > div > div:last-child {
-          padding: 2rem 1rem !important;
-          padding-top: 2rem !important;
-          justify-content: flex-start !important;
-          width: 100vw !important;
-          max-width: 100vw !important;
-          margin: 0 !important;
-          box-sizing: border-box !important;
+          display: none !important;
         }
         
         /* Email Signup Card Mobile */
@@ -829,6 +880,7 @@ import { ClientRouter } from "astro:transitions";
       @media (max-width: 480px) {
         main > div > div:first-child {
           padding: 1rem !important;
+          padding-top: 5rem !important;
         }
         
         /* Coming Soon Badge Small Mobile */
@@ -836,21 +888,26 @@ import { ClientRouter } from "astro:transitions";
           font-size: 0.7rem !important;
           padding: 0.3rem 0.7rem !important;
           margin-bottom: 0.8rem !important;
-          margin-left: 0 !important;
+          margin-left: auto !important;
+          margin-right: auto !important;
+          text-align: center !important;
+          width: fit-content !important;
         }
         
         /* One-line title for small mobile */
         main > div > div:first-child h1 {
-          font-size: 2.8rem !important;
+          font-size: 3.5rem !important;
           margin: 0 0 1rem 0 !important;
           display: inline-block !important;
+          white-space: nowrap !important;
         }
         
         main > div > div:first-child h1::after {
           content: " at Work" !important;
-          font-size: 2.8rem !important;
+          font-size: 3.5rem !important;
           font-family: 'Grenette Pro', serif !important;
           font-weight: 400 !important;
+          white-space: nowrap !important;
         }
         
         main > div > div:first-child h2 {
@@ -865,14 +922,25 @@ import { ClientRouter } from "astro:transitions";
           font-size: 13px !important;
         }
         
-        /* Podcast Platform Logos Small Mobile */
-        main > div > div:first-child > div:last-child > div:nth-last-child(2) {
-          gap: 0.8rem !important;
-          margin-bottom: 1rem !important;
+        /* Mobile Email Input Small */
+        .mobile-email-input {
+          max-width: 280px !important;
+          margin: 1.5rem 0 !important;
         }
         
-        main > div > div:first-child > div:last-child > div:nth-last-child(2) img {
-          height: 20px !important;
+        .mobile-email-input input {
+          padding: 0.8rem 1.2rem !important;
+          font-size: 0.9rem !important;
+        }
+        
+        .mobile-email-input button {
+          width: 40px !important;
+          height: 40px !important;
+        }
+        
+        /* Podcast Platform Logos Small Mobile - Hidden */
+        main > div > div:first-child > div:last-child > div:nth-last-child(1) {
+          display: none !important;
         }
         
         main > div > div:last-child {
@@ -888,6 +956,19 @@ import { ClientRouter } from "astro:transitions";
         }
       }
       
+      /* Animate-in Effect */
+      .animate-in {
+        opacity: 0;
+        transform: translateY(40px);
+        transition:
+          opacity 1.2s cubic-bezier(0.77, 0, 0.175, 1),
+          transform 1.2s cubic-bezier(0.77, 0, 0.175, 1);
+      }
+      .animate-in.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
       /* Audio Visualizer Animation */
       .audio-bar {
         animation: audioWave 2s ease-in-out infinite;
@@ -917,27 +998,36 @@ import { ClientRouter } from "astro:transitions";
   </main>
 
   <script>
-    // Force navbar to blurred transparent state for podcast page
+    // No navbar modifications - let it behave the same as all other pages
+    
+    // Initialize viewport animations
     document.addEventListener('DOMContentLoaded', function() {
-      const navbar = document.getElementById('navbar');
-      if (navbar) {
-        navbar.classList.remove('navbar-transparent');
-        navbar.classList.add('navbar-solid');
-      }
-
-
+      initializeAnimations();
     });
 
     // Also handle astro page loads
     document.addEventListener('astro:page-load', function() {
-      const navbar = document.getElementById('navbar');
-      if (navbar) {
-        navbar.classList.remove('navbar-transparent');
-        navbar.classList.add('navbar-solid');
-      }
-
-
+      initializeAnimations();
     });
+
+    // Viewport animation system
+    function initializeAnimations() {
+      // Animate all elements with animate-in class when they enter viewport
+      document.querySelectorAll('.animate-in').forEach((element) => {
+        const observer = new window.IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                element.classList.add('visible');
+                observer.disconnect();
+              }
+            });
+          },
+          { threshold: 0.3 }
+        );
+        observer.observe(element);
+      });
+    }
   </script>
   </body>
 </html>
