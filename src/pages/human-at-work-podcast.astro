@@ -38,6 +38,36 @@ import { ClientRouter } from "astro:transitions";
     })(window,document,'script','dataLayer','GTM-TXHXQ8NW');</script>
     <!-- End Google Tag Manager -->
     <ClientRouter />
+
+    <!-- Grenette Font Definitions -->
+    <style>
+      @font-face {
+        font-family: 'Grenette';
+        src: url('/Font/Grenette Regular Font.woff2') format('woff2'),
+             url('/Font/Grenette Regular Font.ttf') format('truetype');
+        font-weight: 400;
+        font-style: normal;
+        font-display: swap;
+      }
+
+      @font-face {
+        font-family: 'Grenette';
+        src: url('/Font/Grenette Semibold Font.woff2') format('woff2'),
+             url('/Font/Grenette Semibold Font.ttf') format('truetype');
+        font-weight: 600;
+        font-style: normal;
+        font-display: swap;
+      }
+
+      @font-face {
+        font-family: 'Grenette';
+        src: url('/Font/Grenette Bold Font.woff2') format('woff2'),
+             url('/Font/Grenette Bold Font.ttf') format('truetype');
+        font-weight: 700;
+        font-style: normal;
+        font-display: swap;
+      }
+    </style>
   </head>
   <body>
     <Posthog />
@@ -137,7 +167,8 @@ import { ClientRouter } from "astro:transitions";
             padding: 0.5rem 1rem;
             font-size: 1rem;
             color: white;
-            font-family: 'Source Sans Pro', sans-serif;
+            font-family: 'Grenette', 'Outfit', sans-serif;
+            font-weight: 400;
             display: block;
             margin-bottom: 2rem;
             margin-left: auto;
@@ -150,9 +181,9 @@ import { ClientRouter } from "astro:transitions";
           
           <!-- Large Title -->
           <h1 class="animate-in" style="
-            font-family: 'Grenette Pro', serif;
+            font-family: 'Grenette', 'Outfit', sans-serif;
             font-size: 8rem;
-            font-weight: 400;
+            font-weight: 600;
             line-height: 0.6;
             margin: 0 0 1rem 0;
             color: #f7f3f0;
@@ -168,8 +199,9 @@ import { ClientRouter } from "astro:transitions";
           
           <!-- Host Info -->
           <p class="animate-in" style="
-            font-family: 'Source Sans Pro', sans-serif;
+            font-family: 'Grenette', 'Outfit', sans-serif;
             font-size: 1.7rem;
+            font-weight: 400;
             margin: 1rem 0 2rem 0;
             color: #f7f3f0;
           ">
@@ -178,8 +210,9 @@ import { ClientRouter } from "astro:transitions";
 
           <!-- Description -->
           <p class="animate-in" style="
-            font-family: 'Source Sans Pro', sans-serif;
+            font-family: 'Grenette', 'Outfit', sans-serif;
             font-size: 18px;
+            font-weight: 400;
             line-height: 1.33;
             color: #ffffff;
             max-width: 669px;
@@ -190,7 +223,7 @@ import { ClientRouter } from "astro:transitions";
 
           <!-- Call to Action Text -->
           <p class="animate-in" style="
-            font-family: 'Source Sans Pro', sans-serif;
+            font-family: 'Grenette', 'Outfit', sans-serif;
             font-size: 1.1rem;
             line-height: 1.4;
             color: #ffffff;
@@ -227,7 +260,8 @@ import { ClientRouter } from "astro:transitions";
                 outline: none;
                 padding: 1rem 1.5rem;
                 font-size: 1rem;
-                font-family: 'Source Sans Pro', sans-serif;
+                font-family: 'Grenette', 'Outfit', sans-serif;
+                font-weight: 400;
                 color: white;
                 background: transparent;
                 border-radius: 50px;
@@ -797,11 +831,13 @@ import { ClientRouter } from "astro:transitions";
         
         /* Force titles on one line for mobile - no pseudo content needed */
         main > div > div:first-child h1 {
+          font-family: 'Grenette', 'Outfit', sans-serif !important;
           font-size: 4.5rem !important;
           margin: 0 !important;
           display: inline-block !important;
           vertical-align: baseline !important;
           white-space: nowrap !important;
+          font-weight: 600 !important;
         }
         
         main > div > div:first-child h1::after {
@@ -951,10 +987,12 @@ import { ClientRouter } from "astro:transitions";
         
         /* One-line title for small mobile - no pseudo content needed */
         main > div > div:first-child h1 {
+          font-family: 'Grenette', 'Outfit', sans-serif !important;
           font-size: 3.5rem !important;
           margin: 0 0 1rem 0 !important;
           display: inline-block !important;
           white-space: nowrap !important;
+          font-weight: 600 !important;
         }
         
         main > div > div:first-child h1::after {
