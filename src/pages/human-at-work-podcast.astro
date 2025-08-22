@@ -153,136 +153,150 @@ import { ClientRouter } from "astro:transitions";
           margin-top: auto;
           margin-bottom: 16rem;
           display: flex;
-          flex-direction: column;
-          justify-content: flex-end;
+          flex-direction: row;
+          justify-content: space-between;
           align-items: center;
-          text-align: center;
           height: 100%;
+          width: 100%;
+          max-width: 1400px;
+          margin-left: auto;
+          margin-right: auto;
+          padding: 0 4rem;
         ">
-          <!-- Coming Soon Badge -->
-          <div class="animate-in" style="
-            background: transparent;
-            border: 1px solid #ffffff;
-            border-radius: 37px;
-            padding: 0.5rem 1rem;
-            font-size: 1rem;
-            color: white;
-            font-family: 'Grenette', 'Outfit', sans-serif;
-            font-weight: 400;
-            display: block;
-            margin-bottom: 2rem;
-            margin-left: auto;
-            margin-right: auto;
-            text-align: center;
-            width: fit-content;
+          <!-- Left Side Content -->
+          <div style="
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            text-align: left;
+            max-width: 600px;
           ">
-            Coming Soon
-          </div>
-          
-          <!-- Large Title -->
-          <h1 class="animate-in" style="
-            font-family: 'Grenette', 'Outfit', sans-serif;
-            font-size: 8rem;
-            font-weight: 600;
-            line-height: 0.6;
-            margin: 0 0 1rem 0;
-            color: #f7f3f0;
-            letter-spacing: -0.02em;
-            display: inline-block;
-            white-space: nowrap;
-          ">
-            Human at Work
-          </h1>
-          <h2 class="animate-in" style="
-            display: none;
-          "></h2>
-          
-          <!-- Host Info -->
-          <p class="animate-in" style="
-            font-family: 'Grenette', 'Outfit', sans-serif;
-            font-size: 1.7rem;
-            font-weight: 400;
-            margin: 1rem 0 2rem 0;
-            color: #f7f3f0;
-          ">
-            Hosted by Anitta Krishan
-          </p>
-
-          <!-- Description -->
-          <p class="animate-in" style="
-            font-family: 'Source Sans Pro', sans-serif;
-            font-size: 18px;
-            font-weight: 400;
-            line-height: 1.33;
-            color: #ffffff;
-            max-width: 669px;
-            margin: 0 0 2rem 0;
-          ">
-            Human at Work is a podcast that explores the heart of HR and the future of people at work. Each episode dives into real conversations with leaders, practitioners, and thinkers who are reimagining how organisations can build trust, connection, and wellbeing in the workplace. From tackling burnout and employee engagement to shaping culture and navigating change, Human at Work offers practical insights and inspiring stories to help you create workplaces where people and performance thrive.
-          </p>
-
-          <!-- Call to Action Text -->
-          <p class="animate-in" style="
-            font-family: 'Grenette', 'Outfit', sans-serif;
-            font-size: 1.1rem;
-            line-height: 1.4;
-            color: #ffffff;
-            max-width: 500px;
-            margin: 1.5rem 0 0.5rem 0;
-            font-weight: 600;
-          ">
-            Drop your email so you don't miss the first episode
-          </p>
-
-          <!-- Mobile Email Input (now shown on desktop too) -->
-          <div class="mobile-email-input animate-in" style="
-            display: flex !important;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 50px;
-            padding: 4px;
-            align-items: center;
-            margin: 1rem 0;
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            width: 100%;
-            max-width: 430px;
-            opacity: 1 !important;
-            visibility: visible !important;
-            position: relative !important;
-            z-index: 10 !important;
-          ">
-            <input 
-              type="email" 
-              placeholder="What's your email?"
-              style="
-                flex: 1;
-                border: none;
-                outline: none;
-                padding: 1rem 1.5rem;
-                font-size: 1rem;
-                font-family: 'Grenette', 'Outfit', sans-serif;
-                font-weight: 400;
-                color: white;
-                background: transparent;
-                border-radius: 50px;
-              "
-            />
-            <button style="
-              background: rgba(255, 255, 255, 0.2);
-              border: none;
-              border-radius: 50px;
-              width: 48px;
-              height: 48px;
-              display: flex;
-              align-items: center;
-              justify-content: center;
-              cursor: pointer;
-              transition: all 0.2s ease;
+            <!-- Coming Soon Badge -->
+            <div class="animate-in" style="
+              background: transparent;
+              border: 1px solid #ffffff;
+              border-radius: 37px;
+              padding: 0.5rem 1rem;
+              font-size: 1rem;
+              color: white;
+              font-family: 'Grenette', 'Outfit', sans-serif;
+              font-weight: 400;
+              display: block;
+              margin-bottom: 2rem;
+              width: fit-content;
             ">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
-            </button>
+              Coming Soon
+            </div>
+            
+            <!-- Large Title -->
+            <h1 class="animate-in" style="
+              font-family: 'Grenette', 'Outfit', sans-serif;
+              font-size: 8rem;
+              font-weight: 600;
+              line-height: 0.6;
+              margin: 0 0 1rem 0;
+              color: #f7f3f0;
+              letter-spacing: -0.02em;
+              white-space: nowrap;
+            ">
+              Human at Work
+            </h1>
+            
+            <!-- Host Info -->
+            <p class="animate-in" style="
+              font-family: 'Grenette', 'Outfit', sans-serif;
+              font-size: 1.7rem;
+              font-weight: 400;
+              margin: 1rem 0 2rem 0;
+              color: #f7f3f0;
+            ">
+              Hosted by Anitta Krishan
+            </p>
+
+            <!-- Description -->
+            <p class="animate-in" style="
+              font-family: 'Source Sans Pro', sans-serif;
+              font-size: 18px;
+              font-weight: 400;
+              line-height: 1.33;
+              color: #ffffff;
+              margin: 0;
+            ">
+              Human at Work is a podcast that explores the heart of HR and the future of people at work. Each episode dives into real conversations with leaders, practitioners, and thinkers who are reimagining how organisations can build trust, connection, and wellbeing in the workplace. From tackling burnout and employee engagement to shaping culture and navigating change, Human at Work offers practical insights and inspiring stories to help you create workplaces where people and performance thrive.
+            </p>
+          </div>
+
+          <!-- Right Side Email Section -->
+          <div style="
+            flex: 0 0 400px;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            text-align: left;
+            margin-left: 4rem;
+          ">
+            <!-- Call to Action Text -->
+            <p class="animate-in" style="
+              font-family: 'Grenette', 'Outfit', sans-serif;
+              font-size: 1.1rem;
+              line-height: 1.4;
+              color: #ffffff;
+              margin: 0 0 1rem 0;
+              font-weight: 600;
+            ">
+              Drop your email so you don't miss the first episode
+            </p>
+
+            <!-- Email Input -->
+            <div class="mobile-email-input animate-in" style="
+              display: flex !important;
+              background: rgba(255, 255, 255, 0.1);
+              border-radius: 50px;
+              padding: 4px;
+              align-items: center;
+              backdrop-filter: blur(10px);
+              border: 1px solid rgba(255, 255, 255, 0.2);
+              width: 100%;
+              max-width: 400px;
+              opacity: 1 !important;
+              visibility: visible !important;
+              position: relative !important;
+              z-index: 10 !important;
+            ">
+              <input 
+                type="email" 
+                placeholder="What's your email?"
+                style="
+                  flex: 1;
+                  border: none;
+                  outline: none;
+                  padding: 1rem 1.5rem;
+                  font-size: 1rem;
+                  font-family: 'Grenette', 'Outfit', sans-serif;
+                  font-weight: 400;
+                  color: white;
+                  background: transparent;
+                  border-radius: 50px;
+                "
+              />
+              <button style="
+                background: rgba(255, 255, 255, 0.2);
+                border: none;
+                border-radius: 50px;
+                width: 48px;
+                height: 48px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                cursor: pointer;
+                transition: all 0.2s ease;
+              ">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </button>
+            </div>
           </div>
 
           <!-- Podcast Platform Logos -->
