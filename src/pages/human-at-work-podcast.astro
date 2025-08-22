@@ -81,62 +81,57 @@ import { ClientRouter } from "astro:transitions";
     <div style="
       display: grid;
       grid-template-columns: 1fr;
-      grid-template-rows: 100vh;
+      grid-template-rows: 1fr;
       height: 100vh;
       width: 100%;
       max-width: 100vw;
+      margin: 0;
+      padding: 0;
       overflow: hidden;
     ">
-      <!-- Left Panel - Hero with Image -->
+      <!-- Left Panel: Podcast Content -->
       <div style="
-        position: relative;
-        background: linear-gradient(to bottom, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.8) 60%, rgba(0,0,0,0.9) 100%), url('/images/Human%20at%20Work/Anitta%20podcast.jpg');
-        background-position: center 40%;
+        background: linear-gradient(rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.8) 60%, rgba(0,0,0,0.9) 100%), 
+                    url('/images/Human at Work/Anitta podcast.jpg');
         background-size: cover;
+        background-position: center;
         background-repeat: no-repeat;
         image-rendering: auto;
-        padding: 0 2rem 1rem 2rem;
+        position: relative;
         display: flex;
-        flex-direction: column;
-        justify-content: flex-end;
         align-items: center;
-        text-align: center;
-        color: #f7f3f0;
-        overflow: hidden;
-        width: 100vw;
-        max-width: 100vw;
+        justify-content: center;
+        padding: 2rem;
         box-sizing: border-box;
-        height: 100%;
+        overflow: hidden;
       ">
-
-
-        <!-- Audio Visualizer Background -->
+        <!-- Audio Visualizer -->
         <div style="
           position: absolute;
-          bottom: 20%;
+          bottom: 25%;
           left: -50px;
           width: calc(100% + 100px);
           height: 293px;
-          opacity: 0.12;
           display: flex;
           align-items: center;
+          justify-content: space-evenly;
           gap: 29px;
           z-index: 0;
-          justify-content: space-evenly;
+          opacity: 0.12;
         ">
-          <div class="audio-bar" style="width: 29px; height: 29px; background: white; border-radius: 50%; animation-delay: 0s;"></div>
-          <div class="audio-bar" style="width: 29px; height: 117px; background: white; border-radius: 50px; animation-delay: 0.1s;"></div>
-          <div class="audio-bar" style="width: 29px; height: 176px; background: white; border-radius: 50px; animation-delay: 0.2s;"></div>
-          <div class="audio-bar" style="width: 29px; height: 146px; background: white; border-radius: 50px; animation-delay: 0.3s;"></div>
-          <div class="audio-bar" style="width: 29px; height: 293px; background: white; border-radius: 50px; animation-delay: 0.4s;"></div>
-          <div class="audio-bar" style="width: 29px; height: 146px; background: white; border-radius: 50px; animation-delay: 0.5s;"></div>
-          <div class="audio-bar" style="width: 29px; height: 176px; background: white; border-radius: 50px; animation-delay: 0.6s;"></div>
-          <div class="audio-bar" style="width: 29px; height: 205px; background: white; border-radius: 50px; animation-delay: 0.7s;"></div>
-          <div class="audio-bar" style="width: 29px; height: 44px; background: white; border-radius: 50px; animation-delay: 0.8s;"></div>
+          <div class="audio-bar" style="width: 29px; height: 176px; background: white; border-radius: 50px; animation-delay: 0s;"></div>
+          <div class="audio-bar" style="width: 29px; height: 205px; background: white; border-radius: 50px; animation-delay: 0.1s;"></div>
+          <div class="audio-bar" style="width: 29px; height: 88px; background: white; border-radius: 50px; animation-delay: 0.2s;"></div>
+          <div class="audio-bar" style="width: 29px; height: 293px; background: white; border-radius: 50px; animation-delay: 0.3s;"></div>
+          <div class="audio-bar" style="width: 29px; height: 146px; background: white; border-radius: 50px; animation-delay: 0.4s;"></div>
+          <div class="audio-bar" style="width: 29px; height: 176px; background: white; border-radius: 50px; animation-delay: 0.5s;"></div>
+          <div class="audio-bar" style="width: 29px; height: 205px; background: white; border-radius: 50px; animation-delay: 0.6s;"></div>
+          <div class="audio-bar" style="width: 29px; height: 88px; background: white; border-radius: 50px; animation-delay: 0.7s;"></div>
+          <div class="audio-bar" style="width: 29px; height: 293px; background: white; border-radius: 50px; animation-delay: 0.8s;"></div>
           <div class="audio-bar" style="width: 29px; height: 146px; background: white; border-radius: 50px; animation-delay: 0.9s;"></div>
-          <div class="audio-bar" style="width: 29px; height: 293px; background: white; border-radius: 50px; animation-delay: 1.0s;"></div>
+          <div class="audio-bar" style="width: 29px; height: 176px; background: white; border-radius: 50px; animation-delay: 1.0s;"></div>
           <div class="audio-bar" style="width: 29px; height: 205px; background: white; border-radius: 50px; animation-delay: 1.1s;"></div>
-          <div class="audio-bar" style="width: 29px; height: 176px; background: white; border-radius: 50px; animation-delay: 1.2s;"></div>
+          <div class="audio-bar" style="width: 29px; height: 88px; background: white; border-radius: 50px; animation-delay: 1.2s;"></div>
           <div class="audio-bar" style="width: 29px; height: 146px; background: white; border-radius: 50px; animation-delay: 1.3s;"></div>
           <div class="audio-bar" style="width: 29px; height: 146px; background: white; border-radius: 50px; animation-delay: 1.4s;"></div>
           <div class="audio-bar" style="width: 29px; height: 88px; background: white; border-radius: 50px; animation-delay: 1.5s;"></div>
@@ -344,891 +339,127 @@ import { ClientRouter } from "astro:transitions";
               </button>
             </div>
           </div>
-
-          <!-- Podcast Platform Logos -->
-          <div class="animate-in" style="
-            display: none;
-            gap: 1.5rem;
-            align-items: center;
-            margin-bottom: 5rem;
-          ">
-            <!-- Apple Podcasts -->
-            <a href="#" style="
-              display: flex;
-              align-items: center;
-              text-decoration: none;
-              transition: transform 0.2s ease;
-            " onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
-              <img src="/images/Human at Work/apple podcast.png" alt="Listen on Apple Podcasts" style="
-                height: 40px;
-                width: auto;
-                border-radius: 8px;
-              ">
-            </a>
-
-            <!-- Spotify -->
-            <a href="#" style="
-              display: flex;
-              align-items: center;
-              text-decoration: none;
-              transition: transform 0.2s ease;
-            " onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
-              <img src="/images/Human at Work/Spotify.png" alt="Listen on Spotify" style="
-                height: 40px;
-                width: auto;
-                border-radius: 8px;
-              ">
-            </a>
-          </div>
-        </div>
-      </div>
-
-      <!-- Right Panel - Episode List -->
-      <div style="
-        display: none;
-        background: #f7f3f0;
-        padding: 2rem;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        overflow: hidden;
-        width: 100%;
-        max-width: 50vw;
-        box-sizing: border-box;
-        position: relative;
-      ">
-        <!-- Blurred Background Content -->
-        <div style="
-          position: absolute;
-          top: 0;
-          left: 0;
-          right: 0;
-          bottom: 0;
-          padding: 2rem;
-          display: flex;
-          flex-direction: column;
-          justify-content: center;
-          align-items: center;
-          filter: blur(8px);
-          opacity: 0.3;
-          z-index: 1;
-        ">
-
-        <!-- Episode List -->
-        <div style="display: flex; flex-direction: column; gap: 3rem;">
-          <!-- Episode 1 -->
-          <div class="episode-container" style="
-            display: flex;
-            gap: 1.5rem;
-            align-items: flex-start;
-          ">
-            <div class="episode-image" style="
-              width: 216px;
-              height: 168px;
-              background: url('/images/Human%20at%20Work/1.jpg') center/cover;
-              border-radius: 12px;
-              flex-shrink: 0;
-            "></div>
-            <div style="flex: 1; max-width: 435px; word-wrap: break-word; overflow-wrap: break-word;">
-              <div style="
-                font-family: 'Source Sans Pro', sans-serif;
-                font-size: 1rem;
-                color: #000000;
-                opacity: 0.36;
-                text-transform: uppercase;
-                letter-spacing: 0.05em;
-                margin-bottom: 1rem;
-              ">
-                Episode 01
-              </div>
-              <h3 style="
-                font-family: 'Grenette Pro', serif;
-                font-size: 2.25rem;
-                font-weight: 400;
-                line-height: 1.1;
-                color: #23221f;
-                margin: 0 0 1rem 0;
-                word-wrap: break-word;
-              ">
-                The Human Side of Work
-              </h3>
-              <p style="
-                font-family: 'Source Sans Pro', sans-serif;
-                font-size: 1rem;
-                line-height: 1.33;
-                color: #000000;
-                margin: 0 0 1rem 0;
-                word-wrap: break-word;
-              ">
-                Human at Work is a podcast that explores the heart of HR and the future of people at work. Each episode dives into real conversations with leaders, practitioners, and thinkers who are reimagining how
-              </p>
-              <div style="
-                font-family: 'Source Sans Pro', sans-serif;
-                font-size: 1rem;
-                color: #000000;
-                opacity: 0.3;
-              ">
-                30 min
-              </div>
-            </div>
-          </div>
-
-          <!-- Episode 2 -->
-          <div class="episode-container" style="
-            display: flex;
-            gap: 1.5rem;
-            align-items: flex-start;
-          ">
-            <div class="episode-image" style="
-              width: 216px;
-              height: 168px;
-              background: url('/images/Human%20at%20Work/2.jpg') center/cover;
-              border-radius: 12px;
-              flex-shrink: 0;
-            "></div>
-            <div style="flex: 1; max-width: 435px;">
-              <div style="
-                font-family: 'Source Sans Pro', sans-serif;
-                font-size: 1rem;
-                color: #000000;
-                opacity: 0.36;
-                text-transform: uppercase;
-                letter-spacing: 0.05em;
-                margin-bottom: 1rem;
-              ">
-                Episode 02
-              </div>
-              <h3 style="
-                font-family: 'Grenette Pro', serif;
-                font-size: 2.25rem;
-                font-weight: 400;
-                line-height: 1.1;
-                color: #23221f;
-                margin: 0 0 1rem 0;
-              ">
-                People First:
-              </h3>
-              <p style="
-                font-family: 'Source Sans Pro', sans-serif;
-                font-size: 1rem;
-                line-height: 1.33;
-                color: #000000;
-                margin: 0 0 1rem 0;
-              ">
-                Human at Work is a podcast that explores the heart of HR and the future of people at work. Each episode dives into real conversations with leaders, practitioners, and thinkers who are reimagining how
-              </p>
-              <div style="
-                font-family: 'Source Sans Pro', sans-serif;
-                font-size: 1rem;
-                color: #000000;
-                opacity: 0.3;
-              ">
-                30 min
-              </div>
-            </div>
-          </div>
-
-          <!-- Episode 3 -->
-          <div class="episode-container" style="
-            display: flex;
-            gap: 1.5rem;
-            align-items: flex-start;
-          ">
-            <div class="episode-image" style="
-              width: 216px;
-              height: 168px;
-              background: url('/images/Human%20at%20Work/3.jpg') center/cover;
-              border-radius: 12px;
-              flex-shrink: 0;
-            "></div>
-            <div style="flex: 1; max-width: 435px;">
-              <div style="
-                font-family: 'Source Sans Pro', sans-serif;
-                font-size: 1rem;
-                color: #000000;
-                opacity: 0.36;
-                text-transform: uppercase;
-                letter-spacing: 0.05em;
-                margin-bottom: 1rem;
-              ">
-                Episode 03
-              </div>
-              <h3 style="
-                font-family: 'Grenette Pro', serif;
-                font-size: 2.25rem;
-                font-weight: 400;
-                line-height: 1.1;
-                color: #23221f;
-                margin: 0 0 1rem 0;
-              ">
-                Voices at Work
-              </h3>
-              <p style="
-                font-family: 'Source Sans Pro', sans-serif;
-                font-size: 1rem;
-                line-height: 1.33;
-                color: #000000;
-                margin: 0 0 1rem 0;
-              ">
-                Human at Work is a podcast that explores the heart of HR and the future of people at work. Each episode dives into real conversations with leaders, practitioners, and thinkers who are reimagining how
-              </p>
-              <div style="
-                font-family: 'Source Sans Pro', sans-serif;
-                font-size: 1rem;
-                color: #000000;
-                opacity: 0.3;
-              ">
-                30 min
-              </div>
-            </div>
-          </div>
-        </div>
-        </div>
-
-        <!-- Desktop Email Signup Card (Foreground) -->
-        <div class="animate-in" style="
-          background: #D0CCFF;
-          border-radius: 24px;
-          padding: 3rem 2.5rem;
-          max-width: 500px;
-          width: 100%;
-          text-align: center;
-          box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-          position: relative;
-          z-index: 2;
-          margin-top: -8rem;
-        ">
-          <h2 style="
-            font-family: 'Grenette Pro', serif;
-            font-size: 1.5rem;
-            font-weight: 400;
-            color: #23221f;
-            margin: 0 0 1rem 0;
-            line-height: 1.3;
-          ">
-            Join the list and be the first to know<br>when the podcast goes live 🚀
-          </h2>
-          
-          <!-- Email Input Form -->
-          <div style="
-            background: white;
-            border-radius: 50px;
-            padding: 4px;
-            display: flex;
-            align-items: center;
-            margin-top: 2rem;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-          ">
-            <input 
-              type="email" 
-              placeholder="What's your email?"
-              style="
-                flex: 1;
-                border: none;
-                outline: none;
-                padding: 1rem 1.5rem;
-                font-size: 1rem;
-                font-family: 'Source Sans Pro', sans-serif;
-                color: #666;
-                background: transparent;
-                border-radius: 50px;
-              "
-            />
-            <button style="
-              background: #23221f;
-              border: none;
-              border-radius: 50px;
-              width: 48px;
-              height: 48px;
-              display: flex;
-              align-items: center;
-              justify-content: center;
-              cursor: pointer;
-              transition: all 0.2s ease;
-            " onmouseover="this.style.background='#333'" onmouseout="this.style.background='#23221f'">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
-            </button>
-          </div>
-        </div>
-
-        <!-- Mobile Email Signup Card (Bottom of Page) -->
-        <div class="mobile-email-signup" style="
-          display: none;
-          background: #D0CCFF;
-          border-radius: 24px;
-          padding: 3rem 2.5rem;
-          max-width: 500px;
-          width: 100%;
-          text-align: center;
-          box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-          margin: 2rem auto 0 auto;
-        ">
-          <h2 style="
-            font-family: 'Grenette Pro', serif;
-            font-size: 1.5rem;
-            font-weight: 400;
-            color: #23221f;
-            margin: 0 0 1rem 0;
-            line-height: 1.3;
-          ">
-            Join the list and be the first to know<br>when the podcast goes live 🚀
-          </h2>
-          
-          <!-- Email Input Form -->
-          <div style="
-            background: white;
-            border-radius: 50px;
-            padding: 4px;
-            display: flex;
-            align-items: center;
-            margin-top: 2rem;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-          ">
-            <input 
-              type="email" 
-              placeholder="What's your email?"
-              style="
-                flex: 1;
-                border: none;
-                outline: none;
-                padding: 1rem 1.5rem;
-                font-size: 1rem;
-                font-family: 'Source Sans Pro', sans-serif;
-                color: #666;
-                background: transparent;
-                border-radius: 50px;
-              "
-            />
-            <button style="
-              background: #23221f;
-              border: none;
-              border-radius: 50px;
-              width: 48px;
-              height: 48px;
-              display: flex;
-              align-items: center;
-              justify-content: center;
-              cursor: pointer;
-              transition: all 0.2s ease;
-            " onmouseover="this.style.background='#333'" onmouseout="this.style.background='#23221f'">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
-            </button>
-          </div>
         </div>
       </div>
     </div>
 
-    <!-- Font Imports and Mobile Responsive Styles -->
     <style>
-      @import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600;700&display=swap');
-      
-      /* Prevent horizontal scrolling */
-      html, body {
-        overflow-x: hidden !important;
-        max-width: 100vw !important;
-        box-sizing: border-box;
-      }
-      
-      *, *::before, *::after {
-        box-sizing: border-box;
-      }
-      
-      /* Custom font fallbacks */
-      .grenette-font {
-        font-family: 'Grenette Pro', 'Georgia', serif;
-      }
-      
-
-
+      /* Responsive Layout - Make desktop layout mobile-friendly */
       @media (max-width: 1024px) {
-        main > div {
-          grid-template-columns: 1fr !important;
-          grid-template-rows: 75vh 25vh !important;
-          gap: 0 !important;
-          height: 100vh !important;
-          overflow: hidden !important;
-        }
-        
-        main > div > div:first-child {
-          min-height: 75vh !important;
-          max-height: 75vh !important;
-          padding: 1.5rem !important;
-          overflow: hidden !important;
-          background-size: 180% !important;
-          background-position: center 40% !important;
-        }
-        
-        main > div > div:first-child h1 {
-          font-size: 4rem !important;
-        }
-        
-        main > div > div:first-child h2 {
-          font-size: 3rem !important;
-        }
-        
-        main > div > div:first-child p {
-          font-size: 0.9rem !important;
-        }
-        
-        main > div > div:last-child {
-          padding: 2rem 1.5rem !important;
-          background: #D0CCFF !important;
-          position: relative !important;
-          z-index: 1 !important;
-          margin-top: 0 !important;
-          height: 25vh !important;
-          max-height: 25vh !important;
-          overflow-y: auto !important;
-        }
-
-        /* Remove blur and opacity from background content on mobile */
-        main > div > div:last-child > div:first-child {
-          filter: none !important;
-          opacity: 1 !important;
-        }
-        
-        .episode-container {
-          flex-direction: column !important;
-          gap: 1rem !important;
-        }
-        
-        .episode-image {
-          width: 100% !important;
-          max-width: 300px !important;
-          height: 200px !important;
-          margin: 0 auto !important;
-        }
-        
-        .episode-content h3 {
-          font-size: 1.5rem !important;
-        }
-
-        /* Hide desktop email signup on mobile */
-        main > div > div:last-child > div:nth-last-child(2) {
-          display: none !important;
-        }
-
-        /* Show mobile email signup at bottom */
-        .mobile-email-signup {
-          display: block !important;
-          margin-top: 2rem !important;
-        }
-      }
-      
-      @media (max-width: 480px) {
-        main > div > div:first-child h1 {
-          font-size: 3rem !important;
-        }
-        
-        main > div > div:first-child h2 {
-          font-size: 2.2rem !important;
-        }
-      }
-      
-      /* Mobile Responsive Design */
-      @media (max-width: 1024px) {
-        html, body {
-          width: 100% !important;
-          max-width: 100vw !important;
-          overflow-x: hidden !important;
-          margin: 0 !important;
-          padding: 0 !important;
-        }
-        
-        main {
-          height: auto !important;
-          min-height: 100vh !important;
-          position: relative !important;
-          width: 100vw !important;
-          max-width: 100vw !important;
-          left: 0 !important;
-          right: 0 !important;
-          margin: 0 !important;
-          padding: 0 !important;
-          padding-top: 6rem !important;
-          top: 0 !important;
-        }
-        
-        main > div {
-          grid-template-columns: 1fr !important;
-          grid-template-rows: 100vh !important;
-          height: 100vh !important;
-          min-height: 100vh !important;
-          width: 100vw !important;
-          max-width: 100vw !important;
-          margin: 0 !important;
-          padding: 0 !important;
-        }
-        
-        /* Left Panel Mobile */
-        main > div > div:first-child {
-          padding: 1rem !important;
-          padding-top: 1rem !important;
-          background-size: cover !important;
-          background-position: center 40% !important;
-          width: 100vw !important;
-          max-width: 100vw !important;
-          height: 100vh !important;
-          max-height: 100vh !important;
-          margin: 0 !important;
-          box-sizing: border-box !important;
-          justify-content: center !important;
-          align-items: center !important;
-          overflow: hidden !important;
-        }
-        
-        /* Restore original mobile main content container */
+        /* Convert two-column layout to single column on mobile */
         main > div > div:first-child > div:first-child ~ div {
-          position: relative !important;
-          z-index: 2 !important;
-          margin-top: auto !important;
-          margin-bottom: auto !important;
-          padding-top: 0 !important;
-          display: flex !important;
           flex-direction: column !important;
-          justify-content: center !important;
           align-items: center !important;
           text-align: center !important;
-          height: 100% !important;
-          width: 100% !important;
-          max-width: none !important;
-          padding-left: 0 !important;
-          padding-right: 0 !important;
+          padding: 2rem 1.5rem !important;
+          gap: 2rem !important;
         }
 
-        /* Restore mobile main content to centered layout */
-        main > div > div:first-child > div:first-child ~ div {
-          display: flex !important;
-          flex-direction: row !important;
-          justify-content: center !important;
-          align-items: center !important;
-          width: 100% !important;
-          height: 100% !important;
-        }
-
-        /* Hide right side email section on mobile */
+        /* Left side content on mobile - stack vertically */
         main > div > div:first-child > div:nth-child(2) {
-          display: none !important;
-        }
-
-        /* Restore mobile content styling - left column becomes centered */
-        main > div > div:first-child > div:first-child {
-          display: flex !important;
-          flex-direction: column !important;
-          justify-content: center !important;
-          align-items: center !important;
-          text-align: center !important;
-          width: 100% !important;
           max-width: none !important;
-          padding-top: 2rem !important;
-        }
-        
-        /* Center Coming Soon chip on mobile */
-        main > div > div:first-child > div:first-child > div:first-child {
-          margin-left: auto !important;
-          margin-right: auto !important;
-          text-align: center !important;
-          align-self: center !important;
-          display: flex !important;
-          justify-content: center !important;
           width: 100% !important;
-        }
-
-        /* Restore original mobile text styling - target left column content */
-        main > div > div:first-child > div:first-child h1 {
-          font-family: 'Grenette', 'Outfit', sans-serif !important;
-          font-size: 3rem !important;
-          margin: 0 0 1rem 0 !important;
-          display: inline-block !important;
-          white-space: nowrap !important;
-          font-weight: 600 !important;
           text-align: center !important;
-        }
-        
-        main > div > div:first-child > div:first-child p:nth-of-type(1) {
-          font-size: 1rem !important;
-          margin: 0 0 1rem 0 !important;
-          text-align: center !important;
-        }
-        
-        main > div > div:first-child > div:first-child p:nth-of-type(2) {
-          font-size: 12px !important;
-          line-height: 1.3 !important;
-          margin: 0 0 1rem 0 !important;
-          text-align: center !important;
-          max-width: 90% !important;
-        }
-
-        /* Hide desktop logos on mobile */
-        main > div > div:first-child > div:first-child > div:last-child {
-          display: none !important;
-        }
-
-        /* Create mobile email section after description */
-        main > div > div:first-child > div:first-child p:nth-of-type(2)::after {
-          content: "Drop your email so you don't miss the first episode";
-          display: block;
-          font-family: 'Source Sans Pro', sans-serif;
-          font-size: 1.1rem;
-          line-height: 1.4;
-          color: #ffffff;
-          margin: 1.5rem 0 0.5rem 0;
-          font-weight: 400;
-          text-align: center;
-        }
-        
-        /* Mobile Email Input - Show in left column, centered */
-        main > div > div:first-child > div:nth-child(2) .mobile-email-input {
-          display: flex !important;
-          max-width: 350px !important;
-          margin: 1rem auto !important;
-          align-self: center !important;
-          position: absolute !important;
-          left: 50% !important;
-          transform: translateX(-50%) !important;
-          bottom: 15% !important;
-          z-index: 10 !important;
-        }
-
-        /* Mobile Podcast Icons - Show under email input */
-        main > div > div:first-child > div:nth-child(2) .mobile-email-input::after {
-          content: "";
-          position: absolute;
-          top: calc(100% + 1rem);
-          left: 50%;
-          transform: translateX(-50%);
-          width: 100px;
-          height: 40px;
-          background-image: 
-            url('/images/Human at Work/apple podcast.png'),
-            url('/images/Human at Work/Spotify.png');
-          background-size: 40px 40px, 40px 40px;
-          background-position: 0 0, 60px 0;
-          background-repeat: no-repeat, no-repeat;
-          display: block;
-        }
-        
-        /* Podcast Platform Logos Mobile - Hidden */
-        main > div > div:first-child > div:last-child > div:nth-last-child(1) {
-          display: none !important;
-        }
-        
-        /* Coming Soon Badge Mobile */
-        main > div > div:first-child > div:last-child > div:first-child {
-          font-size: 0.7rem !important;
-          padding: 0.3rem 0.6rem !important;
-          margin-bottom: 1rem !important;
-          margin-left: auto !important;
-          margin-right: auto !important;
-          display: block !important;
-          text-align: center !important;
-          width: fit-content !important;
-        }
-        
-        /* Audio Visualizer Mobile - Keep same size as desktop */
-        main > div > div:first-child > div:first-child {
-          bottom: 20% !important;
-          left: -50px !important;
-          width: calc(100% + 100px) !important;
-          height: 293px !important;
-          opacity: 0.12 !important;
-          display: flex !important;
           align-items: center !important;
-          gap: 29px !important;
-          z-index: 0 !important;
-          justify-content: space-evenly !important;
         }
-        
-        /* Keep audio bars same size on mobile */
-        .audio-bar {
-          width: 29px !important;
-          min-width: 29px !important;
-          animation: audioWave 2s ease-in-out infinite !important;
-          transform-origin: bottom !important;
-          flex-shrink: 0 !important;
-        }
-        
-        /* Main Content Container Mobile */
-        main > div > div:first-child > div:last-child {
-          margin-top: auto !important;
-          margin-bottom: auto !important;
-          padding: 0 3rem 1rem 3rem !important;
-          display: flex !important;
-          flex-direction: column !important;
-          justify-content: center !important;
-          align-items: center !important;
+
+        /* Right side content on mobile - center below left content */
+        main > div > div:first-child > div:nth-child(3) {
+          margin-left: 0 !important;
+          flex: none !important;
+          width: 100% !important;
+          max-width: 400px !important;
           text-align: center !important;
-          height: 100% !important;
+          align-items: center !important;
         }
-        
-        /* Right Panel Mobile - Hide cream section */
-        main > div > div:last-child {
-          display: none !important;
+
+        /* Adjust title size for mobile */
+        main > div > div:first-child > div:nth-child(2) h1 {
+          font-size: 4rem !important;
+          text-align: center !important;
         }
-        
-        /* Email Signup Card Mobile */
-        main > div > div:last-child > div:last-child {
+
+        /* Adjust host info for mobile */
+        main > div > div:first-child > div:nth-child(2) p:first-of-type {
+          font-size: 1.3rem !important;
+          text-align: center !important;
+        }
+
+        /* Adjust description for mobile */
+        main > div > div:first-child > div:nth-child(2) p:nth-of-type(2) {
+          font-size: 16px !important;
+          text-align: center !important;
           max-width: 100% !important;
-          margin-top: 0 !important;
-          padding: 2rem 1.5rem !important;
         }
-        
-        main > div > div:last-child > div:last-child h2 {
-          font-size: 1.2rem !important;
-          line-height: 1.4 !important;
+
+        /* Center podcast logos on mobile */
+        main > div > div:first-child > div:nth-child(2) > div:last-child {
+          justify-content: center !important;
         }
-        
-        /* Email Input Mobile */
-        main > div > div:last-child > div:last-child > div {
-          flex-direction: column !important;
-          gap: 1rem !important;
-          padding: 1rem !important;
-        }
-        
-        main > div > div:last-child > div:last-child input {
-          padding: 1rem !important;
+
+        /* Center email section on mobile */
+        main > div > div:first-child > div:nth-child(3) p {
           text-align: center !important;
         }
-        
-        main > div > div:last-child > div:last-child button {
+
+        /* Adjust email input for mobile */
+        main > div > div:first-child > div:nth-child(3) .mobile-email-input {
+          max-width: 350px !important;
           width: 100% !important;
-          height: 48px !important;
-          border-radius: 25px !important;
         }
       }
-      
-      @media (max-width: 480px) {
-        main > div > div:first-child {
-          padding: 0.5rem !important;
-          padding-top: 1rem !important;
-          height: 100vh !important;
-          max-height: 100vh !important;
-          overflow: hidden !important;
+
+      @media (max-width: 768px) {
+        /* Smaller title on smaller screens */
+        main > div > div:first-child > div:nth-child(2) h1 {
+          font-size: 3rem !important;
         }
-        
-        /* Main Content Container Small Mobile */
-        main > div > div:first-child > div:first-child {
-          padding: 0 1.5rem 0.25rem 1.5rem !important;
-          padding-top: 1.5rem !important;
-          margin-bottom: auto !important;
-          justify-content: center !important;
-        }
-        
-        /* Coming Soon Badge Small Mobile - Center it */
-        main > div > div:first-child > div:first-child > div:first-child {
-          font-size: 0.6rem !important;
-          padding: 0.25rem 0.5rem !important;
-          margin-bottom: 0.8rem !important;
-          margin-left: auto !important;
-          margin-right: auto !important;
-          text-align: center !important;
-          width: 100% !important;
-          align-self: center !important;
-          display: flex !important;
-          justify-content: center !important;
-        }
-        
-        /* One-line title for small mobile */
-        main > div > div:first-child > div:first-child h1 {
-          font-family: 'Grenette', 'Outfit', sans-serif !important;
-          font-size: 2.5rem !important;
-          margin: 0 0 0.8rem 0 !important;
-          display: inline-block !important;
-          white-space: nowrap !important;
-          font-weight: 600 !important;
-          text-align: center !important;
-        }
-        
-        main > div > div:first-child h1::after {
-          content: "" !important;
-        }
-        
-        main > div > div:first-child h2 {
-          display: none !important;
-        }
-        
-        main > div > div:first-child > div:first-child p:nth-of-type(1) {
-          font-size: 0.9rem !important;
-          margin: 0 0 0.8rem 0 !important;
-          text-align: center !important;
-        }
-        
-        main > div > div:first-child > div:first-child p:nth-of-type(2) {
-          font-size: 11px !important;
-          line-height: 1.2 !important;
-          margin: 0 0 0.8rem 0 !important;
-          text-align: center !important;
-          max-width: 90% !important;
-        }
-        
-        /* Mobile Email Input Small */
-        .mobile-email-input {
-          max-width: 250px !important;
-          margin: 0.8rem auto !important;
-          align-self: center !important;
-        }
-        
-        .mobile-email-input input {
-          padding: 0.6rem 1rem !important;
-          font-size: 0.8rem !important;
-        }
-        
-        .mobile-email-input button {
-          width: 36px !important;
-          height: 36px !important;
-        }
-        
-        /* Podcast Platform Logos Small Mobile - Hidden */
-        main > div > div:first-child > div:last-child > div:nth-last-child(1) {
-          display: none !important;
-        }
-        
-        main > div > div:last-child {
-          padding: 1.5rem 0.75rem !important;
-        }
-        
-        main > div > div:last-child > div:last-child {
-          padding: 1.5rem 1rem !important;
-        }
-        
-        main > div > div:last-child > div:last-child h2 {
+
+        /* Smaller host info on smaller screens */
+        main > div > div:first-child > div:nth-child(2) p:first-of-type {
           font-size: 1.1rem !important;
         }
-      }
-      
-      /* Desktop Email Input - Ensure it's visible */
-      .mobile-email-input {
-        display: flex !important;
-      }
 
-      /* Mobile Email Input Focus Enhancement */
-      .mobile-email-input.mobile-focused {
-        transform: scale(1.02);
-        box-shadow: 0 8px 25px rgba(255, 255, 255, 0.3);
-        border: 2px solid rgba(255, 255, 255, 0.4);
-        transition: all 0.3s ease;
-      }
-
-      .mobile-email-input.mobile-focused input {
-        background: rgba(255, 255, 255, 0.05);
-        transition: all 0.3s ease;
-      }
-      
-      /* Desktop-specific styles (above mobile breakpoint) */
-      @media (min-width: 1025px) {
-        .mobile-email-input {
-          display: flex !important;
-          visibility: visible !important;
-          opacity: 1 !important;
+        /* Smaller description on smaller screens */
+        main > div > div:first-child > div:nth-child(2) p:nth-of-type(2) {
+          font-size: 14px !important;
         }
-        
-        /* Force email input visibility on desktop */
-        div.mobile-email-input {
-          display: flex !important;
+
+        /* Smaller email input on smaller screens */
+        main > div > div:first-child > div:nth-child(3) .mobile-email-input {
+          max-width: 300px !important;
+        }
+
+        /* Reduce padding on smaller screens */
+        main > div > div:first-child > div:first-child ~ div {
+          padding: 1.5rem 1rem !important;
+        }
+      }
+
+      @media (max-width: 480px) {
+        /* Even smaller title on very small screens */
+        main > div > div:first-child > div:nth-child(2) h1 {
+          font-size: 2.5rem !important;
+        }
+
+        /* Smaller host info on very small screens */
+        main > div > div:first-child > div:nth-child(2) p:first-of-type {
+          font-size: 1rem !important;
+        }
+
+        /* Smaller description on very small screens */
+        main > div > div:first-child > div:nth-child(2) p:nth-of-type(2) {
+          font-size: 13px !important;
+        }
+
+        /* Smaller email input on very small screens */
+        main > div > div:first-child > div:nth-child(3) .mobile-email-input {
+          max-width: 280px !important;
+        }
+
+        /* Further reduce padding on very small screens */
+        main > div > div:first-child > div:first-child ~ div {
+          padding: 1rem 0.75rem !important;
         }
       }
 
@@ -1274,18 +505,14 @@ import { ClientRouter } from "astro:transitions";
   </main>
 
   <script>
-    // No navbar modifications - let it behave the same as all other pages
-    
     // Initialize viewport animations
     document.addEventListener('DOMContentLoaded', function() {
       initializeAnimations();
-      initializeMobileEmailFocus();
     });
 
     // Also handle astro page loads
     document.addEventListener('astro:page-load', function() {
       initializeAnimations();
-      initializeMobileEmailFocus();
     });
 
     // Viewport animation system
@@ -1304,46 +531,6 @@ import { ClientRouter } from "astro:transitions";
           { threshold: 0.3 }
         );
         observer.observe(element);
-      });
-    }
-
-    // Mobile email input focus and zoom functionality
-    function initializeMobileEmailFocus() {
-      const emailInput = document.querySelector('.mobile-email-input input[type="email"]');
-      if (!emailInput) return;
-
-      // Detect if device is mobile
-      function isMobile() {
-        return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || 
-               (window.innerWidth <= 920);
-      }
-
-      // Let the browser handle focus naturally - we'll enhance the focus event
-
-      // Handle focus event for additional mobile optimizations
-      emailInput.addEventListener('focus', function() {
-        if (isMobile()) {
-          // Add a class for mobile-specific styling during focus
-          emailInput.closest('.mobile-email-input').classList.add('mobile-focused');
-          
-          // Smooth scroll to optimal position after keyboard appears
-          setTimeout(() => {
-            const inputRect = emailInput.getBoundingClientRect();
-            const offset = window.innerHeight * 0.25; // Position input 25% from top to account for keyboard
-            
-            window.scrollTo({
-              top: window.scrollY + inputRect.top - offset,
-              behavior: 'smooth'
-            });
-          }, 300); // Wait a bit for keyboard to appear
-        }
-      });
-
-      emailInput.addEventListener('blur', function() {
-        if (isMobile()) {
-          // Remove mobile focus class
-          emailInput.closest('.mobile-email-input').classList.remove('mobile-focused');
-        }
       });
     }
   </script>
