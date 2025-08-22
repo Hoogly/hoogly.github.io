@@ -345,57 +345,57 @@ import { ClientRouter } from "astro:transitions";
         /* Convert two-column layout to single column on mobile */
         main > div > div:first-child > div:first-child ~ div {
           flex-direction: column !important;
-          align-items: center !important;
-          text-align: center !important;
+          align-items: flex-start !important;
+          text-align: left !important;
           padding: 2rem 1.5rem !important;
-          gap: 2rem !important;
+          gap: 1rem !important;
         }
 
-        /* Left side content on mobile - stack vertically */
+        /* Left side content on mobile - stack vertically, left-aligned */
         main > div > div:first-child > div:nth-child(2) {
           max-width: none !important;
           width: 100% !important;
-          text-align: center !important;
-          align-items: center !important;
+          text-align: left !important;
+          align-items: flex-start !important;
         }
 
-        /* Right side content on mobile - center below left content */
+        /* Right side content on mobile - left-aligned below left content */
         main > div > div:first-child > div:nth-child(3) {
           margin-left: 0 !important;
           flex: none !important;
           width: 100% !important;
-          max-width: 400px !important;
-          text-align: center !important;
-          align-items: center !important;
+          max-width: 100% !important;
+          text-align: left !important;
+          align-items: flex-start !important;
         }
 
         /* Adjust title size for mobile */
         main > div > div:first-child > div:nth-child(2) h1 {
           font-size: 4rem !important;
-          text-align: center !important;
+          text-align: left !important;
         }
 
         /* Adjust host info for mobile */
         main > div > div:first-child > div:nth-child(2) p:first-of-type {
           font-size: 1.3rem !important;
-          text-align: center !important;
+          text-align: left !important;
         }
 
         /* Adjust description for mobile */
         main > div > div:first-child > div:nth-child(2) p:nth-of-type(2) {
           font-size: 16px !important;
-          text-align: center !important;
+          text-align: left !important;
           max-width: 100% !important;
         }
 
-        /* Center podcast logos on mobile */
+        /* Left-align podcast logos on mobile */
         main > div > div:first-child > div:nth-child(2) > div:last-child {
-          justify-content: center !important;
+          justify-content: flex-start !important;
         }
 
-        /* Center email section on mobile */
+        /* Left-align email section on mobile */
         main > div > div:first-child > div:nth-child(3) p {
-          text-align: center !important;
+          text-align: left !important;
         }
 
         /* Adjust email input for mobile */
