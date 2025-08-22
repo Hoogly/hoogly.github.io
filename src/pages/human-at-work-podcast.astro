@@ -1117,45 +1117,24 @@ import { ClientRouter } from "astro:transitions";
                (window.innerWidth <= 920);
       }
 
-      // Handle email input focus on mobile
-      function handleMobileEmailFocus() {
-        if (!isMobile()) return;
-
-        // Smooth scroll to input with offset for better positioning
-        const inputRect = emailInput.getBoundingClientRect();
-        const offset = window.innerHeight * 0.3; // Position input 30% from top
-        
-        window.scrollTo({
-          top: window.scrollY + inputRect.top - offset,
-          behavior: 'smooth'
-        });
-
-        // Small delay to ensure smooth scroll starts before focus
-        setTimeout(() => {
-          emailInput.focus();
-        }, 300);
-      }
-
-      // Add event listeners
-      emailInput.addEventListener('touchstart', function(e) {
-        if (isMobile()) {
-          // Prevent default to avoid double-tap zoom
-          e.preventDefault();
-          handleMobileEmailFocus();
-        }
-      });
-
-      emailInput.addEventListener('click', function(e) {
-        if (isMobile()) {
-          handleMobileEmailFocus();
-        }
-      });
+      // Let the browser handle focus naturally - we'll enhance the focus event
 
       // Handle focus event for additional mobile optimizations
       emailInput.addEventListener('focus', function() {
         if (isMobile()) {
           // Add a class for mobile-specific styling during focus
           emailInput.closest('.mobile-email-input').classList.add('mobile-focused');
+          
+          // Smooth scroll to optimal position after keyboard appears
+          setTimeout(() => {
+            const inputRect = emailInput.getBoundingClientRect();
+            const offset = window.innerHeight * 0.25; // Position input 25% from top to account for keyboard
+            
+            window.scrollTo({
+              top: window.scrollY + inputRect.top - offset,
+              behavior: 'smooth'
+            });
+          }, 300); // Wait a bit for keyboard to appear
         }
       });
 
