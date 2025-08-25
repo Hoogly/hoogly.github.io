@@ -1,0 +1,174 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Get Started | Hoogly" description="Thank you for getting started with Hoogly." type="website">
+  <style>
+    body, html {
+      background: #faf6f4 !important;
+    }
+    
+    /* Override the global body gradient for this page */
+    body {
+      background: #faf6f4 !important;
+    }
+    
+    /* Fallback to hide header on get-started page in case conditional rendering fails */
+    header, .header, #navbar {
+      display: none !important;
+    }
+
+    .success-container {
+      min-height: 100vh;
+      background: #faf6f4;
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+    }
+    
+    /* Override any container styling that might add purple background */
+    .container {
+      background: transparent !important;
+    }
+    
+    /* Override main element styling */
+    main {
+      background: transparent !important;
+    }
+
+    .success-content {
+      background: #fff;
+      border-radius: 1.5rem;
+      box-shadow: 0 4px 24px 0 rgba(0,0,0,0.04);
+      padding: 2.5rem 2.5rem 3.5rem 2.5rem;
+      max-width: 500px;
+      width: 100%;
+      margin: 8rem auto 4rem auto;
+      text-align: center;
+    }
+
+    .anonymous-ai-headline {
+      font-family: 'Outfit', sans-serif;
+      font-size: 2rem;
+      font-weight: normal;
+      color: #23221F;
+      margin-bottom: 1.5rem;
+    }
+
+    .anonymous-ai-subheadline {
+      font-size: 1.1rem;
+      color: #444;
+      line-height: 1.6;
+      margin-bottom: 1.5rem;
+      font-family: 'Outfit', sans-serif;
+    }
+
+    .download-button {
+      background: #ff8661;
+      color: #fff;
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.1rem;
+      font-weight: 500;
+      border: none;
+      border-radius: 2rem;
+      padding: 1.1rem 2.8rem;
+      cursor: pointer;
+      transition: background 0.2s;
+      box-shadow: 0 2px 8px 0 rgba(0,0,0,0.03);
+      margin-bottom: 4rem;
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    .download-button:hover {
+      background: #ff6a3d;
+    }
+
+    .hero-highlight {
+      position: relative;
+      color: #23221F;
+      font-weight: 600;
+      padding: 0.08em 0.5em;
+      border-radius: 2em;
+      display: inline-block;
+      overflow: visible;
+      background: none;
+      z-index: 1;
+    }
+
+    .hero-highlight::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      height: 100%;
+      width: 0%;
+      background: rgba(255, 125, 97, 0.5);
+      border-radius: 2em;
+      z-index: 0;
+      transition: width 1.2s cubic-bezier(0.77, 0, 0.175, 1);
+    }
+
+    .hero-highlight.animated::before {
+      width: 100%;
+    }
+
+    .hero-highlight-text {
+      position: relative;
+      z-index: 1;
+    }
+
+    @media (max-width: 600px) {
+      .success-content {
+        padding: 1.5rem 0.5rem 2.5rem 0.5rem;
+        max-width: 98vw;
+        margin: 4rem auto 2rem auto;
+      }
+      .anonymous-ai-headline {
+        font-size: 1.5rem;
+      }
+    }
+  </style>
+
+  <div class="success-container">
+    <div class="success-content">
+      <div class="anonymous-ai-headline">Download <span class="hero-highlight"><span class="hero-highlight-text">the app</span></span></div>
+      <div class="anonymous-ai-subheadline">
+        Then set up your workspace, create teams, and invite your people.
+      </div>
+      <a href="https://hoogly.page.link/viVj6EGk4E8mqqYdA" class="download-button">Download</a>
+      <div class="anonymous-ai-subheadline">
+        If you have any questions or would like to see a demo, please book a time below.
+      </div>
+      
+      <!-- Calendly section -->
+      <div style="margin-top: 3rem;">
+        <div class="anonymous-ai-headline">Schedule Your Demo</div>
+        <div id="calendly-inline-widget" style="min-width: 320px; height: 1100px;"></div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Trigger highlight animation
+    document.addEventListener("astro:page-load", function () {
+      const highlight = document.querySelector('.hero-highlight');
+      if (highlight) {
+        setTimeout(() => highlight.classList.add('animated'), 200);
+      }
+
+      // Initialize Calendly widget
+      if (typeof window !== 'undefined' && (window as any).Calendly) {
+        (window as any).Calendly.initInlineWidget({
+          url: 'https://calendly.com/hoogly/30min',
+          parentElement: document.getElementById('calendly-inline-widget'),
+          prefill: {},
+          utm: {}
+        });
+      }
+    });
+  </script>
+  
+  <!-- Calendly inline widget script -->
+  <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
+</Layout>

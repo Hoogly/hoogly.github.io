@@ -206,24 +206,109 @@ import Layout from '../layouts/Layout.astro';
         font-size: 1.5rem;
       }
     }
+
+    /* Style Pipedrive's form */
+    .pipedriveWebForms {
+      width: 100% !important;
+      max-width: 370px !important;
+      margin: 0 auto !important;
+    }
+
+    /* Style the iframe */
+    .pipedriveWebForms iframe {
+      width: 100% !important;
+      border: none !important;
+      background: transparent !important;
+      min-height: 400px !important;
+    }
+
+    /* Hide Pipedrive's form title since we have our own */
+    .pipedriveWebForms iframe body [data-testid="webform-title"] {
+      display: none !important;
+    }
+
+    /* Style form inputs */
+    .pipedriveWebForms iframe body input[type="text"],
+    .pipedriveWebForms iframe body input[type="email"] {
+      width: 100% !important;
+      max-width: 370px !important;
+      padding: 1.1rem 1.2rem !important;
+      border-radius: 0.7rem !important;
+      border: 1px solid #e0e0e0 !important;
+      background: #fff !important;
+      font-size: 1.15rem !important;
+      margin-bottom: 0.5rem !important;
+      font-family: 'Outfit', sans-serif !important;
+      color: #23221F !important;
+      box-shadow: 0 2px 8px 0 rgba(0,0,0,0.04) !important;
+    }
+
+    /* Style form labels */
+    .pipedriveWebForms iframe body label {
+      font-family: 'Outfit', sans-serif !important;
+      font-size: 1rem !important;
+      color: #23221F !important;
+      margin-bottom: 0.5rem !important;
+      font-weight: 400 !important;
+    }
+
+    /* Style submit button */
+    .pipedriveWebForms iframe body button[type="submit"] {
+      background: #ff8661 !important;
+      color: #fff !important;
+      font-family: 'Outfit', sans-serif !important;
+      font-size: 1.1rem !important;
+      font-weight: 500 !important;
+      border: none !important;
+      border-radius: 2rem !important;
+      padding: 1.1rem 2.8rem !important;
+      margin-top: 0.5rem !important;
+      cursor: pointer !important;
+      transition: background 0.2s !important;
+      box-shadow: 0 2px 8px 0 rgba(0,0,0,0.03) !important;
+    }
+
+    .pipedriveWebForms iframe body button[type="submit"]:hover {
+      background: #ff6a3d !important;
+    }
+
+    /* Style error messages */
+    .pipedriveWebForms iframe body .error-message {
+      color: #dc3545 !important;
+      font-size: 0.9rem !important;
+      margin-top: 0.5rem !important;
+      font-family: 'Outfit', sans-serif !important;
+    }
   </style>
   <div class="get-started-bg">
+    <div class="get-started-form-container">
+      <div class="anonymous-ai-headline">Let's <span class="hero-highlight"><span class="hero-highlight-text">Get Started</span></span></div>
+      
+      <!-- Pipedrive form wrapped in our styling -->
+      <div class="pipedriveWebForms" data-pd-webforms="https://webforms.pipedrive.com/f/6ckSJfrxkGWnofmf9fDM6OhIecUWUcEvcNjg3R2t0ANapg7vg6A059q6nrqAqTnpHJ">
+        <script src="https://webforms.pipedrive.com/f/loader"></script>
+      </div>
+    </div>
+  </div>
+
+  <!-- Hidden original form -->
+  <div class="get-started-bg" style="display: none">
     <div class="get-started-form-container">
       <form class="get-started-form" id="getStartedForm" autocomplete="off" novalidate>
         <div class="anonymous-ai-headline">Let's <span class="hero-highlight"><span class="hero-highlight-text">Get Started</span></span></div>
         <div class="form-group">
           <label for="name">Name *</label>
-          <input type="text" id="name" name="name" placeholder="Jane Doe" required />
+          <input type="text" id="name" name="V2ViRm9ybUNhcHR1cmVCbG9jazo1MWE4OTIzMC04MTg5LTExZjAtOWI1YS03ZDljYmE2NmNjNWI" placeholder="Jane Doe" required />
           <div class="error-message" id="name-error"></div>
         </div>
         <div class="form-group">
           <label for="email">Company Email *</label>
-          <input type="email" id="email" name="email" placeholder="janedoe@hoogly.com" required />
+          <input type="email" id="email" name="V2ViRm9ybUNhcHR1cmVCbG9jazo1MWE4OTIzMS04MTg5LTExZjAtOWI1YS03ZDljYmE2NmNjNWI" placeholder="janedoe@hoogly.com" required />
           <div class="error-message" id="email-error"></div>
         </div>
         <div class="form-group">
           <label for="company">Company Name *</label>
-          <input type="text" id="company" name="company" placeholder="Hoogly" required />
+          <input type="text" id="company" name="V2ViRm9ybUNhcHR1cmVCbG9jazo1MWE4Yjk0MC04MTg5LTExZjAtOWI1YS03ZDljYmE2NmNjNWI" placeholder="Hoogly" required />
           <div class="error-message" id="company-error"></div>
         </div>
         <div class="honeypot">
@@ -282,6 +367,26 @@ import Layout from '../layouts/Layout.astro';
           errorElements.forEach(el => (el as HTMLElement).textContent = '');
           const inputElements = form.querySelectorAll('input');
           inputElements.forEach(el => (el as HTMLInputElement).classList.remove('error'));
+
+          // Submit to Pipedrive
+          const values = {
+            'V2ViRm9ybUNhcHR1cmVCbG9jazo1MWE4OTIzMC04MTg5LTExZjAtOWI1YS03ZDljYmE2NmNjNWI': nameInput.value,
+            'V2ViRm9ybUNhcHR1cmVCbG9jazo1MWE4OTIzMS04MTg5LTExZjAtOWI1YS03ZDljYmE2NmNjNWI': emailInput.value,
+            'V2ViRm9ybUNhcHR1cmVCbG9jazo1MWE4Yjk0MC04MTg5LTExZjAtOWI1YS03ZDljYmE2NmNjNWI': companyInput.value
+          };
+
+          try {
+            const response = await fetch(form.action, {
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/json',
+                'x-public-token': 'webform-6ckSJfrxkGWnofmf9fDM6OhIecUWUcEvcNjg3R2t0ANapg7vg6A059q6nrqAqTnpHJ'
+              },
+              body: JSON.stringify({ values })
+            });
+          } catch (error) {
+            console.error('Error submitting to Pipedrive:', error);
+          }
 
           const websiteInput = document.getElementById('website') as HTMLInputElement | null;
           if (websiteInput && websiteInput.value) return;
