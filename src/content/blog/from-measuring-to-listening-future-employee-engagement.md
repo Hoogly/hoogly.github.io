@@ -1,9 +1,9 @@
 ---
 title: "From Measuring to Listening: the Future of Employee Engagement"
 description: "For too long, we measured. Today, AI makes it possible to listen and redefine what engagement really means."
-publishDate: 2025-01-27
+publishDate: 2025-08-27
 author: "Mohit Midha"
-image: /images/blog/article-images/from-measuring-to-listening-future-employee-engagement.png
+image: /images/blog/article-images/measuring to listening.png
 tags: ["Startuplife", "Personalisation", "Building Culture", "Employee Engagement", "Employee Surveys", "AI in HR", "HRTech"]
 ---
 
