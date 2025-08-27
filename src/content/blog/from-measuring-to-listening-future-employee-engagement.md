@@ -3,7 +3,7 @@ title: "From Measuring to Listening: the Future of Employee Engagement"
 description: "For too long, we measured. Today, AI makes it possible to listen and redefine what engagement really means."
 publishDate: 2025-08-27
 author: "Mohit Midha"
-image: /images/blog/article-images/measuring to listening.png
+image: /images/blog/article-images/From Measuring to Listening.png
 tags: ["Startuplife", "Personalisation", "Building Culture", "Employee Engagement", "Employee Surveys", "AI in HR", "HRTech"]
 ---
 
@@ -102,5 +102,7 @@ We've been measuring our employees for decades.
 **It's time we start listening to them.**
 
 ---
+
+<br/>
 
 *Ready to move from measuring to listening? Explore the new world of employee engagement with Hoogly's AI: [Book a conversation](https://calendly.com/hoogly/mohit-midha)*
