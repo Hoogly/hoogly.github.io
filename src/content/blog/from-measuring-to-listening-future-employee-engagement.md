@@ -4,10 +4,8 @@ description: "For too long, we measured. Today, AI makes it possible to listen a
 publishDate: 2025-08-27
 author: "Mohit Midha"
 image: /images/blog/article-images/From Measuring to Listening.png
-tags: ["Startuplife", "Personalisation", "Building Culture", "Employee Engagement", "Employee Surveys", "AI in HR", "HRTech"]
+tags: ["Employee Engagement", "Personalisation", "Building Culture", "Employee Surveys", "AI in HR", "HRTech"]
 ---
-
-For too long, we measured. Today, AI makes it possible to listen — and redefine what engagement really means.
 
 We've been measuring employees for decades.
 
