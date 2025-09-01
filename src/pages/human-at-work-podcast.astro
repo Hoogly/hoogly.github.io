@@ -69,153 +69,28 @@ import { ClientRouter } from "astro:transitions";
       }
     </style>
   </head>
-  <body class="human-at-work-page">
+  <body>
     <Posthog />
     <!-- Google Tag Manager (noscript) -->
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TXHXQ8NW"
     height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
     
-    <!-- Custom Header Styling ONLY for this page -->
-    <style>
-      /* Override the fixed header positioning and make it transparent - ONLY on this page */
-      .human-at-work-page .header.navbar-transparent,
-      .human-at-work-page .header.navbar-solid {
-        position: absolute !important;
-        top: 0 !important;
-        left: 0 !important;
-        right: 0 !important;
-        width: 100% !important;
-        z-index: 200 !important;
-        background: transparent !important;
-        backdrop-filter: none !important;
-        box-shadow: none !important;
-      }
-      
-      /* Ensure navbar itself is also transparent - ONLY on this page */
-      .human-at-work-page .navbar {
-        background: transparent !important;
-        backdrop-filter: none !important;
-        box-shadow: none !important;
-      }
-      
-      /* Force all nav links to be white - ONLY on this page */
-      .human-at-work-page .header .navbar .nav-links .nav-link,
-      .human-at-work-page .header .navbar .nav-links .nav-link:hover,
-      .human-at-work-page .header .navbar .nav-links .nav-link.active,
-      .human-at-work-page .header .nav-links .nav-link,
-      .human-at-work-page .header .nav-links a,
-      .human-at-work-page .header a[href="/how-it-works"],
-      .human-at-work-page .header a[href="/pricing"],
-      .human-at-work-page .header a[href="/blog"],
-      .human-at-work-page .header a[href="/about"] {
-        color: white !important;
-        background-color: transparent !important;
-      }
-      
-      /* Force logo to be white - ONLY on this page */
-      .human-at-work-page .header .logo .logo-link .logo-img,
-      .human-at-work-page .header .logo img,
-      .human-at-work-page .header img[src*="hoogly-logo"],
-      .human-at-work-page .header img[alt*="Logo"] {
-        filter: brightness(0) saturate(100%) invert(100%) !important;
-      }
-      
-      /* Make LinkedIn icon white - ONLY on this page */
-      .human-at-work-page .header a[aria-label*="LinkedIn"] svg {
-        width: 20px !important;
-        height: 20px !important;
-        opacity: 0.8 !important;
-        fill: none !important;
-        display: block !important;
-      }
-      
-      .human-at-work-page .header a[aria-label*="LinkedIn"] svg rect {
-        fill: none !important;
-      }
-      
-      .human-at-work-page .header a[aria-label*="LinkedIn"] svg path {
-        fill: white !important;
-      }
-      
-      /* Force Slack icon to be white - ONLY on this page */
-      .human-at-work-page .header .navbar .nav-links li a[aria-label*="Slack"] img,
-      .human-at-work-page .header .nav-links a[aria-label*="Slack"] img,
-      .human-at-work-page .header a[aria-label*="Slack"] img {
-        filter: brightness(0) saturate(100%) invert(100%) !important;
-      }
-      
-      /* Make hamburger menu white on mobile - ONLY on this page */
-      .human-at-work-page .header .mobile-menu-toggle .hamburger-line {
-        background-color: white !important;
-      }
-      
-      /* Make Start Free button maintain its original styling - ONLY on this page */
-      .human-at-work-page .header .navbar .nav-links .btn-accent,
-      .human-at-work-page .nav-links .btn-accent,
-      .human-at-work-page .btn-accent {
-        color: #23221f !important;
-        background-color: #FF7D61 !important;
-        border-color: #23221F !important;
-      }
-      
-      .human-at-work-page .header .navbar .nav-links .btn-accent:hover,
-      .human-at-work-page .nav-links .btn-accent:hover,
-      .human-at-work-page .btn-accent:hover {
-        background-color: #ffffff !important;
-        color: #23221f !important;
-      }
-      
-      /* Ensure main content starts from the very top */
-      main {
-        top: 0 !important;
-        padding-top: 0 !important;
-      }
-      
-      /* Nuclear option - force everything in header to be white - ONLY on this page */
-      .human-at-work-page .header * {
-        color: white !important;
-      }
-      
-      .human-at-work-page .header img {
-        filter: brightness(0) saturate(100%) invert(100%) !important;
-      }
-      
-      .human-at-work-page .header svg {
-        fill: white !important;
-      }
-      
-      .human-at-work-page .header svg * {
-        fill: white !important;
-      }
-      
-      /* Extra specific targeting for stubborn elements - ONLY on this page */
-      .human-at-work-page .header .navbar .nav-links li a {
-        color: white !important;
-      }
-      
-      .human-at-work-page .header .logo img {
-        filter: brightness(0) saturate(100%) invert(100%) !important;
-      }
-    </style>
+    <!-- No custom header styling - using default header behavior -->
     
     <Header />
-  <main style="background: #f7f3f0; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif; height: 100vh; width: 100%; max-width: 100vw; overflow: hidden; position: absolute; top: 0; left: 0; z-index: 1;">
+  <main style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif; width: 100%; max-width: 100vw; position: relative; z-index: 1; margin-top: -80px;">
     <!-- Main Podcast Interface -->
     <div style="
-      display: grid;
-      grid-template-columns: 1fr;
-      grid-template-rows: 1fr;
-      height: 100vh;
+      display: block;
       width: 100%;
       max-width: 100vw;
       margin: 0;
       padding: 0;
-      overflow: hidden;
     ">
       <!-- Left Panel: Podcast Content -->
       <div style="
-        background: linear-gradient(rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.8) 60%, rgba(0,0,0,0.9) 100%), 
+        background: linear-gradient(rgba(255,255,255,1) 0%, rgba(255,255,255,0.9) 5%, rgba(255,255,255,0) 15%, rgba(0,0,0,0.4) 30%, rgba(0,0,0,0.8) 60%, rgba(0,0,0,0.9) 100%), 
                     url('/images/Human at Work/Anitta Podcast.jpeg');
         background-size: cover;
         background-position: center 40%;
@@ -225,9 +100,9 @@ import { ClientRouter } from "astro:transitions";
         display: flex;
         align-items: center;
         justify-content: center;
-        padding: 2rem;
+        padding: 10rem 2rem 2rem;
         box-sizing: border-box;
-        overflow: hidden;
+        min-height: 100vh;
       ">
         <!-- Audio Visualizer -->
         <div class="audio-visualizer-container" style="
@@ -277,7 +152,7 @@ import { ClientRouter } from "astro:transitions";
           width: 100%;
           max-width: 1400px;
           margin: auto;
-          padding: 0 4rem;
+          padding: 0 var(--space-6);
         ">
           <!-- Left Side Content -->
           <div style="
@@ -330,81 +205,56 @@ import { ClientRouter } from "astro:transitions";
               Hosted by Anitta Krishan
             </p>
 
-            <!-- Description -->
+            <!-- Description Headline -->
+            <h2 class="animate-in" style="
+              font-family: 'Grenette', 'Outfit', sans-serif;
+              font-size: 24px;
+              font-weight: 600;
+              line-height: 1.3;
+              color: #ffffff;
+              margin: 0 0 1rem 0;
+            ">
+              A podcast that explores the heart of HR and the future of people at work.
+            </h2>
+
+            <!-- Description Body -->
             <p class="animate-in" style="
-              font-family: 'Source Sans Pro', sans-serif;
+              font-family: 'Outfit', sans-serif;
               font-size: 18px;
               font-weight: 400;
-              line-height: 1.33;
+              line-height: 1.5;
               color: #ffffff;
               margin: 0 0 2rem 0;
+              opacity: 0.9;
             ">
-              Human at Work is a podcast that explores the heart of HR and the future of people at work. Each episode dives into real conversations with leaders, practitioners, and thinkers who are reimagining how organisations can build trust, connection, and wellbeing in the workplace. From tackling burnout and employee engagement to shaping culture and navigating change, Human at Work offers practical insights and inspiring stories to help you create workplaces where people and performance thrive.
+              Each episode dives into real conversations with leaders, practitioners, and thinkers who are reimagining how organisations can build trust, connection, and wellbeing in the workplace. From tackling burnout and employee engagement to shaping culture and navigating change, Human at Work offers practical insights and inspiring stories to help you create workplaces where people and performance thrive.
             </p>
 
             <!-- Call to Action Text -->
             <p class="animate-in" style="
-              font-family: 'Source Sans Pro', sans-serif;
+              font-family: 'Grenette', 'Outfit', sans-serif;
               font-size: 1.5rem;
               line-height: 1.4;
               color: #ffffff;
               margin: 0 0 1rem 0;
-              font-weight: 400;
+              font-weight: 600;
               text-align: left;
             ">
               Drop your email so you don't miss the first episode
             </p>
 
-            <!-- Email Input -->
-            <div class="mobile-email-input animate-in" style="
-              display: flex !important;
-              background: rgba(255, 255, 255, 0.1);
-              border-radius: 50px;
-              padding: 4px;
-              align-items: center;
-              border: 1px solid rgba(255, 255, 255, 0.2);
+            <!-- Pipedrive Form -->
+            <div class="pipedrive-form-container animate-in" style="
               width: 400px;
               max-width: 100%;
-              opacity: 1 !important;
-              visibility: visible !important;
-              position: relative !important;
-              z-index: 10 !important;
               margin: 0 0 2rem 0;
+              position: relative;
+              z-index: 10;
+              overflow: visible;
             ">
-              <input 
-                type="email" 
-                placeholder="What's your email?"
-                style="
-                  flex: 1;
-                  border: none;
-                  outline: none;
-                  background: transparent;
-                  color: #ffffff;
-                  padding: 0.8rem 1.2rem;
-                  font-size: 1rem;
-                  font-family: 'Grenette', 'Outfit', sans-serif;
-                  font-weight: 400;
-                "
-              />
-              <button 
-                type="submit"
-                style="
-                  background: #ffffff;
-                  border: none;
-                  border-radius: 50px;
-                  width: 44px;
-                  height: 44px;
-                  display: flex;
-                  align-items: center;
-                  justify-content: center;
-                  cursor: pointer;
-                  transition: transform 0.2s ease;
-                "
-              >
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-                  <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="#23221f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-              </button>
+              <div class="pipedriveWebForms" data-pd-webforms="https://webforms.pipedrive.com/f/cB5aEDdu8KwfSTzIANrfWsvwV6eKFntNzul8SKbZOOLw3BHkcziKiXFGz3D5m5PzG3">
+                <script src="https://webforms.pipedrive.com/f/loader"></script>
+              </div>
             </div>
 
             <!-- Podcast Platform Logos -->
@@ -511,23 +361,22 @@ import { ClientRouter } from "astro:transitions";
           justify-content: flex-start !important;
         }
 
-        /* Email input is now in left side content - make longer for better typing space */
-        main > div > div:first-child > div:nth-child(2) .mobile-email-input {
+        /* Pipedrive form container responsive styling */
+        .pipedrive-form-container {
           width: 420px !important;
           max-width: 95% !important;
-          margin: 0 !important;
-          margin-left: -1rem !important;
-          align-self: flex-start !important;
+          margin: 0 0 2rem 0 !important;
         }
 
-        /* Ensure submit button stays circular on mobile */
-        main > div > div:first-child > div:nth-child(2) .mobile-email-input button {
-          width: 44px !important;
-          height: 44px !important;
-          border-radius: 50% !important;
-          flex-shrink: 0 !important;
-          min-width: 44px !important;
-          min-height: 44px !important;
+        /* Ensure Pipedrive iframe is responsive */
+        .pipedriveWebForms {
+          position: relative !important;
+          z-index: 1 !important;
+        }
+
+        .pipedriveWebForms iframe {
+          max-width: 100% !important;
+          width: 100% !important;
         }
       }
 
@@ -547,21 +396,10 @@ import { ClientRouter } from "astro:transitions";
           font-size: 14px !important;
         }
 
-        /* Longer email input on smaller screens - more typing space */
-        main > div > div:first-child > div:nth-child(2) .mobile-email-input {
+        /* Adjust Pipedrive form container for tablet */
+        .pipedrive-form-container {
           width: 350px !important;
           max-width: 90% !important;
-          margin-left: -1rem !important;
-        }
-
-        /* Ensure submit button stays perfectly circular on smaller screens */
-        main > div > div:first-child > div:nth-child(2) .mobile-email-input button {
-          width: 40px !important;
-          height: 40px !important;
-          border-radius: 50% !important;
-          flex-shrink: 0 !important;
-          min-width: 40px !important;
-          min-height: 40px !important;
         }
 
         /* Reduce padding on smaller screens */
@@ -586,8 +424,8 @@ import { ClientRouter } from "astro:transitions";
           font-size: 13px !important;
         }
 
-        /* Smaller email input on very small screens */
-        main > div > div:first-child > div:nth-child(3) .mobile-email-input {
+        /* Adjust Pipedrive form container for mobile */
+        .pipedrive-form-container {
           max-width: 280px !important;
         }
 
@@ -661,76 +499,14 @@ import { ClientRouter } from "astro:transitions";
     // Initialize viewport animations
     document.addEventListener('DOMContentLoaded', function() {
       initializeAnimations();
-      forceHeaderWhite();
     });
 
     // Also handle astro page loads
     document.addEventListener('astro:page-load', function() {
       initializeAnimations();
-      forceHeaderWhite();
     });
 
-    // Force all header elements to be white
-    function forceHeaderWhite() {
-      // Force all text in header to be white (except Start Free button)
-      const headerElements = document.querySelectorAll('.header *, .navbar *, .nav-links *, .nav-link');
-      headerElements.forEach(el => {
-        if (!el.classList.contains('btn-accent') && !el.closest('.btn-accent')) {
-          el.style.setProperty('color', 'white', 'important');
-        }
-      });
 
-      // Force all images in header to be inverted (white)
-      const headerImages = document.querySelectorAll('.header img, .navbar img, .logo img');
-      headerImages.forEach(img => {
-        img.style.setProperty('filter', 'brightness(0) saturate(100%) invert(100%)', 'important');
-      });
-
-      // Force all SVGs in header to be white (except LinkedIn)
-      const headerSVGs = document.querySelectorAll('.header svg, .navbar svg, .header svg *, .navbar svg *');
-      headerSVGs.forEach(svg => {
-        // Skip LinkedIn SVGs - let them keep their original color
-        if (!svg.closest('a[aria-label*="LinkedIn"]')) {
-          svg.style.setProperty('fill', 'white', 'important');
-          svg.style.setProperty('stroke', 'none', 'important');
-        }
-      });
-
-      // Make LinkedIn icon white
-      const linkedInSVGs = document.querySelectorAll('.header a[aria-label*="LinkedIn"] svg');
-      linkedInSVGs.forEach(svg => {
-        svg.style.setProperty('fill', 'none', 'important');
-        svg.style.setProperty('opacity', '0.8', 'important');
-        svg.style.setProperty('display', 'block', 'important');
-        svg.style.setProperty('width', '20px', 'important');
-        svg.style.setProperty('height', '20px', 'important');
-      });
-
-      // Set LinkedIn path to white
-      const linkedInPaths = document.querySelectorAll('.header a[aria-label*="LinkedIn"] svg path');
-      linkedInPaths.forEach(path => {
-        path.style.setProperty('fill', 'white', 'important');
-      });
-
-      // Set LinkedIn rect to no fill
-      const linkedInRects = document.querySelectorAll('.header a[aria-label*="LinkedIn"] svg rect');
-      linkedInRects.forEach(rect => {
-        rect.style.setProperty('fill', 'none', 'important');
-      });
-
-      // Specific targeting for nav links
-      const navLinks = document.querySelectorAll('a[href="/how-it-works"], a[href="/pricing"], a[href="/blog"], a[href="/about"]');
-      navLinks.forEach(link => {
-        link.style.setProperty('color', 'white', 'important');
-      });
-
-      // Ensure Start Free button keeps its original colors
-      const startFreeBtn = document.querySelector('.btn-accent');
-      if (startFreeBtn) {
-        startFreeBtn.style.setProperty('color', '#23221f', 'important');
-        startFreeBtn.style.setProperty('background-color', '#FF7D61', 'important');
-      }
-    }
 
     // Viewport animation system
     function initializeAnimations() {
