@@ -150,11 +150,22 @@ import Layout from '../layouts/Layout.astro';
   </div>
 
   <script>
-    // Trigger highlight animation
     document.addEventListener("astro:page-load", function () {
+      // Trigger highlight animation
       const highlight = document.querySelector('.hero-highlight');
       if (highlight) {
         setTimeout(() => highlight.classList.add('animated'), 200);
+      }
+
+      // Track form submission in PostHog
+      if (typeof window !== 'undefined' && (window as any).posthog) {
+        const urlParams = new URLSearchParams(window.location.search);
+        const formSource = urlParams.get('form-source') || 'get_started';
+        const eventName = formSource === 'pricing_contact_us' ? 'pricing_contact_us_form_submitted' : 'get_started_form_submitted';
+        
+        (window as any).posthog.capture(eventName, {
+          referrer: document.referrer
+        });
       }
 
       // Initialize Calendly widget
