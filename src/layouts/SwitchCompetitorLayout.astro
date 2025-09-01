@@ -1,0 +1,534 @@
+---
+import Layout from './Layout.astro';
+import { Image } from 'astro:assets';
+
+interface Props {
+  frontmatter: {
+    title: string;
+    competitor: string;
+    subtitle: string;
+    heroImage?: string;
+    pricing: {
+      hoogly: string;
+      competitor: string;
+    };
+    featureComparison: {
+      feature: string;
+      hoogly: string | boolean;
+      competitor: string | boolean;
+    }[];
+  };
+}
+
+const { frontmatter } = Astro.props;
+---
+
+<Layout title={`Hoogly vs ${frontmatter.competitor} Comparison`}>
+  <div class="competitor-comparison">
+    <!-- Hero Section -->
+    <section class="hero hero-fullscreen">
+      <div class="container">
+        <div class="hero-content">
+          <div class="hero-text">
+            <div class="hero-title parallax-element scroll-animate">
+              <div class="hero-title-align">
+                <span class="hero-title-text">{frontmatter.title}</span>
+              </div>
+              <div class="hero-subtitle parallax-element scroll-animate">
+                {frontmatter.subtitle}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TL;DR Section -->
+    <section style="padding: var(--space-12) 0;">
+      <div class="container" style="background: white; border-radius: var(--radius-2xl); padding: 3rem;">
+        <h2 class="h2" style="margin-bottom: 2rem;">tl;dr: The skinny</h2>
+        <slot name="tldr" />
+      </div>
+    </section>
+
+    <!-- ROI Calculator -->
+    <section class="anonymous-ai-section">
+      <div class="container">
+        <div class="anonymous-ai-content">
+          <div class="anonymous-ai-text">
+            <h2 class="anonymous-ai-headline">
+              Calculate Your <span class="hero-highlight"><span class="hero-highlight-text">ROI</span></span>
+            </h2>
+            <div class="calculator-container">
+              <div class="calculator-grid">
+                <div class="input-section">
+                  <h3 class="h3">Employee Turnover Cost Calculator</h3>
+                  <div class="form-group-stack">
+                    <div class="form-group">
+                      <label for="employeeCount">Number of employees</label>
+                      <input type="number" id="employeeCount" class="wide-text-input" />
+                    </div>
+                    <div class="form-group">
+                      <label for="avgSalary">Average salary</label>
+                      <input type="number" id="avgSalary" class="wide-text-input" />
+                    </div>
+                    <div class="form-group">
+                      <label for="turnoverRate">Current turnover rate (%)</label>
+                      <input type="number" id="turnoverRate" class="wide-text-input" />
+                    </div>
+                  </div>
+                </div>
+                <div class="results-section">
+                  <h3 class="h3">Your Potential Savings</h3>
+                  <div class="results-display">
+                    <p class="result-text">Annual cost of turnover: <span id="turnoverCost">$0</span></p>
+                    <p class="result-text">Potential savings with Hoogly: <span id="potentialSavings">$0</span></p>
+                    <p class="result-note">Based on industry standard cost of 1.5-2x salary per replacement</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Feature Comparison -->
+    <section style="padding: var(--space-20) 0;">
+      <div class="container" style="background: white; border-radius: var(--radius-2xl); padding: 3rem;">
+        <h2 class="h2" style="margin-bottom: 2rem;">Feature Comparison</h2>
+        <div class="comparison-table">
+          <table>
+            <thead>
+              <tr>
+                <th>Feature</th>
+                <th>Hoogly</th>
+                <th>{frontmatter.competitor}</th>
+              </tr>
+            </thead>
+            <tbody>
+              {frontmatter.featureComparison.map((feature) => (
+                <tr>
+                  <td>{feature.feature}</td>
+                  <td>
+                    {typeof feature.hoogly === 'boolean' ? 
+                      (feature.hoogly ? '✅' : '❌') : 
+                      feature.hoogly
+                    }
+                  </td>
+                  <td>
+                    {typeof feature.competitor === 'boolean' ? 
+                      (feature.competitor ? '✅' : '❌') : 
+                      feature.competitor
+                    }
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- Pricing Comparison -->
+    <section class="section-gradient" style="padding: var(--space-20) 0;">
+      <div class="container" style="background: white; border-radius: var(--radius-2xl); padding: 3rem;">
+        <h2 class="h2" style="margin-bottom: 2rem;">Pricing Comparison</h2>
+        <div class="pricing-grid">
+          <div class="pricing-card">
+            <h3 class="h3">Hoogly</h3>
+            <p class="pricing-amount">{frontmatter.pricing.hoogly}</p>
+            <slot name="hoogly-pricing-details" />
+          </div>
+          <div class="pricing-card">
+            <h3 class="h3">{frontmatter.competitor}</h3>
+            <p class="pricing-amount">{frontmatter.pricing.competitor}</p>
+            <slot name="competitor-pricing-details" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonial-section" style="position: relative; height: 100vh; overflow: hidden; margin: 0;">
+      <div class="testimonial-sticky-container">
+        <div class="testimonial-content" id="testimonial-content">
+          <slot name="testimonials" />
+        </div>
+      </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="final-cta-section">
+      <div class="container">
+        <h2 class="final-cta-title">
+          Ready to make the <span class="hero-highlight"><span class="hero-highlight-text">switch</span></span>?
+        </h2>
+        <p class="hero-subtitle">Our team can help you migrate from {frontmatter.competitor} to Hoogly.</p>
+        <a href="/get-started" class="btn btn-accent">
+          Get Started
+        </a>
+      </div>
+    </section>
+  </div>
+</Layout>
+
+<style>
+  /* Global styles */
+  .competitor-comparison {
+    width: 100%;
+    background: linear-gradient(135deg, #F6F4FE 0%, #F5E9FA 100%);
+  }
+
+  /* Hero section styles */
+  .hero-fullscreen {
+    min-height: 100vh;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    padding-top: 2.5rem;
+    background: transparent !important;
+  }
+
+  .hero-title {
+    font-size: 4.5rem;
+    font-weight: 400;
+    line-height: 1.13;
+    text-align: center;
+    margin-bottom: 0.2em;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+  }
+
+  .hero-subtitle {
+    font-size: 1.5rem;
+    color: #23221F;
+    font-weight: 400;
+    text-align: center;
+    margin-bottom: 2.5em;
+    padding-top: 1rem;
+    line-height: 30px;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+  }
+
+  /* Calculator styles */
+  .calculator-container {
+    margin-top: 2rem;
+  }
+
+  .calculator-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-8);
+    background: white;
+    border-radius: var(--radius-2xl);
+    padding: 2rem;
+    box-shadow: var(--shadow-lg);
+  }
+
+  @media (min-width: 768px) {
+    .calculator-grid {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  .form-group-stack {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+  }
+
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+  }
+
+  .form-group label {
+    color: var(--color-neutral-900);
+    font-weight: var(--font-weight-medium);
+  }
+
+  .wide-text-input {
+    width: 100%;
+    padding: var(--space-3);
+    border: 1px solid var(--color-neutral-200);
+    border-radius: var(--radius-lg);
+    font-size: var(--font-size-base);
+    color: var(--color-neutral-900);
+    transition: border-color 0.2s;
+  }
+
+  .wide-text-input:focus {
+    outline: none;
+    border-color: var(--color-purple);
+  }
+
+  .results-display {
+    background: var(--color-neutral-50);
+    padding: var(--space-6);
+    border-radius: var(--radius-lg);
+  }
+
+  .result-text {
+    font-size: var(--font-size-xl);
+    color: var(--color-neutral-900);
+    margin-bottom: var(--space-4);
+  }
+
+  .result-note {
+    font-size: var(--font-size-sm);
+    color: var(--color-neutral-600);
+  }
+
+  /* Comparison table styles */
+  .comparison-table {
+    width: 100%;
+    overflow-x: auto;
+    margin-top: 2rem;
+  }
+
+  .comparison-table table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  .comparison-table th,
+  .comparison-table td {
+    padding: var(--space-4);
+    border: 1px solid var(--color-neutral-200);
+    text-align: left;
+  }
+
+  .comparison-table th {
+    background: var(--color-neutral-50);
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-neutral-900);
+  }
+
+  .comparison-table td {
+    text-align: center;
+    color: var(--color-neutral-800);
+  }
+
+  /* Pricing grid styles */
+  .pricing-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-8);
+    margin-top: 2rem;
+  }
+
+  @media (min-width: 768px) {
+    .pricing-grid {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  .pricing-card {
+    background: var(--color-white);
+    padding: var(--space-8);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-lg);
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+
+  .pricing-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-xl);
+  }
+
+  .pricing-amount {
+    font-size: var(--font-size-3xl);
+    font-weight: var(--font-weight-bold);
+    margin-bottom: var(--space-4);
+    color: var(--color-neutral-900);
+  }
+
+  /* Testimonial section styles */
+  .testimonial-section {
+    background: transparent;
+  }
+
+  .testimonial-sticky-container {
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+  }
+
+  .testimonial-content {
+    max-width: 1200px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 2rem 4rem;
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 1s ease-out, transform 1s ease-out;
+  }
+
+  /* CTA section styles */
+  .final-cta-section {
+    background: #F7F3F0;
+    text-align: center;
+    padding: var(--space-20) 0;
+  }
+
+  .final-cta-title {
+    font-family: 'Outfit', sans-serif;
+    font-weight: 400;
+    font-size: var(--font-size-4xl);
+    margin-bottom: 1rem;
+  }
+
+  /* Responsive styles */
+  @media (max-width: 768px) {
+    .hero-title {
+      font-size: 3rem;
+    }
+
+    .hero-subtitle {
+      font-size: 1.25rem;
+    }
+
+    .calculator-grid,
+    .pricing-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .testimonial-content {
+      padding: 1.5rem 2rem;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .hero-title {
+      font-size: 2.5rem;
+    }
+
+    .hero-subtitle {
+      font-size: 1.1rem;
+    }
+
+    .testimonial-content {
+      padding: 1rem 1.5rem;
+    }
+  }
+
+  /* Animation classes */
+  .scroll-animate {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+  }
+
+  .scroll-animate.animated {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .hero-highlight {
+    position: relative;
+    color: #23221F;
+    font-weight: 600;
+    padding: 0.08em 0.5em;
+    border-radius: 2em;
+    display: inline-block;
+    overflow: visible;
+    background: none;
+    z-index: 1;
+    vertical-align: middle;
+  }
+
+  .hero-highlight::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 0%;
+    background: rgba(255, 125, 97, 0.5);
+    border-radius: 2em;
+    z-index: 0;
+    transition: width 1.2s cubic-bezier(0.77, 0, 0.175, 1);
+  }
+
+  .hero-highlight.animated::before {
+    width: 100%;
+  }
+</style>
+
+<script>
+  document.addEventListener("astro:page-load", function () {
+    // ROI Calculator Logic
+    function calculateROI() {
+      const employeeCount = parseFloat(document.getElementById('employeeCount').value) || 0;
+      const avgSalary = parseFloat(document.getElementById('avgSalary').value) || 0;
+      const turnoverRate = parseFloat(document.getElementById('turnoverRate').value) || 0;
+      
+      const replacementCost = avgSalary * 1.75; // Average cost between 1.5-2x salary
+      const annualTurnover = employeeCount * (turnoverRate / 100);
+      const totalCost = replacementCost * annualTurnover;
+      
+      // Assume 20% reduction in turnover with Hoogly
+      const potentialSavings = totalCost * 0.2;
+      
+      document.getElementById('turnoverCost').textContent = `$${totalCost.toLocaleString()}`;
+      document.getElementById('potentialSavings').textContent = `$${potentialSavings.toLocaleString()}`;
+    }
+
+    // Add event listeners to calculator inputs
+    document.getElementById('employeeCount')?.addEventListener('input', calculateROI);
+    document.getElementById('avgSalary')?.addEventListener('input', calculateROI);
+    document.getElementById('turnoverRate')?.addEventListener('input', calculateROI);
+
+    // Animate hero elements
+    const scrollElements = document.querySelectorAll('.scroll-animate');
+    const highlight = document.querySelector('.hero-highlight');
+
+    if (highlight) {
+      setTimeout(() => highlight.classList.add('animated'), 200);
+    }
+
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting && !entry.target.classList.contains('animated')) {
+          entry.target.classList.add('animated');
+        }
+      });
+    }, observerOptions);
+
+    scrollElements.forEach(element => {
+      observer.observe(element);
+    });
+
+    // Testimonial animations
+    const testimonialContent = document.getElementById('testimonial-content');
+    if (testimonialContent) {
+      const testimonialObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            testimonialContent.style.opacity = '1';
+            testimonialContent.style.transform = 'translateY(0)';
+          }
+        });
+      }, { threshold: 0.3 });
+
+      testimonialObserver.observe(testimonialContent);
+    }
+  });
+</script>

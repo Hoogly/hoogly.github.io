@@ -1,0 +1,19 @@
+---
+import { getCollection } from 'astro:content';
+import SwitchCompetitorLayout from '../../layouts/SwitchCompetitorLayout.astro';
+
+export async function getStaticPaths() {
+  const competitors = await getCollection('competitors');
+  return competitors.map(entry => ({
+    params: { competitor: entry.slug },
+    props: { entry },
+  }));
+}
+
+const { entry } = Astro.props;
+const { Content } = await entry.render();
+---
+
+<SwitchCompetitorLayout frontmatter={entry.data}>
+  <Content />
+</SwitchCompetitorLayout>
