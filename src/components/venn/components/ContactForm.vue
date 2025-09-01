@@ -1,60 +1,43 @@
 <script setup lang="ts">
-import { ref } from 'vue'
+import { onMounted } from 'vue'
 
 const props = defineProps<{
   onSubmit: (data: { name: string, email: string, company: string }) => void
 }>()
 
-const hasSubmitted = ref(false)
-const nameValue = ref('')
-const emailValue = ref('')
-const companyValue = ref('')
-const emailError = ref('');
-const emailTouched = ref(false);
-const nameError = ref('');
-const nameTouched = ref(false);
-const companyError = ref('');
-const companyTouched = ref(false);
+onMounted(() => {
+  // Add Pipedrive loader script
+  const script = document.createElement('script')
+  script.src = 'https://webforms.pipedrive.com/f/loader'
+  script.async = true
+  document.body.appendChild(script)
 
-function validateEmail(email: string) {
-  // Simple email regex
-  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-}
+  // Initialize form after script loads
+  script.onload = () => {
+    // Force Pipedrive to reinitialize forms
+    if (window.pipedriveLeadboosterConfig) {
+      window.pipedriveLeadboosterConfig.reinitialize()
+    }
+  }
 
-const handleSubmit = (event: Event) => {
-  event.preventDefault()
-  emailTouched.value = true;
-  nameTouched.value = true;
-  companyTouched.value = true;
-  emailError.value = '';
-  nameError.value = '';
-  companyError.value = '';
-  // Check if all fields are filled
-  if (!nameValue.value.trim()) {
-    nameError.value = "We’d love to know your name (just first is fine!)";
-  }
-  if (!emailValue.value.trim()) {
-    emailError.value = "Oops! That doesn’t look like a valid email address";
-  }
-  if (!companyValue.value.trim()) {
-    companyError.value = "Let us know where you work—this helps us personalize things.";
-  }
-  if (!nameValue.value.trim() || !emailValue.value.trim() || !companyValue.value.trim()) {
-    hasSubmitted.value = true
-    return
-  }
-  // Email format validation
-  if (!validateEmail(emailValue.value.trim())) {
-    emailError.value = "Oops! That doesn’t look like a valid email address.";
-    return;
-  }
-  const data = {
-    name: nameValue.value.trim(),
-    email: emailValue.value.trim(),
-    company: companyValue.value.trim()
-  }
-  props.onSubmit(data)
-}
+  // Listen for Pipedrive form submission
+  window.addEventListener('message', (event) => {
+    // Verify the message is from Pipedrive
+    if (event.data.type === 'webform-submit' && event.data.webformId === '6NfI0dT637Lde4QFsodmF9tccap6XBi0S9eKSrHmVt8M3an43Z26sLfm0g5vzsXutJ') {
+      // Extract form data
+      const formData = event.data.data;
+      const data = {
+        name: formData.name || '',
+        email: formData.email || '',
+        company: formData.organization || '' // Pipedrive uses 'organization' instead of 'company'
+      }
+      // Short delay to allow Pipedrive's success message to show
+      setTimeout(() => {
+        props.onSubmit(data)
+      }, 2000)
+    }
+  })
+})
 </script>
 
 <template>
@@ -65,49 +48,7 @@ const handleSubmit = (event: Event) => {
     <div class="text-sm sm:text-base text-center mt-2 mb-4 sm:mb-6">
       Don't worry, your information will be kept private and confidential
     </div>
-    <form @submit.prevent="handleSubmit">
-      <div class="mb-6 sm:mb-8">
-        <div class="text-sm font-normal mb-1 sm:mb-2">
-          Name
-        </div>
-        <div class="rounded-2xl shadow"
-             :class="((hasSubmitted && !nameValue) || nameError) ? 'input-error-outline' : 'outline outline-stone-100'">
-          <input name="name" type="text" placeholder="Jane Doe" v-model="nameValue"
-            class="w-full px-3 py-2 sm:py-3 outline-none focus:outline-none focus:ring-0 focus:border-transparent placeholder:text-dark/30"
-            @blur="nameTouched = true; if(!nameValue) nameError = 'We’d love to know your name (just first is fine!)'; else nameError = ''" />
-        </div>
-        <div v-if="(nameTouched || hasSubmitted) && nameError" class="text-xs error-message mt-1">{{ nameError }}</div>
-      </div>
-      <div class="mb-6 sm:mb-8">
-        <div class="text-sm font-normal mb-1 sm:mb-2">
-          Company Email
-        </div>
-        <div class="rounded-2xl shadow"
-             :class="((hasSubmitted && !emailValue) || emailError) ? 'input-error-outline' : 'outline outline-stone-100'">
-          <input name="email" type="text" placeholder="janedoe@hoogly.com" v-model="emailValue"
-            class="w-full px-3 py-2 sm:py-3 outline-none focus:outline-none focus:ring-0 focus:border-transparent placeholder:text-dark/30"
-            @blur="emailTouched = true; if(!emailValue || !validateEmail(emailValue)) emailError = 'Oops! That doesn’t look like a valid email address'; else emailError = ''" />
-        </div>
-        <div v-if="(emailTouched || hasSubmitted) && emailError" class="text-xs error-message mt-1">{{ emailError }}</div>
-      </div>
-      <div class="mb-6 sm:mb-8">
-        <div class="text-sm font-normal mb-1 sm:mb-2">
-          Company Name
-        </div>
-        <div class="rounded-2xl shadow"
-             :class="((hasSubmitted && !companyValue) || companyError) ? 'input-error-outline' : 'outline outline-stone-100'">
-          <input name="company" type="text" placeholder="Hoogly" v-model="companyValue"
-            class="w-full px-3 py-2 sm:py-3 outline-none focus:outline-none focus:ring-0 focus:border-transparent placeholder:text-dark/30"
-            @blur="companyTouched = true; if(!companyValue) companyError = 'Let us know where you work—this helps us personalize things.'; else companyError = ''" />
-        </div>
-        <div v-if="(companyTouched || hasSubmitted) && companyError" class="text-xs error-message mt-1">{{ companyError }}</div>
-      </div>
-      <div class="flex flex-row items-center justify-center mt-6 sm:mt-8">
-        <button type="submit" class="bg-orange rounded-full py-2 sm:py-3 px-6 text-white text-center">
-          Submit
-        </button>
-      </div>
-    </form>
+    <div class="pipedriveWebForms" data-pd-webforms="https://webforms.pipedrive.com/f/6NfI0dT637Lde4QFsodmF9tccap6XBi0S9eKSrHmVt8M3an43Z26sLfm0g5vzsXutJ"></div>
   </div>
 </template>
 
