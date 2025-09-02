@@ -358,6 +358,13 @@ const finalRelatedPosts = relatedPosts.length > 0 ? relatedPosts : fallbackPosts
                                     By Mohit Midha | CEO & Founder at Hoogly AI
                                 </span>
                             </>
+                        ) : post.data.author.includes('Lucas Hakewill') ? (
+                            <>
+                                <img src="/images/about-us/lucas.jpeg" alt="Lucas Hakewill" style="width: 44px; height: 44px; border-radius: 50%; object-fit: cover;" />
+                                <span style="font-weight: 500; color: #23221F; font-family: 'Outfit', sans-serif;">
+                                    By Lucas Hakewill | Go-to-Market Lead at Hoogly
+                                </span>
+                            </>
                         ) : (
                             <>
                                 <img src="/images/about-us/anitta.jpeg" alt="Anitta Krishan" style="width: 44px; height: 44px; border-radius: 50%; object-fit: cover;" />
@@ -424,6 +431,8 @@ const finalRelatedPosts = relatedPosts.length > 0 ? relatedPosts : fallbackPosts
                                     <div style="display: flex; align-items: center; gap: 0.5rem;">
                                         {relatedPost.data.author && relatedPost.data.author.includes('Mohit Midha') ? (
                                             <img src="/images/about-us/mohit.avif" alt="Mohit Midha" style="width: 20px; height: 20px; border-radius: 50%; object-fit: cover;" />
+                                        ) : relatedPost.data.author && relatedPost.data.author.includes('Lucas Hakewill') ? (
+                                            <img src="/images/about-us/Lucas.jpg" alt="Lucas Hakewill" style="width: 20px; height: 20px; border-radius: 50%; object-fit: cover;" />
                                         ) : relatedPost.data.author && relatedPost.data.author.includes('Anitta') ? (
                                             <img src="/images/about-us/anitta.jpeg" alt="Anitta Krishan" style="width: 20px; height: 20px; border-radius: 50%; object-fit: cover;" />
                                         ) : (

@@ -22,3 +22,7 @@ pnpm-debug.log*
 
 # jetbrains setting folder
 .idea/
+
+# build plan documentation
+build_plan.md
+pipedrive-form.html
