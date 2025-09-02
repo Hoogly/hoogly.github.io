@@ -369,7 +369,7 @@ import Layout from '../layouts/Layout.astro';
         }
 
         if (typeof window !== 'undefined' && (window as any).posthog) {
-          (window as any).posthog.capture('hr_ld_discount_form_submitted', {
+          (window as any).posthog.capture('sps_discount_form_submitted', {
             name,
             email,
             tshirtSize,
