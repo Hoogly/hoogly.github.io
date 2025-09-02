@@ -369,7 +369,18 @@ import Layout from '../layouts/Layout.astro';
         }
 
         if (typeof window !== 'undefined' && (window as any).posthog) {
+          // Track both event names for analytics
           (window as any).posthog.capture('sps_discount_form_submitted', {
+            name,
+            email,
+            tshirtSize,
+            phone,
+            referrer,
+            buttonLabel,
+            pageSource
+          });
+          
+          (window as any).posthog.capture('hr_ld_discount_form_submitted', {
             name,
             email,
             tshirtSize,
