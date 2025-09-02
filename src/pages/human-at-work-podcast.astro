@@ -355,56 +355,18 @@ import { ClientRouter } from "astro:transitions";
               Drop your email so you don't miss the first episode
             </p>
 
-            <!-- Email Input -->
-            <div class="mobile-email-input animate-in" style="
-              display: flex !important;
-              background: rgba(255, 255, 255, 0.1);
-              border-radius: 50px;
-              padding: 4px;
-              align-items: center;
-              border: 1px solid rgba(255, 255, 255, 0.2);
+            <!-- Pipedrive Form -->
+            <div class="pipedrive-form-container animate-in" style="
               width: 400px;
               max-width: 100%;
-              opacity: 1 !important;
-              visibility: visible !important;
-              position: relative !important;
-              z-index: 10 !important;
               margin: 0 0 2rem 0;
+              position: relative;
+              z-index: 10;
+              overflow: visible;
             ">
-              <input 
-                type="email" 
-                placeholder="What's your email?"
-                style="
-                  flex: 1;
-                  border: none;
-                  outline: none;
-                  background: transparent;
-                  color: #ffffff;
-                  padding: 0.8rem 1.2rem;
-                  font-size: 1rem;
-                  font-family: 'Grenette', 'Outfit', sans-serif;
-                  font-weight: 400;
-                "
-              />
-              <button 
-                type="submit"
-                style="
-                  background: #ffffff;
-                  border: none;
-                  border-radius: 50px;
-                  width: 44px;
-                  height: 44px;
-                  display: flex;
-                  align-items: center;
-                  justify-content: center;
-                  cursor: pointer;
-                  transition: transform 0.2s ease;
-                "
-              >
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-                  <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="#23221f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-              </button>
+              <div class="pipedriveWebForms" data-pd-webforms="https://webforms.pipedrive.com/f/cB5aEDdu8KwfSTzIANrfWsvwV6eKFntNzul8SKbZOOLw3BHkcziKiXFGz3D5m5PzG3">
+                <script src="https://webforms.pipedrive.com/f/loader"></script>
+              </div>
             </div>
 
             <!-- Podcast Platform Logos -->
@@ -511,23 +473,22 @@ import { ClientRouter } from "astro:transitions";
           justify-content: flex-start !important;
         }
 
-        /* Email input is now in left side content - make longer for better typing space */
-        main > div > div:first-child > div:nth-child(2) .mobile-email-input {
+        /* Pipedrive form container responsive styling */
+        .pipedrive-form-container {
           width: 420px !important;
           max-width: 95% !important;
-          margin: 0 !important;
-          margin-left: -1rem !important;
-          align-self: flex-start !important;
+          margin: 0 0 2rem 0 !important;
         }
 
-        /* Ensure submit button stays circular on mobile */
-        main > div > div:first-child > div:nth-child(2) .mobile-email-input button {
-          width: 44px !important;
-          height: 44px !important;
-          border-radius: 50% !important;
-          flex-shrink: 0 !important;
-          min-width: 44px !important;
-          min-height: 44px !important;
+        /* Ensure Pipedrive iframe is responsive */
+        .pipedriveWebForms {
+          position: relative !important;
+          z-index: 1 !important;
+        }
+
+        .pipedriveWebForms iframe {
+          max-width: 100% !important;
+          width: 100% !important;
         }
       }
 
@@ -547,21 +508,10 @@ import { ClientRouter } from "astro:transitions";
           font-size: 14px !important;
         }
 
-        /* Longer email input on smaller screens - more typing space */
-        main > div > div:first-child > div:nth-child(2) .mobile-email-input {
+        /* Adjust Pipedrive form container for tablet */
+        .pipedrive-form-container {
           width: 350px !important;
           max-width: 90% !important;
-          margin-left: -1rem !important;
-        }
-
-        /* Ensure submit button stays perfectly circular on smaller screens */
-        main > div > div:first-child > div:nth-child(2) .mobile-email-input button {
-          width: 40px !important;
-          height: 40px !important;
-          border-radius: 50% !important;
-          flex-shrink: 0 !important;
-          min-width: 40px !important;
-          min-height: 40px !important;
         }
 
         /* Reduce padding on smaller screens */
@@ -586,8 +536,8 @@ import { ClientRouter } from "astro:transitions";
           font-size: 13px !important;
         }
 
-        /* Smaller email input on very small screens */
-        main > div > div:first-child > div:nth-child(3) .mobile-email-input {
+        /* Adjust Pipedrive form container for mobile */
+        .pipedrive-form-container {
           max-width: 280px !important;
         }
 
