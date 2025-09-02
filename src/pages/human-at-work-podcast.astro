@@ -75,428 +75,445 @@ import { ClientRouter } from "astro:transitions";
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TXHXQ8NW"
     height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
+    
     <Header />
-  <main style="background: #f7f3f0; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif; height: 100vh; width: 100%; max-width: 100vw; overflow: hidden; position: absolute; top: 0; left: 0; z-index: 1; padding-top: 6.5rem;">
-    <!-- Main Podcast Interface -->
-    <div style="
-      display: grid;
-      grid-template-columns: 1fr;
-      grid-template-rows: 1fr;
-      height: 100vh;
-      width: 100%;
-      max-width: 100vw;
-      margin: 0;
-      padding: 0;
-      overflow: hidden;
-    ">
-      <!-- Left Panel: Podcast Content -->
+    <main style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif; width: 100%; max-width: 100vw; position: relative; z-index: 1; margin-top: -80px;">
+      <!-- Main Podcast Interface -->
       <div style="
-        background: linear-gradient(rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.8) 60%, rgba(0,0,0,0.9) 100%), 
-                    url('/images/Human at Work/Anitta podcast.jpg');
-        background-size: cover;
-        background-position: center;
-        background-repeat: no-repeat;
-        image-rendering: auto;
-        position: relative;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        padding: 2rem;
-        box-sizing: border-box;
-        overflow: hidden;
+        display: block;
+        width: 100%;
+        max-width: 100vw;
+        margin: 0;
+        padding: 0;
       ">
-        <!-- Audio Visualizer -->
+        <!-- Left Panel: Podcast Content -->
         <div style="
-          position: absolute;
-          bottom: 25%;
-          left: -50px;
-          width: calc(100% + 100px);
-          height: 293px;
-          display: flex;
-          align-items: center;
-          justify-content: space-evenly;
-          gap: 29px;
-          z-index: 0;
-          opacity: 0.12;
-        ">
-          <div class="audio-bar" style="width: 29px; height: 176px; background: white; border-radius: 50px; animation-delay: 0s;"></div>
-          <div class="audio-bar" style="width: 29px; height: 205px; background: white; border-radius: 50px; animation-delay: 0.1s;"></div>
-          <div class="audio-bar" style="width: 29px; height: 88px; background: white; border-radius: 50px; animation-delay: 0.2s;"></div>
-          <div class="audio-bar" style="width: 29px; height: 293px; background: white; border-radius: 50px; animation-delay: 0.3s;"></div>
-          <div class="audio-bar" style="width: 29px; height: 146px; background: white; border-radius: 50px; animation-delay: 0.4s;"></div>
-          <div class="audio-bar" style="width: 29px; height: 176px; background: white; border-radius: 50px; animation-delay: 0.5s;"></div>
-          <div class="audio-bar" style="width: 29px; height: 205px; background: white; border-radius: 50px; animation-delay: 0.6s;"></div>
-          <div class="audio-bar" style="width: 29px; height: 88px; background: white; border-radius: 50px; animation-delay: 0.7s;"></div>
-          <div class="audio-bar" style="width: 29px; height: 293px; background: white; border-radius: 50px; animation-delay: 0.8s;"></div>
-          <div class="audio-bar" style="width: 29px; height: 146px; background: white; border-radius: 50px; animation-delay: 0.9s;"></div>
-          <div class="audio-bar" style="width: 29px; height: 176px; background: white; border-radius: 50px; animation-delay: 1.0s;"></div>
-          <div class="audio-bar" style="width: 29px; height: 205px; background: white; border-radius: 50px; animation-delay: 1.1s;"></div>
-          <div class="audio-bar" style="width: 29px; height: 88px; background: white; border-radius: 50px; animation-delay: 1.2s;"></div>
-          <div class="audio-bar" style="width: 29px; height: 146px; background: white; border-radius: 50px; animation-delay: 1.3s;"></div>
-          <div class="audio-bar" style="width: 29px; height: 146px; background: white; border-radius: 50px; animation-delay: 1.4s;"></div>
-          <div class="audio-bar" style="width: 29px; height: 88px; background: white; border-radius: 50px; animation-delay: 1.5s;"></div>
-          <div class="audio-bar" style="width: 29px; height: 205px; background: white; border-radius: 50px; animation-delay: 1.6s;"></div>
-          <div class="audio-bar" style="width: 29px; height: 293px; background: white; border-radius: 50px; animation-delay: 1.7s;"></div>
-          <div class="audio-bar" style="width: 29px; height: 176px; background: white; border-radius: 50px; animation-delay: 1.8s;"></div>
-          <div class="audio-bar" style="width: 29px; height: 146px; background: white; border-radius: 50px; animation-delay: 1.9s;"></div>
-        </div>
-
-        <!-- Main Content -->
-        <div style="
+          background: linear-gradient(rgba(255,255,255,1) 0%, rgba(255,255,255,0.9) 5%, rgba(255,255,255,0) 15%, rgba(0,0,0,0.4) 30%, rgba(0,0,0,0.8) 60%, rgba(0,0,0,0.9) 100%),
+                      linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)),
+                      url('/images/Human at Work/Anitta Podcast.jpeg');
+          background-size: cover;
+          background-position: center 40%;
+          background-repeat: no-repeat;
+          image-rendering: auto;
           position: relative;
-          z-index: 2;
-          margin-top: auto;
-          margin-bottom: 16rem;
-          padding-top: 8rem;
           display: flex;
-          flex-direction: row;
-          justify-content: space-between;
           align-items: center;
-          height: 100%;
-          width: 100%;
-          max-width: 1400px;
-          margin-left: auto;
-          margin-right: auto;
-          padding-left: 4rem;
-          padding-right: 4rem;
+          justify-content: center;
+          padding: 10rem 2rem 2rem;
+          box-sizing: border-box;
+          min-height: 100vh;
         ">
-          <!-- Left Side Content -->
-          <div style="
-            flex: 1;
+          <!-- Audio Visualizer -->
+          <div class="audio-visualizer-container" style="
+            position: absolute;
+            bottom: 25%;
+            left: -50px;
+            width: calc(100% + 100px);
+            height: 293px;
             display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-            text-align: left;
-            max-width: 600px;
+            align-items: center;
+            justify-content: space-evenly;
+            gap: 29px;
+            z-index: 0;
+            opacity: 0.12;
           ">
-            <!-- Coming Soon Badge -->
-            <div class="animate-in" style="
-              background: transparent;
-              border: 1px solid #ffffff;
-              border-radius: 37px;
-              padding: 0.5rem 1rem;
-              font-size: 1rem;
-              color: white;
-              font-family: 'Grenette', 'Outfit', sans-serif;
-              font-weight: 400;
-              display: block;
-              margin-bottom: 2rem;
-              width: fit-content;
-            ">
-              Coming Soon
-            </div>
-            
-            <!-- Large Title -->
-            <h1 class="animate-in" style="
-              font-family: 'Grenette', 'Outfit', sans-serif;
-              font-size: 6rem;
-              font-weight: 600;
-              line-height: 0.6;
-              margin: 0 0 1rem 0;
-              color: #f7f3f0;
-              letter-spacing: -0.02em;
-              white-space: nowrap;
-            ">
-              Human at Work
-            </h1>
-            
-            <!-- Host Info -->
-            <p class="animate-in" style="
-              font-family: 'Grenette', 'Outfit', sans-serif;
-              font-size: 1.7rem;
-              font-weight: 400;
-              margin: 1rem 0 2rem 0;
-              color: #f7f3f0;
-            ">
-              Hosted by Anitta Krishan
-            </p>
-
-            <!-- Description -->
-            <p class="animate-in" style="
-              font-family: 'Source Sans Pro', sans-serif;
-              font-size: 18px;
-              font-weight: 400;
-              line-height: 1.33;
-              color: #ffffff;
-              margin: 0 0 2rem 0;
-            ">
-              Human at Work is a podcast that explores the heart of HR and the future of people at work. Each episode dives into real conversations with leaders, practitioners, and thinkers who are reimagining how organisations can build trust, connection, and wellbeing in the workplace. From tackling burnout and employee engagement to shaping culture and navigating change, Human at Work offers practical insights and inspiring stories to help you create workplaces where people and performance thrive.
-            </p>
-
-            <!-- Podcast Platform Logos -->
-            <div class="animate-in" style="
-              display: flex;
-              gap: 1.5rem;
-              align-items: center;
-              margin-top: 1rem;
-            ">
-              <!-- Apple Podcasts -->
-              <a href="#" style="
-                display: flex;
-                align-items: center;
-                text-decoration: none;
-                transition: transform 0.2s ease;
-              ">
-                <img 
-                  src="/images/Human at Work/apple podcast.png" 
-                  alt="Apple Podcasts" 
-                  style="
-                    width: 40px;
-                    height: 40px;
-                    object-fit: contain;
-                  "
-                />
-              </a>
-              
-              <!-- Spotify -->
-              <a href="#" style="
-                display: flex;
-                align-items: center;
-                text-decoration: none;
-                transition: transform 0.2s ease;
-              ">
-                <img 
-                  src="/images/Human at Work/Spotify.png" 
-                  alt="Spotify" 
-                  style="
-                    width: 40px;
-                    height: 40px;
-                    object-fit: contain;
-                  "
-                />
-              </a>
-            </div>
+            {Array.from({ length: 20 }).map((_, i) => (
+              <div class="audio-bar" style={`width: 29px; height: ${[176, 205, 88, 293, 146][i % 5]}px; background: white; border-radius: 50px; animation-delay: ${i * 0.1}s;`}></div>
+            ))}
           </div>
 
-          <!-- Right Side Email Section -->
+          <!-- Main Content -->
           <div style="
-            flex: 0 0 400px;
+            position: relative;
+            z-index: 2;
             display: flex;
-            flex-direction: column;
+            flex-direction: row;
+            justify-content: space-between;
             align-items: flex-start;
-            text-align: left;
-            margin-left: 4rem;
+            height: 100%;
+            width: 100%;
+            max-width: 1400px;
+            margin: auto;
+            padding: 0 var(--space-6);
+            gap: 6rem;
           ">
-            <!-- Call to Action Text -->
-            <p class="animate-in" style="
-              font-family: 'Source Sans Pro', sans-serif;
-              font-size: 1.5rem;
-              line-height: 1.4;
-              color: #ffffff;
-              margin: 0 0 1rem 0;
-              font-weight: 400;
+            <!-- Left Column -->
+            <div class="podcast-left" style="
+              flex: 0 1 55%;
+              max-width: 720px;
             ">
-              Drop your email so you don't miss the first episode
-            </p>
+              <!-- Coming Soon Badge -->
+              <div class="animate-in" style="
+                background: transparent;
+                border: 1px solid #ffffff;
+                border-radius: 37px;
+                padding: 0.5rem 1rem;
+                font-size: 1rem;
+                color: white;
+                font-family: 'Grenette', 'Outfit', sans-serif;
+                font-weight: 400;
+                display: block;
+                margin-bottom: 2rem;
+                width: fit-content;
+              ">
+                Coming Soon
+              </div>
+              
+              <!-- Large Title -->
+              <h1 class="animate-in" style="
+                font-family: 'Grenette', 'Outfit', sans-serif;
+                font-size: 6rem;
+                font-weight: 600;
+                line-height: 0.6;
+                margin: 0 0 1rem 0;
+                color: #f7f3f0;
+                letter-spacing: -0.02em;
+                white-space: nowrap;
+              ">
+                Human at Work
+              </h1>
+              
+              <!-- Host Info -->
+              <p class="animate-in" style="
+                font-family: 'Grenette', 'Outfit', sans-serif;
+                font-size: 1.7rem;
+                font-weight: 400;
+                margin: 1rem 0 2rem 0;
+                color: #f7f3f0;
+              ">
+                Hosted by Anitta Krishan
+              </p>
 
-            <!-- Pipedrive Form -->
-            <div class="pipedrive-form-container animate-in" style="
-              width: 100%;
-              max-width: 400px;
-              margin: 0;
-              position: relative;
-              z-index: 10;
-              overflow: visible;
+              <!-- Description Headline -->
+              <h2 class="animate-in" style="
+                font-family: 'Grenette', 'Outfit', sans-serif;
+                font-size: 24px;
+                font-weight: 600;
+                line-height: 1.3;
+                color: #ffffff;
+                margin: 0 0 1rem 0;
+              ">
+                A podcast that explores the heart of HR and the future of people at work.
+              </h2>
+
+              <!-- Description Body -->
+              <p class="animate-in" style="
+                font-family: 'Outfit', sans-serif;
+                font-size: 18px;
+                font-weight: 400;
+                line-height: 1.5;
+                color: #ffffff;
+                margin: 0 0 2rem 0;
+                opacity: 0.9;
+              ">
+                Each episode dives into real conversations with leaders, practitioners, and thinkers who are reimagining how organisations can build trust, connection, and wellbeing in the workplace. 
+                <br><br> 
+                From tackling burnout and employee engagement to shaping culture and navigating change, Human at Work offers practical insights and inspiring stories to help you create workplaces where people and performance thrive.
+              </p>
+
+              
+
+              <!-- Podcast Platform Logos -->
+              <div class="platform-logos animate-in" style="
+                display: flex;
+                gap: 1.5rem;
+                align-items: center;
+                margin-top: auto;
+                padding-top: 4rem;
+              ">
+                <!-- Apple Podcasts -->
+                <a href="#" style="
+                  display: flex;
+                  align-items: center;
+                  text-decoration: none;
+                  transition: transform 0.2s ease;
+                ">
+                  <img 
+                    src="/images/Human at Work/apple podcast.png" 
+                    alt="Apple Podcasts" 
+                    style="
+                      width: 30px;
+                      height: 30px;
+                      object-fit: contain;
+                    "
+                  />
+                </a>
+                
+                <!-- Spotify -->
+                <a href="#" style="
+                  display: flex;
+                  align-items: center;
+                  text-decoration: none;
+                  transition: transform 0.2s ease;
+                ">
+                  <img 
+                    src="/images/Human at Work/Spotify.png" 
+                    alt="Spotify" 
+                    style="
+                      width: 30px;
+                      height: 30px;
+                      object-fit: contain;
+                    "
+                  />
+                </a>
+              </div>
+            </div>
+
+            <!-- Right Column -->
+            <div class="podcast-right" style="
+              flex: 0 1 45%;
+              min-width: 480px;
+              padding-top: 4rem;
+              display: flex;
+              flex-direction: column;
+              align-items: center;
             ">
-              <div class="pipedriveWebForms" data-pd-webforms="https://webforms.pipedrive.com/f/cB5aEDdu8KwfSTzIANrfWsvwV6eKFntNzul8SKbZOOLw3BHkcziKiXFGz3D5m5PzG3">
-                <script src="https://webforms.pipedrive.com/f/loader"></script>
+              <!-- Form Container with Title -->
+              <div class="pipedrive-form-container animate-in" style="
+                width: 400px;
+                max-width: 100%;
+                position: relative;
+                z-index: 10;
+              ">
+                <!-- Call to Action Text -->
+                <p class="animate-in" style="
+                  font-family: 'Grenette', 'Outfit', sans-serif;
+                  font-size: 1.5rem;
+                  line-height: 1.4;
+                  color: #ffffff;
+                  margin: 0 0 2rem 0;
+                  font-weight: 600;
+                  text-align: left;
+                ">
+                  Drop your email so you don't miss the first episode
+                </p>
+
+                <!-- Form Content -->
+                <div style="
+                  width: 100%;
+                  position: relative;
+                  overflow: visible;
+                  min-height: 400px;
+              ">
+                <div class="pipedriveWebForms" data-pd-webforms="https://webforms.pipedrive.com/f/cB5aEDdu8KwfSTzIANrfWsvwV6eKFntNzul8SKbZOOLw3BHkcziKiXFGz3D5m5PzG3">
+                  <script src="https://webforms.pipedrive.com/f/loader"></script>
+                  </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
 
-    <style>
-      /* Responsive Layout - Make desktop layout mobile-friendly */
-      @media (max-width: 1024px) {
-        /* Convert two-column layout to single column on mobile */
-        main > div > div:first-child > div:first-child ~ div {
-          flex-direction: column !important;
-          align-items: center !important;
-          text-align: center !important;
-          padding: 2rem 1.5rem !important;
-          gap: 2rem !important;
-        }
+      <style>
+        /* Responsive Layout - Make desktop layout mobile-friendly */
+        @media (max-width: 1280px) {
+          /* Adjust layout for smaller desktop/laptop screens */
+          .podcast-left {
+            flex: 0 1 50% !important;
+          }
+          
+          .podcast-right {
+            flex: 0 1 50% !important;
+            min-width: 420px !important;
+          }
 
-        /* Left side content on mobile - stack vertically */
-        main > div > div:first-child > div:nth-child(2) {
-          max-width: none !important;
-          width: 100% !important;
-          text-align: center !important;
-          align-items: center !important;
+          /* Slightly smaller title */
+          h1 {
+            font-size: 5rem !important;
+          }
         }
 
-        /* Right side content on mobile - center below left content */
-        main > div > div:first-child > div:nth-child(3) {
-          margin-left: 0 !important;
-          flex: none !important;
-          width: 100% !important;
-          max-width: 400px !important;
-          text-align: center !important;
-          align-items: center !important;
+        @media (max-width: 1024px) {
+          /* Convert two-column layout to single column */
+          main > div > div:first-child > div:first-child ~ div {
+            flex-direction: column !important;
+            align-items: flex-start !important;
+            padding: 2rem 1.5rem !important;
+            gap: 2rem !important;
+          }
+
+          .podcast-left {
+            flex: none !important;
+            max-width: 100% !important;
+            width: 100% !important;
+          }
+
+          .podcast-right {
+            flex: none !important;
+            min-width: unset !important;
+            width: 100% !important;
+            max-width: 100% !important;
+            padding: 2rem 1rem !important;
+          }
+
+          .pipedrive-form-container {
+            width: 400px !important;
+            max-width: calc(100vw - 3rem) !important;
+            margin: 0 auto !important;
+          }
+
+          /* Adjust title size */
+          h1 {
+            font-size: 4rem !important;
+          }
+
+          /* Adjust host info */
+          .podcast-left p:first-of-type {
+            font-size: 1.3rem !important;
+          }
+
+          /* Adjust description */
+          .podcast-left p:nth-of-type(2) {
+            font-size: 16px !important;
+          }
+
+          /* Platform logos spacing */
+          .platform-logos {
+            padding-top: 2rem !important;
+          }
+
+          /* Form container sizing */
+          .pipedrive-form-container {
+            width: 100% !important;
+            max-width: 600px !important;
+            margin: 0 auto !important;
+          }
         }
 
-        /* Adjust title size for mobile */
-        main > div > div:first-child > div:nth-child(2) h1 {
-          font-size: 4rem !important;
-          text-align: center !important;
+        @media (max-width: 768px) {
+          /* Further adjustments for tablet */
+          h1 {
+            font-size: 3.5rem !important;
+          }
+
+          .podcast-left p:first-of-type {
+            font-size: 1.2rem !important;
+          }
+
+          .podcast-left p:nth-of-type(2) {
+            font-size: 15px !important;
+          }
+
+          .pipedrive-form-container {
+            max-width: 500px !important;
+          }
+
+          main > div > div:first-child > div:first-child ~ div {
+            padding: 2rem 1rem !important;
+          }
         }
 
-        /* Adjust host info for mobile */
-        main > div > div:first-child > div:nth-child(2) p:first-of-type {
-          font-size: 1.3rem !important;
-          text-align: center !important;
+        @media (max-width: 480px) {
+          /* Mobile adjustments */
+          h1 {
+            font-size: 2.5rem !important;
+          }
+
+          .podcast-left p:first-of-type {
+            font-size: 1rem !important;
+          }
+
+          .podcast-left p:nth-of-type(2) {
+            font-size: 14px !important;
+          }
+
+          .pipedrive-form-container {
+            max-width: 100% !important;
+          }
+
+          main > div > div:first-child > div:first-child ~ div {
+            padding: 1.5rem 0.75rem !important;
+          }
         }
 
-        /* Adjust description for mobile */
-        main > div > div:first-child > div:nth-child(2) p:nth-of-type(2) {
-          font-size: 16px !important;
-          text-align: center !important;
-          max-width: 100% !important;
+        /* Animate-in Effect */
+        .animate-in {
+          opacity: 0;
+          transform: translateY(40px);
+          transition:
+            opacity 1.2s cubic-bezier(0.77, 0, 0.175, 1),
+            transform 1.2s cubic-bezier(0.77, 0, 0.175, 1);
         }
-
-        /* Center podcast logos on mobile */
-        main > div > div:first-child > div:nth-child(2) > div:last-child {
-          justify-content: center !important;
-        }
-
-        /* Center email section on mobile */
-        main > div > div:first-child > div:nth-child(3) p {
-          text-align: center !important;
-        }
-
-        /* Adjust email input for mobile */
-        main > div > div:first-child > div:nth-child(3) .mobile-email-input {
-          max-width: 350px !important;
-          width: 100% !important;
-        }
-      }
-
-      @media (max-width: 768px) {
-        /* Smaller title on smaller screens */
-        main > div > div:first-child > div:nth-child(2) h1 {
-          font-size: 3rem !important;
-        }
-
-        /* Smaller host info on smaller screens */
-        main > div > div:first-child > div:nth-child(2) p:first-of-type {
-          font-size: 1.1rem !important;
-        }
-
-        /* Smaller description on smaller screens */
-        main > div > div:first-child > div:nth-child(2) p:nth-of-type(2) {
-          font-size: 14px !important;
-        }
-
-        /* Smaller email input on smaller screens */
-        main > div > div:first-child > div:nth-child(3) .mobile-email-input {
-          max-width: 300px !important;
-        }
-
-        /* Reduce padding on smaller screens */
-        main > div > div:first-child > div:first-child ~ div {
-          padding: 1.5rem 1rem !important;
-        }
-      }
-
-      @media (max-width: 480px) {
-        /* Even smaller title on very small screens */
-        main > div > div:first-child > div:nth-child(2) h1 {
-          font-size: 2.5rem !important;
-        }
-
-        /* Smaller host info on very small screens */
-        main > div > div:first-child > div:nth-child(2) p:first-of-type {
-          font-size: 1rem !important;
-        }
-
-        /* Smaller description on very small screens */
-        main > div > div:first-child > div:nth-child(2) p:nth-of-type(2) {
-          font-size: 13px !important;
-        }
-
-        /* Smaller email input on very small screens */
-        main > div > div:first-child > div:nth-child(3) .mobile-email-input {
-          max-width: 280px !important;
-        }
-
-        /* Further reduce padding on very small screens */
-        main > div > div:first-child > div:first-child ~ div {
-          padding: 1rem 0.75rem !important;
-        }
-      }
-
-      /* Animate-in Effect */
-      .animate-in {
-        opacity: 0;
-        transform: translateY(40px);
-        transition:
-          opacity 1.2s cubic-bezier(0.77, 0, 0.175, 1),
-          transform 1.2s cubic-bezier(0.77, 0, 0.175, 1);
-      }
-      .animate-in.visible {
-        opacity: 1;
-        transform: translateY(0);
-      }
-      
-      /* Audio Visualizer Animation */
-      .audio-bar {
-        animation: audioWave 2s ease-in-out infinite;
-        transform-origin: bottom;
-      }
-      
-      @keyframes audioWave {
-        0%, 100% {
-          transform: scaleY(1);
-          opacity: 0.3;
-        }
-        25% {
-          transform: scaleY(0.6);
-          opacity: 0.8;
-        }
-        50% {
-          transform: scaleY(1.4);
+        .animate-in.visible {
           opacity: 1;
+          transform: translateY(0);
         }
-        75% {
-          transform: scaleY(0.8);
-          opacity: 0.6;
+        
+        /* Audio Visualizer Animation */
+        .audio-bar {
+          animation: audioWave 2s ease-in-out infinite;
+          transform-origin: bottom;
+          width: 29px !important;
+          background: white !important;
+          border-radius: 50px !important;
         }
-      }
-    </style>
 
-  </main>
+        /* Make audio bars much thicker on mobile to match desktop visual appearance */
+        @media (max-width: 1024px) {
+          .audio-bar {
+            width: 55px !important;
+            background: white !important;
+            border-radius: 50px !important;
+            animation: audioWave 2s ease-in-out infinite !important;
+            transform-origin: bottom !important;
+          }
+          
+          /* Adjust the container gap for much thicker bars */
+          .audio-visualizer-container {
+            gap: 20px !important;
+          }
+        }
+        
+        @keyframes audioWave {
+          0%, 100% {
+            transform: scaleY(1);
+            opacity: 0.3;
+          }
+          25% {
+            transform: scaleY(0.6);
+            opacity: 0.8;
+          }
+          50% {
+            transform: scaleY(1.4);
+            opacity: 1;
+          }
+          75% {
+            transform: scaleY(0.8);
+            opacity: 0.6;
+          }
+        }
+      </style>
+    </main>
 
-  <script>
-    // Initialize viewport animations
-    document.addEventListener('DOMContentLoaded', function() {
-      initializeAnimations();
-    });
-
-    // Also handle astro page loads
-    document.addEventListener('astro:page-load', function() {
-      initializeAnimations();
-    });
-
-    // Viewport animation system
-    function initializeAnimations() {
-      // Animate all elements with animate-in class when they enter viewport
-      document.querySelectorAll('.animate-in').forEach((element) => {
-        const observer = new window.IntersectionObserver(
-          (entries) => {
-            entries.forEach((entry) => {
-              if (entry.isIntersecting) {
-                element.classList.add('visible');
-                observer.disconnect();
-              }
-            });
-          },
-          { threshold: 0.3 }
-        );
-        observer.observe(element);
+    <script>
+      // Initialize viewport animations
+      document.addEventListener('DOMContentLoaded', function() {
+        initializeAnimations();
       });
-    }
-  </script>
+
+      // Also handle astro page loads
+      document.addEventListener('astro:page-load', function() {
+        initializeAnimations();
+      });
+
+      // Viewport animation system
+      function initializeAnimations() {
+        // Animate all elements with animate-in class when they enter viewport
+        document.querySelectorAll('.animate-in').forEach((element) => {
+          const observer = new window.IntersectionObserver(
+            (entries) => {
+              entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                  element.classList.add('visible');
+                  observer.disconnect();
+                }
+              });
+            },
+            { threshold: 0.3 }
+          );
+          observer.observe(element);
+        });
+      }
+    </script>
   </body>
 </html>
