@@ -26,3 +26,7 @@ pnpm-debug.log*
 # build plan documentation
 build_plan.md
 pipedrive-form.html
+
+# feature planning documents
+*-build-plan.md
+2025-*-build-plan.md

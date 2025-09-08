@@ -44,9 +44,7 @@ import Layout from "../layouts/Layout.astro";
             <div class="comparison-table" style="margin-top: 3rem; background: white;">
                 <div class="table-header">
                     <div class="empty-cell"></div>
-                    <div class="product-col">
-                        <img src="/hoogly-logo.png" alt="Hoogly.ai" style="height: 40px; width: auto;" />
-                    </div>
+                    <div class="product-col hoogly-col">Hoogly.ai</div>
                     <div class="product-col">Culture Amp</div>
                     <div class="product-col">Lattice</div>
                     <div class="product-col">Officevibe</div>
@@ -167,49 +165,106 @@ import Layout from "../layouts/Layout.astro";
     </section>
 
     <!-- Detailed Comparisons Section -->
-    <section>
+    <section class="comparison-section">
         <div class="container">
             <h2 class="section-title">Detailed Comparisons</h2>
-            <h3 class="section-subtitle">Here are some direct comparisons to other products which people frequently migrate to Hoogly from</h3>
+            <h3 class="section-subtitle">Here are some direct comparisons between popular employee engagement platforms</h3>
 
             <div class="comparison-grid">
                 <div class="comparison-card">
                     <div class="comparison-header">
-                        <img src="/hoogly-logo.png" alt="Hoogly.ai" style="height: 40px; width: auto;" />
-                        <span>vs</span>
-                        <span>Culture Amp</span>
+                        <div class="competitor-pill hoogly-pill">
+                            <img src="/hoogly-logo.png" alt="Hoogly.ai" class="comparison-logo" />
+                        </div>
+                        <span class="vs-text">vs</span>
+                        <div class="competitor-pill">Culture Amp</div>
                     </div>
-                    <p>
+                    <p class="comparison-description">
                         Tired of survey fatigue and questionable anonymity? Hoogly.ai offers a trustworthy alternative
                         that focuses on building real trust through continuous listening and action, not just measurement.
                     </p>
-                    <a href="/vs/culture-amp" class="btn btn-accent">Compare Hoogly.ai vs Culture Amp →</a>
+                    <div class="button-container">
+                        <a href="/vs/hoogly-vs-culture-amp" class="btn btn-accent">See How Hoogly.ai Compares →</a>
+                    </div>
                 </div>
 
                 <div class="comparison-card">
                     <div class="comparison-header">
-                        <img src="/hoogly-logo.png" alt="Hoogly.ai" style="height: 40px; width: auto;" />
-                        <span>vs</span>
-                        <span>Lattice</span>
+                        <div class="competitor-pill hoogly-pill">
+                            <img src="/hoogly-logo.png" alt="Hoogly.ai" class="comparison-logo" />
+                        </div>
+                        <span class="vs-text">vs</span>
+                        <div class="competitor-pill">Lattice</div>
                     </div>
-                    <p>
+                    <p class="comparison-description">
                         While Lattice excels at performance management, Hoogly.ai is purpose-built for culture. We help
                         you build trust and psychological safety, not just track metrics and goals.
                     </p>
-                    <a href="/vs/lattice" class="btn btn-accent">Compare Hoogly.ai vs Lattice →</a>
+                    <div class="button-container">
+                        <a href="/vs/hoogly-vs-lattice" class="btn btn-accent">See How Hoogly.ai Compares →</a>
+                    </div>
                 </div>
 
                 <div class="comparison-card">
                     <div class="comparison-header">
-                        <img src="/hoogly-logo.png" alt="Hoogly.ai" style="height: 40px; width: auto;" />
-                        <span>vs</span>
-                        <span>Officevibe</span>
+                        <div class="competitor-pill hoogly-pill">
+                            <img src="/hoogly-logo.png" alt="Hoogly.ai" class="comparison-logo" />
+                        </div>
+                        <span class="vs-text">vs</span>
+                        <div class="competitor-pill">Officevibe</div>
                     </div>
-                    <p>
+                    <p class="comparison-description">
                         Move beyond rigid pulse surveys to a flexible, deep understanding of your culture. Hoogly.ai
                         provides contextual insights that help you understand the 'why' behind the numbers.
                     </p>
-                    <a href="/vs/officevibe" class="btn btn-accent">Compare Hoogly.ai vs Officevibe →</a>
+                    <div class="button-container">
+                        <a href="/vs/hoogly-vs-officevibe" class="btn btn-accent">See How Hoogly.ai Compares →</a>
+                    </div>
+                </div>
+
+                <div class="comparison-card">
+                    <div class="comparison-header">
+                        <div class="competitor-pill">Culture Amp</div>
+                        <span class="vs-text">vs</span>
+                        <div class="competitor-pill">Officevibe</div>
+                    </div>
+                    <p class="comparison-description">
+                        Both platforms offer pulse surveys, but take different approaches. Culture Amp focuses on deep analytics
+                        and benchmarking, while Officevibe emphasizes simplicity and regular feedback cycles.
+                    </p>
+                    <div class="button-container">
+                        <a href="/vs/culture-amp-vs-officevibe" class="btn btn-accent">Compare Culture Amp & Officevibe →</a>
+                    </div>
+                </div>
+
+                <div class="comparison-card">
+                    <div class="comparison-header">
+                        <div class="competitor-pill">Lattice</div>
+                        <span class="vs-text">vs</span>
+                        <div class="competitor-pill">Culture Amp</div>
+                    </div>
+                    <p class="comparison-description">
+                        Lattice's strength lies in performance management, while Culture Amp excels in engagement surveys.
+                        Both platforms require significant setup and maintenance.
+                    </p>
+                    <div class="button-container">
+                        <a href="/vs/lattice-vs-culture-amp" class="btn btn-accent">Compare Lattice & Culture Amp →</a>
+                    </div>
+                </div>
+
+                <div class="comparison-card">
+                    <div class="comparison-header">
+                        <div class="competitor-pill">Officevibe</div>
+                        <span class="vs-text">vs</span>
+                        <div class="competitor-pill">Lattice</div>
+                    </div>
+                    <p class="comparison-description">
+                        Officevibe offers lightweight pulse surveys while Lattice provides comprehensive performance management.
+                        Both platforms can lead to survey fatigue and lack real-time insights.
+                    </p>
+                    <div class="button-container">
+                        <a href="/vs/officevibe-vs-lattice" class="btn btn-accent">Compare Officevibe & Lattice →</a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -220,7 +275,8 @@ import Layout from "../layouts/Layout.astro";
     
 
     .comparison-section {
-        padding: var(--space-20) 0;
+        padding: var(--space-20) 0 var(--space-32) 0;
+        background: var(--color-neutral-50);
     }
 
     .comparison-table {
@@ -228,24 +284,25 @@ import Layout from "../layouts/Layout.astro";
         border-radius: var(--radius-2xl);
         box-shadow: var(--shadow-lg);
         overflow: hidden;
+        width: 100%;
+        table-layout: fixed;
+        border-spacing: 0;
     }
 
     .table-header {
         display: grid;
-        grid-template-columns: 250px repeat(5, 1fr);
-        gap: 2rem;
-        padding: 2rem;
+        grid-template-columns: 220px repeat(5, 1fr);
         background: var(--color-neutral-50);
         border-bottom: 1px solid var(--color-neutral-200);
+        position: relative;
     }
 
     .table-row {
         display: grid;
-        grid-template-columns: 250px repeat(5, 1fr);
-        gap: 2rem;
-        padding: 1.5rem 2rem;
+        grid-template-columns: 220px repeat(5, 1fr);
         border-bottom: 1px solid var(--color-neutral-100);
-        align-items: center;
+        align-items: stretch;
+        position: relative;
     }
 
     .table-row:last-child {
@@ -256,21 +313,158 @@ import Layout from "../layouts/Layout.astro";
         font-weight: 500;
         color: var(--color-neutral-800);
         text-align: left;
+        padding: 1.5rem;
+        border-right: 1px solid var(--color-neutral-100);
     }
 
     .empty-cell {
-        min-width: 250px;
+        width: 220px;
+        padding: 1.5rem;
+        border-right: 1px solid var(--color-neutral-100);
     }
 
     .product-col {
-        text-align: center;
+        text-align: left;
         font-weight: 500;
-        min-height: 48px;
+        padding: 1.5rem;
+        font-size: var(--font-size-base);
+        border-right: 1px solid var(--color-neutral-100);
+        display: flex;
+        align-items: center;
+    }
+
+    .product-col:last-child {
+        border-right: none;
+    }
+
+    /* Style for the entire Hoogly column */
+    .table-header .product-col:nth-child(2),
+    .table-row .product-col:nth-child(2) {
+        background: #FFF0F7;
+        font-weight: 600;
+        color: var(--color-neutral-900);
+        position: relative;
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        z-index: 1;
+    }
+
+    /* First cell in Hoogly column (header) */
+    .table-header .product-col:nth-child(2) {
+        border-radius: 16px 16px 0 0;
+        margin-top: -1px;
+        padding-top: calc(1.5rem + 1px);
+    }
+
+    /* Last cell in Hoogly column */
+    .table-row:last-child .product-col:nth-child(2) {
+        border-radius: 0 0 16px 16px;
+        padding-bottom: calc(1.5rem + 1px);
+        margin-bottom: -1px;
+    }
+
+    /* Add a subtle gradient overlay to enhance 3D effect */
+    .table-header .product-col:nth-child(2)::after,
+    .table-row .product-col:nth-child(2)::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(180deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0) 100%);
+        pointer-events: none;
+        border-radius: inherit;
+    }
+
+    .comparison-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: var(--space-8);
+        margin-top: var(--space-12);
+    }
+
+    .comparison-card {
+        background: white;
+        border-radius: var(--radius-xl);
+        padding: var(--space-8);
+        box-shadow: var(--shadow-lg);
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        min-height: 300px;
+    }
+
+    .comparison-header {
         display: flex;
         align-items: center;
         justify-content: center;
-        flex-direction: column;
-        gap: 0.5rem;
+        gap: var(--space-4);
+        padding-bottom: var(--space-6);
+        border-bottom: 1px solid var(--color-neutral-100);
+        margin-bottom: var(--space-6);
+        font-size: var(--font-size-xl);
+        font-weight: 500;
+    }
+
+    .comparison-logo {
+        height: 32px;
+        width: auto;
+    }
+
+    .vs-text {
+        color: var(--color-neutral-400);
+        font-weight: var(--font-weight-medium);
+        padding: 0 var(--space-2);
+    }
+
+    .competitor-pill {
+        font-weight: var(--font-weight-semibold);
+        color: var(--color-neutral-900);
+        font-size: var(--font-size-lg);
+        background: var(--color-neutral-50);
+        padding: 0.5rem 1rem;
+        border-radius: 100px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-width: 120px;
+    }
+
+    .hoogly-pill {
+        background: white;
+        box-shadow: var(--shadow-sm);
+    }
+
+    .comparison-description {
+        flex-grow: 1;
+        color: var(--color-neutral-700);
+        line-height: 1.6;
+        text-align: left;
+        margin-bottom: var(--space-6);
+    }
+
+    .button-container {
+        margin-top: auto;
+        text-align: center;
+    }
+
+    .btn.btn-accent {
+        width: 100%;
+        justify-content: center;
+        white-space: nowrap;
+        display: inline-block;
+        padding: 0.75rem 1.5rem;
+        border-radius: 71px;
+        background: #FF7D61;
+        color: #23221F;
+        text-decoration: none;
+        font-weight: 500;
+        transition: all 0.2s;
+    }
+
+    .btn.btn-accent:hover {
+        background: white;
+        color: #23221F;
     }
 
     .check {
@@ -301,11 +495,6 @@ import Layout from "../layouts/Layout.astro";
         line-height: 1.6;
     }
 
-    .detailed-comparisons-section {
-        padding: var(--space-20) 0;
-        background: linear-gradient(135deg, #F6F4FE 0%, #F5E9FA 100%);
-    }
-
     .section-title {
         font-size: var(--font-size-4xl);
         color: var(--color-neutral-900);
@@ -321,60 +510,52 @@ import Layout from "../layouts/Layout.astro";
         font-weight: 400;
     }
 
-    .comparison-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        gap: 2rem;
-        margin-top: 3rem;
+    @media (max-width: 1200px) {
+        .comparison-grid {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
     }
 
-    .comparison-card {
-        background: white;
-        border-radius: var(--radius-2xl);
-        padding: 2rem;
-        text-align: center;
-        box-shadow: var(--shadow-lg);
-    }
+    @media (max-width: 1024px) {
+        .table-header, .table-row {
+            grid-template-columns: 180px repeat(5, 1fr);
+            font-size: 0.9rem;
+        }
 
-    .comparison-header {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 1rem;
-        margin-bottom: 1.5rem;
-        font-size: var(--font-size-xl);
-        font-weight: 500;
-    }
+        .empty-cell {
+            width: 180px;
+            padding: 1.25rem;
+        }
 
-    .comparison-card p {
-        color: var(--color-neutral-700);
-        margin-bottom: 1.5rem;
-        line-height: 1.6;
-    }
+        .product-col {
+            padding: 1.25rem;
+        }
 
-    .btn-accent {
-        display: inline-block;
-        padding: 0.75rem 1.5rem;
-        border-radius: 71px;
-        background: #FF7D61;
-        color: #23221F;
-        text-decoration: none;
-        font-weight: 500;
-        transition: all 0.2s;
-    }
-
-    .btn-accent:hover {
-        background: white;
-        color: #23221F;
+        .feature-label {
+            padding: 1.25rem;
+        }
     }
 
     @media (max-width: 768px) {
         .table-header, .table-row {
-            grid-template-columns: 2fr repeat(2, 1fr);
+            grid-template-columns: 160px repeat(3, 1fr);
         }
 
-        .product-col:nth-child(n+4) {
+        .product-col:nth-child(n+5) {
             display: none;
+        }
+
+        .empty-cell {
+            width: 160px;
+            padding: 1rem;
+        }
+
+        .product-col {
+            padding: 1rem;
+        }
+
+        .feature-label {
+            padding: 1rem;
         }
 
         .comparison-grid {
@@ -384,12 +565,25 @@ import Layout from "../layouts/Layout.astro";
 
     @media (max-width: 480px) {
         .table-header, .table-row {
-            grid-template-columns: 2fr 1fr;
-            font-size: 0.9rem;
+            grid-template-columns: 120px repeat(2, 1fr);
+            font-size: 0.85rem;
         }
 
-        .product-col:nth-child(n+3) {
+        .product-col:nth-child(n+4) {
             display: none;
+        }
+
+        .empty-cell {
+            width: 120px;
+            padding: 0.875rem;
+        }
+
+        .product-col {
+            padding: 0.875rem;
+        }
+
+        .feature-label {
+            padding: 0.875rem;
         }
 
         .hero-title {
