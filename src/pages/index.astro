@@ -19,15 +19,10 @@ import ChatApp from "@venn/ChatApp.vue";
 						data-parallax-speed="0.3"
 					>
 						<div class="hero-title-align" style="display: block;">
-							<span class="hero-title-text">Tired of </span><span
-								class="hero-highlight"
-								><span class="hero-highlight-text">meh</span
-								></span><br class="mobile-break" style="display:none;"><span class="hero-title-text">
-								survey results?</span
-							>
+							<span class="hero-title-text">Your annual survey costs you your best people</span>
 						</div>
 						<div class="hero-title-second-line" style="font-size: 4rem;">
-							So are your employees.
+							
 						</div>
 					</div>
 					<div
@@ -35,7 +30,11 @@ import ChatApp from "@venn/ChatApp.vue";
 						style="font-family: 'Outfit', sans-serif; font-weight: 400; text-align: center; margin-bottom: 2.5em; padding-top: 1rem; line-height: 30px; opacity: 0; transform: translateY(30px); transition: opacity 0.8s ease-out, transform 0.8s ease-out;"
 						data-parallax-speed="0.5"
 					>
-						Spark change with the AI conversations your team <em>wished</em> someone would have.
+						Hoogly’s AI conversations uncover the hidden context behind employee feedback, giving leaders the clarity to act decisively and rebuild trust.
+					</div>
+					<div class="hero-cta parallax-element scroll-animate" data-parallax-speed="0.6" style="display:flex; gap: 1rem; justify-content:center; align-items:center; margin-bottom: 2rem; opacity: 0; transform: translateY(30px); transition: opacity 0.8s ease-out, transform 0.8s ease-out;">
+						<a id="seeItInAction" href="#video-modal" class="btn btn-primary" style="border-radius: 56px; padding: 0.9rem 1.4rem;">See It In Action (2-Min Video)</a>
+						<a href="/get-started?button-label=Book%20a%20Culture%20Strategy%20Session&page-source=hero" class="btn btn-secondary" style="border-radius: 56px; padding: 0.9rem 1.4rem;">Book a Culture Strategy Session</a>
 					</div>
 					<div class="parallax-element scroll-animate" data-parallax-speed="0.7" style="opacity: 0; transform: translateY(30px); transition: opacity 0.8s ease-out, transform 0.8s ease-out;">
 						<ChatApp client:only="vue" variant="mini" />
@@ -626,6 +625,31 @@ import ChatApp from "@venn/ChatApp.vue";
 			>
 		</div>
 	</section>
+
+	<!-- Video Modal -->
+	<div id="video-modal" style="display:none; position: fixed; inset: 0; background: rgba(0,0,0,0.6); z-index: 9999; align-items: center; justify-content: center; padding: 1rem;">
+		<div style="background: #fff; border-radius: 16px; max-width: 960px; width: 100%; overflow: hidden; position: relative;">
+			<button id="close-video-modal" aria-label="Close" style="position:absolute; top: 10px; right: 10px; background: #23221F; color: #fff; border: none; border-radius: 999px; width: 36px; height: 36px; cursor: pointer;">×</button>
+			<video id="hero-video" controls playsinline style="width: 100%; height: auto; display: block; background: #000;">
+				<source src="/images/How it works/Experience a new way to understand your employees.mp4" type="video/mp4" />
+				Your browser does not support the video tag.
+			</video>
+		</div>
+	</div>
+
+	<script is:inline>
+		(function(){
+			const link = document.getElementById('seeItInAction');
+			const modal = document.getElementById('video-modal');
+			const closeBtn = document.getElementById('close-video-modal');
+			const video = document.getElementById('hero-video');
+			function openModal(e){ if(e) e.preventDefault(); if(!modal) return; modal.style.display='flex'; if(video && video.paused){ video.currentTime = 0; video.play().catch(()=>{});} }
+			function closeModal(){ if(!modal) return; modal.style.display='none'; if(video && !video.paused){ video.pause(); } }
+			if(link){ link.addEventListener('click', openModal, { passive: false }); }
+			if(closeBtn){ closeBtn.addEventListener('click', closeModal); }
+			if(modal){ modal.addEventListener('click', (e)=>{ if(e.target === modal) closeModal(); }); }
+		})();
+	</script>
 </Layout>
 
 <style>
@@ -1094,7 +1118,8 @@ import ChatApp from "@venn/ChatApp.vue";
 			let animationTriggered = false;
 			
 			function handleWordAnimation() {
-				const rect = testimonialSection.getBoundingClientRect();
+				if (!testimonialSection) return;
+				const rect = (testimonialSection as HTMLElement).getBoundingClientRect();
 				const viewportHeight = window.innerHeight;
 				
 				// Check if testimonial is entering the viewport
@@ -1112,7 +1137,7 @@ import ChatApp from "@venn/ChatApp.vue";
 					
 					words.forEach((word, index) => {
 						setTimeout(() => {
-							word.style.opacity = '1';
+							(word as HTMLElement).style.opacity = '1';
 							console.log(`Animating word ${index + 1}/${totalWords}`);
 						}, index * wordDelay);
 					});
@@ -1136,7 +1161,7 @@ import ChatApp from "@venn/ChatApp.vue";
 			
 			// Ensure all parallax elements stay at their natural position
 			parallaxElements.forEach(element => {
-				element.style.transform = 'translateY(0)';
+				(element as HTMLElement).style.transform = 'translateY(0)';
 			});
 		}
 		
@@ -1156,13 +1181,13 @@ import ChatApp from "@venn/ChatApp.vue";
 				entries.forEach(entry => {
 					if (entry.isIntersecting && !entry.target.classList.contains('animated')) {
 						// Mark as animated to prevent re-triggering
-						entry.target.classList.add('animated');
-						entry.target.style.opacity = '1';
+						(entry.target as HTMLElement).classList.add('animated');
+						(entry.target as HTMLElement).style.opacity = '1';
 						// For parallax elements, keep them in place (parallax disabled)
-						if (entry.target.classList.contains('parallax-element')) {
-							entry.target.style.transform = 'translateY(0)';
+						if ((entry.target as HTMLElement).classList.contains('parallax-element')) {
+							(entry.target as HTMLElement).style.transform = 'translateY(0)';
 						} else {
-							entry.target.style.transform = 'translateY(0)';
+							(entry.target as HTMLElement).style.transform = 'translateY(0)';
 						}
 					}
 				});

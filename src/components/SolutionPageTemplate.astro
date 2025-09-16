@@ -1,0 +1,690 @@
+---
+import Layout from "../layouts/Layout.astro";
+import ChatApp from "@venn/ChatApp.vue";
+
+export interface Props {
+  // SEO & Page Data
+  title: string;
+  description: string;
+  primaryKeyword: string;
+  slug: string;
+  
+  // Hero Section
+  heroHeadline: string;
+  heroSubheadline: string;
+  heroImage?: string;
+  
+  // Core Pain Section
+  painHeadline: string;
+  painBody: string;
+  
+  // Solution Section
+  solutionHeadline: string;
+  solutionBody: string;
+  listenText: string;
+  understandText: string;
+  actText: string;
+  
+  // Proof Section
+  proofHeadline: string;
+  proofImage?: string;
+  
+  // CTA Section
+  ctaHeadline: string;
+  ctaSubtext: string;
+  ctaButtonText: string;
+  ctaButtonLink: string;
+  
+  // Supporting Pillars
+  pillarsHeadline: string;
+  pillarsBody: string;
+  pillar1Title: string;
+  pillar1Description: string;
+  pillar2Title: string;
+  pillar2Description: string;
+  pillar3Title: string;
+  pillar3Description: string;
+  
+  // FAQ Section
+  faqHeadline: string;
+  faq1Question: string;
+  faq1Answer: string;
+  faq2Question: string;
+  faq2Answer: string;
+  faq3Question: string;
+  faq3Answer: string;
+}
+
+const {
+  title,
+  description,
+  primaryKeyword,
+  slug,
+  heroHeadline,
+  heroSubheadline,
+  heroImage = "/images/new%20dash.png",
+  painHeadline,
+  painBody,
+  solutionHeadline,
+  solutionBody,
+  listenText,
+  understandText,
+  actText,
+  proofHeadline,
+  proofImage = "/images/Section 1.png",
+  ctaHeadline,
+  ctaSubtext,
+  ctaButtonText,
+  ctaButtonLink,
+  pillarsHeadline,
+  pillarsBody,
+  pillar1Title,
+  pillar1Description,
+  pillar2Title,
+  pillar2Description,
+  pillar3Title,
+  pillar3Description,
+  faqHeadline,
+  faq1Question,
+  faq1Answer,
+  faq2Question,
+  faq2Answer,
+  faq3Question,
+  faq3Answer,
+} = Astro.props;
+---
+
+<Layout
+  title={title}
+  description={description}
+  type="website"
+>
+  <!-- Hero Section -->
+  <section class="hero hero-fullscreen">
+    <div class="container">
+      <div class="hero-content">
+        <div class="hero-text">
+          <div
+            class="hero-title parallax-element scroll-animate"
+            style="text-align: center; margin-bottom: 0.2em; font-family: 'Outfit', sans-serif; font-size: 4rem; opacity: 0; transform: translateY(30px); transition: opacity 0.8s ease-out, transform 0.8s ease-out;"
+            data-parallax-speed="0.3"
+          >
+            <div class="hero-title-align" style="display: block;">
+              <span class="hero-title-text">{heroHeadline}</span>
+            </div>
+          </div>
+          <div
+            class="hero-subtitle parallax-element scroll-animate"
+            style="font-family: 'Outfit', sans-serif; font-weight: 400; text-align: center; margin-bottom: 2.5em; padding-top: 1rem; line-height: 30px; opacity: 0; transform: translateY(30px); transition: opacity 0.8s ease-out, transform 0.8s ease-out;"
+            data-parallax-speed="0.5"
+          >
+            {heroSubheadline}
+          </div>
+          <div class="parallax-element scroll-animate" data-parallax-speed="0.7" style="opacity: 0; transform: translateY(30px); transition: opacity 0.8s ease-out, transform 0.8s ease-out;">
+            <ChatApp client:only="vue" variant="mini" />
+          </div>
+          <div style="height: 18vh; min-height: 120px; max-height: 180px; width: 100%;"></div>
+        </div>
+        
+        <div
+          class="hero-flip-image"
+          style="display: flex; justify-content: center; align-items: flex-end; margin-top: 4.5rem;"
+        >
+          <img
+            id="heroFlipImage"
+            src={heroImage}
+            alt="Dashboard Hero"
+            style="max-width: 100%; height: auto; width: 1162.33px; min-width: 0; border-radius: 18px; box-shadow: 0 8px 32px rgba(44, 41, 80, 0.12);"
+          />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Core Pain Section -->
+  <section class="anonymous-ai-section section-gradient">
+    <div class="container">
+      <div class="anonymous-ai-content">
+        <img
+          src="/images/Section 2.png"
+          alt="Section 2"
+          class="anonymous-ai-image animate-in"
+          style="width: 420px; max-width: 100%;"
+        />
+        <div class="anonymous-ai-text">
+          <h2
+            class="anonymous-ai-headline"
+            style="font-family: 'Outfit', sans-serif; font-weight: 400;"
+          >
+            <span class="hero-highlight"
+              ><span class="hero-highlight-text">{painHeadline}</span
+              ></span
+            >
+          </h2>
+          <p
+            class="anonymous-ai-subheadline"
+            style="font-family: 'Outfit', sans-serif; font-weight: 400;"
+          >
+            {painBody}
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Solution Section -->
+  <section class="anonymous-ai-section anonymous-ai-section-tight">
+    <div class="container">
+      <div class="anonymous-ai-content">
+        <div class="anonymous-ai-text">
+          <h2
+            class="anonymous-ai-headline"
+            style="font-family: 'Outfit', sans-serif; font-weight: 400;"
+          >
+            <span class="hero-highlight"
+              ><span class="hero-highlight-text">{solutionHeadline}</span
+              ></span
+            >
+          </h2>
+          <p
+            class="anonymous-ai-subheadline"
+            style="font-family: 'Outfit', sans-serif; font-weight: 400;"
+          >
+            {solutionBody}
+          </p>
+          
+          <!-- Listen, Understand, Act Framework -->
+          <div style="margin-top: 2rem;">
+            <div style="margin-bottom: 1.5rem;">
+              <h3 style="font-family: 'Outfit', sans-serif; font-weight: 600; color: #23221F; margin-bottom: 0.5rem;">
+                <span class="hero-highlight"><span class="hero-highlight-text">Listen:</span></span>
+              </h3>
+              <p style="font-family: 'Outfit', sans-serif; font-weight: 400; color: #444; margin: 0;">
+                {listenText}
+              </p>
+            </div>
+            
+            <div style="margin-bottom: 1.5rem;">
+              <h3 style="font-family: 'Outfit', sans-serif; font-weight: 600; color: #23221F; margin-bottom: 0.5rem;">
+                <span class="hero-highlight"><span class="hero-highlight-text">Understand:</span></span>
+              </h3>
+              <p style="font-family: 'Outfit', sans-serif; font-weight: 400; color: #444; margin: 0;">
+                {understandText}
+              </p>
+            </div>
+            
+            <div style="margin-bottom: 1.5rem;">
+              <h3 style="font-family: 'Outfit', sans-serif; font-weight: 600; color: #23221F; margin-bottom: 0.5rem;">
+                <span class="hero-highlight"><span class="hero-highlight-text">Act:</span></span>
+              </h3>
+              <p style="font-family: 'Outfit', sans-serif; font-weight: 400; color: #444; margin: 0;">
+                {actText}
+              </p>
+            </div>
+          </div>
+        </div>
+        <img
+          src="/images/Section 3.png"
+          alt="Section 3"
+          class="anonymous-ai-image animate-in"
+          style="width: 420px; max-width: 100%;"
+        />
+      </div>
+    </div>
+  </section>
+
+  <!-- Proof Section -->
+  <section class="anonymous-ai-section anonymous-ai-section-tight section-gradient">
+    <div class="container">
+      <div class="anonymous-ai-content">
+        <img
+          src={proofImage}
+          alt="Proof Section"
+          class="anonymous-ai-image animate-in"
+          style="width: 420px; max-width: 100%;"
+        />
+        <div class="anonymous-ai-text">
+          <h2
+            class="anonymous-ai-headline"
+            style="font-family: 'Outfit', sans-serif; font-weight: 400;"
+          >
+            <span class="hero-highlight"
+              ><span class="hero-highlight-text">{proofHeadline}</span
+              ></span
+            >
+          </h2>
+          <p
+            class="anonymous-ai-subheadline"
+            style="font-family: 'Outfit', sans-serif; font-weight: 400;"
+          >
+            This is where you'll embed the Venn AI conversation screenshot from the homepage. It's the most powerful piece of visual evidence you have. It makes the concept of "AI conversations" tangible.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="anonymous-ai-section anonymous-ai-section-tight">
+    <div class="container">
+      <div class="anonymous-ai-content">
+        <div class="anonymous-ai-text">
+          <h2
+            class="anonymous-ai-headline"
+            style="font-family: 'Outfit', sans-serif; font-weight: 400;"
+          >
+            <span class="hero-highlight"
+              ><span class="hero-highlight-text">{ctaHeadline}</span
+              ></span
+            >
+          </h2>
+          <p
+            class="anonymous-ai-subheadline"
+            style="font-family: 'Outfit', sans-serif; font-weight: 400;"
+          >
+            {ctaSubtext}
+          </p>
+          <div style="margin-top: 2rem;">
+            <a
+              href={ctaButtonLink}
+              class="btn btn-accent"
+              style="font-size: 1.25rem; padding: 1rem 2rem; border-radius: 71px; display: inline-block; margin-bottom: 1rem;"
+            >
+              {ctaButtonText}
+            </a>
+            <p style="font-size: 0.9rem; color: #666; margin: 0; font-family: 'Outfit', sans-serif;">
+              No credit card required. See your first insights in minutes.
+            </p>
+          </div>
+        </div>
+        <img
+          src="/images/Section 4.png"
+          alt="Section 4"
+          class="anonymous-ai-image animate-in"
+          style="width: 420px; max-width: 100%;"
+        />
+      </div>
+    </div>
+  </section>
+
+  <!-- Supporting Pillars Section -->
+  <section class="anonymous-ai-section anonymous-ai-section-tight section-gradient">
+    <div class="container">
+      <div class="anonymous-ai-content">
+        <div class="anonymous-ai-text">
+          <h2
+            class="anonymous-ai-headline"
+            style="font-family: 'Outfit', sans-serif; font-weight: 400;"
+          >
+            <span class="hero-highlight"
+              ><span class="hero-highlight-text">{pillarsHeadline}</span
+              ></span
+            >
+          </h2>
+          <p
+            class="anonymous-ai-subheadline"
+            style="font-family: 'Outfit', sans-serif; font-weight: 400;"
+          >
+            {pillarsBody}
+          </p>
+          
+          <!-- 3-Column Grid for Pillars -->
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin-top: 2rem;">
+            <div style="text-align: center;">
+              <div style="width: 60px; height: 60px; background: #E8E6FF; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem auto;">
+                <svg width="30" height="30" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M12 2L13.09 8.26L20 9L13.09 9.74L12 16L10.91 9.74L4 9L10.91 8.26L12 2Z" fill="#6C63FF"/>
+                </svg>
+              </div>
+              <h3 style="font-family: 'Outfit', sans-serif; font-weight: 600; color: #23221F; margin-bottom: 0.5rem;">
+                {pillar1Title}
+              </h3>
+              <p style="font-family: 'Outfit', sans-serif; font-weight: 400; color: #444; margin: 0;">
+                {pillar1Description}
+              </p>
+            </div>
+            
+            <div style="text-align: center;">
+              <div style="width: 60px; height: 60px; background: #E8E6FF; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem auto;">
+                <svg width="30" height="30" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M12 2L13.09 8.26L20 9L13.09 9.74L12 16L10.91 9.74L4 9L10.91 8.26L12 2Z" fill="#6C63FF"/>
+                </svg>
+              </div>
+              <h3 style="font-family: 'Outfit', sans-serif; font-weight: 600; color: #23221F; margin-bottom: 0.5rem;">
+                {pillar2Title}
+              </h3>
+              <p style="font-family: 'Outfit', sans-serif; font-weight: 400; color: #444; margin: 0;">
+                {pillar2Description}
+              </p>
+            </div>
+            
+            <div style="text-align: center;">
+              <div style="width: 60px; height: 60px; background: #E8E6FF; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem auto;">
+                <svg width="30" height="30" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M12 2L13.09 8.26L20 9L13.09 9.74L12 16L10.91 9.74L4 9L10.91 8.26L12 2Z" fill="#6C63FF"/>
+                </svg>
+              </div>
+              <h3 style="font-family: 'Outfit', sans-serif; font-weight: 600; color: #23221F; margin-bottom: 0.5rem;">
+                {pillar3Title}
+              </h3>
+              <p style="font-family: 'Outfit', sans-serif; font-weight: 400; color: #444; margin: 0;">
+                {pillar3Description}
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section
+    class="faq-section"
+    style="background: white; padding: var(--space-20) 0; width: 100vw; margin-left: calc(-50vw + 50%); overflow-x: hidden;"
+  >
+    <div class="container" style="max-width: 800px; margin: 0 auto;">
+      <div
+        class="faq-section"
+        style="display: flex; flex-direction: column; align-items: center; width: 100%;"
+      >
+        <h2
+          style="font-size: 2rem; font-weight: 600; color: #23221F; margin-bottom: 2rem; margin-top: 0;"
+        >
+          {faqHeadline}
+        </h2>
+        <style>
+          .faq-section {
+            width: 100%;
+            padding-top: var(--space-16, 16px);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+            gap: 0;
+            align-self: stretch;
+          }
+          .faq-item {
+            width: 100%;
+            border-bottom: 1px solid #e2e8f0;
+            padding: 0;
+            margin-top: 0;
+            margin-bottom: 1rem;
+          }
+          .faq-item:last-child {
+            margin-bottom: 0;
+          }
+          .faq-summary {
+            font-size: 1.35rem;
+            font-weight: 500;
+            font-family: "Outfit", sans-serif;
+            color: #23221f;
+            cursor: pointer;
+            outline: none;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1.2rem 0 0.4rem 0;
+            margin-top: 0;
+            transition: background 0.2s;
+            line-height: 1.2;
+            min-height: 3rem;
+          }
+          .faq-summary span:first-child {
+            display: flex;
+            align-items: center;
+            line-height: 1.4;
+          }
+          .faq-arrow {
+            display: flex;
+            width: 32px;
+            height: 32px;
+            padding: 0;
+            justify-content: center;
+            align-items: center;
+            gap: 6px;
+            flex-shrink: 0;
+            border-radius: 64px;
+            background: #d0ccff;
+            backdrop-filter: blur(25px);
+            transition: background 0.2s;
+          }
+          .faq-arrow svg {
+            width: 26px;
+            height: 26px;
+            transition: transform 0.3s ease;
+            display: block;
+          }
+          .faq-item.open .faq-arrow svg {
+            transform: rotate(180deg);
+          }
+          .faq-answer {
+            color: #444;
+            font-size: 1.08rem;
+            font-weight: 400;
+            margin: 0 0 1.5rem 0;
+            padding-left: 0;
+            padding-bottom: 0.5rem;
+            padding-right: 2.5rem;
+            padding-top: 0;
+            text-align: left;
+            line-height: 1.7;
+            max-height: 0;
+            opacity: 0;
+            overflow: hidden;
+            transition:
+              max-height 0.4s ease,
+              opacity 0.4s ease;
+          }
+          .faq-item.open .faq-answer {
+            opacity: 1;
+            max-height: 500px;
+          }
+        </style>
+        <div class="faq-item">
+          <div class="faq-summary">
+            <span>{faq1Question}</span>
+            <span class="faq-arrow">
+              <svg
+                width="26"
+                height="26"
+                viewBox="0 0 20 20"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                style="display: block; margin: auto;"
+              >
+                <path
+                  d="M7 8l3 3 3-3"
+                  stroke="#23221F"
+                  stroke-width="1.4"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"></path>
+              </svg>
+            </span>
+          </div>
+          <div class="faq-answer">
+            {faq1Answer}
+          </div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-summary">
+            <span>{faq2Question}</span>
+            <span class="faq-arrow">
+              <svg width="26" height="26" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" style="display: block; margin: auto;"><path d="M7 8l3 3 3-3" stroke="#23221F" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+          </div>
+          <div class="faq-answer">{faq2Answer}</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-summary">
+            <span>{faq3Question}</span>
+            <span class="faq-arrow">
+              <svg width="26" height="26" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" style="display: block; margin: auto;"><path d="M7 8l3 3 3-3" stroke="#23221F" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+          </div>
+          <div class="faq-answer">{faq3Answer}</div>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  /* Prevent horizontal scrolling on mobile */
+  html, body {
+    overflow-x: hidden;
+    max-width: 100%;
+  }
+  
+  .animate-in {
+    opacity: 0;
+    transform: translateY(40px);
+    transition:
+      opacity 1.2s cubic-bezier(0.77, 0, 0.175, 1),
+      transform 1.2s cubic-bezier(0.77, 0, 0.175, 1);
+  }
+  .animate-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  @media (max-width: 600px) {
+    .hero-title {
+      font-size: 2.4rem !important;
+    }
+    .hero-title-second-line {
+      font-size: 2.4rem !important;
+    }
+    .mobile-break {
+      display: inline;
+    }
+  }
+  @media (min-width: 601px) {
+    .mobile-break {
+      display: none;
+    }
+  }
+</style>
+
+<script>
+  document.addEventListener("astro:page-load", function () {
+    const highlight = document.querySelector(".hero-highlight");
+    if (highlight) {
+      setTimeout(() => highlight.classList.add("animated"), 200);
+    }
+
+    // Universal observer: animate every .hero-highlight on scroll into view
+    document.querySelectorAll(".hero-highlight").forEach((highlight) => {
+      const observer = new window.IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              highlight.classList.add("animated");
+              observer.disconnect();
+            }
+          });
+        },
+        { threshold: 0.3 },
+      );
+      observer.observe(highlight);
+    });
+
+    // Scroll-synced flip and fade animation with early start
+    const heroFlipImage = document.getElementById("heroFlipImage") as HTMLElement;
+    const offset = 100; // px before top of viewport
+    function handleFlipScroll() {
+      if (!heroFlipImage) return;
+      const rect = heroFlipImage.getBoundingClientRect();
+      const imageHeight = heroFlipImage.offsetHeight;
+      if (rect.top >= offset) {
+        heroFlipImage.style.transform = "rotateX(0deg) scale(0.95)";
+        heroFlipImage.style.opacity = "1";
+      } else if (rect.top <= offset - imageHeight) {
+        heroFlipImage.style.transform = "rotateX(90deg) scale(0.95)";
+        heroFlipImage.style.opacity = "0";
+      } else {
+        // Interpolate angle and opacity from 0deg/1 to 90deg/0 as the image scrolls out
+        const ratio = Math.min(
+          1,
+          Math.max(0, (offset - rect.top) / imageHeight),
+        );
+        const angle = ratio * 90;
+        const opacity = 1 - ratio;
+        heroFlipImage.style.transform = `rotateX(${angle}deg) scale(0.95)`;
+        heroFlipImage.style.opacity = opacity.toString();
+      }
+    }
+    window.addEventListener("scroll", handleFlipScroll);
+    handleFlipScroll(); // Run once on load
+
+    // Animate all section images in on viewport
+    document
+      .querySelectorAll(".anonymous-ai-image.animate-in")
+      .forEach((img) => {
+        const observer = new window.IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                (img as HTMLElement).classList.add("visible");
+                observer.disconnect();
+              }
+            });
+          },
+          { threshold: 0.3 },
+        );
+        observer.observe(img);
+      });
+
+    // FAQ functionality
+    document.querySelectorAll(".faq-item").forEach((item) => {
+      const summary = item.querySelector(".faq-summary");
+      const answer = item.querySelector(".faq-answer");
+
+      summary?.addEventListener("click", function () {
+        const isOpen = (item as HTMLElement).classList.contains("open");
+
+        // Close all other FAQ items
+        document.querySelectorAll(".faq-item").forEach((otherItem) => {
+          if (otherItem !== item) {
+            (otherItem as HTMLElement).classList.remove("open");
+          }
+        });
+
+        // Toggle current item
+        if (isOpen) {
+          (item as HTMLElement).classList.remove("open");
+        } else {
+          (item as HTMLElement).classList.add("open");
+        }
+      });
+    });
+
+    // Scroll Animation Function for Hero elements
+    function initializeHeroScrollAnimations() {
+      const scrollElements = document.querySelectorAll('.scroll-animate');
+      
+      const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+      };
+      
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting && !entry.target.classList.contains('animated')) {
+            // Mark as animated to prevent re-triggering
+            entry.target.classList.add('animated');
+            (entry.target as HTMLElement).style.opacity = '1';
+            (entry.target as HTMLElement).style.transform = 'translateY(0)';
+          }
+        });
+      }, observerOptions);
+      
+      // Observe scroll elements
+      scrollElements.forEach(element => {
+        observer.observe(element);
+      });
+    }
+    
+    // Initialize hero scroll animations
+    initializeHeroScrollAnimations();
+  });
+</script>

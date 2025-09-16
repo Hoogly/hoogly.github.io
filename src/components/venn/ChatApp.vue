@@ -26,6 +26,8 @@ const props = withDefaults(defineProps<{
   variant: 'full'
 })
 
+const isDemo = computed(() => props.variant === 'mini')
+
 const $userId = useStore(userId)
 const inputDisabled = ref(false)
 const $pseudonym = useStore(pseudonym)
@@ -84,14 +86,10 @@ const greetingMessage = computed(() => {
   const now = new Date()
   const hour = now.getHours()
 
-  let greetingText = ''
-  if (hour >= 0 && hour < 12) {
-    greetingText = `Hey ${$pseudonym.value}, how's your morning been so far?`
-  } else if (hour >= 12 && hour < 17) {
-    greetingText = `Hey ${$pseudonym.value}, how's your day going?`
-  } else {
-    greetingText = `Hey ${$pseudonym.value}, how's your day been?`
-  }
+  // Open with a direct, problem-framing angle tied to business impact
+  // Keep time-based nuance for a subtle human touch
+  const timeHint = hour < 12 ? 'this morning' : (hour < 17 ? 'today' : 'this evening')
+  const greetingText = `Hey ${$pseudonym.value} — I’m hearing your annual survey isn’t surfacing the real issues, and it may be costing you your best people. What’s one place ${timeHint} where goals or priorities felt unclear, and how did that affect your team?`
 
   return {
     messageId: crypto.randomUUID(),
@@ -101,6 +99,29 @@ const greetingMessage = computed(() => {
     createdAt: Timestamp.now()
   }
 })
+
+// Demo preset conversation (mini variant)
+const demoUserMessage = computed<Message>(() => ({
+  messageId: 'demo-user-1',
+  authorId: $userId.value || 'demo_user',
+  text: "I don't feel supported by my manager.",
+  type: 'user',
+  createdAt: Timestamp.now()
+}))
+
+const demoVennMessage = computed<Message>(() => ({
+  messageId: 'demo-venn-1',
+  authorId: 'i_am_venn',
+  text: "Thanks for being honest — that can feel heavy. When support is missing, it often shows up in a few ways: unclear expectations, delayed or thin feedback, or not feeling backed when things get tough. What’s one recent moment that made this stand out for you?",
+  type: 'system',
+  createdAt: Timestamp.now()
+}))
+
+const quickReplies = [
+  'A recent 1:1 felt dismissive',
+  'I get unclear expectations',
+  'Feedback is rare and late'
+]
 
 const isTyping = computed(() => {
   return typingUsers.value?.some(user => user.userId !== $userId.value && user.isTyping)
@@ -382,24 +403,39 @@ defineExpose({
             No information can be traced back
             to your identity.</div>
         </div>
-        <div class="flex mb-4">
-          <TheirMessage :message="greetingMessage" />
-        </div>
-        <div v-for="message in messages" :key="message.messageId" class="flex mb-4"
-          :class="{ 'justify-end': message.authorId === $userId, 'justify-start': message.authorId !== $userId }">
-          <YourMessage v-if="message.authorId === $userId" :message="message" />
-          <TheirMessage v-else :message="message" />
-        </div>
-        <div v-if="isTyping" class="flex flex-row items-center gap-2">
-          <VennAvatar />
-          <AnimatedDots />
-        </div>
+        <template v-if="!isDemo">
+          <div class="flex mb-4">
+            <TheirMessage :message="greetingMessage" />
+          </div>
+          <div v-for="message in messages" :key="message.messageId" class="flex mb-4"
+            :class="{ 'justify-end': message.authorId === $userId, 'justify-start': message.authorId !== $userId }">
+            <YourMessage v-if="message.authorId === $userId" :message="message" />
+            <TheirMessage v-else :message="message" />
+          </div>
+          <div v-if="isTyping" class="flex flex-row items-center gap-2">
+            <VennAvatar />
+            <AnimatedDots />
+          </div>
+        </template>
+        <template v-else>
+          <div class="flex mb-4 justify-end">
+            <YourMessage :message="demoUserMessage" />
+          </div>
+          <div class="flex mb-4 justify-start">
+            <TheirMessage :message="demoVennMessage" />
+          </div>
+        </template>
       </div>
 
       <div id="input-container" class="pt-4">
+        <div v-if="isDemo" class="flex flex-wrap gap-2 mb-3">
+          <button v-for="(reply, idx) in quickReplies" :key="idx" type="button"
+            class="px-3 py-2 text-sm rounded-full border border-gray-300 bg-white hover:bg-gray-50"
+            @click="handleOnMessageSubmit(reply)">{{ reply }}</button>
+        </div>
         <Button v-if="surveyUserData?.status === 'completed'" label="Show results" @click="handleOnShowResultsClick" />
         <MessageInput v-else-if="$userId" :room-id="$userId" :submit="handleOnMessageSubmit" :disabled="inputDisabled"
-          :show-extras="variant === 'mini'" :placeholder="variant === 'mini' ? '' : 'Chat with Venn'" />
+          :show-extras="variant === 'mini'" :placeholder="variant === 'mini' ? 'Reply or choose a suggestion…' : 'Chat with Venn'" />
       </div>
     </div>
   </div>

@@ -21,6 +21,88 @@ const currentPath = new URL(url).pathname;
 					<div class="liquid-element"></div>
 					<div class="liquid-element"></div>
 					<!-- <li><a href="/" class="nav-link">Meet Hoogly</a></li> -->
+					<li class="nav-item-dropdown">
+						<a href="#" class={`nav-link dropdown-trigger${currentPath.startsWith('/solutions') ? ' active' : ''}`}>
+							Solutions
+							<svg class="dropdown-arrow" width="12" height="8" viewBox="0 0 12 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<path d="M1 1.5L6 6.5L11 1.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+							</svg>
+						</a>
+						<div class="dropdown-menu">
+							<div class="dropdown-content">
+								<h3 class="dropdown-title">Solutions</h3>
+								
+								<!-- Desktop Grid -->
+								<div class="dropdown-grid">
+									<a href="/solutions/employee-engagement" class="dropdown-item">
+										<div class="dropdown-icon">
+											<svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+												<path d="M9.5 2A2.5 2.5 0 0 0 7 4.5v15A2.5 2.5 0 0 0 9.5 22h5a2.5 2.5 0 0 0 2.5-2.5v-15A2.5 2.5 0 0 0 14.5 2h-5z" fill="currentColor"/>
+												<path d="M10 6h4v2h-4V6zM10 10h4v2h-4v-2z" fill="white"/>
+											</svg>
+										</div>
+										<div class="dropdown-item-content">
+											<h4 class="dropdown-item-title">Employee Engagement</h4>
+											<p class="dropdown-item-desc">More listening, less meh. Continuous conversations that drive real change.</p>
+										</div>
+									</a>
+									<a href="/solutions/people-analytics" class="dropdown-item">
+										<div class="dropdown-icon">
+											<svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+												<path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+											</svg>
+										</div>
+										<div class="dropdown-item-content">
+											<h4 class="dropdown-item-title">People Analytics</h4>
+											<p class="dropdown-item-desc">Real insights, not just data. Understand the why behind the numbers.</p>
+										</div>
+									</a>
+									<a href="/solutions/pulse-survey-alternative" class="dropdown-item">
+										<div class="dropdown-icon">
+											<svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+												<circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="2"/>
+												<path d="M12 1v6m0 6v6m11-7h-6m-6 0H1" stroke="currentColor" stroke-width="2"/>
+											</svg>
+										</div>
+										<div class="dropdown-item-content">
+											<h4 class="dropdown-item-title">Pulse Survey Alternative</h4>
+											<p class="dropdown-item-desc">Replace repetitive questions with real, evolving conversations.</p>
+										</div>
+									</a>
+								</div>
+
+								<!-- Mobile Accordion -->
+								<div class="mobile-accordion">
+									<a href="/solutions/employee-engagement" class="mobile-solution-item">
+										<div class="mobile-solution-icon">
+											<svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+												<path d="M9.5 2A2.5 2.5 0 0 0 7 4.5v15A2.5 2.5 0 0 0 9.5 22h5a2.5 2.5 0 0 0 2.5-2.5v-15A2.5 2.5 0 0 0 14.5 2h-5z" fill="currentColor"/>
+												<path d="M10 6h4v2h-4V6zM10 10h4v2h-4v-2z" fill="white"/>
+											</svg>
+										</div>
+										<span class="mobile-solution-title">Employee Engagement</span>
+									</a>
+									<a href="/solutions/people-analytics" class="mobile-solution-item">
+										<div class="mobile-solution-icon">
+											<svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+												<path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+											</svg>
+										</div>
+										<span class="mobile-solution-title">People Analytics</span>
+									</a>
+									<a href="/solutions/pulse-survey-alternative" class="mobile-solution-item">
+										<div class="mobile-solution-icon">
+											<svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+												<circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="2"/>
+												<path d="M12 1v6m0 6v6m11-7h-6m-6 0H1" stroke="currentColor" stroke-width="2"/>
+											</svg>
+										</div>
+										<span class="mobile-solution-title">Pulse Survey Alternative</span>
+									</a>
+								</div>
+							</div>
+						</div>
+					</li>
 					<li><a href="/about" class={`nav-link${currentPath === '/about' ? ' active' : ''}`}>Our Mission</a></li>
 					<li><a href="/how-it-works" class={`nav-link${currentPath === '/how-it-works' ? ' active' : ''}`}>How It Works</a></li>
 					<li><a href="/pricing" class={`nav-link${currentPath === '/pricing' ? ' active' : ''}`}>Pricing</a></li>
@@ -73,6 +155,205 @@ const currentPath = new URL(url).pathname;
 .nav-link:hover::after {
   mask-size: 100% 100%;
   background-color: transparent !important;
+}
+
+/* Dropdown Styles */
+.nav-item-dropdown {
+  position: relative;
+}
+
+.dropdown-trigger {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+}
+
+.dropdown-arrow {
+  transition: transform 0.2s ease;
+}
+
+.nav-item-dropdown:hover .dropdown-arrow {
+  transform: rotate(180deg);
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 1000px;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateX(-50%) translateY(-10px);
+  transition: all 0.3s ease;
+  z-index: 1000;
+  margin-top: 1rem;
+}
+
+.nav-item-dropdown:hover .dropdown-menu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(0);
+}
+
+.dropdown-content {
+  padding: 2rem;
+}
+
+.dropdown-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--color-neutral-900);
+  margin-bottom: 1.5rem;
+}
+
+.dropdown-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+.dropdown-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  padding: 1rem;
+  border-radius: 8px;
+  transition: background-color 0.2s ease;
+}
+
+.dropdown-item:hover {
+  background-color: var(--color-neutral-50);
+}
+
+.dropdown-icon {
+  flex-shrink: 0;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-purple);
+  border-radius: 6px;
+  color: white;
+}
+
+.dropdown-item-content {
+  flex: 1;
+}
+
+.dropdown-item-title {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--color-neutral-900);
+  margin-bottom: 0.25rem;
+  line-height: 1.3;
+}
+
+.dropdown-item-desc {
+  font-size: 0.8rem;
+  color: var(--color-neutral-600);
+  line-height: 1.4;
+}
+
+/* Mobile Accordion - Hidden by default */
+.mobile-accordion {
+  display: none;
+}
+
+/* Mobile Responsive */
+@media (max-width: 920px) {
+  .dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    width: 100%;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: all 0.3s ease;
+    z-index: 1000;
+    margin-top: 0.5rem;
+  }
+
+  .nav-item-dropdown.active .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+
+  .dropdown-content {
+    padding: 1rem;
+  }
+
+  .dropdown-title {
+    display: none; /* Hide title on mobile */
+  }
+
+  .dropdown-grid {
+    display: none; /* Hide grid on mobile */
+  }
+
+  /* Mobile Solution Items */
+  .mobile-accordion {
+    display: block;
+  }
+
+  .mobile-solution-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.75rem 0;
+    border-bottom: 1px solid var(--color-neutral-200);
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+  }
+
+  .mobile-solution-item:last-child {
+    border-bottom: none;
+  }
+
+  .mobile-solution-item:hover {
+    background-color: var(--color-neutral-50);
+  }
+
+  .mobile-solution-icon {
+    width: 28px;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--color-purple);
+    border-radius: 6px;
+    color: white;
+    flex-shrink: 0;
+  }
+
+  .mobile-solution-title {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--color-neutral-900);
+  }
+
+  /* Hide mobile close button */
+  .mobile-dropdown-close {
+    display: none;
+  }
+}
+
+/* Hide mobile close button on desktop */
+@media (min-width: 921px) {
+  .mobile-dropdown-close {
+    display: none;
+  }
 }
 
 /* Header container to ensure consistent width across all pages */
@@ -161,5 +442,61 @@ const currentPath = new URL(url).pathname;
 				closeMenu();
 			}
 		});
+
+		// Dropdown functionality
+		const dropdownTrigger = document.querySelector('.dropdown-trigger');
+		const dropdownMenu = document.querySelector('.dropdown-menu');
+		const navItemDropdown = document.querySelector('.nav-item-dropdown');
+		
+		if (dropdownTrigger && dropdownMenu && navItemDropdown) {
+			let hoverTimeout;
+			const isMobile = window.innerWidth <= 920;
+			
+			// Desktop hover behavior
+			if (!isMobile) {
+				// Show dropdown on hover
+				dropdownTrigger.addEventListener('mouseenter', function() {
+					clearTimeout(hoverTimeout);
+					dropdownMenu.style.opacity = '1';
+					dropdownMenu.style.visibility = 'visible';
+					dropdownMenu.style.transform = 'translateX(-50%) translateY(0)';
+				});
+				
+				// Hide dropdown when mouse leaves
+				dropdownTrigger.addEventListener('mouseleave', function() {
+					hoverTimeout = setTimeout(() => {
+						dropdownMenu.style.opacity = '0';
+						dropdownMenu.style.visibility = 'hidden';
+						dropdownMenu.style.transform = 'translateX(-50%) translateY(-10px)';
+					}, 150);
+				});
+				
+				// Keep dropdown open when hovering over it
+				dropdownMenu.addEventListener('mouseenter', function() {
+					clearTimeout(hoverTimeout);
+				});
+				
+				dropdownMenu.addEventListener('mouseleave', function() {
+					hoverTimeout = setTimeout(() => {
+						dropdownMenu.style.opacity = '0';
+						dropdownMenu.style.visibility = 'hidden';
+						dropdownMenu.style.transform = 'translateX(-50%) translateY(-10px)';
+					}, 150);
+				});
+			} else {
+				// Mobile click behavior - toggle accordion
+				dropdownTrigger.addEventListener('click', function(e) {
+					e.preventDefault();
+					navItemDropdown.classList.toggle('active');
+				});
+
+				// Close dropdown when clicking outside
+				document.addEventListener('click', function(e) {
+					if (!navItemDropdown.contains(e.target)) {
+						navItemDropdown.classList.remove('active');
+					}
+				});
+			}
+		}
 	});
 </script> 
