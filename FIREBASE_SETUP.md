@@ -70,3 +70,24 @@ VITE_FIREBASE_MEASUREMENT_ID
 - They are never exposed in logs or to users
 - Use production Firebase project values for GitHub secrets
 - Keep your development `.env` file for local development 
+
+### Firebase Hosting CI/CD
+
+This repo deploys to Firebase Hosting with two environments:
+
+- Main branch → Production Hosting
+- Any other branch → Staging Hosting
+
+Required additional repository secrets:
+
+- `FIREBASE_SERVICE_ACCOUNT_PROD` – JSON content of prod service account
+- `FIREBASE_PROJECT_ID_PROD` – Production Firebase project id
+- `FIREBASE_SERVICE_ACCOUNT_STAGING` – JSON content of staging service account
+- `FIREBASE_PROJECT_ID_STAGING` – Staging Firebase project id
+
+Environment variable secrets used for the Astro build:
+
+- Production: `PUBLIC_FIREBASE_*`, `PUBLIC_RECAPTCHA_V3_SITE_KEY`
+- Staging: `PUBLIC_FIREBASE_*_STAGING`, `PUBLIC_RECAPTCHA_V3_SITE_KEY_STAGING`
+
+Ensure `firebase.json` exists at the repo root with `public: "dist"` so Hosting serves the Astro build output.
